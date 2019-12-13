@@ -1,0 +1,23 @@
+{
+  "name": "@hashicorp/structure-core",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Ember components for Structure, HashiCorp's product design system",
+  "repository": "",
+  "license": "MPL2",
+  "author": "",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "ember build",
+    "lint:hbs": "ember-template-lint .",
+    "lint:js": "eslint .",
+    "start": "ember serve",
+    "test": "ember test"
+  },
+  "engines": {
+    "node": "8.* || >= 10.*"
+  }
+}
