@@ -19,5 +19,8 @@
   },
   "engines": {
     "node": "8.* || >= 10.*"
+  },
+  "devDependencies": {
+    "ember-cli-blueprint-test-helpers": "^0.19.2"
   }
 }
