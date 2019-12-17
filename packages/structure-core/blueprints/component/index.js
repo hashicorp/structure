@@ -35,10 +35,10 @@ module.exports = {
 
   normalizeEntityName: function(entityName) {
     let name = entityName;
-    if (!entitName.startsWith('st/')) {
-      name = 'st/'+entityName;
+    if (!name.startsWith('st/')) {
+      name = 'st/'+name;
       this.ui.writeLine(chalk.yellow(`Structure components are prefixed to the
-        \`st\` directory. This prefix was not included so it was added. Creating ${name}.`);
+        \`st\` directory. This prefix was not included so it was added. Creating ${name}.`));
     }
     return normalizeEntityName(name);
   },
