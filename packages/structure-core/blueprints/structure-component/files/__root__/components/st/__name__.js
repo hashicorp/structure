@@ -4,10 +4,10 @@ import Component from '@ember/component';
 
 /**
  *
- * `<%= classifiedModuleName %>` description here.
+ * `<%= angleBracketInvocation %>` description here.
  *
  * ```js
- * <<%= classifiedModuleName %>
+ * <<%= angleBracketInvocation %>
  *   @testArg={{foo}}
  * />
  * ```

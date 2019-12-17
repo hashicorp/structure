@@ -1,5 +1,6 @@
 'use strict';
 
+const chalk = require('chalk');
 const path = require('path');
 const stringUtil = require('ember-cli-string-utils');
 const pathUtil = require('ember-cli-path-utils');
@@ -33,19 +34,26 @@ module.exports = {
   },
 
   normalizeEntityName: function(entityName) {
-    return normalizeEntityName('st/'+entityName);
+    let name = entityName;
+    if (!entitName.startsWith('st/')) {
+      name = 'st/'+entityName;
+      this.ui.writeLine(chalk.yellow(`Structure components are prefixed to the
+        \`st\` directory. This prefix was not included so it was added. Creating ${name}.`);
+    }
+    return normalizeEntityName(name);
   },
 
   locals: function(options) {
     let templatePath = '';
     let importTemplate = '';
     let contents = '';
+    let angleBracketInvocation = stringUtil.classify(options.entity.name.replace(/\//g, '::'));
 
     // if we're in an addon, build import statement
     if (options.project.isEmberCLIAddon() || (options.inRepoAddon && !options.inDummy)) {
       templatePath =
         pathUtil.getRelativeParentPath(options.entity.name) +
-        'templates/components/st/' +
+        'templates/components/' +
         stringUtil.dasherize(options.entity.name);
       importTemplate = "import layout from '" + templatePath + "';\n";
       contents = '\n  layout,\n>';
@@ -55,6 +63,7 @@ module.exports = {
       importTemplate: importTemplate,
       contents: contents,
       path: getPathOption(options),
+      angleBracketInvocation: angleBracketInvocation,
     };
   },
 };
