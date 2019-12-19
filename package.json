@@ -3,7 +3,7 @@
   "private": true,
   "workspaces": ["packages/*"],
   "scripts": {
-    "new-component-addon": "cd packages && ember addon --skip-git --yarn",
-    "new-component": "cd packages/structure-core && ember g structure-component"
+    "new-addon": "cd packages && ember addon --skip-git --yarn",
+    "new-component": "cd packages/structure-core && ember g component"
   }
 }
