@@ -47,7 +47,10 @@ module.exports = {
     let templatePath = '';
     let importTemplate = '';
     let contents = '';
-    let angleBracketInvocation = stringUtil.classify(options.entity.name.replace(/\//g, '::'));
+    let parts = options.entity.name.split('/');
+
+    let angleBracketInvocation = parts.map(part => stringUtil.classify(part)).join('::');
+    let cssClassName = parts.map(part => stringUtil.dasherize(part)).join('-');
 
     // if we're in an addon, build import statement
     if (options.project.isEmberCLIAddon() || (options.inRepoAddon && !options.inDummy)) {
@@ -60,10 +63,11 @@ module.exports = {
     }
 
     return {
-      importTemplate: importTemplate,
-      contents: contents,
+      importTemplate,
+      contents,
       path: getPathOption(options),
-      angleBracketInvocation: angleBracketInvocation,
+      angleBracketInvocation,
+      cssClassName,
     };
   },
 };
