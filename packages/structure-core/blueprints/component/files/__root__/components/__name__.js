@@ -16,6 +16,7 @@ import Component from '@ember/component';
  *
  */
 export default Component.extend({<%= contents %>
+  tagName: '',
 
   /**
    * The description of `testArg` goes here. Any markdown you want!

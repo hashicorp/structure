@@ -13,10 +13,29 @@ describe('Acceptance: ember generate and destroy component', function() {
   it('component foo', function() {
     let args = ['component', 'foo'];
 
-    // pass any additional command line options in the arguments array
-    return emberNew()
+    let expectedComponentComment = `/**
+ *
+ * \`St::Foo\` description here.
+ *
+ * \`\`\`js
+ * <St::Foo
+ *   @testArg={{foo}}
+ * />
+ * \`\`\`
+ *
+ * @class StFoo
+ *
+ *`;
+
+    let expectedTagNameDeclaration = `tagName: '',`;
+    let expectedTemplateStructure = `<div class="st-foo">
+  {{yield}}
+<div>`;
+    return emberNew({target: 'addon'})
       .then(() => emberGenerateDestroy(args, (file) => {
-        // expect(file('app/type/foo.js')).to.contain('foo');
+         expect(file('addon/components/st/foo.js')).to.contain(expectedComponentComment);
+         expect(file('addon/components/st/foo.js')).to.contain(expectedTagNameDeclaration);
+         expect(file('addon/templates/components/st/foo.js')).to.contain(expectedTemplateStructure);
     }));
   });
 });
