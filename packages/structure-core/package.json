@@ -19,15 +19,23 @@
     "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each",
-    "nodetest": "mocha node-tests --recursive"
+    "nodetest": "mocha node-tests --recursive",
+    "storybook": "start-storybook -p 6006 -s dist",
+    "storybook:build": "build-storybook",
+    "storybook:docs-deploy": "yarn build -prod && build-storybook --docs"
   },
   "dependencies": {
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
     "@ember/optional-features": "^1.0.0",
+    "@storybook/addon-docs": "^5.3.0-rc.1",
+    "@storybook/ember": "^5.3.0-rc.1",
+    "@storybook/ember-cli-storybook": "^0.2.0",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.0-beta.6",
     "broccoli-asset-rev": "^3.0.0",
     "chalk": "^3.0.0",
     "ember-auto-import": "^1.5.2",
