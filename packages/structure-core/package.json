@@ -1,5 +1,5 @@
 {
-  "name": "structure-core",
+  "name": "@hashicorp/structure-core",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [

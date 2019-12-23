@@ -1,38 +1,32 @@
-structure-core
-==============================================================================
+#@hashicorp/structure-core
 
-[Short description of the addon.]
+Structure is HashiCorp's product design system. This addon is the main component of the code implemenatation. It provides Ember Components as well as styling primitives for use inside of an application.
 
 
-Compatibility
-------------------------------------------------------------------------------
+##Compatibility
 
 * Ember.js v3.4 or above
 * Ember CLI v2.13 or above
 * Node.js v8 or above
 
 
-Installation
-------------------------------------------------------------------------------
+##Installation
 
 ```
-ember install structure-core
+ember install @hashicorp/structure-core
 ```
 
 
-Usage
-------------------------------------------------------------------------------
+##Usage
 
 [Longer description of how to use the addon in apps.]
 
 
-Contributing
-------------------------------------------------------------------------------
+##Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
-License
-------------------------------------------------------------------------------
+##License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [MPL2 License](LICENSE.md).
