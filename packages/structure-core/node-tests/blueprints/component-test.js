@@ -35,11 +35,11 @@ td.config({ promiseConstructor: require('rsvp').Promise });
 let MockUI = require('console-ui/mock');
 
 let test = (componentName, assertFn) => {
-  let args = ['component', componentName];
+  let args = ['st-component', componentName];
     return emberNew({target: 'addon'})
       .then(() => emberGenerateDestroy(args, assertFn));
 };
-describe('Acceptance: ember generate and destroy component', function() {
+describe('Acceptance: ember generate and destroy st-component', function() {
   setupTestHooks(this);
 
   let prompt;
