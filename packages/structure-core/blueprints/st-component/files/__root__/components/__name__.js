@@ -4,7 +4,7 @@ import Component from '@ember/component';
 
 /**
  *
- * `<%= angleBracketInvocation %>` description here.
+ * `<%= classifiedModuleName %>` description here.
  *
  * ```js
  * <<%= angleBracketInvocation %>

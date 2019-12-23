@@ -7,10 +7,9 @@ const emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 const expect = require('ember-cli-blueprint-test-helpers/chai').expect;
 
-
 let expectedComponentComment = `/**
  *
- * \`St::Foo\` description here.
+ * \`StFoo\` description here.
  *
  * \`\`\`js
  * <St::Foo
@@ -28,6 +27,15 @@ let expectedTemplateStructure = `<div class="st-foo">
 let expectedSassStructure = `.st-foo {
 
 }`;
+let expectedTestDescription = `Integration | Component | StFoo`;
+let expectedTestRenderInvocation = `await render(hbs\`<St::Foo />\`)`;
+// lol indentation is necessary here to match
+let expectedTestBlockRenderInvocation = `
+    await render(hbs\`
+      <St::Foo>
+        template block text
+      </St::Foo>
+    \`)`;
 
 let td = require('testdouble');
 td.config({ promiseConstructor: require('rsvp').Promise });
@@ -39,6 +47,7 @@ let test = (componentName, assertFn) => {
     return emberNew({target: 'addon'})
       .then(() => emberGenerateDestroy(args, assertFn));
 };
+
 describe('Acceptance: ember generate and destroy st-component', function() {
   setupTestHooks(this);
 
@@ -71,25 +80,47 @@ describe('Acceptance: ember generate and destroy st-component', function() {
 
   it(`generates a template file for 'foo'`, function() {
     return test('foo', file => {
-      expect(file('addon/templates/components/st/foo.hbs')).to.contain(expectedTemplateStructure);
+      expect(file('addon/templates/components/st/foo.hbs'))
+        .to.contain(expectedTemplateStructure);
     });
   });
 
   it(`generates a template file for 'st/foo'`, function() {
     return test('st/foo', file => {
-      expect(file('addon/templates/components/st/foo.hbs')).to.contain(expectedTemplateStructure);
+      expect(file('addon/templates/components/st/foo.hbs'))
+        .to.contain(expectedTemplateStructure);
     });
   });
 
   it(`generates a Sass file for 'foo'`, function() {
     return test('foo', file => {
-      expect(file('addon/components/st/foo.scss')).to.contain(expectedSassStructure);
+      expect(file('addon/components/st/foo.scss'))
+        .to.contain(expectedSassStructure);
     });
   });
 
   it(`generates a Sass file for 'st/foo'`, function() {
     return test('st/foo', file => {
-      expect(file('addon/components/st/foo.scss')).to.contain(expectedSassStructure);
+      expect(file('addon/components/st/foo.scss'))
+        .to.contain(expectedSassStructure);
+    });
+  });
+
+  it(`generates a test file for 'foo'`, function() {
+    return test('foo', file => {
+      expect(file('tests/integration/components/st/foo-test.js'))
+        .to.contain(expectedTestDescription)
+        .to.contain(expectedTestRenderInvocation)
+        .to.contain(expectedTestBlockRenderInvocation);
+    });
+  });
+
+  it(`generates a test file for 'st/foo'`, function() {
+    return test('st/foo', file => {
+      expect(file('tests/integration/components/st/foo-test.js'))
+        .to.contain(expectedTestDescription)
+        .to.contain(expectedTestRenderInvocation)
+        .to.contain(expectedTestBlockRenderInvocation);
     });
   });
 
