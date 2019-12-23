@@ -4,6 +4,6 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "new-addon": "cd packages && ember addon --skip-git --yarn",
-    "new-component": "cd packages/structure-core && ember g component"
+    "new-component": "cd packages/structure-core && ember g st-component"
   }
 }
