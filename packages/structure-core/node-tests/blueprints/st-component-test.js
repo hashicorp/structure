@@ -37,6 +37,14 @@ let expectedTestBlockRenderInvocation = `
       </St::Foo>
     \`)`;
 
+let expectedStoryDefaultExport =`export default {
+  title: 'Structure | St::Foo',
+  component: 'StFoo',
+};`
+
+let expectedStoryExport = `export let StFoo = () => ({
+  template: hbs\`<St::Foo />\`,`;
+
 let td = require('testdouble');
 td.config({ promiseConstructor: require('rsvp').Promise });
 
@@ -124,4 +132,19 @@ describe('Acceptance: ember generate and destroy st-component', function() {
     });
   });
 
+  it(`generates a story file for 'foo'`, function() {
+    return test('foo', file => {
+      expect(file('stories/st/foo.stories.js'))
+        .to.contain(expectedStoryDefaultExport)
+        .to.contain(expectedStoryExport);
+    });
+  });
+
+  it(`generates a story file for 'st/foo'`, function() {
+    return test('st/foo', file => {
+      expect(file('stories/st/foo.stories.js'))
+        .to.contain(expectedStoryDefaultExport)
+        .to.contain(expectedStoryExport);
+    });
+  });
 });
