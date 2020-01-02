@@ -9,6 +9,6 @@ export default {
 export let <%= classifiedModuleName %> = () => ({
   template: hbs`<<%= angleBracketInvocation %> />`,
   context: {
-    // add items to render the component here
+    // add items to the component rendering context here
   }
 });
