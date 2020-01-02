@@ -1,7 +1,6 @@
 module.exports = {
   addons: [
-    '@storybook/addon-docs/register',
+    '@storybook/addon-docs',
 	],
   stories: ['../stories/**/*.stories.(js|mdx)'],
-  presets: ['@storybook/addon-docs/preset'],
 };
