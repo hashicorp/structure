@@ -3,6 +3,7 @@
 # compiled output
 /dist/
 /tmp/
+/.storybook/preview-head.html
 
 # dependencies
 /bower_components/
