@@ -1,6 +1,6 @@
 #@hashicorp/structure-core
 
-Structure is HashiCorp's product design system. This addon is the main component of the code implemenatation. It provides Ember Components as well as styling primitives for use inside of an application.
+Structure is HashiCorp's product design system. This addon provides many Ember components and styling primitives along with the necessary build system hooks to filter the components and Sass files that a consuming Ember app can specify.
 
 
 ##Compatibility
@@ -19,8 +19,33 @@ ember install @hashicorp/structure-core
 
 ##Usage
 
-[Longer description of how to use the addon in apps.]
+### Components
+After installation, you will have to configure your app to include the components that you want to use. By default no components are added to your application's build. To choose what components you would like to include, use a config block in your application's `ember-cli-build.js` file.
 
+Currently the only configuration supported is specifying an array of component names for the `include` attribute. It will look something like this: 
+
+```
+var app = new EmberApp(defaults, {
+  '@hashicorp/structure-core': {
+    include: [
+      'st-icon',
+      'st-input',
+    ],
+  },
+});
+```
+
+A special value of `'all'` can also be used if you want to include all of the components in `@hashicorp/structure-core` instead of enumerating the component names: 
+
+```
+var app = new EmberApp(defaults, {
+  '@hashicorp/structure-core': {
+    include: [
+      'all',
+    ],
+  },
+});
+```
 
 ##Contributing
 
