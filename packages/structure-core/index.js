@@ -1,6 +1,8 @@
 'use strict';
 var Funnel = require('broccoli-funnel');
 var path = require('path');
+var ALL = 'all';
+var NONE = 'none';
 
 module.exports = {
   name: require('./package').name,
@@ -36,18 +38,21 @@ module.exports = {
 
   filterComponents: function(tree, regex) {
     var config = this.getConfig();
-    var toInclude = config.include || [];
-    var self = this;
+    var toInclude = config.include || NONE;
+    // if we're including none, we want to exclude anything from 'components/st-'
+    var regexMatcher = toInclude === NONE ?
+      new RegExp(/components\/st-/, 'i') :
+      regex;
 
-    // if the consumer has specified `include: ['all']` in their config, don't
+    // if the consumer has specified `include: 'all'` in their config, don't
     // filter anything
-    if (toInclude.length === 0 || toInclude.length === 1 && toInclude[0] === 'all') {
+    if (toInclude === ALL) {
       return tree;
     }
 
     return new Funnel(tree, {
-      exclude: [function(name) {
-        return self.exclusionFn(name, regex, toInclude);
+      exclude: [(name) => {
+        return this.exclusionFn(name, regexMatcher, toInclude);
       }]
     });
   },
@@ -58,6 +63,11 @@ module.exports = {
     var templateName = path.basename(name, '.hbs');
     if (!isComponent) {
       return false;
+    }
+    if (toInclude === NONE) {
+      // here isComponent will match all st- components, and we'll be including
+      // none, so we should return true for everything
+      return true;
     }
     // exclude if fileName and templateName are not in the toInclude array
     return toInclude.indexOf(fileName) === -1 && toInclude.indexOf(templateName) === -1;
