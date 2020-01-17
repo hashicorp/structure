@@ -22,7 +22,8 @@ ember install @hashicorp/structure-core
 ### Components
 After installation, you will have to configure your app to include the components that you want to use. By default no components are added to your application's build. To choose what components you would like to include, use a config block in your application's `ember-cli-build.js` file.
 
-Currently the only configuration supported is specifying an array of component names for the `include` attribute. It will look something like this: 
+By default all components - including those from _other addons_ so it's good to be aware of that (we may change this in the future but it is low risk for now) that start with `st-` will be excluded from the build.
+To use components from this addon, you can add a configuration for `include` like this:
 
 ```
 var app = new EmberApp(defaults, {
@@ -35,17 +36,17 @@ var app = new EmberApp(defaults, {
 });
 ```
 
-A special value of `'all'` can also be used if you want to include all of the components in `@hashicorp/structure-core` instead of enumerating the component names: 
+As shown here, `include` is an array of components to include. Specifying the special value of `all` like this:
 
 ```
 var app = new EmberApp(defaults, {
   '@hashicorp/structure-core': {
-    include: [
-      'all',
-    ],
+    include: 'all',
   },
 });
 ```
+
+will opt your application in to include all of the components in that version of `structure-core`. Please note that this means upgrades may possibly include additional components.
 
 ##Contributing
 
