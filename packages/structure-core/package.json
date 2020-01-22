@@ -37,6 +37,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.0-beta.6",
     "broccoli-asset-rev": "^3.0.0",
+    "chai": "^4.2.0",
     "chalk": "^3.0.0",
     "ember-auto-import": "^1.5.2",
     "ember-cli": "~3.14.0",
