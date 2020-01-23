@@ -36,7 +36,7 @@ module.exports = {
     return this._super.treeForApp.call(this, tree);
   },
 
-  filterComponents: function(tree, regex) {
+  filterComponents: function(tree, regex, Funnel = Funnel) {
     var config = this.getConfig();
     var toInclude = config.include || NONE;
     // if we're including none, we want to exclude anything from 'components/st-'
