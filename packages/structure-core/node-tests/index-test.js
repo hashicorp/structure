@@ -32,28 +32,27 @@ describe('addon index', function() {
         };
       }
       it(
-        'should return the same tree if include is set to "all"',
+        'should return the same tree if include is set to ["all"]',
         function() {
           var tree = {};
-          var result = Index.filterComponents.bind(mockInclude(ALL))(tree, regex, MockFunnel);
+          var result = Index.filterComponents.bind(mockInclude([ALL]))(tree, regex, MockFunnel);
+          expect(result).to.equal(tree);
+          var result2 = Index.filterComponents.bind(mockInclude(['', ALL]))(tree, regex, MockFunnel);
           expect(result).to.equal(tree);
         }
       );
       it(
-        'should return an instance of Funnel if include is set to anything other than "all"',
+        'should return an instance of Funnel if include array does not include the string "all"',
         function() {
           var tree = {};
           // anything but ALL
           [
             NONE,
-            [ALL],
             [NONE],
             [],
-            ['', ALL],
             ['components/st-single-component'],
             'components/st-single-component',
             [NONE, 'components/st-single-component'],
-            [ALL, 'components/st-single-component'],
             '',
             true,
             false,
@@ -66,12 +65,12 @@ describe('addon index', function() {
             }
           );
           // ALL
-          var result = Index.filterComponents.bind(mockInclude(ALL))(tree, regex, MockFunnel);
+          var result = Index.filterComponents.bind(mockInclude([ALL]))(tree, regex, MockFunnel);
           expect(result instanceof MockFunnel).to.be.false;
         }
       );
       it(
-        'should use the default regex if include is set to anything other than "NONE"',
+        'should use the default regex if include is set to anything other than ["none"]',
         function() {
           var tree = {};
           // All of the following array items will use the INCLUDE ALL regex
@@ -80,28 +79,18 @@ describe('addon index', function() {
 
           // anything but NONE
           [
-            ALL,
             [ALL],
-            [NONE],
-            [],
             ['', ALL],
             ['', NONE],
             ['components/st-single-component'], // uses the default regex
-            'components/st-single-component', // uses the default regex
             [NONE, 'components/st-single-component'], // uses the default regex
             [ALL, 'components/st-single-component'], // uses the default regex
-            true,
-            // Passing any of the following is equivalent to NONE
-            // '',
-            // false,
-            // null,
-            // undefined
           ].forEach(
             function(item) {
               var funnel = Index.filterComponents.bind(mockInclude(item))(tree, regex, MockFunnel);
               if(funnel === tree) {
                 // ALL returns the entire tree
-                expect(item).to.equal(ALL);
+                expect(item.includes('all')).to.be.true;
               } else {
                 // anything but ALL will use the Funnel
                 var exclude = funnel.options.exclude[0];
@@ -114,7 +103,7 @@ describe('addon index', function() {
         }
       );
       it(
-        'should use the "st-" excluding regex if include is set to "NONE"',
+        'should use the "st-" excluding regex if include is set to ["none"], is not an array, or is a zero-length array',
         function() {
           var tree = {};
           // All of the following array items will EXCLUDE ALL 'st-' component regex
@@ -122,11 +111,8 @@ describe('addon index', function() {
 
           [
             NONE,
-            // ['components/st-single-component'], // uses the default regex
-            // 'components/st-single-component', // uses the default regex
-            // [NONE, 'components/st-single-component'], // uses the default regex
-
             // Passing any of the following is equivalent to NONE
+            [],
             '',
             false,
             null,
@@ -144,7 +130,7 @@ describe('addon index', function() {
       );
     }
   );
-  describe('#exclusionFn', function() {
+  describe.only('#exclusionFn', function() {
     it('should return false if a file is in the toInclude list', function () {
       let includeList = ['st-icon'];
       var placeholderRegex = new RegExp('.*');
@@ -167,24 +153,20 @@ describe('addon index', function() {
     });
 
     it('should return true if toInclude is NONE and it matches the regex', function() {
-      let includeList = 'none';
+      let includeList = ['none'];
       var placeholderRegex = new RegExp('.*');
       var result = Index.exclusionFn('st-icon.js', placeholderRegex, includeList);
       expect(result).to.be.true;
     });
 
     it('should return false if toInclude is NONE and it does not match the regex', function() {
-      let includeList = 'none';
+      let includeList = ['none'];
       var placeholderRegex = new RegExp(/components\//, 'i');
       var result = Index.exclusionFn('st-icon.js', placeholderRegex, includeList);
       expect(result).to.be.false;
     });
     it('should return false (non-excluding) if toInclude contains a component and we are using the default regex', function() {
       [
-        // ['components/st-single-component'], // should this be non-excluding?
-        // ['components/st-single-component.js'], // should this be non-excluding?
-        // [NONE, 'components/st-single-component'], // should this be non-excluding?
-        // [ALL, 'components/st-single-component'], // should this be non-excluding?
         'components/st-single-component',
         'components/st-single-component.js'
       ].forEach(
@@ -202,7 +184,6 @@ describe('addon index', function() {
         ['components/st-single-component'], // this will never happen
         [NONE, 'components/st-single-component'], // this will never happen
         [ALL, 'components/st-single-component'], // this will never happen
-        // 'components/st-single-component' // this will never happen
       ].forEach(
         function(includeList) {
           var placeholderRegex = new RegExp(/components\/st-/, 'i');
