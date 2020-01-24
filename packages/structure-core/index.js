@@ -39,8 +39,8 @@ module.exports = {
   filterComponents: function(tree, regex, Funnel = Funnel) {
     var config = this.getConfig();
     var toInclude = config.include || [NONE];
-    if (!Array.isArray(toInclude)) {
-      console.warn('The config for @hashicorp/structure-core was now an array. Please see the documentation on configuration at https://github.com/hashicorp/structure/tree/master/packages/structure-core#components.');
+    if (!Array.isArray(toInclude) || toInclude.length === 0) {
+      console.warn('The `include` config for @hashicorp/structure-core should be an array. Please see the documentation for configuration at https://github.com/hashicorp/structure/tree/master/packages/structure-core#components.');
       console.warn('The config has been rewritten to not include any components');
       toInclude = [NONE];
     }
@@ -76,7 +76,7 @@ module.exports = {
       return true;
     }
     // exclude if fileName and templateName are not in the toInclude array
-    return toInclude.includes(fileName) && toInclude.includes(templateName);
+    return !toInclude.includes(fileName) && !toInclude.includes(templateName);
   },
 
 };
