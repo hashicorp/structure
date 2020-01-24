@@ -130,7 +130,7 @@ describe('addon index', function() {
       );
     }
   );
-  describe.only('#exclusionFn', function() {
+  describe('#exclusionFn', function() {
     it('should return false if a file is in the toInclude list', function () {
       let includeList = ['st-icon'];
       var placeholderRegex = new RegExp('.*');
