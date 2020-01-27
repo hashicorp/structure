@@ -36,17 +36,17 @@ var app = new EmberApp(defaults, {
 });
 ```
 
-As shown here, `include` is an array of components to include. Specifying the special value of `all` like this:
+As shown here, `include` is an array of components to include. Specifying the special value of `['all']` like this:
 
 ```
 var app = new EmberApp(defaults, {
   '@hashicorp/structure-core': {
-    include: 'all',
+    include: ['all'],
   },
 });
 ```
 
-will opt your application in to include all of the components in that version of `structure-core`. Please note that this means upgrades may possibly include additional components.
+will opt your application in to include all of the components in that version of `structure-core`. Please note that this means upgrades may possibly include additional components. Also note that the addon only checks for the presence of `'all'` in the array, so if you add other component names, you need to be sure to remove `'all'` to include just those components.
 
 ##Contributing
 

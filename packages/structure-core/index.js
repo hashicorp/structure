@@ -36,17 +36,23 @@ module.exports = {
     return this._super.treeForApp.call(this, tree);
   },
 
-  filterComponents: function(tree, regex) {
+  filterComponents: function(tree, regex, Funnel = Funnel) {
     var config = this.getConfig();
-    var toInclude = config.include || NONE;
+    var toInclude = config.include || [NONE];
+    if (!Array.isArray(toInclude) || toInclude.length === 0) {
+      console.warn('The `include` config for @hashicorp/structure-core should be an array. Please see the documentation for configuration at https://github.com/hashicorp/structure/tree/master/packages/structure-core#components.');
+      console.warn('The config has been rewritten to not include any components');
+      toInclude = [NONE];
+    }
+    var excludeAll = toInclude.length === 1 && toInclude.includes(NONE);
     // if we're including none, we want to exclude anything from 'components/st-'
-    var regexMatcher = toInclude === NONE ?
+    var regexMatcher = excludeAll ?
       new RegExp(/components\/st-/, 'i') :
       regex;
 
-    // if the consumer has specified `include: 'all'` in their config, don't
+    // if the consumer has specified `include: ['all']` in their config, don't
     // filter anything
-    if (toInclude === ALL) {
+    if (toInclude.includes(ALL)) {
       return tree;
     }
 
@@ -64,13 +70,13 @@ module.exports = {
     if (!isComponent) {
       return false;
     }
-    if (toInclude === NONE) {
+    if (toInclude.length === 1 && toInclude.includes(NONE)) {
       // here isComponent will match all st- components, and we'll be including
       // none, so we should return true for everything
       return true;
     }
     // exclude if fileName and templateName are not in the toInclude array
-    return toInclude.indexOf(fileName) === -1 && toInclude.indexOf(templateName) === -1;
+    return !toInclude.includes(fileName) && !toInclude.includes(templateName);
   },
 
 };
