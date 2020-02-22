@@ -1,6 +1,8 @@
 'use strict';
 var Funnel = require('broccoli-funnel');
+var mergeTrees = require('broccoli-merge-trees');
 var path = require('path');
+var IncludeComponentSass = require('./lib/component-include');
 var ALL = 'all';
 var NONE = 'none';
 
@@ -36,7 +38,26 @@ module.exports = {
     return this._super.treeForApp.call(this, tree);
   },
 
-  filterComponents: function(tree, regex, Funnel = Funnel) {
+  treeForStyles: function(tree) {
+    var config = this.getConfig();
+    var toInclude = config.include || [NONE];
+    var structureComponentSassFiles = new Funnel(tree, {
+      include: [(name) => {
+        return name.includes('.scss') && toInclude.includes(name);
+      }],
+      srcDir: '/',
+      destDir: 'app/styles/structure/components',
+      annotation: 'Funnel - Structure component sass',
+    });
+
+    var structureComponentFile = new IncludeComponentSass([structureComponentSassFiles]);
+
+
+    return mergeTrees([structureComponentSassFiles, structureComponentFile]);
+  },
+
+
+  filterComponents: function(tree, regex, Funnel) {
     var config = this.getConfig();
     var toInclude = config.include || [NONE];
     if (!Array.isArray(toInclude) || toInclude.length === 0) {
