@@ -1,6 +1,8 @@
 'use strict';
 var Funnel = require('broccoli-funnel');
 var mergeTrees = require('broccoli-merge-trees');
+var log = require('broccoli-stew').log;
+var debug = require('broccoli-stew').debug;
 var path = require('path');
 var IncludeComponentSass = require('./lib/component-include');
 var ALL = 'all';
@@ -29,33 +31,45 @@ module.exports = {
   },
 
   treeForAddon: function(tree) {
-    tree = this.filterComponents(tree, new RegExp(/components\//, 'i'));
-    return this._super.treeForAddon.call(this, tree);
+    let addonTree = this.filterComponents(tree, new RegExp(/components\//, 'i'));
+    return this._super.treeForAddon.call(this, addonTree);
   },
 
   treeForApp: function(tree) {
-    tree = this.filterComponents(tree, new RegExp(/components\//, 'i'));
-    return this._super.treeForApp.call(this, tree);
+    let appTree = this.filterComponents(tree, new RegExp(/components\//, 'i'));
+    return this._super.treeForApp.call(this, appTree);
   },
 
-  treeForStyles: function(tree) {
+  preprocessTree: function(type, tree) {
+    if (type === 'css') {
+      let sassTree = this.filterSassFiles(tree);
+      return mergeTrees([tree, sassTree]);
+    }
+    return tree;
+  },
+
+  filterSassFiles: function(tree) {
     var config = this.getConfig();
     var toInclude = config.include || [NONE];
+    // this funnel selects only the sass files for the components that are included in the app's configuration
     var structureComponentSassFiles = new Funnel(tree, {
       include: [(name) => {
+
+      if (toInclude.includes(ALL)) {
+        return name.includes('.scss');
+      }
         return name.includes('.scss') && toInclude.includes(name);
       }],
-      srcDir: '/',
-      destDir: 'app/styles/structure/components',
+      srcDir: '/addon-tree-output/@hashicorp/structure-core/components/st',
+      destDir: '/app/styles',
       annotation: 'Funnel - Structure component sass',
     });
 
-    var structureComponentFile = new IncludeComponentSass([structureComponentSassFiles]);
+    // after we have the sass files from the components, we need to construct a file that forward their definitions that can be included in the app.scss
+    var structureComponentFile = new IncludeComponentSass([structureComponentSassFiles], {outputFilePath: '/app/styles/structure-components.scss'});
 
-
-    return mergeTrees([structureComponentSassFiles, structureComponentFile]);
+    return mergeTrees([structureComponentSassFiles, structureComponentFile], {overwrite: true});
   },
-
 
   filterComponents: function(tree, regex, Funnel) {
     var config = this.getConfig();
@@ -68,7 +82,7 @@ module.exports = {
     var excludeAll = toInclude.length === 1 && toInclude.includes(NONE);
     // if we're including none, we want to exclude anything from 'components/st-'
     var regexMatcher = excludeAll ?
-      new RegExp(/components\/st-/, 'i') :
+      new RegExp(/components\/st\//, 'i') :
       regex;
 
     // if the consumer has specified `include: ['all']` in their config, don't

@@ -12,14 +12,18 @@ module.exports = class ComponentInclude extends Plugin {
       annotation: options && options.annotation
     });
     this.joinSeparator = '\n';
-    this.outputFile = 'components.scss';
+    this.outputFile = options.outputFilePath || 'components.scss';
   }
 
   build() {
     const componentIncludeFile = this.inputPaths.reduce(
       (output, inputPath) => {
         return output +
-          walkSync(inputPath)
+          walkSync(inputPath, {
+            directories: false,
+            globs: ['**/*.scss'],
+            ignore: ['**/structure-components.scss']
+          })
           .map(filepath => {
             return `@forward '${path.basename(filepath, '.scss')}';`;
           })
@@ -27,6 +31,6 @@ module.exports = class ComponentInclude extends Plugin {
       },
       '');
 
-     fs.writeFileSync(path.join(this.outputPath, this.outputFile), componentIncludeFile);
+     fs.writeFileSync(path.join(this.inputPaths[0], this.outputFile), componentIncludeFile);
   }
 }
