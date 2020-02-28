@@ -1,0 +1,8 @@
+// import structure CSS with the @use directive:
+
+@use "structure/tokens/typography" as type;
+
+.st-test {
+  font-size: 5em;
+  font-family: type.$family-brand-headline;
+}
