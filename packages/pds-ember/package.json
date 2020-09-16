@@ -1,0 +1,22 @@
+{
+  "name": "@hashicorp/pds-ember",
+  "version": "0.0.10",
+  "description": "Ember addon for building Structure-styled UIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hashicorp/structure.git"
+  },
+  "keywords": [
+    "ember-addon"
+  ],
+  "author": "Ryan Johnson",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/hashicorp/structure/issues"
+  },
+  "homepage": "https://github.com/hashicorp/structure#readme"
+}

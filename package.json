@@ -1,10 +1,7 @@
 {
   "name": "@hashicorp/structure",
   "private": true,
-  "workspaces": ["packages/*"],
-  "scripts": {
-    "new-component-addon": "cd packages && ember addon --skip-git --yarn",
-    "new-component": "cd packages/structure-core && ember g st-component",
-    "storybook:build": "cd packages/structure-core && yarn && yarn storybook:build"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }

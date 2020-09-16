@@ -43,3 +43,16 @@ npm-debug.log
 *.tgz
 *.tar.gz
 *.log
+
+# Editor Temp Files
+*.swp
+
+#---(Yarn v2)---
+# See https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
+#---------------
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
