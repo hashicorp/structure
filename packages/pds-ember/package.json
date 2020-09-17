@@ -20,5 +20,8 @@
     "url": "https://github.com/hashicorp/structure/issues"
   },
   "homepage": "https://github.com/hashicorp/structure#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
