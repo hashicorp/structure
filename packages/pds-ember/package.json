@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/pds-ember",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Ember addon for building Structure-styled UIs",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,8 @@
     "url": "https://github.com/hashicorp/structure/issues"
   },
   "homepage": "https://github.com/hashicorp/structure#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
