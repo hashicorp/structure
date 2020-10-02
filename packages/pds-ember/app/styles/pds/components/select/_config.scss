@@ -1,0 +1,147 @@
+$_module: "PDS.Components.Select";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../utils/pseudo" as Pseudo;
+@use "../input/_config" as Input;
+
+@use "./_custom";
+@use "./_control/config" as _Control;
+@use "./_facade/config" as _Facade;
+
+$height: theme.$control-height;
+
+@mixin _siblingFacade {
+  ~ .pds-select__facade {
+    /* [debug] #{$_module}@_siblingFacade */
+    @content;
+  }
+}
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: $height;
+
+  > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+// NOTE: investigate if :focus-within would simplify styles
+@mixin appearance {
+  &__control {
+    /* [debug] #{$_module}@appearance */
+
+    // Pseudo-classes MUST target the <select> element in order to follow user
+    // interaction and configuration. However, theme styles must be applied to
+    // both the control AND facade.
+    //
+    // Once the :has() pseudo-selector drops in browsers, this can be refactored
+    // to apply theme variables at the component level (.pds-select) instead of
+    // individual sub-components (&__control and &__facade).
+
+    // :enabled
+    @include custom.theme(custom.$ENABLED);
+    @include _siblingFacade {
+      @include custom.theme(custom.$ENABLED);
+    }
+
+    // :enabled:hover
+    @include Pseudo.hover {
+      @include custom.theme(custom.$ENABLED_HOVER);
+      @include _siblingFacade {
+        @include custom.theme(custom.$ENABLED_HOVER);
+      }
+    }
+
+    // :enabled:focus
+    @include Pseudo.focus {
+      @include custom.theme(custom.$ENABLED_FOCUS);
+      @include _siblingFacade {
+        @include custom.theme(custom.$ENABLED_FOCUS);
+      }
+
+      // :enabled:focus:hover
+      @include Pseudo.hover {
+        @include custom.theme(custom.$ENABLED_FOCUS);
+        @include _siblingFacade {
+          @include custom.theme(custom.$ENABLED_FOCUS);
+        }
+      }
+    }
+
+    // :invalid
+    @include Input.whenInvalid { // TODO: mixin should be more global
+      @include custom.theme(custom.$INVALID);
+      @include _siblingFacade {
+        @include custom.theme(custom.$INVALID);
+      }
+
+      // :invalid:hover
+      @include Pseudo.hover {
+        @include custom.theme(custom.$INVALID_HOVER);
+        @include _siblingFacade {
+          @include custom.theme(custom.$INVALID_HOVER);
+        }
+      }
+
+      // :invalid:focus
+      @include Pseudo.focus {
+        @include custom.theme(custom.$INVALID_FOCUS);
+        @include _siblingFacade {
+          @include custom.theme(custom.$INVALID_FOCUS);
+        }
+
+        // :invalid:focus:hover
+        @include Pseudo.hover {
+          @include custom.theme(custom.$INVALID_FOCUS);
+          @include _siblingFacade {
+            @include custom.theme(custom.$INVALID_FOCUS);
+          }
+        }
+      }
+    }
+
+    // [1]: Chromium applies 70% opacity to disabled <select> elements.
+    &:disabled {
+      opacity: 1; // [1]
+      @include custom.theme(custom.$DISABLED);
+      @include _siblingFacade {
+        @include custom.theme(custom.$DISABLED);
+      }
+
+      // :disabled:hover
+      @include Pseudo.hover {
+        @include custom.theme(custom.$DISABLED);
+        @include _siblingFacade {
+          @include custom.theme(custom.$DISABLED);
+        }
+      }
+
+      // :disabled:focus
+      @include Pseudo.focus {
+        @include custom.theme(custom.$DISABLED_FOCUS);
+        @include _siblingFacade {
+          @include custom.theme(custom.$DISABLED_FOCUS);
+        }
+
+        // :disabled:focus:hover
+        @include Pseudo.hover {
+          @include custom.theme(custom.$DISABLED_FOCUS);
+          @include _siblingFacade {
+            @include custom.theme(custom.$DISABLED_FOCUS);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin apply {
+  .pds-select {
+    /* [debug] #{$_module}@apply */
+    @content;
+  }
+}

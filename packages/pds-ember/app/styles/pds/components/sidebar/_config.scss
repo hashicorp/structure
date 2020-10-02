@@ -1,0 +1,28 @@
+$_module: "PDS.Components.Sidebar";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../tokens/color";
+
+:root {
+  --pds-sidebar-backgroundColor: #{color.$ui-gray-900};
+  --pds-sidebar-color: #{color.$white};
+}
+
+$backgroundColor: var(--pds-sidebar-backgroundColor);
+$color: var(--pds-sidebar-color);
+$width: 18.75rem; // 300px;
+
+// - height (block dimension) will be determined by parent
+// - positioning will be determiend by parent
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  color: $color;
+  width: $width;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-sidebar {
+    @content;
+  }
+}

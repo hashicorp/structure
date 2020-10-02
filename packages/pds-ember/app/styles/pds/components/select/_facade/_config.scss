@@ -1,0 +1,42 @@
+$_module: "PDS.Components.Select._Facade";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../theme";
+@use "../_custom";
+
+$height: theme.$control-height !default;
+$selector: '.pds-selectFacade';
+
+// @protected
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: hidden;
+  pointer-events: none;
+  height: $height;
+
+  .pds-selectFacade__grabber {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: $height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@mixin appearance {
+  border-radius: custom.$borderRadius;
+  border: custom.$borderWidth solid custom.$borderColor;
+  color: custom.$color;
+
+  .pds-selectFacade__grabber {
+    background-color: custom.$backgroundColor;
+  }
+}
+
+@mixin apply {
+  .pds-selectFacade {
+    @content;
+  }
+}

@@ -1,0 +1,22 @@
+$_module: "PDS.Components.App.Header";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../tokens/color";
+
+// "dark" themed
+$backgroundColor: color.$black;
+$color: color.$white;
+$height: 4.5rem;
+
+@mixin appearance {
+  /* [debug] #{$_module}@apperance */
+  background-color: $backgroundColor;
+  color: $color;
+  height: $height;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-appHeader {
+    @content;
+  }
+}

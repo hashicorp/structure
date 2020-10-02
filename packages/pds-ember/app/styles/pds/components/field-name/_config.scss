@@ -1,0 +1,20 @@
+$_module: "PDS.Components.FieldName";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/typography" as Typography;
+
+$color: theme.$color;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Typography.Label();
+
+  color: $color;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-fieldName {
+    @content;
+  }
+}

@@ -1,0 +1,7 @@
+@use "base";
+// Default
+@use "secondary"; // .pds-button
+// Variants
+@use "ghost";   // .pds-button.pds--ghost
+@use "primary"; // .pds-button.pds--primary
+@use "warning"; // .pds-button.pds--warning

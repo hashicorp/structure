@@ -1,0 +1,31 @@
+$_module: "PDS.Components.Icon";
+/* --- [debug] CONFIG: #{$_module} --- */
+
+$color: currentColor;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  display: inline-block;
+  flex-shrink: 0;
+  font-size: inherit;
+  height: 1em;
+  line-height: 1;
+  width: 1em;
+
+  svg {
+    /* [debug] #{$_module}@appearance */
+    fill: $color;
+    height: 1em !important;
+    stroke: none;
+    vertical-align: bottom;
+    width: 1em !important;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-icon {
+    @content;
+  }
+}
+

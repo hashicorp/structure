@@ -1,0 +1,46 @@
+{{!-- template-lint-disable simple-unless --}}
+<button
+  type="{{this.type}}"
+  class="
+    pds-button
+    {{this.variantClass}}
+    {{if @compact 'pds--compact'}}
+    {{if @iconStart 'pds--iconStart'}}
+    {{if @iconEnd 'pds--iconEnd'}}
+    {{if @hideText 'pds--iconOnly'}}
+    {{unless (has-block) 'pds--iconOnly'}}
+  "
+
+  ...attributes
+
+  data-test-root
+>
+  {{#if @iconStart}}
+    <Pds::Icon
+      @type={{@iconStart}}
+      class="pds-button__iconStart"
+      data-test-icon-start
+    />
+  {{/if}}
+
+  {{#if (has-block)}}
+  <span
+    class="
+      pds-button__blockContent
+      {{if @hideText 'pds--visuallyHidden'}}
+    "
+    data-test-block-content
+  >
+    {{ yield }}
+  </span>
+  {{/if}}
+
+  {{#if @iconEnd}}
+    <Pds::Icon
+      @type={{@iconEnd}}
+      class="pds-button__iconEnd"
+      data-test-icon-end
+    />
+  {{/if}}
+</button>
+{{!-- template-lint-enable simple-unless --}}

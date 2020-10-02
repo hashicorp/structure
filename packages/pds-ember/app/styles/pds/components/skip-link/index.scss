@@ -1,0 +1,13 @@
+@use "config" as *;
+
+// TODO: write Stories for component
+
+@include apply {
+  @include appearance;
+}
+
+
+/* DEPRECATED: use .pds-skipLink */
+.pdsSkipLink {
+  @include appearance;
+}

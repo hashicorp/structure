@@ -1,0 +1,39 @@
+<section>
+  <h2>&lt;Pds::Button&gt;</h2>
+  <div class="button-set">
+    {{!-- PRIMARY --}}
+    <Pds::Button
+      @variant="primary"
+      ...attributes
+      data-test-visreg="button-primary"
+    >
+      Primary
+    </Pds::Button>
+
+    {{!-- SECONDARY --}}
+    <Pds::Button
+      ...attributes
+      data-test-visreg="button-secondary"
+    >
+      Secondary
+    </Pds::Button>
+
+    {{!-- WARNING --}}
+    <Pds::Button
+      @variant="warning"
+      ...attributes
+      data-test-visreg="button-warning"
+    >
+      Warning
+    </Pds::Button>
+
+    {{!-- GHOST --}}
+    <Pds::Button
+      @variant="ghost"
+      ...attributes
+      data-test-visreg="button-ghost"
+    >
+      Ghost
+    </Pds::Button>
+  </div>
+</section>

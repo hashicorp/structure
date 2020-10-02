@@ -1,0 +1,20 @@
+$_module: "PDS.Components.HelpText";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../tokens/color";
+@use "../../tokens/typography" as Typography;
+
+$color: color.$ui-gray-500;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Typography.Interface(S);
+
+  color: $color;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-helpText {
+    @content;
+  }
+}

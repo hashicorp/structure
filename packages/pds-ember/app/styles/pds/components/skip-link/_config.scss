@@ -1,0 +1,41 @@
+$_module: "PDS.Components.SkipLink";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/color";
+
+$backgroundColor: color.$yellow-200;
+$borderColor: color.$yellow-600;
+$color: color.$black;
+$left: 50%;
+$padding: theme.$size--xs;
+
+$top--hidden: -100px;
+$top--visible: theme.$size--xs;
+
+
+// TODO: conform to design specs
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  border: 1px solid $borderColor;
+  color: $color;
+  left: $left;
+  padding: $padding;
+  position: absolute;
+  top: $top--hidden;
+  transform: translateX(-50%);
+
+  // bring link into top of viewport when
+  // keyboard user focuses the link
+  // TODO: @include Pseudo.focus { ... }
+  &:focus {
+    top: $top--visible;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-skipLink {
+    @content;
+  }
+}

@@ -1,0 +1,43 @@
+$_module: "PDS.Components.Select._Control";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../theme";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../_custom";
+
+$fontFamily: theme.$fontFamily;
+$fontSize: theme.$control-fontSize;
+$height: theme.$control-height;
+$padding--inline: theme.$size--sm; // ~12px
+
+@mixin layout {
+  height: $height;
+  padding-inline-start: $padding--inline;
+}
+
+// @protected
+@mixin appearance {
+  appearance: none;
+  background-color: custom.$backgroundColor;
+  border-radius: custom.$borderRadius;
+  border: custom.$borderWidth solid transparent;
+  box-shadow: custom.$boxShadow;
+  color: custom.$color;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  width: 100%;
+
+  @include Pseudo.focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// @protected
+@mixin apply {
+  .pds-select__control {
+    @content;
+  }
+}

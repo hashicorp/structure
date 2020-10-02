@@ -1,0 +1,55 @@
+$_module: "PDS.Components.Drawer";
+/* --- [debug] CONFIG: #{$_module} --- */
+
+// TODO: need theme vars for durations and timing functions
+
+:root {
+  --pds-drawer-duration: 0.3s;
+  --pds-drawer-timingFunction: linear;
+  --pds-drawer-width: 18.75rem; // 300px;
+}
+
+$backgroundColor: cyan; // TODO: update to design specs
+$duration: var(--pds-drawer-duration);
+$timingFunction: var(--pds-drawer-timingFunction);
+$width: var(--pds-drawer-width);
+
+@mixin transition--closed {
+  /* [debug] #{$_module}@transition--closed */
+  transition: transform $duration $timingFunction;
+}
+@mixin transition--open {
+  /* [debug] #{$_module}@transition--open */
+  // align drawer:right with viewport:right
+  transform: translateX(-100%);
+  transition: transform $duration $timingFunction;
+}
+@mixin transitions {
+  /* [debug] #{$_module}@transitions */
+  @include transition--closed;
+
+  &[aria-expanded="true"] {
+    @include transition--open;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@apperance */
+  background-color: $backgroundColor;
+  height: 100vh;
+  left: 100%; // align drawer:left with viewport:right
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: $width;
+
+  @include transitions;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-drawer {
+    @content;
+  }
+}

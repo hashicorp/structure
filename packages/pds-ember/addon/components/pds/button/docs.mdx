@@ -1,0 +1,145 @@
+import { Props } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Button';
+
+# Button
+
+`<Pds::Button />` is a wrapper around the native `<button>` element for the
+purposes of applying custom UI logic.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+  - [Text-Only](#text-only)
+  - [Icon-Only](#icon-only)
+  - [Text and Icon](#text-and-icon)
+- [See Also](#see-also)
+
+
+## Usage
+
+```hbs
+<Pds::Button
+  @compact={{boolean [false]}}
+  @hideText={{boolean [false]}}
+  @iconEnd={{string ['']}}
+  @iconStart={{string ['']}}
+  @type={{string ['button']}}
+  @variant={{string ['']}}
+>
+  <!-- button content -->
+</Pds::Button>
+```
+<Props of="PdsButton" />
+
+
+## Styling
+```scss
+@use "pds/components/button";
+```
+**NOTE:** Styles are designed to be applied to semantic button elements
+(i.e., `<button>` or button-like `<input>` elements) and may not fully apply
+to other elements (i.e., elements that do not match `:disabled`).
+
+### CSS Custom Properties
+
+* `--pds-button-backgroundColor`
+* `--pds-button-borderColor`
+* `--pds-button-borderRadius`
+* `--pds-button-boxShadow`
+* `--pds-button-color`
+
+
+## Markup
+The `<Pds::Button>` Ember component handles generation of semantic HTML markup.
+
+
+## Accessibility
+
+### Text-Only
+Assitive technologies will use the inner text of the button as the button label.
+
+* **No additional markup required.**
+    * This is the simplest button you can define.
+
+```html
+<Pds::Button>
+  Press Me
+</Pds::Button>
+```
+
+### Icon-Only
+Because icons are non-textual by nature, you have to add some additional
+attributes and/or markup to define an accessible label.
+
+There are two known techniques for handling icon-only button markup.
+
+
+#### Option 1: `[aria-label]`
+* **Add an `[aria-label]` attribute to the button.**
+    * This will override any resolved labels that are derived from button contents.
+```html
+<Pds::Button
+  aria-label="cook bacon"
+  @iconStart="frying-pan"
+/>
+```
+
+
+#### Option 2: Visually Hidden Text Content
+This technique is also known as "screen reader only" elements in many popular
+web development libraries.  It takes advantage of the default label text
+resolution demonstrated in the [Text-Only](#text-only) section above, but it
+applies CSS styling to hide the text from sighted users without removing it
+from the DOM.
+
+* Set `@hideText={{true}}`
+  * Text content of this element will be visually hidden so that it may be used
+    as the accessible button label.
+
+```html
+<Pds::Button
+  @hideText={{true}}
+  @iconStart="bacon"
+>
+  Eat Bacon
+</Pds::Button>
+```
+
+### Text and Icon
+
+Text and Icons in the same button are pretty straightforward in regards to
+defining the button label.  However, it proves difficult to apply various
+CSS layout techniques if your text is left as a plain HTML text node.
+
+The `<Pds::Button>` component handles this automatically. Any content defined
+in the block template will be wrapped in a `<span>`, when rendered.
+
+```html
+<!-- Icon before Text -->
+<Pds::Button
+  @iconStart="chevron-left"
+>
+  Go Back
+</Pds::Button>
+
+<!-- Icon after Text -->
+<Pds::Button
+  @iconEnd="chevron-right"
+>
+  Continue
+</Pds::Button>
+
+<!-- Icons around Text -->
+<Pds::Button
+  @iconStart="caret-left"
+  @iconEnd="caret-right"
+>
+  Stay Put
+</Pds::Button>
+```
+
+
+## See Also
+TBD...
+

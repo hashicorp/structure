@@ -1,0 +1,48 @@
+<div class="docs-input">
+  {{!-- blank --}}
+  <p>
+    <Pds::Input
+      @invalid={{@isInvalid}}
+      @type={{this.type}}
+      class="
+        {{if @isFocused 'mock-focus'}}
+        {{if @isHovered 'mock-hover'}}
+      "
+      disabled={{@isDisabled}}
+      pds-dirty={{@isDirty}}
+      required={{@isRequired}}
+    />
+  </p>
+
+  {{!-- with placeholder --}}
+  <p>
+    <Pds::Input
+      @invalid={{@isInvalid}}
+      @type={{this.type}}
+      class="
+        {{if @isFocused 'mock-focus'}}
+        {{if @isHovered 'mock-hover'}}
+      "
+      disabled={{@isDisabled}}
+      pds-dirty={{@isDirty}}
+      placeholder={{if @placeholder @placeholder 'with placeholder...'}}
+      required={{@isRequired}}
+    />
+  </p>
+
+  {{!-- with value --}}
+  <p>
+    <Pds::Input
+      @invalid={{@isInvalid}}
+      @type={{this.type}}
+      class="
+        {{if @isFocused 'mock-focus'}}
+        {{if @isHovered 'mock-hover'}}
+      "
+      disabled={{@isDisabled}}
+      pds-dirty={{@isDirty}}
+      required={{@isRequired}}
+      value={{if @value @value 'with value'}}
+    />
+  </p>
+</div>

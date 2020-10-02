@@ -1,0 +1,122 @@
+$_module: "PDS.Components.Button";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../config" as Component;
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../tokens/font";
+@use "../../tokens/scale";
+@use "../../tokens/typography" as Typography;
+@use "../../utils/pseudo" as Pseudo;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(button, $styles);
+}
+
+// defaults (void of color)
+$DEFAULT: (
+  backgroundColor: transparent,
+  borderColor: transparent,
+  borderRadius: theme.$borderRadius,
+  boxShadow: none,
+  color: inherit,
+);
+
+:root {
+  @include theme($DEFAULT);
+}
+
+// TODO: it'd be nice if we could generated these variables dynamically
+$backgroundColor: var(--pds-button-backgroundColor);
+$borderColor: var(--pds-button-borderColor);
+$borderRadius: var(--pds-button-borderRadius);
+$boxShadow: var(--pds-button-boxShadow);
+$color: var(--pds-button-color);
+
+// Typography
+$fontFamily: font.$family--sans;
+// Layout
+$height: scale.$lg--5; // 2.25rem (36px)
+$height--compact: scale.$lg--2; // 1.5rem (24px)
+// inline white space BETWEEN children
+$marginInline: scale.$sm--3; // 0.25rem (4px)
+$marginInline--iconOnly: 0;
+// inline white space AROUND children
+$paddingInline: scale.$lg--2; // 1.5rem (24px)
+$paddingInline--compact: scale.$sm--1; // 0.75rem (12px)
+$paddingInline--iconOnly: 0.625rem; // (~10px) FIXME: not part of the scale!
+$paddingInline--iconOnly--compact: scale.$sm--2; // 0.5rem (8px)
+$paddingInline--nearIcon: scale.$lg--1; // 1rem (16px)
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: center;
+  display: inline-flex;
+  height: $height;
+  justify-content: center;
+  padding: 0 $paddingInline;
+
+  > * {
+    margin: 0;
+  }
+
+  > * + * {
+    margin-inline-start: $marginInline;
+  }
+
+  &.pds--iconStart {
+    padding-inline-start: $paddingInline--nearIcon;
+  }
+
+  &.pds--iconEnd {
+    padding-inline-end: $paddingInline--nearIcon;
+  }
+
+  // 12px inline padding (regardless of icon presence)
+  // should override iconStart/iconEnd padding
+  &.pds--compact {
+    height: $height--compact;
+    padding: 0 $paddingInline--compact;
+  }
+
+  &.pds--iconOnly {
+    padding: 0 $paddingInline--iconOnly;
+
+    // remove white space between icons
+    > * {
+      margin: $marginInline--iconOnly;
+    }
+
+    &.pds--compact {
+      padding: 0 $paddingInline--iconOnly--compact;
+    }
+  }
+}
+
+// Define common styles and theming hooks
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Typography.Interface(M);
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  box-shadow: $boxShadow;
+  color: $color;
+  cursor: pointer;
+  font-family: $fontFamily;
+
+  @include Pseudo.focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-button {
+    @content;
+  }
+}

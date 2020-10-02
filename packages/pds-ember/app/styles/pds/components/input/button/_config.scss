@@ -1,0 +1,15 @@
+$_module: "PDS.Components.Input.Button";
+/* --- [debug] CONFIG: #{$_module} --- */
+@forward "../../button/config"; // forward all exposed Button vars and mixins
+@use "../config" as Input;
+
+// Define more specific "apply" mixin to ensure that
+// Button styles win over Input styles.
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Input.apply {
+    &.pds-button {
+      @content;
+    }
+  }
+}
