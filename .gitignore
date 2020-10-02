@@ -1,51 +1,22 @@
-.DS_Store
-.bpm
-.bundle
-.config
-.eslintcache
-.github-upload-token
-.yardoc
-.vscode
-InstalledFiles
-_site
-_yardoc
-assets
-assets/bpm_libs.js
-assets/bpm_styles.css
-coverage
+# compiled output
+.storybook/preview-head.html
 dist
-/docs
-lib/*/tests/all.js
-lib/*/tests/qunit*
-lib/bundler/man
-pkg
-rdoc
-spade-boot.js
-spec/reports
-test/tmp
-test/version_tmp
-test_*.html
-/tests/ember-tests.js
-tmp
-tmp*.gem
-tmp.bpm
-tmp.spade
-tests/source
-node_modules
-yarn-error.log
-bundle/
-*~
-publish_to_bower/
-bower_components/
-npm-debug.log
-.ember-cli
-/DEBUG/
-*.tgz
-*.tar.gz
-*.log
+tmp*
 
-# Editor Temp Files
+# dependencies
+bower_components
+node_modules
+
+# editor files
 *.swp
+.vscode
+
+# Misc
+*.log
+*.tar.gz
+*.tgz
+*~
+.DS_Store
 
 #---(Yarn v2)---
 # See https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
