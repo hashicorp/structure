@@ -1,0 +1,66 @@
+$_module: "PDS.Components.Select._theme";
+/* --- [debug] CONFIG: #{$_module} --- */
+
+// Everything pertaining to CSS Custom Properties (a.k.a. "theming API").
+@use "sass:map";
+@use "../../theme";
+@use "../../tokens/color";
+@use "../config" as Component;
+
+$ENABLED: (
+  backgroundColor: color.$ui-gray-010,
+  borderColor: color.$ui-gray-300,
+  boxShadow: theme.getShadow(low),
+  color: color.$black,
+);
+$ENABLED_HOVER: map.merge($ENABLED, (
+  borderColor: color.$ui-gray-500,
+));
+$ENABLED_FOCUS: map.merge($ENABLED, (
+  borderColor: theme.$action-base,
+  boxShadow: theme.getShadow(low, $focus: true),
+));
+
+$INVALID: map.merge($ENABLED, (
+  borderColor: theme.$failure-base,
+));
+$INVALID_HOVER: map.merge($INVALID, (
+  borderColor: color.$red-700,
+));
+$INVALID_FOCUS: $ENABLED_FOCUS;
+
+$DISABLED: (
+  backgroundColor: color.$ui-gray-100,
+  borderColor: color.$ui-gray-200,
+  boxShadow: none,
+  color: color.$ui-gray-500,
+);
+$DISABLED_FOCUS: map.merge($DISABLED, (
+  boxShadow: theme.getShadow($focus: true),
+));
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(select, $styles);
+}
+
+:root {
+  // theme defaults (void of color)
+  @include theme((
+    backgroundColor: transparent,
+    borderColor: transparent,
+    borderRadius: theme.$borderRadius,
+    borderWidth: 1px,
+    boxShadow: none,
+    color: inherit,
+  ));
+}
+
+// customizable properties
+// could be @forward'ed in _config
+$backgroundColor: var(--pds-select-backgroundColor);
+$borderColor: var(--pds-select-borderColor);
+$borderRadius: var(--pds-select-borderRadius);
+$borderWidth: var(--pds-select-borderWidth);
+$boxShadow: var(--pds-select-boxShadow);
+$color: var(--pds-select-color);

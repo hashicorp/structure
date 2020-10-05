@@ -1,0 +1,83 @@
+$_module: "PDS.Utils.Pseudo";
+@use "./env";
+
+// @use "utils/pseudo";
+// .foo {
+//   @include pseudo.hover { ... }
+// }
+//                +------------+
+//                | env.$mode  |
+// +--------------+------------+
+// | selector     | DEV | PROD |
+// +--------------+-----+------+
+// | :hover       | X   | X    |
+// +--------------+-----+------+
+// | .mock-hover  | X   |      |
+// +--------------+-----+------+
+@mixin hover {
+  &:hover {
+    /* [debug] #{$_module}@hover */
+    @content;
+  }
+
+  @include env.DEV {
+    &.mock-hover {
+      /* [debug] #{$_module}@hover */
+      @content;
+    }
+  }
+}
+
+// @use "utils/pseudo";
+// .foo {
+//   @include pseudo.focus { ... }
+// }
+//                +------------+
+//                | env.$mode  |
+// +--------------+------------+
+// | selector     | DEV | PROD |
+// +--------------+-----+------+
+// | :focus       | X   | X    |
+// +--------------+-----+------+
+// | .mock-focus  | X   |      |
+// +--------------+-----+------+
+@mixin focus {
+  &:focus {
+    /* [debug] #{$_module}@focus */
+    @content;
+  }
+
+  @include env.DEV {
+    &.mock-focus {
+      /* [debug] #{$_module}@focus */
+      @content;
+    }
+  }
+}
+
+// @use "utils/pseudo";
+// .foo {
+//   @include pseudo.active { ... }
+// }
+//                +------------+
+//                | env.$mode  |
+// +--------------+------------+
+// | selector     | DEV | PROD |
+// +--------------+-----+------+
+// | :active      | X   | X    |
+// +--------------+-----+------+
+// | .mock-active | X   |      |
+// +--------------+-----+------+
+@mixin active {
+  &:active {
+    /* [debug] #{$_module}@active */
+    @content;
+  }
+
+  @include env.DEV {
+    &.mock-active {
+      /* [debug] #{$_module}@active */
+      @content;
+    }
+  }
+}

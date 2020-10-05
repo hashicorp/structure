@@ -1,0 +1,150 @@
+import { Props } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Select';
+
+# Select
+
+A wrapper around native `<select>` (with additional markup to customize
+visual appearance).
+
+- [Usage](#usage)
+    - [Auto Options](#auto-options)
+    - [Manual Options](#manual-options)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+**NOTE:** Additional attributes are applied to the generated `<select>` element,
+not the component root element.
+
+<Props of="PdsSelect" />
+
+### Auto Options
+Component internals handles generation of `<option>` elements.
+
+**NOTE:** You MUST use the self-closing form of the component for arguments to
+apply.
+
+```hbs
+<Pds::Select
+  @options={array}
+  @value={any}
+/>
+```
+
+#### Normalizing Option Metadata
+Unusable option values are filtered out via
+[@ember/utils#isPresent](https://api.emberjs.com/ember/release/functions/@ember%2Futils/isPresent)
+and normalized to `{ label, value, selected }` format.
+
+* Object literal options must define a `value` property.
+  * This property is used to calculate the `selected` property and is the
+    default `label` value (if `label` is not present).
+
+**Example**
+
+```javascript
+[
+  /* Simple Values */
+  'String C',
+  'String D',
+  true,
+  false,
+  '',        // ignored
+  '  ',      // ignored
+  null,      // ignored
+  undefined, // ignored
+
+  /* Objects */
+  { label: '', value: '' },
+  { value: 'A' },
+  { label: 'Object B', value: 'B' },
+  {}, // ignored
+  [], // ignored
+]
+
+// normalizes to
+[
+  /* Simple Values */
+  { label: 'String C', value: 'String C', selected: false },
+  { label: 'String D', value: 'String D', selected: false },
+  { label: true,       value: true,       selected: false },
+  { label: false,      value: false,      selected: false },
+
+  /* Objects */
+  { label: '',         value: '',         selected: false },
+  { label: 'A',        value: 'A',        selected: false },
+  { label: 'Object B', value: 'B',        selected: false },
+]
+```
+
+
+**Example (object)**
+
+Supported properties:
+
+* **value** (required) - used to calculate the `selected` property
+* _label_ [default: `obj.value`]
+
+```javascript
+[
+  { value: 1 },
+  { label: 'Option 2', value: 2 },
+]
+
+// normalizes to
+[
+  { label: 1,          value: 1, selected: false },
+  { label: 'Option 2', value: 2, selected: false },
+]
+```
+
+
+
+
+### Manual Options
+If block content is given, it will be rendered within the generated `<select>`
+element.  This is useful if you want to group options in `<optgroup>` elements
+or you have an edge case that requires direct control of `<option>` rendering.
+
+**NOTE:** Some arguments do not apply when using the block form.
+
+```hbs
+<Pds::Select>
+  <optgroup label="Beatles">
+    <option>John</option>
+    <option>Ringo</option>
+    <option>Paul</option>
+    <option>George</option>
+  </optgroup>
+</Pds::Select>
+```
+
+
+## Styling
+```scss
+@use "pds/components/select";
+```
+
+### CSS Custom Properties
+
+* `--pds-select-backgroundColor`
+* `--pds-select-borderColor`
+* `--pds-select-borderRadius`
+* `--pds-select-borderWidth`
+* `--pds-select-boxShadow`
+* `--pds-select-color`
+
+
+## Markup
+The `<Pds::Select>` component handles generation of semantic HTML markup.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+TBD...

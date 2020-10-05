@@ -1,0 +1,81 @@
+$_module: "PDS.Components.Input";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../config" as Component;
+@use "../../theme";
+@use "../../tokens/typography" as Typography;
+@use "../../utils/pseudo" as Pseudo;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(input, $styles);
+}
+
+// defaults (void of color)
+$DEFAULT: (
+  backgroundColor: transparent,
+  borderColor: transparent,
+  borderRadius: theme.$borderRadius,
+  boxShadow: none,
+  color: inherit,
+);
+
+:root {
+  @include theme($DEFAULT);
+}
+
+$backgroundColor: var(--pds-input-backgroundColor);
+$borderColor: var(--pds-input-borderColor);
+$borderRadius: var(--pds-input-borderRadius);
+$boxShadow: var(--pds-input-boxShadow);
+$color: var(--pds-input-color);
+// Layout
+$height: theme.$size--xl;
+$padding--x: theme.$size--sm;
+
+// Selector mixin to consistently apply invalid styling.
+// Designed to be used within the block content of the "apply" mixin.
+@mixin whenInvalid {
+  /* [debug] #{$_module}@whenInvalid */
+
+  // Visually Invalid
+  &.pds--invalid {
+    @content;
+  }
+
+  // Logically Invalid
+  &[pds-dirty]:invalid {
+    @content;
+  }
+}
+
+@mixin layout {
+  display: block;
+  height: $height;
+  padding: 0 $padding--x;
+}
+
+// Define common styles and theming hooks
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Typography.Body(M);
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  box-shadow: $boxShadow;
+  color: $color;
+
+  @include Pseudo.focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-input {
+    @content;
+  }
+}

@@ -1,0 +1,24 @@
+$_module: "PDS.Utils.Env";
+@use "../config";
+
+// Only generate content if in DEV mode
+//
+// @use "utils/env";
+// @include env.DEV { ... }
+@mixin DEV {
+  @if config.$env == DEV {
+    /* [debug] #{$_module}@DEV */
+    @content;
+  }
+}
+
+// Only generate content if in PROD mode.
+//
+// @use "utils/env";
+// @include env.PROD { ... }
+@mixin PROD {
+  @if config.$env == PROD {
+    /* [debug] #{$_module}@PROD */
+    @content;
+  }
+}

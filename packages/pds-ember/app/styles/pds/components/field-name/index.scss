@@ -1,0 +1,5 @@
+@use "config" as *;
+
+@include apply {
+  @include appearance;
+}

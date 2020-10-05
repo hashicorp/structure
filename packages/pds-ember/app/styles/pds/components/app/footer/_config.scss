@@ -1,0 +1,22 @@
+$_module: "PDS.Components.App.Footer";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../tokens/color";
+
+// FIXME: conform to design specs
+
+// "dark" themed
+$backgroundColor: color.$black;
+$color: color.$white;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  color: $color;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-appFooter {
+    @content;
+  }
+}

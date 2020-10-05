@@ -1,0 +1,98 @@
+$_module: "PDS.Components.Input.Text";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../../theme";
+@use "../../../tokens/color";
+@use "../../../utils/placeholder" as Placeholder;
+@use "../../../utils/pseudo" as Pseudo;
+
+@use "../config" as Input;
+
+// :enabled ("valid")
+$DEFAULT: (
+  backgroundColor: color.$white,
+  borderColor: theme.$borderColor,
+  boxShadow: theme.getShadow(well),
+  color: theme.$color,
+);
+// :enabled:hover ("valid")
+$HOVER: map.merge($DEFAULT, (
+  borderColor: color.$ui-gray-500,
+));
+// :enabled:focus ("valid")
+$FOCUS: map.merge($DEFAULT, (
+  borderColor: theme.$info-base,
+  boxShadow: theme.getShadow(well, $focus: true),
+));
+// :enabled ("invalid")
+$INVALID: map.merge($DEFAULT, (
+  borderColor: theme.$failure-base,
+  color: theme.$failure-base,
+));
+// :enabled:hover ("invalid")
+$INVALID-HOVER: map.merge($INVALID, (
+  borderColor: color.$red-700,
+));
+// :disabled
+$DISABLED: (
+  backgroundColor: color.$ui-gray-010,
+  borderColor: color.$ui-gray-200, // !important,
+  boxShadow: none,
+  color: color.$ui-gray-500,
+);
+// :disabled:focus
+$DISABLED-FOCUS: map.merge($DISABLED, (
+  boxShadow: theme.getShadow($focus: true),
+));
+
+
+@mixin appearance {
+  @include Input.theme($DEFAULT);
+
+  // TODO: consider migrating to a "placeholder" component
+  @include Placeholder.apply {
+    color: Placeholder.$color;
+  }
+
+  @include Pseudo.hover {
+    @include Input.theme($HOVER);
+  }
+
+  @include Input.whenInvalid {
+    @include Input.theme($INVALID);
+
+    @include Pseudo.hover {
+      @include Input.theme($INVALID-HOVER);
+    }
+
+    @include Pseudo.focus {
+      @include Input.theme($FOCUS);
+    }
+  }
+
+  &:disabled {
+    @include Input.theme($DISABLED);
+
+    @include Pseudo.hover {
+      @include Input.theme($DISABLED);
+    }
+  }
+
+  @include Pseudo.focus {
+    @include Input.theme($FOCUS);
+
+    &:disabled {
+      @include Input.theme($DISABLED-FOCUS);
+    }
+  }
+}
+
+// Selector mixin to apply styling to all text-like inputs.
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Input.apply {
+    &.pds--textLike {
+      @content;
+    }
+  }
+}

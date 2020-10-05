@@ -1,0 +1,48 @@
+$_module: "PDS.Components.ErrorMessage";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/font" as Font;
+
+:root {
+  --pds-errorMessage-color: #{theme.$failure-base};
+  --pds-errorMessage-fontSize: #{theme.$size--sm};
+  --pds-errorMessage-fontWeight: #{Font.weight(Medium)};
+  --pds-errorMessage-lineHeight: #{theme.$lineHeight--dense};
+}
+
+$color: var(--pds-errorMessage-color);
+$fontSize: var(--pds-errorMessage-fontSize);
+$fontWeight: var(--pds-errorMessage-fontWeight);
+$gap: theme.$size--2xs;
+$lineHeight: var(--pds-errorMessage-lineHeight);
+
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: flex;
+  padding: 0;
+
+  // ensure child margins don't affect whitespace of the component
+  > * {
+    margin: 0;
+  }
+
+  > * + * {
+    margin-left: $gap;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-errorMessage {
+    @content;
+  }
+}

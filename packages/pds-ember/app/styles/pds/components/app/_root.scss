@@ -1,0 +1,13 @@
+@use "config" as *;
+
+@include apply {
+  @include appearance;
+  @include layout;
+}
+
+
+/* DEPRECATED: use .pds-app */
+.pdsApp {
+  @include appearance;
+  @include layout;
+}

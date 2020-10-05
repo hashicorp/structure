@@ -1,0 +1,12 @@
+$_module: "PDS.Utils.Media";
+@use "../theme";
+
+$minWidth--pc: theme.$media--sm;
+
+
+@mixin pc {
+  @media (min-width: $minWidth--pc) {
+    /* [debug] #{$_module}@pc */
+    @content;
+  }
+}

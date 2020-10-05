@@ -1,0 +1,33 @@
+<div class="pds-select" data-test-root>
+  <select
+    class="
+      pds-select__control
+      {{if @invalid 'pds--invalid'}}
+    "
+    pds-dirty={{this.dirty}}
+    pds-touched={{this.touched}}
+    {{on 'blur' this.onBlur once=true passive=true}}
+
+    ...attributes
+
+    data-test-control
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{#each this.options as |opt|}}
+        <option
+          selected={{if opt.selected true false}}
+          value={{opt.value}}
+        >
+          {{opt.label}}
+        </option>
+      {{/each}}
+    {{/if}}
+  </select>
+
+  <Pds::Select::Facade
+    class="pds-select__facade"
+    data-test-facade
+  />
+</div>

@@ -1,0 +1,84 @@
+$_module: "PDS.Components.App";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/color";
+@use "../drawer/config" as Drawer;
+@use "../../utils/media" as Media;
+
+// Structure 1.8 (latest as of 2020-04-13)
+// expects a body copy of 14px (inherited from Bulma) -- (T_T)
+$fontSize: 14px; // TODO: inherit font-size from <body> (waiting on go-ahead from Design)
+$fontFamily: theme.$body-font-family;
+$backgroundColor: theme.$background-color;
+
+@mixin layout--pc {
+  /* [debug] #{$_module}@layout--pc */
+  /*
+     auto       1fr
+    +---------+------+
+    | head    | head |
+    +---------+------+
+    | sidebar | main |
+    +---------+------+
+    | sidebar | foot |
+    +---------+------+
+  */
+  display: grid;
+  grid-template-areas:
+    "head    head"
+    "sidebar main"
+    "sidebar foot";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  // OPEN-to-CLOSED transition
+  transition: /* CLOSED */ padding Drawer.$duration Drawer.$timingFunction;
+
+  // assign grid areas
+  > header {
+    grid-area: head;
+  }
+
+  > main {
+    grid-area: main;
+  }
+
+  > footer {
+    grid-area: foot;
+  }
+
+  // TODO: Components.Sidebar@apply
+  > .pdsSidebar {
+    grid-area: sidebar;
+  }
+
+  &.has-open-drawer {
+    padding-right: Drawer.$width;
+    transition: /* OPEN */ padding-right Drawer.$duration Drawer.$timingFunction;
+  }
+}
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include Media.pc {
+    @include layout--pc;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden; // prevent horizontal scrolling
+  padding: 0;
+  width: 100%;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-app {
+    @content;
+  }
+}

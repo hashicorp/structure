@@ -1,0 +1,68 @@
+import { Props } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Input';
+
+# Input
+
+`<Pds::Input />` is a wrapper around the native `<input>` element for the
+purposes of applying custom UI logic.
+
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+```hbs
+<Pds::Input
+  @invalid={{boolean}}
+  @type={{string}}
+  ...attributes
+/>
+```
+<Props of="PdsInput" />
+
+
+## Styling
+```scss
+@use "pds/components/input";
+```
+
+### Text-like Inputs
+The initial implementation of this component only supports styling of text-like
+inputs via the `.pds-input.pds--textLike` selector.
+
+Text-like inputs include the following `@type` values:
+
+- `date`
+- `datetime-local`
+- `email`
+- `month`
+- `number`
+- `password`
+- `search`
+- `tel`
+- `text`
+- `time`
+- `url`
+- `week`
+
+
+## Markup
+The `<Pds::Input />` Ember component handles generation of semantic HTML markup.
+
+
+## Accessibility
+
+1. Make sure that you define an explicit and unique `id` attribute.
+    - This will be used to explicitly associate the generated `<input>` with a
+      semantic `<label>` via the `[for]` attribute.
+
+
+## See Also
+
+- [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text)
+- [Form Control guidelines](?path=/docs/guides-forms-overview--page#form-control)
+- [Text Field](?path=/docs/components-text-field--index)

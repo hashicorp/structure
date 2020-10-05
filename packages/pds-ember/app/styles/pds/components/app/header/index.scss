@@ -1,0 +1,11 @@
+@use "config" as *;
+
+@include apply {
+  @include appearance;
+}
+
+
+/* DEPRECATED: use .pds-appHeader */
+.pdsAppHeader {
+  @include appearance;
+}

@@ -1,0 +1,11 @@
+@use "config" as *;
+
+// Sub-component styles must be applied first, because they wire up the
+// CSS Custom Properties for theming (applied by the "appearance" mixin)
+@use "_facade";
+@use "_control";
+
+@include apply {
+  @include layout;
+  @include appearance;
+}

@@ -1,0 +1,14 @@
+$_module: "PDS.Components";
+
+/// Generate prefixed CSS Custom Properties for every key
+/// defined in the provided style map.  Custom properties
+/// will be defined in the following format:
+///
+///   --pds-{component}-{propName}: {propValue};
+///
+@mixin theme($component, $styles) {
+  /* [debug] #{$_module}@theme */
+  @each $propName, $propValue in $styles {
+    --pds-#{$component}-#{$propName}: #{$propValue};
+  }
+}

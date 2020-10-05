@@ -1,0 +1,39 @@
+import { Props } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Error Message';
+
+# Error Message
+
+`<Pds::ErrorMessage />` generates markup to display an error icon next to
+host-provided text content, along with appropriate visual styles.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+## Usage
+```hbs
+<Pds::ErrorMessage>
+  Message text goes here.
+</Pds::ErrorMessage>
+```
+<Props of="PdsErrorMessage" />
+
+
+## Styling
+```scss
+@use "pds/components/error-message";
+```
+
+
+## Markup
+The `<Pds::ErrorMessage />` Ember component handles generation of HTML markup.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+- [Form Field](?path=/docs/components-form-field--index)

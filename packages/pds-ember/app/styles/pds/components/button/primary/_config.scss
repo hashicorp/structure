@@ -1,0 +1,81 @@
+$_module: "PDS.Components.Button.Primary";
+/* -- [DEBUG] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../../theme";
+@use "../../../tokens/color";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../config" as Button;
+
+/// :enabled
+$DEFAULT: (
+  backgroundColor: theme.$action-base,
+  borderColor: theme.$action-d1,
+  boxShadow: theme.getShadow(low),
+  color: color.$white,
+);
+/// :enabled:hover
+$HOVER: (
+  backgroundColor: color.$blue-400,
+  borderColor: theme.$action-d1,
+  boxShadow: theme.getShadow(middle),
+  color: color.$white,
+);
+/// :enabled:focus
+$FOCUS: (
+  borderColor: color.$white,
+  boxShadow: theme.getShadow(low, $focus: true),
+);
+/// :enabled:active (implies :focus)
+$ACTIVE: (
+  backgroundColor: color.$blue-700,
+  borderColor: color.$white,
+  boxShadow: theme.getShadow($focus: true),
+  color: color.$white,
+);
+/// :disabled
+$DISABLED: (
+  backgroundColor: color.$blue-200,
+  borderColor: color.$ui-gray-400,
+  boxShadow: none,
+  color: color.$white,
+);
+/// :disabled:focus
+$DISABLED-FOCUS: map.merge($DISABLED, (
+  borderColor: color.$white,
+  boxShadow: theme.getShadow($focus: true),
+));
+
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Button.theme($DEFAULT);
+
+  @include Pseudo.hover {
+    @include Button.theme($HOVER);
+  }
+
+  @include Pseudo.focus {
+    @include Button.theme($FOCUS);
+  }
+
+  @include Pseudo.active {
+    @include Button.theme($ACTIVE);
+  }
+
+  &:disabled {
+    @include Button.theme($DISABLED);
+
+    @include Pseudo.focus {
+      @include Button.theme($DISABLED-FOCUS);
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Button.apply {
+    &.pds--primary {
+      @content;
+    }
+  }
+}

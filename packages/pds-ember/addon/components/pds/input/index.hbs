@@ -1,0 +1,12 @@
+<input
+  class={{this.classNames}}
+  pds-dirty={{this.dirty}}
+  pds-touched={{this.touched}}
+  type={{this.type}}
+
+  {{on 'blur' this.onBlur once=true passive=true}}
+
+  ...attributes
+
+  data-test-root
+/>
