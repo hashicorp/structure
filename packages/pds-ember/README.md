@@ -25,11 +25,13 @@ ember install @hashicorp/pds-ember
 ```
 ember install ember-cli-sass
 ```
+\*The addon should handle installing the required Sass package, so there
+shouldn't be a need to explicitly install one.
 
 All Sass modules are namespaced under the `pds/*` prefix, so you can apply all
 available styles by adding the following to your `app/styles/app.scss`:
 
-```sass
+```scss
 @use "pds";
 ```
 
