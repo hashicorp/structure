@@ -1,0 +1,6 @@
+@use "config" as *;
+
+@use "reset";
+@include apply {
+  @include appearance;
+}
