@@ -1,0 +1,11 @@
+@use "config" as *;
+
+// Default (:any-link)
+@include apply {
+  @include reset;
+  @include appearance;
+}
+
+// Variants
+// TODO: underlined // :any-link.pds--underlined
+// TODO: subtle     // :any-link.pds--subtle

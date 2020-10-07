@@ -143,3 +143,9 @@ $LINE_HEIGHTS: (
   font-weight: Font.weight(Medium);
   line-height: map-get($LINE_HEIGHTS, default);
 }
+
+@mixin reset {
+  /* [debug] #{$_module}@reset */
+  font: inherit;
+  line-height: inherit;
+}

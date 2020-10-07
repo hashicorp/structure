@@ -1,0 +1,42 @@
+import { Props } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Link';
+
+# Link
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+No Ember assets are available.
+
+Continue reading to learn how to apply semantic markup and styling.
+
+
+## Styling
+```scss
+@use "pds/components/link";
+```
+
+
+## Markup
+Use a semantic hyperlink (i.e., any element that matches the
+[`:any-link` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:any-link).
+
+```html
+<a href="{URL}" ...attributes>
+  Read More
+</a>
+```
+
+
+## Accessibility
+* Hyperlinks cannot be semantically disabled via HTML attribute configuration.
+* The simplest way to prevent a user from navigating via a link is to avoid
+  rendering the link at all.
+
+## See Also
+TBD...
