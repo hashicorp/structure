@@ -1,7 +1,7 @@
 $_module: "PDS.Components.FieldName";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../theme";
-@use "../../tokens/typography" as Typography;
+@use "../../core/typography/config" as Typography;
 
 $color: theme.$color;
 

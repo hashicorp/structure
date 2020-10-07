@@ -1,0 +1,29 @@
+export const TITLE = 'Sass / Typography';
+
+# Typography
+
+## Usage
+```scss
+@use "pds/core/typography";
+```
+
+
+### Headings
+```scss
+@use "pds/core/typography/heading";
+```
+
+Styles for all semantic heading elements are reset when you `@use` provided
+styles.  As such, you'll need to apply the `pds-heading` base class along with
+a modifier class in order to apply a specific heading style.
+
+- `.pds-heading.pds--0` (Dashboard Title)
+- `.pds-heading.pds--1` (Page Title)
+- `.pds-heading.pds--2` (Section Title)
+- `.pds-heading.pds--3` (Sub-section Title)
+- `.pds-heading.pds--4` (Sub-sub-section Title)
+
+
+## See Also
+- _Code Block_ component
+- Link component

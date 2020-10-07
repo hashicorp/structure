@@ -1,0 +1,11 @@
+@use "config" as *;
+
+@use "../../theme";
+
+html {
+  font-family: theme.$fontFamily;
+}
+
+body {
+  @include Body(M);
+}

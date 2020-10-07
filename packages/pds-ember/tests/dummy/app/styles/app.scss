@@ -2,6 +2,8 @@
 @use "pds/config" with ($env: DEV);
 @use "pds";
 
+@use "pds/tokens/font" as Font;
+
 // load additional styles for docs
 @mixin checkered-background {
   $tileSize: 10px;
@@ -56,5 +58,36 @@
 
   .docs-formField-select {
     max-width: 20rem;
+  }
+}
+
+// docs-only styles to demonstrate font weights and font families
+.docs-font {
+  &.sans-serif {
+    font-family: Font.$family-system-sans;
+  }
+
+  &.monospace {
+    font-family: Font.$family-system-mono;
+  }
+
+  @each $weight, $lbl in (
+    100: 'thin',
+    200: 'extra light',
+    300: 'light',
+    400: 'regular',
+    500: 'medium',
+    600: 'semi bold',
+    700: 'bold',
+    800: 'extra bold',
+    900: 'black',
+  ) {
+    &.weight-#{$weight} {
+      font-weight: $weight;
+
+      &::after {
+        content: '(' $lbl ')';
+      }
+    }
   }
 }

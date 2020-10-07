@@ -1,0 +1,24 @@
+$_module: "PDS.Components.CodeBlock";
+  /* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  // TBD...
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  font-size: theme.$codeBlock-fontSize;
+  font-weight: theme.$codeBlock-fontWeight;
+  line-height: theme.$codeBlock-lineHeight;
+
+  // TBD...
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .code-block {
+    @content;
+  }
+}

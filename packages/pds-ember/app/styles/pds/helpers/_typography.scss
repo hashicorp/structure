@@ -1,0 +1,9 @@
+@use "../core/typography/config" as Typography;
+
+.pds--body-lg {
+  @include Typography.Body(L);
+}
+
+.pds--body-sm {
+  @include Typography.Body(S);
+}

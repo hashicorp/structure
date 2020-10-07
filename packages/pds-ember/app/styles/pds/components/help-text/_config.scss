@@ -1,7 +1,7 @@
 $_module: "PDS.Components.HelpText";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../tokens/color";
-@use "../../tokens/typography" as Typography;
+@use "../../core/typography/config" as Typography;
 
 $color: color.$ui-gray-500;
 

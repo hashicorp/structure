@@ -1,0 +1,21 @@
+$_module: "PDS.Core.Typography.Heading";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../config" as Typography;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+
+  // Heading Variants (0-4)
+  @for $n from 0 through 4 {
+    &.pds--#{$n} {
+      @include Typography.Heading($n);
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-heading {
+    @content;
+  }
+}
