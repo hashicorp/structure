@@ -2,6 +2,7 @@
 .storybook/preview-head.html
 dist
 tmp*
+storybook-static
 
 # dependencies
 bower_components
