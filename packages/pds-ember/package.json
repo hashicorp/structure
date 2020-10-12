@@ -31,7 +31,7 @@
     "g:component": "ember g pds-component",
     "d:component": "ember d pds-component",
     "storybook": "start-storybook -p 6006 -s dist",
-    "build-storybook": "ember build && build-storybook -s dist -o storybook-static"
+    "build-storybook": "yarn build && build-storybook -s dist -o storybook-static"
   },
   "dependencies": {
     "broccoli-funnel": "^3.0.3",
