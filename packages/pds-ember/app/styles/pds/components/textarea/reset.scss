@@ -1,0 +1,5 @@
+@use "../../theme";
+
+textarea {
+  font-family: theme.$fontFamily;
+}

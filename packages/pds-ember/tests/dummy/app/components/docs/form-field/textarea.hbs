@@ -1,0 +1,24 @@
+<div class="docs-formField-textarea pds-formField">
+  <label for="ctrlTextarea" class="pds-fieldName">
+    Textarea
+  </label>
+
+  {{#if @showHelp}}
+    <Pds::HelpText id="helpTextarea">
+      This is some help text.
+    </Pds::HelpText>
+  {{/if}}
+
+  <Pds::Textarea
+    aria-describedby="helpTextarea errTextarea"
+    id="ctrlTextarea"
+    @invalid={{@invalid}}
+    ...attributes
+    />
+
+  {{#if @invalid}}
+    <Pds::ErrorMessage id="errTextarea">
+      This is an error message.
+    </Pds::ErrorMessage>
+  {{/if}}
+</div>

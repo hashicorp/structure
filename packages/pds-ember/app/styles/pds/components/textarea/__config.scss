@@ -1,0 +1,167 @@
+$_module: "PDS.Components.Textarea";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../config" as Component;
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../utils/placeholder" as Placeholder;
+@use "../../utils/pseudo" as Pseudo;
+@use "../../core/typography/config" as Typography;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(textarea, $styles);
+}
+
+// :enabled ("valid")
+$DEFAULT: (
+  backgroundColor: color.$white,
+  borderColor: theme.$borderColor,
+  boxShadow: theme.getShadow(well),
+  color: theme.$color,
+);
+// :enabled:hover ("valid")
+$HOVER: map.merge($DEFAULT, (
+  borderColor: color.$ui-gray-500,
+));
+// :enabled:focus ("valid")
+$FOCUS: map.merge($DEFAULT, (
+  borderColor: theme.$info-base,
+  boxShadow: theme.getShadow(well, $focus: true),
+));
+// :enabled ("invalid")
+$INVALID: map.merge($DEFAULT, (
+  borderColor: theme.$failure-base,
+  color: theme.$failure-base,
+));
+// :enabled:hover ("invalid")
+$INVALID-HOVER: map.merge($INVALID, (
+  borderColor: color.$red-700,
+));
+// :disabled
+$DISABLED: (
+  backgroundColor: color.$ui-gray-010,
+  borderColor: color.$ui-gray-200, // !important,
+  boxShadow: none,
+  color: color.$ui-gray-500,
+);
+// :disabled:focus
+$DISABLED-FOCUS: map.merge($DISABLED, (
+  boxShadow: theme.getShadow($focus: true),
+));
+
+
+:root {
+  @include theme((
+    backgroundColor: transparent,
+    borderColor: transparent,
+    borderRadius: theme.$borderRadius,
+    boxShadow: none,
+    color: inherit,
+  ));
+}
+
+$backgroundColor: var(--pds-textarea-backgroundColor);
+$borderColor: var(--pds-textarea-borderColor);
+$borderRadius: var(--pds-textarea-borderRadius);
+$boxShadow: var(--pds-textarea-boxShadow);
+$color: var(--pds-textarea-color);
+
+$padding--inline: theme.$size--sm; // 12px
+$padding--block: theme.$size--xs; // 8px
+$padding: $padding--block $padding--inline 0.75rem;
+
+// minimum resizable height
+// 2 lines of text + padding
+$minHeight: (1rem * 2.5 * 1.5) + (2 * $padding--block);
+
+@mixin _setupTheming {
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  box-shadow: $boxShadow;
+  color: $color;
+}
+
+// Selector mixin to consistently apply invalid styling.
+// Designed to be used within the block content of the "apply" mixin.
+@mixin whenInvalid {
+  /* [debug] #{$_module}@whenInvalid */
+
+  // Visually Invalid
+  &.pds--invalid {
+    @content;
+  }
+
+  // Logically Invalid
+  &[pds-dirty]:invalid {
+    @content;
+  }
+}
+
+// TODO: remove resize capability when :disabled?
+
+
+// height is configured in markup via the [rows] attr (default: 4 rows)
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  min-height: $minHeight; // prevent sizing too small
+  padding: $padding;
+  resize: vertical; // disallow horizontal resizing (which can affect layouts)
+  width: 100%; // always fills width of its parent
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include _setupTheming;
+  @include Typography.Body(M);
+  //font-family: theme.$fontFamily; // override default monospace font
+
+  // TODO: consider migrating to a "placeholder" component
+  @include Placeholder.apply {
+    color: Placeholder.$color;
+  }
+
+  @include theme($DEFAULT);
+
+  @include Pseudo.hover {
+    @include theme($HOVER);
+  }
+
+  @include whenInvalid {
+    @include theme($INVALID);
+
+    @include Pseudo.hover {
+      @include theme($INVALID-HOVER);
+    }
+
+    @include Pseudo.focus {
+      @include theme($FOCUS);
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    @include theme($DISABLED);
+
+    @include Pseudo.hover {
+      @include theme($DISABLED);
+    }
+  }
+
+  @include Pseudo.focus {
+    outline: none;
+    @include theme($FOCUS);
+
+    &:disabled {
+      @include theme($DISABLED-FOCUS);
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-textarea {
+    @content;
+  }
+}

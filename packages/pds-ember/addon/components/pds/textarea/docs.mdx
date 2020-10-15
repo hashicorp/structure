@@ -1,0 +1,45 @@
+import { Props } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Textarea';
+
+# Textarea
+
+A wrapper around native `<textarea>`.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+Inline and Block form supported.
+
+```handlebars
+<Pds::Textarea
+  @invalid={{boolean}}
+  ...attributes
+></Pds::Textarea>
+```
+<Props of="PdsTextarea" />
+
+
+## Styling
+```scss
+@use "pds/components/textarea";
+```
+
+
+## Markup
+The `<Pds::Textarea />` Ember component handles generation of semantic HTML markup.
+
+* The `rows` attribute defaults to `rows="4"`, but can be overridden if desired.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+- [Form Field: Textarea Field](?path=/docs/components-form-field--index#textarea-field)
