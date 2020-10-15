@@ -1,5 +1,6 @@
 @use "app";
 @use "button";
+@use "code-block";
 @use "drawer";
 @use "error-message";
 @use "field-name";
@@ -11,4 +12,4 @@
 @use "modal";
 @use "select";
 @use "sidebar";
-@use "skip-link";
+@use "skip-link"; // TODO: move to "link/skip-link" as variant

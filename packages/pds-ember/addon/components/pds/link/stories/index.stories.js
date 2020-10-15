@@ -64,6 +64,14 @@ const WithTrailingIcon = () => ({
   `
 });
 
+const WithInlineCode = () => ({
+  template: hbs`
+    <a href="#">
+      Read more about <code>label</code> in the docs.
+    </a>
+  `
+});
+
 export {
   CONFIG as default,
   Index,
@@ -75,4 +83,5 @@ export {
 
   WithLeadingIcon,
   WithTrailingIcon,
+  WithInlineCode,
 }

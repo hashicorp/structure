@@ -1,0 +1,41 @@
+$_module: "PDS.Core.Typography.InlineCode";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../theme";
+
+$backgroundColor: theme.$inlineCode-backgroundColor;
+$borderColor: theme.$inlineCode-borderColor;
+$borderRadius: theme.$inlineCode-borderRadius;
+$color: theme.$inlineCode-color;
+$font: theme.$inlineCode-font;
+$fontFamily: theme.$inlineCode-fontFamily;
+$lineHeight: theme.$inlineCode-lineHeight;
+$padding: theme.$inlineCode-padding;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: inline-block;
+  padding: $padding;
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  color: $color;
+  font-family: $fontFamily;
+  font: $font;
+  line-height: $lineHeight;
+
+  // inline code within hyperlink
+  :any-link & {
+    color: currentColor;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  code {
+    @content;
+  }
+}

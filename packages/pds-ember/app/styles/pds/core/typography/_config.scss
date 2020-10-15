@@ -1,0 +1,87 @@
+$_module: "PDS.Core.Typography";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+
+// Mixins defined per specifications in Figma (Structure 1.9 > Text Styles)
+
+@mixin Heading($level: 2) {
+  /* [debug] #{$_module}@Heading */
+
+  font-weight: theme.$heading-fontWeight;
+  line-height: theme.$heading-lineHeight;
+
+  @if $level == 0 {
+    /* [debug] Heading/H0 - Dashboard title (36/Dense Bold) */
+    font-size: theme.$heading-fontSize--0;
+  }
+  @else if $level == 1 {
+    /* [debug] Heading/H1 - Page title (28/Dense Bold) */
+    font-size: theme.$heading-fontSize--1;
+  }
+  @else if $level == 2 {
+    /* [debug] Heading/H2 - Section title (20/Dense Bold) */
+    font-size: theme.$heading-fontSize--2;
+  }
+  @else if $level == 3 {
+    /* [debug] Heading/H3 - Subsection title (16/Dense Bold) */
+    font-size: theme.$heading-fontSize--3;
+  }
+  @else if $level == 4 {
+    /* [debug] Heading/H4 - Subsection title (14/Dense Bold) */
+    font-size: theme.$heading-fontSize--4;
+  }
+  @else {
+    /* [ERROR] unknown Typography.Heading level: #{$level} */
+  }
+}
+
+@mixin Body($size) {
+  /* [debug] #{$_module}@Body */
+  font-weight: theme.$fontWeight;
+  line-height: theme.$lineHeight;
+
+  @if $size == S {
+    /* [debug] Body/S (12/Regular) */
+    font-size: theme.$fontSize--sm;
+  }
+  @else if $size == L {
+    /* [debug] Body/L (20/Regular) */
+    font-size: theme.$fontSize--lg;
+  }
+  @else {
+    /* [debug] Body/Default (16/Regular) */
+    font-size: theme.$fontSize;
+  }
+}
+
+@mixin Interface($size) {
+  /* [debug] #{$_module}@Interface(#{$size}) */
+  font-weight: theme.$ui-fontWeight;
+  line-height: theme.$ui-lineHeight;
+
+  @if $size == S {
+    /* [debug] Interface/S (12/Dense Medium) */
+    font-size: theme.$ui-fontSize--sm;
+  }
+  @else if $size == L {
+    /* [debug] Interface/L (16/Dense Medium) */
+    font-size: theme.$ui-fontSize--lg;
+  }
+  @else {
+    /* [debug] Interface/M (14/Dense Medium) */
+    font-size: theme.$ui-fontSize;
+  }
+}
+
+@mixin Label {
+  /* [debug] #{$_module}@Label (14/Dense Bold) */
+  font-size: theme.$label-fontSize;
+  font-weight: theme.$label-fontWeight;
+  line-height: theme.$label-lineHeight;
+}
+
+@mixin reset {
+  /* [debug] #{$_module}@reset */
+  font: inherit;
+  line-height: inherit;
+}

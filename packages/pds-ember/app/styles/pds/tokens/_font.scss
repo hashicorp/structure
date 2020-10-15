@@ -5,7 +5,13 @@ $_module: "PDS.Tokens.Font";
 // ------ FONT FAMILIES ------ //
 
 // "system" monospace font stack
-$family--mono: monospace;
+$family--mono:
+  "SFMono-Regular", "SF Mono", // Apple (Chrome, Firefox)
+  "Consolas", // Microsoft
+  "Roboto Mono", // Android
+  // TODO: add 1 or 2 common linux fonts
+  monospace;
+
 // "system" sans-serif font stack
 $family--sans:
   system-ui,

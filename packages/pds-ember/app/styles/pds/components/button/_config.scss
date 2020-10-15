@@ -5,7 +5,7 @@ $_module: "PDS.Components.Button";
 @use "../../tokens/color";
 @use "../../tokens/font";
 @use "../../tokens/scale";
-@use "../../tokens/typography" as Typography;
+@use "../../core/typography/config" as Typography;
 @use "../../utils/pseudo" as Pseudo;
 
 @mixin theme($styles) {

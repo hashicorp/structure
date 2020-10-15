@@ -7,6 +7,8 @@ $_module: "PDS.Theme.Light";
 @use "../tokens/resolutions";
 @use "../tokens/scale";
 
+// TODO: deprecate/rename vars to fit EPM naming format
+
 // TODO: update with generic set of baseline
 // variables in order to easily apply a theme.
 // (see p39-42 in October 2019 Brand Guide)
@@ -22,8 +24,6 @@ $_module: "PDS.Theme.Light";
 //
 // This should allow for the replacement, or injection of
 // new/custom themes into the module @use chain.
-
-// TODO: need var for 14px typography styles (Code, Label, Interface/M)
 
 ///----------------------------------------///
 /// CORE DEFAULTS
@@ -47,6 +47,19 @@ $size--md:  scale.$base; // 16px (1rem)
 $size--lg:  scale.$lg-2; // 24px (1.5rem)
 $size--xl:  scale.$lg-5; // 36px (2.25rem)
 $size--2xl: scale.$lg-7; // 48px (3rem)
+
+
+// FIXME: "magic number" outside of defined scale
+//
+// DO NOT use this variable outside of this module!
+//
+// This private var is used to apply a 14px font size to theme variables
+// (i.e., variables defined in THIS file) that require it as part of design
+// specifications.  Because it is a value that doesn't exist in the modular
+// scale (see tokens/scale.scss), we need to keep it centralized to prevent
+// accidental use by consumers and to provide an upgrade path if designs are
+// modified in the future.
+$_size14: 0.875rem; // ~14px
 
 
 ///----------------------------------------///
@@ -84,8 +97,10 @@ $media--lg: resolutions.$fhd-width !default;
 }
 $fontFamily: font.$family-system-sans;
 $fontFamily--code: font.$family-system-mono;
-$fontSize: $size--md; // ~16px/1rem
-$fontSize--ui: 0.875rem; // ~14px (not a scale value)
+$fontSize: $size--md; // 16px (1rem)
+$fontSize--lg: scale.$lg--1; // 20px
+$fontSize--sm: scale.$sm--1; // 12px
+$fontWeight: font.weight(Regular);
 $letterSpacing: var(--pds-letterSpacing);
 $lineHeight: var(--pds-lineHeight);
 $lineHeight--dense: var(--pds-lineHeight--dense);
@@ -102,8 +117,6 @@ $wordSpacing: var(--pds-wordSpacing);
 $borderColor: color.$ui-gray-300;
 $borderColor--l1: color.$ui-gray-200;
 $borderRadius: var(--pds-borderRadius);
-
-/// TODO: deprecate/rename below vars to fit EMP naming format
 
 ///----------------------------------------///
 /// CORE ACTION
@@ -203,11 +216,58 @@ $SHADOWS: (
 
 
 ///----------------------------------------///
+/// Headings
+///----------------------------------------///
+$heading-fontSize--0: scale.$lg--5; // 36px;
+$heading-fontSize--1: scale.$lg--3; // 28px
+$heading-fontSize--2: $fontSize--lg;
+$heading-fontSize--3: scale.$base; // 16px
+$heading-fontSize--4: $_size14;
+$heading-lineHeight: $lineHeight--dense;
+$heading-fontWeight: font.weight(Bold);
+
+///----------------------------------------///
+/// UI Elements
+///----------------------------------------///
+$ui-fontSize: $_size14;
+$ui-fontSize--sm: $fontSize--sm; // 12px
+$ui-fontSize--lg: scale.$base; // 16px (1rem)
+$ui-fontWeight: font.weight(Medium);
+$ui-lineHeight: $lineHeight--dense;
+
+///----------------------------------------///
+/// Labels
+///----------------------------------------///
+$label-fontSize: $_size14;
+$label-fontWeight: font.weight(Bold);
+$label-lineHeight: $lineHeight--dense;
+
+///----------------------------------------///
+/// Inline Code
+///----------------------------------------///
+$inlineCode-backgroundColor: color.$ui-gray-050;
+$inlineCode-borderColor: color.$ui-gray-200;
+$inlineCode-color: color.$magenta-500;
+$inlineCode-font: inherit;
+$inlineCode-fontFamily: font.$family-system-mono;
+$inlineCode-lineHeight: inherit;
+$inlineCode-padding: 0 $size--2xs;
+$inlineCode-borderRadius: $borderRadius;
+
+///----------------------------------------///
+/// Code Blocks
+///----------------------------------------///
+$codeBlock-fontFamily: font.$family-system-mono;
+$codeBlock-fontSize: $_size14;
+$codeBlock-fontWeight: font.weight(Medium);
+$codeBlock-lineHeight: $lineHeight;
+
+///----------------------------------------///
 /// Controls/Inputs (inline)
 ///----------------------------------------///
 :root {
   --pds-control-height: #{scale.$lg--4}; // ~32px
-  --pds-control-fontSize: #{$fontSize--ui};
+  --pds-control-fontSize: #{$ui-fontSize};
 }
 $control-height: var(--pds-control-height);
 $control-fontSize: var(--pds-control-fontSize);

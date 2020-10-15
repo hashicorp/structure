@@ -2,7 +2,7 @@ $_module: "PDS.Components.Input";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../config" as Component;
 @use "../../theme";
-@use "../../tokens/typography" as Typography;
+@use "../../core/typography/config" as Typography;
 @use "../../utils/pseudo" as Pseudo;
 
 @mixin theme($styles) {
