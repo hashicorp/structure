@@ -91,3 +91,13 @@
     }
   }
 }
+
+// Storybook overrides
+
+// <ArgsTable>
+.docblock-argstable {
+  th, td {
+    // remove funky column width styles applied by Storybook 6
+    width: auto !important;
+  }
+}
