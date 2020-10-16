@@ -1,0 +1,5 @@
+@use "__config" as BaseLink;
+
+@include BaseLink.apply {
+  @include BaseLink.appearance;
+}

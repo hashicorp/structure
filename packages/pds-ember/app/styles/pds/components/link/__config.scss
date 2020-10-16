@@ -1,0 +1,36 @@
+$_module: "PDS.Components.Link";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../config" as Component;
+@use "../../utils/pseudo" as Pseudo;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(link, $styles);
+}
+
+// Themable Properties with defaults
+$boxShadow: var(--pds-link-boxShadow, none);
+$color: var(--pds-link-color, inherit);
+$borderBottomColor: var(--pds-link-borderBottomColor, transparent);
+
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  box-shadow: $boxShadow;
+  color: $color;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid $borderBottomColor;
+
+  @include Pseudo.focus {
+    outline: none;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  :any-link {
+    @content;
+  }
+}

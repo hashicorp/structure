@@ -1,0 +1,44 @@
+$_module: "PDS.Components.Link.Underlined";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../__config" as Link;
+@use "../default/__config" as DefaultLink;
+
+$DEFAULT: map.merge(DefaultLink.$DEFAULT, (
+  borderBottomColor: currentColor,
+  color: currentColor,
+));
+
+$HOVER: DefaultLink.$HOVER;
+
+$FOCUS: DefaultLink.$FOCUS;
+
+$ACTIVE: DefaultLink.$ACTIVE;
+
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Link.theme($DEFAULT);
+
+  @include Pseudo.hover {
+    @include Link.theme($HOVER);
+  }
+
+  @include Pseudo.focus {
+    @include Link.theme($FOCUS);
+  }
+
+  @include Pseudo.active {
+    @include Link.theme($ACTIVE);
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Link.apply {
+    &.pds--underlined {
+      @content;
+    }
+  }
+}

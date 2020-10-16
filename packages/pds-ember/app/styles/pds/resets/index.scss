@@ -6,4 +6,5 @@
 @use "../core/typography/reset" as TypographyReset;
 
 // Component Resets
+@use "../components/link/reset" as LinkReset;
 @use "../components/textarea/reset" as TextareaReset;
