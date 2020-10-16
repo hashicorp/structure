@@ -8,8 +8,6 @@ import { getVariantClass } from './utils';
 /**
  * When true, reduces internal white space to compact button geometry.
  *
- * _(default: `false`)_
- *
  * @argument compact
  * @type { boolean }
  * @default false

@@ -2,4 +2,5 @@
 @use "document";
 //@use "inert"; // uncomment when needed within PDS
 
-@use "../core/typography/reset";
+// Core Resets
+@use "../core/typography/reset" as TypographyReset;

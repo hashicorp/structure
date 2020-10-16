@@ -49,6 +49,7 @@
     "@glimmer/tracking": "^1.0.1",
     "@hashicorp/structure-icons": "^1.8.1",
     "@storybook/addon-docs": "^6.0.22",
+    "@storybook/addon-essentials": "^6.0.26",
     "@storybook/addon-knobs": "^6.0.22",
     "@storybook/ember": "^6.0.22",
     "@storybook/ember-cli-storybook": "^0.2.1",
