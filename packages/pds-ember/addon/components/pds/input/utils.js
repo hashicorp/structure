@@ -1,4 +1,3 @@
-/** @module */
 import { warn } from '@ember/debug'
 
 export const TYPES = {
@@ -27,8 +26,10 @@ export const TYPES = {
 
 /**
  * Check if given type is a valid input[type] value.
+ *
+ * @function
  * @param {string} type - input[type] value
- * @returns {boolean}
+ * @return {boolean}
  */
 export function isValidType(type) {
   let result = false
@@ -43,8 +44,9 @@ export function isValidType(type) {
 /**
  * Used to ensure that a generated <input /> ALWAYS has a valid [type] attr defined.
  *
- * @params {*} type - potential input type
- * @returns {string} - non-null input type
+ * @function
+ * @param {*} type - potential input type
+ * @return {string} - non-null input type
  */
 export function getValidType(type) {
   let _default = 'text'
@@ -63,8 +65,9 @@ export function getValidType(type) {
 /**
  * Returns true if input type is text-like in appearance.
  *
+ * @function
  * @param {string} type - input[type] value
- * @returns {boolean}
+ * @return {boolean}
  */
 export function isTextLike(type) {
   let result = false
@@ -79,8 +82,9 @@ export function isTextLike(type) {
 /**
  * Get CSS class name for given type.
  *
+ * @function
  * @param {string} type - input[type] value
- * @returns {string}
+ * @return {string}
  */
 export function cssClassForType(type) {
   let result = ''

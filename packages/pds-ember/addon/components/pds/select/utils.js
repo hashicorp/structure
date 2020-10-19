@@ -5,6 +5,7 @@ import { isPresent, typeOf } from '@ember/utils'
  * Callback function to pass to Array.prototype.filter, in order
  * to weed out unusable options.
  *
+ * @function
  * @param {*} item
  * @return {boolean}
  */
@@ -37,10 +38,10 @@ export function isValidOption(item) {
  * Uses component args to generate a normalized array of option values
  * for use in the component template.
  *
+ * @function
  * @param {object} args
  * @param {*} [args.value] - value of selected option
  * @param {*} [args.options] - list of options (flexible, but expects array)
- *
  * @return {array}
  */
 export function normalizeOptions(args) {
