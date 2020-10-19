@@ -1,0 +1,14 @@
+<textarea
+  class="
+    pds-textarea
+    {{if @invalid 'pds--invalid'}}
+  "
+  rows="4"
+  pds-dirty={{this.dirty}}
+  pds-touched={{this.touched}}
+  {{on 'blur' this.onBlur once=true passive=true}}
+  ...attributes
+  data-test-root
+>
+  {{~ yield ~}}
+</textarea>

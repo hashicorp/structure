@@ -4,3 +4,6 @@
 
 // Core Resets
 @use "../core/typography/reset" as TypographyReset;
+
+// Component Resets
+@use "../components/textarea/reset" as TextareaReset;

@@ -3,14 +3,30 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import DocsPage, { TITLE } from '../docs.mdx';
 import { getContext } from './cfg';
 
-const CONFIG = {
+export default {
   title: TITLE,
-  component: 'DocsFormField',
   decorators: [ withKnobs ],
   parameters: { docs: { page: DocsPage } },
+  argTypes: {
+    disabled: {
+      control: 'boolean',
+      defaultValue: false,
+      description: 'disable user entry',
+    },
+    invalid: {
+      control: 'boolean',
+      defaultValue: false,
+      description: 'simulate invalid data',
+    },
+    showHelp: {
+      control: 'boolean',
+      defaultValue: true,
+      description: 'display help text',
+    },
+  },
 };
 
-const Index = () => ({
+export const Index = () => ({
   template: hbs`
     <Docs::FormField
       @errorMessage={{errorMessage}}
@@ -31,23 +47,26 @@ const Index = () => ({
   context: getContext(),
 });
 
-const SelectField = () => ({
+
+export const SelectField = (args) => ({
   template: hbs`
     <Docs::FormField::Select
-      @isInvalid={{isInvalid}}
+      @isInvalid={{invalid}}
       @showHelp={{showHelp}}
-      disabled={{isDisabled}}
+      disabled={{disabled}}
     />
   `,
-  context: {
-    showHelp: boolean('Show Help', true),
-    isInvalid: boolean('Invalid', false),
-    isDisabled: boolean('Disabled', false),
-  },
+  context: args,
 });
 
-export {
-  CONFIG as default,
-  Index,
-  SelectField,
-}
+
+export const TextareaField = (args) => ({
+  template: hbs`
+    <Docs::FormField::Textarea
+      @invalid={{invalid}}
+      @showHelp={{showHelp}}
+      disabled={{disabled}}
+    />
+  `,
+  context: args,
+});
