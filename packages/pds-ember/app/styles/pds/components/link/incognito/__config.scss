@@ -1,0 +1,48 @@
+$_module: "PDS.Components.Link.Incognito";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../__config" as Link;
+@use "../default/__config" as DefaultLink;
+
+$DEFAULT: map.merge(DefaultLink.$DEFAULT, (
+  borderBottomColor: transparent,
+  color: currentColor,
+));
+
+$HOVER: map.merge(DefaultLink.$HOVER, (
+  borderBottomColor: transparent,
+));
+
+$FOCUS: DefaultLink.$FOCUS;
+
+$ACTIVE: map.merge(DefaultLink.$ACTIVE, (
+  borderBottomColor: transparent,
+));
+
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Link.theme($DEFAULT);
+
+  @include Pseudo.hover {
+    @include Link.theme($HOVER);
+  }
+
+  @include Pseudo.focus {
+    @include Link.theme($FOCUS);
+  }
+
+  @include Pseudo.active {
+    @include Link.theme($ACTIVE);
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Link.apply {
+    &.pds--incognito {
+      @content;
+    }
+  }
+}
