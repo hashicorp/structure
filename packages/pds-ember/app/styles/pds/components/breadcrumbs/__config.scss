@@ -1,0 +1,72 @@
+$_module: "PDS.Components.Breadcrumbs";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../tokens/font";
+@use "../link/__config" as Link;
+@use "../link/incognito/__config" as IncognitoLink;
+
+$color: color.$ui-gray-500;
+$fontSize: theme.$breadcrumbs-fontSize;
+$fontWeight: font.weight(Medium);
+$marginInline: theme.$size--xs;
+
+@mixin __Crumb {
+  .pds-breadcrumbs__crumb {
+    @content;
+  }
+}
+
+@mixin __Divider {
+  .pds-breadcrumbs__divider {
+    @content;
+  }
+}
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  > * + * {
+    margin-inline-start: $marginInline;
+  }
+
+  @include Link.apply {
+    white-space: nowrap;
+  }
+
+  @include __Divider {
+    margin-inline-start: $marginInline;
+  }
+
+  @include __Crumb {
+    display: flex;
+
+    // hide trailing divider if last child is <Crumb>
+    &:last-child {
+      @include __Divider {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+
+  @include Link.apply {
+    @include IncognitoLink.appearance;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-breadcrumbs {
+    @content;
+  }
+}

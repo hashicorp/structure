@@ -1,0 +1,10 @@
+<div
+  class="pds-breadcrumbs__crumb"
+  ...attributes
+  data-test-crumb
+>
+  {{#if (has-block)}}
+    <div>{{yield}}</div>
+    <Pds::Breadcrumbs::Divider />
+  {{/if}}
+</div>
