@@ -1,10 +1,9 @@
-/* ======================================== *\
- * BRAND COLORS
-\* ======================================== */
-/*
-  As defined by the October 2019 HashiCorp brand guide.
-  (see https://www.hashicorp.com/brand)
-*/
+// ======================================== //
+// BRAND COLORS
+// ======================================== //
+//
+// As defined by the October 2019 HashiCorp brand guide.
+// (see https://www.hashicorp.com/brand)
 @forward "_Consul" as Consul-*;
 @forward "_Nomad" as Nomad-*;
 @forward "_Packer" as Packer-*;
@@ -13,12 +12,11 @@
 @forward "_Vault" as Vault-*;
 @forward "_HashiCorp" as HashiCorp-*;
 
-/* ======================================== *\
- * Color Palette
-\* ======================================== */
-/*
-  As defined in the "Structure 1.x" Figma library.
-*/
+// ======================================== //
+// Color Palette
+// ======================================== //
+// As defined in the "Structure 1.x" Figma library.
+
 // Neutral
 $white: #ffffff;
 $black: #000000;

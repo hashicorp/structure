@@ -10,20 +10,20 @@ $_module: "PDS.Components.Button.Warning";
 $DEFAULT: (
   backgroundColor: color.$white,
   borderColor: theme.$failure-base,
-  boxShadow: theme.getShadow(low),
+  boxShadow: theme.boxShadow(low),
   color: theme.$failure-base,
 );
 /// :enabled:hover
 $HOVER: (
   backgroundColor: color.$red-500,
   borderColor: theme.$failure-d1,
-  boxShadow: theme.getShadow(middle),
+  boxShadow: theme.boxShadow(middle),
   color: color.$white,
 );
 /// :enabled:focus
 $FOCUS: (
   borderColor: theme.$failure-base,
-  boxShadow: theme.getShadow(low, $focus: true),
+  boxShadow: theme.boxShadow(low, focus),
 );
 /// :enabled:focus:hover
 $FOCUS-HOVER: map.merge($FOCUS, (
@@ -33,7 +33,7 @@ $FOCUS-HOVER: map.merge($FOCUS, (
 $ACTIVE: (
   backgroundColor: color.$red-700,
   borderColor: color.$white,
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
   color: color.$white,
 );
 /// :disabled
@@ -45,7 +45,7 @@ $DISABLED: (
 );
 /// :disabled:focus
 $DISABLED-FOCUS: map.merge($DISABLED, (
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
 ));
 
 

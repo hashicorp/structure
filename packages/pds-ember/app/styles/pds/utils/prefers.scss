@@ -1,0 +1,36 @@
+$_module: "PDS.Utils.Prefers";
+
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
+@mixin highContrast {
+  @media (prefers-contrast: high) {
+    /* [debug] #{$_module}@highContrast */
+    @content;
+  }
+}
+
+
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency
+@mixin reducedTransparency {
+  @media (prefers-reduced-transparency: reduce) {
+    /* [debug] #{$_module}@reducedTransparency */
+    @content;
+  }
+}
+
+
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+@mixin reducedMotion {
+  @media (prefers-reduced-motion: reduce) {
+    /* [debug] #{$_module}@reducedMotion */
+    @content;
+  }
+}
+
+
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+@mixin darkMode {
+  @media (prefers-color-scheme: dark) {
+    /* [debug] #{$_module}@darkMode */
+    @content;
+  }
+}

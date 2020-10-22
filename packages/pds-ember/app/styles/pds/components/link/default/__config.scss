@@ -15,7 +15,7 @@ $HOVER: map.merge($DEFAULT, (
 ));
 // :any-link:focus
 $FOCUS: map.merge($HOVER, (
-  boxShadow: theme.$boxShadow--focus,
+  boxShadow: theme.boxShadow(focus),
 ));
 // :any-link:active
 $ACTIVE: map.merge($HOVER, (

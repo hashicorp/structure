@@ -8,8 +8,8 @@ $_module: "PDS.Components.App";
 // Structure 1.8 (latest as of 2020-04-13)
 // expects a body copy of 14px (inherited from Bulma) -- (T_T)
 $fontSize: 14px; // TODO: inherit font-size from <body> (waiting on go-ahead from Design)
-$fontFamily: theme.$body-font-family;
-$backgroundColor: theme.$background-color;
+$fontFamily: theme.$fontFamily;
+$backgroundColor: theme.$backgroundColor;
 
 @mixin layout--pc {
   /* [debug] #{$_module}@layout--pc */

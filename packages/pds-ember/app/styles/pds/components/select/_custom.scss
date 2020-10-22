@@ -10,7 +10,7 @@ $_module: "PDS.Components.Select._theme";
 $ENABLED: (
   backgroundColor: color.$ui-gray-010,
   borderColor: color.$ui-gray-300,
-  boxShadow: theme.getShadow(low),
+  boxShadow: theme.boxShadow(low),
   color: color.$black,
 );
 $ENABLED_HOVER: map.merge($ENABLED, (
@@ -18,7 +18,7 @@ $ENABLED_HOVER: map.merge($ENABLED, (
 ));
 $ENABLED_FOCUS: map.merge($ENABLED, (
   borderColor: theme.$action-base,
-  boxShadow: theme.getShadow(low, $focus: true),
+  boxShadow: theme.boxShadow(low, focus),
 ));
 
 $INVALID: map.merge($ENABLED, (
@@ -36,7 +36,7 @@ $DISABLED: (
   color: color.$ui-gray-500,
 );
 $DISABLED_FOCUS: map.merge($DISABLED, (
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
 ));
 
 @mixin theme($styles) {

@@ -12,7 +12,7 @@ $_module: "PDS.Components.Input.Text";
 $DEFAULT: (
   backgroundColor: color.$white,
   borderColor: theme.$borderColor,
-  boxShadow: theme.getShadow(well),
+  boxShadow: theme.boxShadow(well),
   color: theme.$color,
 );
 // :enabled:hover ("valid")
@@ -22,7 +22,7 @@ $HOVER: map.merge($DEFAULT, (
 // :enabled:focus ("valid")
 $FOCUS: map.merge($DEFAULT, (
   borderColor: theme.$info-base,
-  boxShadow: theme.getShadow(well, $focus: true),
+  boxShadow: theme.boxShadow(well, focus),
 ));
 // :enabled ("invalid")
 $INVALID: map.merge($DEFAULT, (
@@ -42,7 +42,7 @@ $DISABLED: (
 );
 // :disabled:focus
 $DISABLED-FOCUS: map.merge($DISABLED, (
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
 ));
 
 

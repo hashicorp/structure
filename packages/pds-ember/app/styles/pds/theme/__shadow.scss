@@ -1,0 +1,19 @@
+$_module: "PDS.Theme.Shadow";
+@use "sass:list";
+
+$_SHADOWS: (focus, well, low, middle, high, highest);
+
+@function build($names...) {
+  /* [debug] #{$_module}#build(#{$names}) */
+  $result: ();
+  @each $name in $names {
+    // If we include an undefined CSS custom property, the browser invalidates
+    // the _entire_ result. This ensures composition from valid shadow names.
+    @if list.index($_SHADOWS, $name) {
+      $_token: var(--pds-shadow--#{$name});
+      $result: list.append($result, $_token, $separator: comma);
+    }
+  }
+
+  @return $result;
+}

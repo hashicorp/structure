@@ -19,12 +19,12 @@ $HOVER: map.merge($DEFAULT, (
 ));
 /// :enabled:focus
 $FOCUS: (
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
 );
 /// :enabled:active (implies :focus)
 $ACTIVE: map.merge($DEFAULT, (
   backgroundColor: color.$ui-gray-200,
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
   color: color.$blue-700,
 ));
 /// :disabled
@@ -34,7 +34,7 @@ $DISABLED: map.merge($DEFAULT, (
 /// :disabled:focus
 $DISABLED-FOCUS: map.merge($DISABLED, (
   backgroundColor: transparent,
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
 ));
 
 

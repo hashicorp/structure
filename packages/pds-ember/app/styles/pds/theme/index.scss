@@ -1,4 +1,199 @@
-// Default Theme (`@use "pds/theme";`)
-// Alternative themes should be consumed via `@use "pds/theme/{name}";`,
-// which would correspond with individual files in this module directory.
-@forward "light";
+$_module: "PDS.Theme";
+@use "../tokens/color";
+@use "../tokens/font";
+@use "../tokens/resolutions";
+@use "../tokens/scale";
+@use "../utils/prefers" as Prefers;
+@use "__shadow" as Shadow;
+// Themes
+@use "dark" as Dark; // EXPERIMENTAL!!!
+@use "light" as Light;
+
+// FIXME: "magic number" outside of defined scale
+// DO NOT use this variable outside of this module!
+//
+// This private var is used to apply a 14px font size to theme variables
+// (i.e., variables defined in THIS file) that require it as part of design
+// specifications.  Because it is a value that doesn't exist in the modular
+// scale (see tokens/scale.scss), we need to keep it centralized to prevent
+// accidental use by consumers and to provide an upgrade path if designs are
+// modified in the future.
+$_size14: 0.875rem; // ~14px
+
+///=========================================================================///
+/// DYNAMIC MEMBERS
+///=========================================================================///
+$backgroundColor: var(--pds-backgroundColor);
+$color: var(--pds-color);
+$focus-color: var(--pds-focus-color);
+// Typography
+$letterSpacing: var(--pds-letterSpacing);
+$lineHeight: var(--pds-lineHeight);
+$lineHeight--dense: var(--pds-lineHeight--dense);
+$paragraphSpacing: var(--pds-paragraphSpacing);
+$wordSpacing: var(--pds-wordSpacing);
+// Action
+$action-color: var(--pds-action-color);
+$action-color--amp1: var(--pds-action-color--amp1);
+$action-color--dim1: var(--pds-action-color--dim1);
+$action-color--dim2: var(--pds-action-color--dim2);
+// Alert
+$alert-color: var(--pds-alert-color);
+$alert-color--amp1: var(--pds-alert-color--amp1);
+$alert-color--dim1: var(--pds-alert-color--dim1);
+$alert-color--dim2: var(--pds-alert-color--dim2);
+// Error
+$error-color: var(--pds-error-color);
+$error-color--amp1: var(--pds-error-color--amp1);
+$error-color--dim1: var(--pds-error-color--dim1);
+$error-color--dim2: var(--pds-error-color--dim2);
+// Info
+$info-color: var(--pds-info-color);
+$info-color--amp1: var(--pds-info-color--amp1);
+$info-color--dim1: var(--pds-info-color--dim1);
+$info-color--dim2: var(--pds-info-color--dim2);
+// Success
+$success-color: var(--pds-success-color);
+$success-color--amp1: var(--pds-success-color--amp1);
+$success-color--dim1: var(--pds-success-color--dim1);
+$success-color--dim2: var(--pds-success-color--dim2);
+// Warning
+$warning-color: var(--pds-warning-color);
+$warning-color--amp1: var(--pds-warning-color--amp1);
+$warning-color--dim1: var(--pds-warning-color--dim1);
+$warning-color--dim2: var(--pds-warning-color--dim2);
+// Borders
+$borderColor: var(--pds-borderColor);
+$borderColor--dim1: var(--pds-borderColor--dim1);
+$borderRadius: var(--pds-borderRadius);
+
+
+
+///=========================================================================///
+/// STATIC MEMBERS
+///=========================================================================///
+
+
+// T-SHIRT SCALE
+// -------------
+// Useful for:
+//   - Dimensions (height, width, offset, etc.)
+//   - Spacing (margin, padding, etc.)
+//   - Font Size (headings, body copy, subtext, supertext, etc.)
+$size--2xs: scale.$sm-3; // 4px  (0.25rem)
+$size--xs:  scale.$sm-2; // 8px  (0.5rem)
+$size--sm:  scale.$sm-1; // 12px (0.75rem)
+$size--md:  scale.$base; // 16px (1rem)
+$size--lg:  scale.$lg-2; // 24px (1.5rem)
+$size--xl:  scale.$lg-5; // 36px (2.25rem)
+$size--2xl: scale.$lg-7; // 48px (3rem)
+
+
+// RESPONSIVE BREAKPOINTS
+// ----------------------
+// Sass Only! (DO NOT allow client configuration)
+//
+// Even if we did allow client a11y configuration,
+// CSS custom properties can't be used in @media
+// queries.  Media Queries Level 5 spec will enable
+// this, but it's not yet available in any browser.
+// Tablets & Low-res PCs
+$media--sm: resolutions.$svga-width !default;
+// High-res PCs
+$media--md: resolutions.$hd-width !default;
+// Ultra High-res PCs
+$media--lg: resolutions.$fhd-width !default;
+
+
+
+// CORE TYPOGRAPHY
+// ---------------
+$fontFamily: font.$family-system-sans;
+$fontFamily--code: font.$family-system-mono;
+$fontSize: $size--md; // 16px (1rem)
+$fontSize--lg: scale.$lg--1; // 20px
+$fontSize--sm: scale.$sm--1; // 12px
+$fontWeight: font.weight(Regular);
+
+
+// HEADINGS
+// --------
+$heading-fontSize--0: scale.$lg--5; // 36px;
+$heading-fontSize--1: scale.$lg--3; // 28px
+$heading-fontSize--2: $fontSize--lg;
+$heading-fontSize--3: scale.$base; // 16px
+$heading-fontSize--4: $_size14;
+$heading-lineHeight: $lineHeight--dense;
+$heading-fontWeight: font.weight(Bold);
+
+// UI ELEMENTS
+// -----------
+$ui-fontSize: $_size14;
+$ui-fontSize--sm: $fontSize--sm; // 12px
+$ui-fontSize--lg: scale.$base; // 16px (1rem)
+$ui-fontWeight: font.weight(Medium);
+$ui-lineHeight: $lineHeight--dense;
+
+// LABELS
+// ------
+$label-fontSize: $_size14;
+$label-fontWeight: font.weight(Bold);
+$label-lineHeight: $lineHeight--dense;
+
+// INLINE CODE
+// -----------
+$inlineCode-backgroundColor: color.$ui-gray-050;
+$inlineCode-borderColor: color.$ui-gray-200;
+$inlineCode-borderRadius: $borderRadius;
+$inlineCode-color: color.$magenta-500;
+$inlineCode-font: inherit;
+$inlineCode-fontFamily: font.$family-system-mono;
+$inlineCode-lineHeight: inherit;
+$inlineCode-padding: 0 $size--2xs;
+
+// CODE BLOCK
+// ----------
+$codeBlock-fontFamily: font.$family-system-mono;
+$codeBlock-fontSize: $_size14;
+$codeBlock-fontWeight: font.weight(Medium);
+$codeBlock-lineHeight: $lineHeight;
+
+// CONTROLS/INPUTS (inline)
+// ------------------------
+$control-height: scale.$lg--4; // ~32px
+$control-fontSize: $ui-fontSize;
+
+
+// @use "pds/theme";
+// .foo {
+//   box-shadow: theme.boxShadow(low, focus);
+// }
+@function boxShadow($names...) {
+  @return Shadow.build($names...);
+}
+
+@mixin styles {
+  // Global Theme
+  :root {
+    // default to "light mode"
+    @include Light.styles;
+    // switch to "dark mode" (if preferred)
+    @include Prefers.darkMode {
+      @include Dark.styles;
+    }
+  }
+
+  // Contextual Themes
+  @include Light.apply {
+    @include Light.styles;
+  }
+
+  @include Dark.apply {
+    @include Dark.styles;
+  }
+}
+
+// TODO: figure out a better place to render CSS
+@include styles;
+
+@import "__deprecated";

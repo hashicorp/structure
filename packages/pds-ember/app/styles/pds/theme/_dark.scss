@@ -1,0 +1,16 @@
+$_module: "PDS.Theme.Dark";
+
+// TBD...
+
+// Set CSS Custom Properties
+@mixin styles {
+  /* [debug] #{$_module}@styles */
+  /* TBD... */
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-theme--dark {
+    @content;
+  }
+}

@@ -10,26 +10,26 @@ $_module: "PDS.Components.Button.Secondary";
 $DEFAULT: (
   backgroundColor: color.$ui-gray-050,
   borderColor: color.$ui-gray-300,
-  boxShadow: theme.getShadow(low),
+  boxShadow: theme.boxShadow(low),
   color: color.$ui-gray-800,
 );
 /// :enabled:hover
 $HOVER: (
   backgroundColor: color.$white,
   borderColor: color.$ui-gray-600,
-  boxShadow: theme.getShadow(middle),
+  boxShadow: theme.boxShadow(middle),
   color: color.$ui-gray-800,
 );
 /// :enabled:focus
 $FOCUS: (
   borderColor: color.$ui-gray-600,
-  boxShadow: theme.getShadow(low, $focus: true),
+  boxShadow: theme.boxShadow(low, focus),
 );
 /// :enabled:active (implies :focus)
 $ACTIVE: (
   backgroundColor: color.$ui-gray-200,
   borderColor: color.$ui-gray-600,
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
   color: color.$ui-gray-800,
 );
 /// :disabled
@@ -41,7 +41,7 @@ $DISABLED: (
 );
 /// :disabled:focus
 $DISABLED-FOCUS: map.merge($DISABLED, (
-  boxShadow: theme.getShadow($focus: true),
+  boxShadow: theme.boxShadow(focus),
 ));
 
 
