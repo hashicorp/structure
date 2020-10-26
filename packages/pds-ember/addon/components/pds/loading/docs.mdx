@@ -1,0 +1,47 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Loading';
+
+# Loading
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```hbs
+<Pds::Loading as |L|>
+  <L.Elapsed />
+
+  <L.Header>
+    Header Content
+  </L.Header>
+
+  <L.Message>
+    Message Content
+  </L.Message>
+</Pds::Loading>
+```
+<ArgsTable of="PdsLoading" />
+
+
+## Styling
+```scss
+@use "pds/components/loading";
+```
+
+
+## Markup
+The `<Pds::Loading>` component and its sub-components handle generation of
+semantic HTML markup.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+TBD...

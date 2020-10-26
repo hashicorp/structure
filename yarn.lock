@@ -1480,6 +1480,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ember/render-modifiers@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@ember/render-modifiers@npm:1.0.2"
+  dependencies:
+    ember-cli-babel: ^7.10.0
+    ember-modifier-manager-polyfill: ^1.1.0
+  checksum: 9fbfe0a9e357d3b3b1656c392fc2b3fed425a773fd9144b6879edc280554f5e676c05bf07057657c2c0c608277f7ccbc598a5e5be48070ae86a7b277b6fb580a
+  languageName: node
+  linkType: hard
+
 "@ember/test-helpers@npm:^1.7.0, @ember/test-helpers@npm:^1.7.1":
   version: 1.7.2
   resolution: "@ember/test-helpers@npm:1.7.2"
@@ -1806,6 +1816,7 @@ __metadata:
   resolution: "@hashicorp/pds-ember@workspace:packages/pds-ember"
   dependencies:
     "@ember/optional-features": ^2.0.0
+    "@ember/render-modifiers": ^1.0.2
     "@glimmer/component": ^1.0.1
     "@glimmer/tracking": ^1.0.1
     "@hashicorp/structure-icons": 1.9.0-0
@@ -1848,6 +1859,7 @@ __metadata:
     npm-run-all: ^4.1.5
     qunit-dom: ^1.4.0
     sass: ^1.26.11
+    sinon: ^9.2.0
   languageName: unknown
   linkType: soft
 
@@ -2062,6 +2074,52 @@ __metadata:
   version: 0.7.0
   resolution: "@sindresorhus/is@npm:0.7.0"
   checksum: 643ca18f804572cb7d8f915a40f6403ec437b8d13d199e1934e3271568a315811959b236322ba779b4a3133c9c29e7da9a639fa3984a208d06aa45267de8cc8d
+  languageName: node
+  linkType: hard
+
+"@sinonjs/commons@npm:^1, @sinonjs/commons@npm:^1.6.0, @sinonjs/commons@npm:^1.7.0, @sinonjs/commons@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "@sinonjs/commons@npm:1.8.1"
+  dependencies:
+    type-detect: 4.0.8
+  checksum: adbf84a27bc895ca7bbe8ea9f53df9b5625a3d4fd54bc9390c88fa86a75b9d6d56722032336ab294c184862a09640932d794c347a4ed265c9ea126d966d0bf23
+  languageName: node
+  linkType: hard
+
+"@sinonjs/fake-timers@npm:^6.0.0, @sinonjs/fake-timers@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@sinonjs/fake-timers@npm:6.0.1"
+  dependencies:
+    "@sinonjs/commons": ^1.7.0
+  checksum: 64458b908773638dda08b555a00e6fbbbc679735348291dc1b7f437ada2f60242537fdc48e4ee82d2573d86984ec87e755b66a96c0ed9ebf0f46b4c6687ccde2
+  languageName: node
+  linkType: hard
+
+"@sinonjs/formatio@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@sinonjs/formatio@npm:5.0.1"
+  dependencies:
+    "@sinonjs/commons": ^1
+    "@sinonjs/samsam": ^5.0.2
+  checksum: 88a5b635f8bf088a7610d92d242bea22b9f69fbbc8d3fdace1989995f7f78d463ef14ab834e549cee846b6d13c584496e53bbbde2ac711b0ccfee0a95440c5ae
+  languageName: node
+  linkType: hard
+
+"@sinonjs/samsam@npm:^5.0.2, @sinonjs/samsam@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "@sinonjs/samsam@npm:5.2.0"
+  dependencies:
+    "@sinonjs/commons": ^1.6.0
+    lodash.get: ^4.4.2
+    type-detect: ^4.0.8
+  checksum: 744832bd12140eca2f122c7cc19830a8335969447730723712919df8fac12923ad4f712c7468e7b08f7b75f13bea4f8ed951e9750bf539638c3a7bb88a35cdd6
+  languageName: node
+  linkType: hard
+
+"@sinonjs/text-encoding@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "@sinonjs/text-encoding@npm:0.7.1"
+  checksum: fbc2abff23dce7f8842a64c61a4183a9300b03b8b4f03dc2739c8172fd3e401ed8f28fb1c5aac85b3cc0935f69bdb9823dd864a2e22110626751ff855879a76a
   languageName: node
   linkType: hard
 
@@ -9163,7 +9221,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^7.1.2, ember-cli-babel@npm:^7.11.0, ember-cli-babel@npm:^7.12.0, ember-cli-babel@npm:^7.18.0, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.20.5, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.7.3":
+"ember-cli-babel@npm:^7.1.2, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.11.0, ember-cli-babel@npm:^7.12.0, ember-cli-babel@npm:^7.18.0, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.20.5, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.7.3":
   version: 7.22.1
   resolution: "ember-cli-babel@npm:7.22.1"
   dependencies:
@@ -9563,7 +9621,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-compatibility-helpers@npm:^1.1.2":
+"ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0":
   version: 1.2.1
   resolution: "ember-compatibility-helpers@npm:1.2.1"
   dependencies:
@@ -9639,6 +9697,17 @@ __metadata:
     ember-cli-babel: ^6.0.0-beta.4
     regenerator-runtime: ^0.9.5
   checksum: a096a376f5e9bc65e2ea58b393a55585f22e08852a02a5faefc6cb5438d37d3ff216f43680d348ca0ff47af8da6ae60c41dc5604821f65bdac8d92c255cdf4a5
+  languageName: node
+  linkType: hard
+
+"ember-modifier-manager-polyfill@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "ember-modifier-manager-polyfill@npm:1.2.0"
+  dependencies:
+    ember-cli-babel: ^7.10.0
+    ember-cli-version-checker: ^2.1.2
+    ember-compatibility-helpers: ^1.2.0
+  checksum: 05ad185afc3f1140ab74cd0eccacf0b592b382571c5105c2962d0d2089052051aa4fc1f1f1c204f698a375db73d03c71cedd0cbcc8fb9ffaa488e69069786ea9
   languageName: node
   linkType: hard
 
@@ -13959,6 +14028,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"just-extend@npm:^4.0.2":
+  version: 4.1.1
+  resolution: "just-extend@npm:4.1.1"
+  checksum: 9dec0ba527809ca813f98dea1e54e60f6901ebdad475aa2a6c487c9873c81d71c783feebacd1ad472309c07413201c3af2ea5abd68f0b0333b5162f474565ad7
+  languageName: node
+  linkType: hard
+
 "keyv@npm:3.0.0":
   version: 3.0.0
   resolution: "keyv@npm:3.0.0"
@@ -14389,6 +14465,13 @@ fsevents@^1.2.7:
   version: 4.5.0
   resolution: "lodash.foreach@npm:4.5.0"
   checksum: aa177589a923db147831937b2b74746276247a4c0870c8dfe14bcebb009e9a89b33287589ba0af90a6fa2355b0759cea03ab6d0a25219a25d0d96222de4a831f
+  languageName: node
+  linkType: hard
+
+"lodash.get@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "lodash.get@npm:4.4.2"
+  checksum: 447e575e3caa5131ef44e5a0c135b1614f3c937d86b3be0568f9da7b0fd015010af3b6b4e41edf6e2698c9ce2dcc061ca71b31f274f799c991dceb018be16e4f
   languageName: node
   linkType: hard
 
@@ -15389,6 +15472,19 @@ fsevents@^1.2.7:
   version: 1.0.5
   resolution: "nice-try@npm:1.0.5"
   checksum: 330f190bf68146a560008b661e1ddbb2eac667c16990b6bf791516d89cceb707ec67901ad647d2b32674bfa816b916489cead5c2fb6e96864c659573ab5aa3bb
+  languageName: node
+  linkType: hard
+
+"nise@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "nise@npm:4.0.4"
+  dependencies:
+    "@sinonjs/commons": ^1.7.0
+    "@sinonjs/fake-timers": ^6.0.0
+    "@sinonjs/text-encoding": ^0.7.1
+    just-extend: ^4.0.2
+    path-to-regexp: ^1.7.0
+  checksum: 5ead54f4f35680b121f623099ccaee4bde3208167c11c28ccebcc1810ff6053f4e8093fcbfefbc7fa6d12e0a7a2488901da976127fbda2252a999c623543968e
   languageName: node
   linkType: hard
 
@@ -16408,6 +16504,15 @@ fsevents@^1.2.7:
   version: 0.1.7
   resolution: "path-to-regexp@npm:0.1.7"
   checksum: 342fdb0ca48415d6eccdbe6d4180fd0fa4786ccc96ab3f74fcdf7acfc99e075af25e6077c8086c341dcfb4f5f84401ecd21e6cd7b24e0c3b556fb7ffb2570da7
+  languageName: node
+  linkType: hard
+
+"path-to-regexp@npm:^1.7.0":
+  version: 1.8.0
+  resolution: "path-to-regexp@npm:1.8.0"
+  dependencies:
+    isarray: 0.0.1
+  checksum: 4c0d9aaf3fc55db0b2d9aab379856acbf4e437f2252bbc2a178aec9f707c8457f8084ea6243a80e0b37c8c1c20d23e918cd43e772a7e71142a8ad67af699686b
   languageName: node
   linkType: hard
 
@@ -18609,6 +18714,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"sinon@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "sinon@npm:9.2.0"
+  dependencies:
+    "@sinonjs/commons": ^1.8.1
+    "@sinonjs/fake-timers": ^6.0.1
+    "@sinonjs/formatio": ^5.0.1
+    "@sinonjs/samsam": ^5.2.0
+    diff: ^4.0.2
+    nise: ^4.0.4
+    supports-color: ^7.1.0
+  checksum: b3db80ed30c61dbba8a45cc5617388fed3757eb99eb808d28dc87bd95cdf8a6b0f4bac748ce31b78bdf15febc46685cea93f68bb42e2601706c4ecfb018af831
+  languageName: node
+  linkType: hard
+
 "slash@npm:^1.0.0":
   version: 1.0.0
   resolution: "slash@npm:1.0.0"
@@ -20076,6 +20196,13 @@ fsevents@^1.2.7:
   dependencies:
     prelude-ls: ~1.1.2
   checksum: 4e080645319c12bb78119f7e8bb333cab8dacad2c1988597aabf44da985ad36fce3419707e93ed0fc84514b7eec94e4d8817e33d0aab8c81de394916e00d6806
+  languageName: node
+  linkType: hard
+
+"type-detect@npm:4.0.8, type-detect@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "type-detect@npm:4.0.8"
+  checksum: e01dc6ac9098192a7859fb86c7b4073709a4e13a5cc02c54d54412378bb099563fda7a7a85640f33e3a7c2e8189182eb1511f263e67f402b2d63fe81afdde785
   languageName: node
   linkType: hard
 
