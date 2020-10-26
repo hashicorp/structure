@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile';
-import { boolean } from '@storybook/addon-knobs';
-import Parent from '../index.stories';
+import hbs from 'htmlbars-inline-precompile'
+import { boolean } from '@storybook/addon-knobs'
+import Parent from '../index.stories'
 
-const CONFIG = {
+export default {
   ...Parent,
   title: `${Parent.title} / Layouts`,
-};
+}
 
 function getContext() {
   return {
@@ -13,7 +13,7 @@ function getContext() {
   }
 }
 
-const TextOnly = () => ({
+export const TextOnly = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -22,9 +22,9 @@ const TextOnly = () => ({
     </Pds::Button>
   `,
   context: getContext(),
-});
+})
 
-const IconOnly_ariaLabel = () => ({
+export const IconOnly_ariaLabel = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -33,9 +33,10 @@ const IconOnly_ariaLabel = () => ({
     />
   `,
   context: getContext(),
-});
+})
+IconOnly_ariaLabel.storyName = 'Icon Only using [aria-label]'
 
-const IconOnly_visuallyHidden_label = () => ({
+export const IconOnly_visuallyHidden_label = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -46,9 +47,10 @@ const IconOnly_visuallyHidden_label = () => ({
     </Pds::Button>
   `,
   context: getContext(),
-});
+})
+IconOnly_visuallyHidden_label.storyName = 'Icon Only with visually-hidden label'
 
-const TwoIcons_withoutBlock = () => ({
+export const TwoIcons_withoutBlock = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -58,9 +60,10 @@ const TwoIcons_withoutBlock = () => ({
     />
   `,
   context: getContext(),
-});
+})
+TwoIcons_withoutBlock.storyName = 'Two Icons without block'
 
-const TwoIcons_withBlock = () => ({
+export const TwoIcons_withBlock = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -72,9 +75,10 @@ const TwoIcons_withBlock = () => ({
     </Pds::Button>
   `,
   context: getContext(),
-});
+})
+TwoIcons_withBlock.storyName = 'Two Icons with block'
 
-const TextBeforeIcon = () => ({
+export const TextBeforeIcon = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -84,9 +88,10 @@ const TextBeforeIcon = () => ({
     </Pds::Button>
   `,
   context: getContext(),
-});
+})
+TextBeforeIcon.storyName = 'Label + Icon'
 
-const TextAfterIcon = () => ({
+export const TextAfterIcon = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -96,9 +101,10 @@ const TextAfterIcon = () => ({
     </Pds::Button>
   `,
   context: getContext(),
-});
+})
+TextAfterIcon.storyName = 'Icon + Label'
 
-const TextBetweenIcons = () => ({
+export const TextBetweenIcons = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
@@ -109,25 +115,26 @@ const TextBetweenIcons = () => ({
     </Pds::Button>
   `,
   context: getContext(),
-});
+})
+TextBetweenIcons.storyName = 'Icon + Label + Icon'
 
-IconOnly_ariaLabel.story = { name: 'Icon Only using [aria-label]' };
-IconOnly_visuallyHidden_label.story = { name: 'Icon Only with visually-hidden label' };
-TwoIcons_withoutBlock.story = { name: 'Two Icons without block' };
-TwoIcons_withBlock.story = { name: 'Two Icon with block' };
-TextBeforeIcon.story = { name: 'Label + Icon' };
-TextAfterIcon.story = { name: 'Icon + Label' };
-TextBetweenIcons.story = { name: 'Icon + Label + Icon' };
-
-export {
-  CONFIG as default,
-
-  TextOnly,
-  IconOnly_ariaLabel,
-  IconOnly_visuallyHidden_label,
-  TwoIcons_withoutBlock,
-  TwoIcons_withBlock,
-  TextBeforeIcon,
-  TextAfterIcon,
-  TextBetweenIcons,
-}
+export const LengthyContent = () => ({
+  template: hbs`
+    <Pds::Button
+      @compact={{isCompact}}
+      @iconEnd="test-icon"
+      @iconStart="test-icon"
+    >
+      Text with lengthy content.
+      The quick brown fox jumps over the lazy dog.
+      The quick brown fox jumps over the lazy dog.
+      The quick brown fox jumps over the lazy dog.
+      The quick brown fox jumps over the lazy dog.
+      The quick brown fox jumps over the lazy dog.
+      The quick brown fox jumps over the lazy dog.
+      The quick brown fox jumps over the lazy dog.
+      The quick brown fox jumps over the lazy dog.
+    </Pds::Button>
+  `,
+  context: getContext(),
+})
