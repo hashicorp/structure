@@ -1,0 +1,87 @@
+$_module: "PDS.Components.CtaLink";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/config" as Typography;
+@use "../../utils/pseudo" as Pseudo;
+@use "../config" as Component;
+@use "../button/_config" as Button;
+@use "../button/primary/_config" as PrimaryButton;
+@use "../link/__config" as Link;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(ctaLink, $styles);
+}
+
+/// STATES
+$DEFAULT: PrimaryButton.$DEFAULT;
+$HOVER: PrimaryButton.$HOVER;
+$FOCUS: PrimaryButton.$FOCUS;
+$ACTIVE: PrimaryButton.$ACTIVE;
+$DISABLED: PrimaryButton.$DISABLED;
+$DISABLED-FOCUS: PrimaryButton.$DISABLED-FOCUS;
+
+// TODO: migrate :root {} to somewhere else,
+// so that this module doesn't implicitly generate CSS
+:root {
+  // Use the same default values from the Button component,
+  // but with --pds-ctaLink-* prefix, instead.
+  @include theme(Button.$DEFAULT);
+}
+$backgroundColor: var(--pds-ctaLink-backgroundColor);
+$borderColor: var(--pds-ctaLink-borderColor);
+$borderRadius: var(--pds-ctaLink-borderRadius);
+$boxShadow: var(--pds-ctaLink-boxShadow);
+$color: var(--pds-ctaLink-color);
+$fontFamily: Button.$fontFamily;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include Button.layout;
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Typography.Interface(M);
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  box-shadow: $boxShadow;
+  color: $color;
+  cursor: pointer;
+  font-family: $fontFamily;
+  text-decoration: none;
+
+  // STATES
+  @include theme($DEFAULT);
+
+  @include Pseudo.hover {
+    @include theme($HOVER);
+  }
+
+  @include Pseudo.focus {
+    outline: none;
+    @include theme($FOCUS);
+  }
+
+  @include Pseudo.active {
+    @include theme($ACTIVE);
+  }
+
+  &.pds--disabled {
+    cursor: default;
+    @include theme($DISABLED);
+
+    @include Pseudo.focus {
+      @include theme($DISABLED-FOCUS);
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Link.apply {
+    &.pds--cta {
+      @content;
+    }
+  }
+}
