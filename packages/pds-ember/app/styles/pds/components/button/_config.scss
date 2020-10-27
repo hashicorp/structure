@@ -55,6 +55,7 @@ $paddingInline--nearIcon: scale.$lg--1; // 1rem (16px)
   height: $height;
   justify-content: center;
   padding: 0 $paddingInline;
+  white-space: nowrap;
 
   > * {
     margin: 0;
