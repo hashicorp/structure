@@ -34,6 +34,14 @@
     padding: 2rem;
   }
 
+  // [1] make sure leftover elements from "Components/App/Index" decorator
+  //     don't affect content layout in other stories
+  .docs-pds-app {
+    &:not(:empty) { // [1]
+      margin: -2rem; // counteract root padding
+    }
+  }
+
   .sbdocs-wrapper {
     padding: 4rem 2rem;
   }

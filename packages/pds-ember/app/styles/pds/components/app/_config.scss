@@ -2,53 +2,58 @@ $_module: "PDS.Components.App";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../theme";
 @use "../../tokens/color";
-@use "../drawer/config" as Drawer;
 @use "../../utils/media" as Media;
+@use "../drawer/config" as Drawer;
 
-// Structure 1.8 (latest as of 2020-04-13)
-// expects a body copy of 14px (inherited from Bulma) -- (T_T)
-$fontSize: 14px; // TODO: inherit font-size from <body> (waiting on go-ahead from Design)
-$fontFamily: theme.$body-font-family;
-$backgroundColor: theme.$background-color;
+$fontSize: theme.$fontSize; // TODO: inherit font-size from <body>
+$fontFamily: theme.$fontFamily;
+$backgroundColor: theme.$backgroundColor;
 
 @mixin layout--pc {
   /* [debug] #{$_module}@layout--pc */
   /*
      auto       1fr
-    +---------+------+
-    | head    | head |
-    +---------+------+
-    | sidebar | main |
-    +---------+------+
-    | sidebar | foot |
-    +---------+------+
+    +---------+--------+
+    | head    | head   |
+    +---------+--------+
+    | banner  | banner |
+    +---------+--------+
+    | sidebar | main   |
+    +---------+--------+
+    | sidebar | foot   |
+    +---------+--------+
   */
   display: grid;
   grid-template-areas:
     "head    head"
+    "banner  banner"
     "sidebar main"
     "sidebar foot";
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   // OPEN-to-CLOSED transition
   transition: /* CLOSED */ padding Drawer.$duration Drawer.$timingFunction;
 
   // assign grid areas
-  > header {
+
+  &__header {
     grid-area: head;
   }
 
-  > main {
+  &__body {
     grid-area: main;
   }
 
-  > footer {
+  &__footer {
     grid-area: foot;
   }
 
-  // TODO: Components.Sidebar@apply
-  > .pdsSidebar {
+  &__sidebar {
     grid-area: sidebar;
+  }
+
+  &__banner {
+    grid-area: banner;
   }
 
   &.has-open-drawer {
