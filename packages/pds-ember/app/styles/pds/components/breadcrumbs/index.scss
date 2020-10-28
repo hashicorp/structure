@@ -4,9 +4,3 @@
   @include layout;
   @include appearance;
 }
-
-
-/* DEPRECATED: use .pds-icon */
-.pdsIcon {
-  @include appearance;
-}

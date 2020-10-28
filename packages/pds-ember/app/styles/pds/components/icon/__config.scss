@@ -3,22 +3,32 @@ $_module: "PDS.Components.Icon";
 
 $color: currentColor;
 
-@mixin appearance {
-  /* [debug] #{$_module}@appearance */
+@mixin layout {
+  /* [debug] #{$_module}@layout */
   display: inline-block;
   flex-shrink: 0;
   font-size: inherit;
   height: 1em;
-  line-height: 1;
+  line-height: inherit;
   width: 1em;
 
+  &__svgWrapper {
+    display: inline-block;
+    line-height: 1;
+
+    svg {
+      height: 1em !important;
+      width: 1em !important;
+      vertical-align: bottom;
+    }
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
   svg {
-    /* [debug] #{$_module}@appearance */
     fill: $color;
-    height: 1em !important;
     stroke: none;
-    vertical-align: bottom;
-    width: 1em !important;
   }
 }
 

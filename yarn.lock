@@ -1700,6 +1700,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@formatjs/ecma402-abstract@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "@formatjs/ecma402-abstract@npm:1.2.5"
+  dependencies:
+    tslib: ^2.0.1
+  checksum: e4aa5701b2989ba3a24007343ac3b28f69221615e17072fd4fe87535a8cc7cf934b6c5ae3ed26972703bf14fc26a5ff6ba0a00f7da32254e5f4047c61bb70208
+  languageName: node
+  linkType: hard
+
 "@glimmer/component@npm:^1.0.1":
   version: 1.0.2
   resolution: "@glimmer/component@npm:1.0.2"
@@ -1799,7 +1808,7 @@ __metadata:
     "@ember/optional-features": ^2.0.0
     "@glimmer/component": ^1.0.1
     "@glimmer/tracking": ^1.0.1
-    "@hashicorp/structure-icons": ^1.8.1
+    "@hashicorp/structure-icons": 1.9.0-0
     "@storybook/addon-docs": ^6.0.22
     "@storybook/addon-essentials": ^6.0.26
     "@storybook/addon-knobs": ^6.0.22
@@ -1822,6 +1831,7 @@ __metadata:
     ember-cli-terser: ^4.0.0
     ember-disable-prototype-extensions: ^1.1.3
     ember-export-application-global: ^2.0.1
+    ember-intl: ^5.5.0
     ember-load-initializers: ^2.1.1
     ember-maybe-import-regenerator: ^0.1.6
     ember-qunit: ^4.6.0
@@ -1841,10 +1851,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/structure-icons@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "@hashicorp/structure-icons@npm:1.8.1"
-  checksum: e866264e8acc2be406e512bb5a23172869eb36c7087bb524e7f15bbc822bbddfdb748d47b3288dc44bd165660e0c5d680b71628a7f94a13d0a3ecc24a8b01895
+"@hashicorp/structure-icons@npm:1.9.0-0":
+  version: 1.9.0-0
+  resolution: "@hashicorp/structure-icons@npm:1.9.0-0"
+  checksum: 05ffd637bd45b908975ebca06b107a742a5f27063e628d4140b23a27496f75c5e0fb80926d54ffdc98fd3f694b35eee66d082a1a6468004fb45299c7f88cd826
   languageName: node
   linkType: hard
 
@@ -6509,6 +6519,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"broccoli-merge-files@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "broccoli-merge-files@npm:0.8.0"
+  dependencies:
+    broccoli-plugin: ^1.3.0
+    fast-glob: ^2.2.6
+    lodash.defaults: ^4.2.0
+    p-event: ^2.3.1
+  checksum: d2c4b1507f7cbb589045988437278f57cf0443a41546e4af5c263a677914d6116250b8fbbfd6690aa972ddf90d24d2b311b51d8895ecb0ffefdd4ac4a02d5b15
+  languageName: node
+  linkType: hard
+
 "broccoli-merge-trees@npm:^1.0.0":
   version: 1.2.4
   resolution: "broccoli-merge-trees@npm:1.2.4"
@@ -7497,6 +7519,13 @@ __metadata:
   version: 2.2.6
   resolution: "classnames@npm:2.2.6"
   checksum: 490eaeca5931846737ffd33e472a701d268d5b8bc5717dd4cf108a127b06e86e05350e06799abbbe763a0e4c945b4217f6700b7ae00ddc703505682c370e5cf2
+  languageName: node
+  linkType: hard
+
+"cldr-core@npm:^36.0.0":
+  version: 36.0.0
+  resolution: "cldr-core@npm:36.0.0"
+  checksum: ec1e05c00bb48cfd11becd7f6e80d0757d5644d6db5f298e69dcad12b63b831ad4ddfd3da5e149458b8e8028710d9ca3072893fa7080bc58c037abad2ffff463
   languageName: node
   linkType: hard
 
@@ -9056,7 +9085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^1.6.0":
+"ember-auto-import@npm:^1.5.3, ember-auto-import@npm:^1.6.0":
   version: 1.6.0
   resolution: "ember-auto-import@npm:1.6.0"
   dependencies:
@@ -9134,7 +9163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^7.1.2, ember-cli-babel@npm:^7.11.0, ember-cli-babel@npm:^7.12.0, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.20.5, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.7.3":
+"ember-cli-babel@npm:^7.1.2, ember-cli-babel@npm:^7.11.0, ember-cli-babel@npm:^7.12.0, ember-cli-babel@npm:^7.18.0, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.20.5, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.7.3":
   version: 7.22.1
   resolution: "ember-cli-babel@npm:7.22.1"
   dependencies:
@@ -9373,6 +9402,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-cli-typescript@npm:^4.0.0-rc.1":
+  version: 4.0.0
+  resolution: "ember-cli-typescript@npm:4.0.0"
+  dependencies:
+    ansi-to-html: ^0.6.6
+    broccoli-stew: ^3.0.0
+    debug: ^4.0.0
+    execa: ^4.0.0
+    fs-extra: ^9.0.1
+    resolve: ^1.5.0
+    rsvp: ^4.8.1
+    semver: ^7.3.2
+    stagehand: ^1.0.0
+    walk-sync: ^2.2.0
+  checksum: 64e1a1efa995b2edc6ba584aafe6c8ea28b8470e43e27d263b8e9f18158b4b1dcc8919137e821def47dbb76fc90924dd07b3e27085103c6034482fe69dcac2b9
+  languageName: node
+  linkType: hard
+
 "ember-cli-version-checker@npm:^2.0.0, ember-cli-version-checker@npm:^2.1.0, ember-cli-version-checker@npm:^2.1.1, ember-cli-version-checker@npm:^2.1.2":
   version: 2.2.0
   resolution: "ember-cli-version-checker@npm:2.2.0"
@@ -9538,6 +9585,38 @@ __metadata:
   version: 2.0.1
   resolution: "ember-export-application-global@npm:2.0.1"
   checksum: 298df6e6c665476fb3e7d70daa7d8c67eada8a378c9fb2100934c8f1526b01952a187a8bd6f28224a60c2f5c9a7733f823bb892ee14cb789b4817976212f6e6d
+  languageName: node
+  linkType: hard
+
+"ember-intl@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "ember-intl@npm:5.5.0"
+  dependencies:
+    broccoli-caching-writer: ^3.0.3
+    broccoli-funnel: ^3.0.3
+    broccoli-merge-files: ^0.8.0
+    broccoli-merge-trees: ^4.2.0
+    broccoli-source: ^3.0.0
+    broccoli-stew: ^3.0.0
+    calculate-cache-key-for-tree: ^2.0.0
+    cldr-core: ^36.0.0
+    ember-auto-import: ^1.5.3
+    ember-cli-babel: ^7.18.0
+    ember-cli-typescript: ^4.0.0-rc.1
+    extend: ^3.0.2
+    fast-memoize: ^2.5.2
+    has-unicode: ^2.0.1
+    intl-messageformat: ^9.3.6
+    intl-messageformat-parser: ^6.0.5
+    js-yaml: ^3.13.1
+    json-stable-stringify: ^1.0.1
+    locale-emoji: ^0.3.0
+    lodash.castarray: ^4.4.0
+    lodash.last: ^3.0.0
+    lodash.omit: ^4.5.0
+    mkdirp: ^1.0.4
+    silent-error: ^1.1.1
+  checksum: d98d500e1f513a5a45be250da965fdbebcb37a14482a0db058f45c26dadc461f8a8711257b8dd4ed1056f2e2a2291f758b30af800e1ffac9f21297f908074500
   languageName: node
   linkType: hard
 
@@ -10394,7 +10473,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.3":
+"execa@npm:^4.0.0, execa@npm:^4.0.3":
   version: 4.0.3
   resolution: "execa@npm:4.0.3"
   dependencies:
@@ -10506,7 +10585,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:~3.0.2":
+"extend@npm:^3.0.0, extend@npm:^3.0.2, extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 1406da1f0c4b00b839497e4cdd0ec4303ce2ae349144b7c28064a5073c93ce8c08da4e8fb1bc5cb459ffcdff30a35fc0fe54344eb88320e70100c1baea6f195c
@@ -10554,7 +10633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^2.0.2":
+"fast-glob@npm:^2.0.2, fast-glob@npm:^2.2.6":
   version: 2.2.7
   resolution: "fast-glob@npm:2.2.7"
   dependencies:
@@ -10593,6 +10672,13 @@ __metadata:
   version: 2.0.6
   resolution: "fast-levenshtein@npm:2.0.6"
   checksum: a2d03af3088b0397633e007fb3010ecfa4f91cae2116d2385653c59396a1b31467641afa672a79e6f82218518670dc144128378124e711e35dbf90bc82846f22
+  languageName: node
+  linkType: hard
+
+"fast-memoize@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "fast-memoize@npm:2.5.2"
+  checksum: 88bd91488039c0e04131d5382b8ea084268f144ce14ab36c360dd04f7792ac0c419e125b0fe6e6f41e77f03d1f703b31697475b2e95889ca86510623e2f0d904
   languageName: node
   linkType: hard
 
@@ -11219,7 +11305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^9.0.0":
+"fs-extra@npm:^9.0.0, fs-extra@npm:^9.0.1":
   version: 9.0.1
   resolution: "fs-extra@npm:9.0.1"
   dependencies:
@@ -11995,7 +12081,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"has-unicode@npm:^2.0.0":
+"has-unicode@npm:^2.0.0, has-unicode@npm:^2.0.1":
   version: 2.0.1
   resolution: "has-unicode@npm:2.0.1"
   checksum: ed3719f95cbd7dada9e3fde6fad113eae6d317bc8e818a2350954914c098ca6eddb203261af2c291c49a14c52f83610becbc7ab8d569bee81261b9c260a435f2
@@ -12775,6 +12861,27 @@ fsevents@^1.2.7:
   version: 2.2.0
   resolution: "interpret@npm:2.2.0"
   checksum: c89b6aa67f6957ab57e3f12c406043ea6a8a00bfd4b36bdb914080a973574bee40e25afc0b162bcab9793e39744c90cc03e23150a79ad6a4b9ea31291a23ced4
+  languageName: node
+  linkType: hard
+
+"intl-messageformat-parser@npm:^6.0.10, intl-messageformat-parser@npm:^6.0.5":
+  version: 6.0.10
+  resolution: "intl-messageformat-parser@npm:6.0.10"
+  dependencies:
+    "@formatjs/ecma402-abstract": ^1.2.5
+    tslib: ^2.0.1
+  checksum: 2722bbd20aef4b90b00d84d50227edb539cc07ae3d5fab3a2448bcded1afd0795cdf6c781940717f85c1f1133721384292b9f826bb82f08b3df2566c1a350bac
+  languageName: node
+  linkType: hard
+
+"intl-messageformat@npm:^9.3.6":
+  version: 9.3.11
+  resolution: "intl-messageformat@npm:9.3.11"
+  dependencies:
+    fast-memoize: ^2.5.2
+    intl-messageformat-parser: ^6.0.10
+    tslib: ^2.0.1
+  checksum: 796edb13ce65c4202fcd62c6dadf001552724471e6a422ed4f45f35a4e5ed836290487199c71c49eafe8dcc613ed3b5b176f6d65dfc382c8d0edb0076e2062a4
   languageName: node
   linkType: hard
 
@@ -14074,6 +14181,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"locale-emoji@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "locale-emoji@npm:0.3.0"
+  checksum: b40226acd93e2a6a4d276bca876bfc466d8ebd425fda6797cbac5dd3709f9fba3776deb8c2e42f3b831687f0b1a1c24ef20f8c2f35e5da4acc735f49b0fec505
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^2.0.0":
   version: 2.0.0
   resolution: "locate-path@npm:2.0.0"
@@ -14226,7 +14340,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash.defaults@npm:^4.0.1":
+"lodash.defaults@npm:^4.0.1, lodash.defaults@npm:^4.2.0":
   version: 4.2.0
   resolution: "lodash.defaults@npm:4.2.0"
   checksum: fde72e71f7b7ece10c24e43dd601574168467d50bc76687302d40de341d5cb8e35b100105d938458747d2ad5f20d8bb736e62523ef39d1a8b40f7307c50f10ac
@@ -14310,6 +14424,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"lodash.last@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "lodash.last@npm:3.0.0"
+  checksum: 108afff226a1430bccc806c78c94c7231b78519c7df49b09aa7eb074baf8d1e1f272200e97230d816cd9b5370df7f08c7812840fa97f4d4b2bbcfd49b562d97e
+  languageName: node
+  linkType: hard
+
 "lodash.map@npm:^4.4.0":
   version: 4.6.0
   resolution: "lodash.map@npm:4.6.0"
@@ -14324,7 +14445,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash.omit@npm:^4.1.0":
+"lodash.omit@npm:^4.1.0, lodash.omit@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.omit@npm:4.5.0"
   checksum: b0bca85eb18f178902819b7a78f1770448c86b43407235085d987ea9711246ef8880acc3a0009bef8ac9fbb9ab104d58e0087e0a62ff59d9300e6e25e723ae51
@@ -15878,6 +15999,15 @@ fsevents@^1.2.7:
   version: 3.0.0
   resolution: "p-defer@npm:3.0.0"
   checksum: 1625daccbd66a94ee69348b82828415c7a5a60aaf1e4cbb6819c6afa7b19abe7540e3f5c1949cc7f015cc39f93b3a85ecf7608b10175d1e6b791c0c19de71095
+  languageName: node
+  linkType: hard
+
+"p-event@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "p-event@npm:2.3.1"
+  dependencies:
+    p-timeout: ^2.0.1
+  checksum: b3e45e6affb7a3577d2e95169569f9a5fabbe65fac73083b9da3ad761844601728070adc61d5ea3491cb08b3eb6fa1fff90ce114dbcb20a3d250c1593e2fd5cb
   languageName: node
   linkType: hard
 
@@ -19891,6 +20021,13 @@ fsevents@^1.2.7:
   version: 1.13.0
   resolution: "tslib@npm:1.13.0"
   checksum: 5dc3bdaea3b67c76ef4a14c28fcb2171da7bcf292fd9c59a260098729626b1ce766c52b588f08e324ed9a0c52ea8a93a815920f980d75981abc9d850fbf310fb
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.0.1":
+  version: 2.0.3
+  resolution: "tslib@npm:2.0.3"
+  checksum: 447bfca5deaa157806c3f77eaba74d05dd0b38b014e47ce79d98b5c77ce7d91b00a687ba13ca1b5a74d35ca1098ac7a072c0a97fad06f0266612f2a03a6c8e8f
   languageName: node
   linkType: hard
 

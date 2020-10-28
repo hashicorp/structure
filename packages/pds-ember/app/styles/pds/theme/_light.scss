@@ -272,6 +272,10 @@ $codeBlock-lineHeight: $lineHeight;
 $control-height: var(--pds-control-height);
 $control-fontSize: var(--pds-control-fontSize);
 
+///----------------------------------------///
+/// Breadcrumb Nav
+///----------------------------------------///
+$breadcrumbs-fontSize: $_size14;
 
 // deprecated vars (prevent breaking existing consumption)
 @import "light-deprecated";

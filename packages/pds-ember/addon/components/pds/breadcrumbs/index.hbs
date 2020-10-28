@@ -1,0 +1,12 @@
+<nav
+  class="pds-breadcrumbs"
+  aria-label={{t 'pds.components.breadcrumbs.aria.label'}}
+  role="navigation"
+  ...attributes
+  data-test-root
+>
+  {{ yield (hash
+    Crumb=(component 'pds/breadcrumbs/crumb')
+    Divider=(component 'pds/breadcrumbs/divider')
+  )}}
+</nav>

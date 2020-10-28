@@ -1,3 +1,12 @@
-<div class="pds-icon" ...attributes data-test-root>
-  {{ svg-jar @type aria-hidden="true" }}
+<div
+  class="pds-icon"
+  ...attributes
+  data-test-root
+>
+  <div
+    class="pds-icon__svgWrapper"
+    data-test-wrapper
+  >
+    {{ svg-jar @type aria-hidden="true" }}
+  </div>
 </div>

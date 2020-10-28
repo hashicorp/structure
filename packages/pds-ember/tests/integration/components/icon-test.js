@@ -32,10 +32,10 @@ module('Integration | Component | Icon', function(hooks) {
         .doesNotHaveClass(/pds--.*/, 'does not have any unexpected classes')
     });
 
-    test('should not render any child elements', async function(assert) {
+    test('should not render any svg elements', async function(assert) {
       assert
-        .dom('[data-test-root] *')
-        .doesNotExist('does not render child elements');
+        .dom('[data-test-wrapper] *')
+        .doesNotExist('does not render svg elements');
     });
 
     test('should not render text content', async function(assert) {
@@ -70,12 +70,12 @@ module('Integration | Component | Icon', function(hooks) {
   });
 
   module('@type="missing-icon-dne"', function() {
-    test('should not render any child elements', async function(assert) {
+    test('should not render any svg elements', async function(assert) {
       await render(hbs`<Pds::Icon @type="missing-icon-dne" />`);
 
       assert
-        .dom('[data-test-root] *')
-        .doesNotExist('does not render child elements');
+        .dom('[data-test-wrapper] *')
+        .doesNotExist('does not render svg elements');
     });
   });
 
