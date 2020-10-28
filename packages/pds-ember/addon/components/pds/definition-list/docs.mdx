@@ -1,0 +1,43 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Definition List';
+
+# Definition List
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::DefinitionList as |List|>
+  <List.Key>Key 1</List.Key>
+  <List.Value>Value 1</List.Value>
+
+  <List.Key>Key 2</List.Key>
+  <List.Value>Value 2</List.Value>
+</Pds::DefinitionList>
+```
+<ArgsTable of="PdsDefinitionList" />
+
+
+## Styling
+```scss
+@use "pds/components/definition-list";
+```
+
+
+## Markup
+The `<Pds::DefinitionList>` and its subcomponents handle generation of semantic
+HTML markup.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+TBD...

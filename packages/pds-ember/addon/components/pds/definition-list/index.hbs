@@ -1,0 +1,13 @@
+<dl
+  class="
+    pds-definitionList
+    {{if @stacked 'pds--stacked'}}
+  "
+  ...attributes
+  data-test-definition-list
+>
+  {{yield (hash
+    Key=(component 'pds/definition-list/key')
+    Value=(component 'pds/definition-list/value')
+  )}}
+</dl>
