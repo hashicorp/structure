@@ -22,6 +22,7 @@ $height: theme.$control-height;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: $height;
+  line-height: 1;
 
   > * {
     grid-column: 1;
