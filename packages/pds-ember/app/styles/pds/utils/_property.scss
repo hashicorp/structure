@@ -1,0 +1,9 @@
+$_module: "PDS.Utils.Property";
+/// mixins for vendor-prefixed properties
+
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
+@mixin appearance($value) {
+  /* [debug] #{$_module}@appearance($value) */
+  -webkit-appearance: $value; // Safari
+          appearance: $value; // compliant browsers
+}
