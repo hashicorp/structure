@@ -1,0 +1,15 @@
+<a
+  class="pds--external"
+  rel="noopener noreferrer"
+  target="_blank"
+  ...attributes
+  data-test-external-link
+>
+  {{yield}}
+  {{#unless @hideIcon}}
+    <Pds::Icon
+      @type="exit"
+      data-test-external-link-icon
+    />
+  {{/unless}}
+</a>

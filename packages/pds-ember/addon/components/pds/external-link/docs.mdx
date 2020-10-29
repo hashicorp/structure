@@ -1,0 +1,57 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / External Link';
+
+# External Link
+A wrapper for an HTML anchor element (`<a>`), preconfigured with the intent
+to define a hyperlink that opens in a new window or tab.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::ExternalLink
+  @showIcon={{boolean}}
+>
+  {{! block content goes here}}
+</Pds::ExternalLink>
+```
+<ArgsTable of="PdsExternalLink" />
+
+
+## Styling
+```scss
+@use "pds/components/external-link";
+```
+
+
+## Markup
+The `<Pds::ExternalLink>` component handles generation of an HTML anchor
+element (`<a>`) with the following pre-defined attributes.
+
+* `[target="_blank"]`
+* `[rel="noopener noreferrer"]`
+
+Additional HTML attributes may be added as necessary to configure markup for
+specific use cases.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+* [Link](?path=/docs/components-link--index)
+* [About `rel=noopener`: What problems does it solve?](https://mathiasbynens.github.io/rel-noopener/)
+* [Opens External Anchors Using rel="noopener"](https://developers.google.com/web/tools/lighthouse/audits/noopener)
+* Link type "noopener"
+  * [WHATWG](https://html.spec.whatwg.org/multipage/links.html#link-type-noopener)
+  * [caniuse](https://caniuse.com/#feat=rel-noopener)
+* Link type "noreferrer"
+  * [WHATWG](https://html.spec.whatwg.org/multipage/links.html#link-type-noreferrer)
+  * [caniuse](https://caniuse.com/#feat=rel-noreferrer)
