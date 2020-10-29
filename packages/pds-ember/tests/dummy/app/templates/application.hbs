@@ -1,9 +1,24 @@
-{{! TODO: apply Pds::App (shell) }}
-<nav>
-  <LinkTo @route="index">Home</LinkTo>
-  <LinkTo @route="components.cta-link">
-    CtaLink
-  </LinkTo>
-</nav>
+<Pds::App as |App|>
+  <App.ModalArea></App.ModalArea>
 
-{{outlet}}
+  <App.Header>Header</App.Header>
+
+  <App.Banner>Banner</App.Banner>
+
+  <App.Sidebar>
+    <nav>
+      <LinkTo @route="index">Home</LinkTo>
+      <LinkTo @route="components.cta-link">
+        CtaLink
+      </LinkTo>
+    </nav>
+  </App.Sidebar>
+
+  <App.Body>
+    {{outlet}}
+  </App.Body>
+
+  <App.Footer>Footer</App.Footer>
+
+  <App.Drawer>Drawer</App.Drawer>
+</Pds::App>

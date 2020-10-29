@@ -1,0 +1,71 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / App';
+
+# App
+The `Pds::App` component helps construct consistent application layouts.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::App
+  @showDrawer={{boolean}}
+  as |App|
+>
+  {{! keep :empty if no modal dialogs are displayed }}
+  <App.ModalArea></App.ModalArea>
+
+  {{! optional, full-width banner }}
+  <App.Banner>...<App.Banner>
+
+  <App.Header>
+    {{! a.k.a., "Top Nav" or "Nav Bar" }}
+  </App.Header>
+
+  <App.Sidebar>
+    {{! a.k.a., "Left Nav" }}
+  </App.Sidebar>
+
+  <App.Body>
+    {{! page content goes here }}
+  </App.Body>
+
+  <App.Footer>
+    {{! footer content here }}
+  </App.Footer>
+
+  {{! hidden by default }}
+  <App.Drawer>...</App.Drawer>
+</Pds::App>
+```
+<ArgsTable of="PdsApp" />
+
+
+## Styling
+```scss
+@use "pds/components/app";
+```
+
+
+## Markup
+The `<Pds::App>` and its subcomponents will handle generation of semantic markup.
+
+This includes:
+
+* a "top" anchor (`<a id="top"></a>`) to use for "back to top" link
+  functionality (`<a href="#top">`)
+
+
+## Accessibility
+* a "skip" link is automatically wired up to the `<App.Body>` element when used via `<Pds::App>`
+  to conform with [WCAG § 2.4.1: Bypass Blocks](https://www.w3.org/WAI/WCAG21/quickref/#bypass-blocks)
+
+
+## See Also
+TBD...
