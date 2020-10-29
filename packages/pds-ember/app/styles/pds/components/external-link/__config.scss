@@ -1,0 +1,15 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.ExternalLink";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../link/__config" as Link;
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Link.apply {
+    .pds--external {
+      @content;
+    }
+  }
+}
