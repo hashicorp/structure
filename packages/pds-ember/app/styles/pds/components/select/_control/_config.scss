@@ -24,6 +24,7 @@ $padding--inline: theme.$size--sm; // ~12px
   color: custom.$color;
   font-family: $fontFamily;
   font-size: $fontSize;
+  line-height: inherit;
   width: 100%;
 
   @include Pseudo.focus {
