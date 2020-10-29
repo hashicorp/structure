@@ -1,6 +1,7 @@
 $_module: "PDS.Components.Select._Control";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../../theme";
+@use "../../../utils/property" as Prop;
 @use "../../../utils/pseudo" as Pseudo;
 @use "../_custom";
 
@@ -16,7 +17,7 @@ $padding--inline: theme.$size--sm; // ~12px
 
 // @protected
 @mixin appearance {
-  appearance: none;
+  @include Prop.appearance(none);
   background-color: custom.$backgroundColor;
   border-radius: custom.$borderRadius;
   border: custom.$borderWidth solid transparent;
