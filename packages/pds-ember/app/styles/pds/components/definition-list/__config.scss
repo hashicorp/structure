@@ -1,0 +1,123 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.DefinitionList";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/_config" as Typography;
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../tokens/font";
+@use "../../utils/media" as Media;
+@use "../_config" as Component;
+
+// atomic vars
+$color: color.$ui-gray-900;
+$columnGap: theme.$size--lg; // 1.5rem (24px)
+$rowGap: theme.$size--lg; // 1.5rem (24px)
+// composed vars
+$gridGap: $rowGap $columnGap;
+
+/// Private Mixins
+
+@mixin __Key {
+  dt {
+    @content;
+  }
+}
+
+@mixin __Value {
+  dd {
+    @content;
+  }
+}
+
+// [Key 1]
+// [Value 1]
+//
+// ...
+//
+// [Key N]
+// [Value N]
+@mixin _stackLayout {
+  display: block;
+
+  @include __Key {
+    margin-block-end: theme.$size--2xs; // 0.25rem (4px)
+  }
+
+  @include __Value {
+    margin-block-end: $rowGap;
+  }
+}
+
+//   2fr    3fr
+// +------+-------+
+// | key  | value | auto
+// +------+-------+
+// | *    | *     |
+// +------+-------+
+@mixin _gridLayout {
+  display: grid;
+  grid-gap: $gridGap;
+  grid-template-columns: 2fr 3fr;
+
+  @include __Key {
+    // always placed in block _start_ column
+    grid-column: 1;
+    margin: 0;
+  }
+
+  @include __Value {
+    // always placed in block _end_ column
+    grid-column: 2;
+    margin: 0;
+  }
+}
+
+
+/// Public Mixins
+
+@mixin whenStacked {
+  &.pds--stacked {
+    @content;
+  }
+}
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+
+  // mobile first
+  @include _stackLayout;
+
+  // desktop second
+  @include Media.pc {
+    @supports (display: grid) {
+      @include _gridLayout;
+
+      @include whenStacked {
+        @include _stackLayout;
+      }
+    }
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Typography.Interface();
+  color: $color;
+
+  @include __Key {
+    font-weight: font.weight(semibold);
+  }
+
+  @include __Value {
+    font-weight: font.weight(normal);
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-definitionList {
+    @content;
+  }
+}

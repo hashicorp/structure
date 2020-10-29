@@ -35,7 +35,7 @@ $_module: "PDS.Core.Typography";
   }
 }
 
-@mixin Body($size) {
+@mixin Body($size: default) {
   /* [debug] #{$_module}@Body */
   font-weight: theme.$fontWeight;
   line-height: theme.$lineHeight;
@@ -54,7 +54,7 @@ $_module: "PDS.Core.Typography";
   }
 }
 
-@mixin Interface($size) {
+@mixin Interface($size: default) {
   /* [debug] #{$_module}@Interface(#{$size}) */
   font-weight: theme.$ui-fontWeight;
   line-height: theme.$ui-lineHeight;
