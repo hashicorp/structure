@@ -1,27 +1,43 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { module, test } from 'qunit'
+import { setupRenderingTest } from 'ember-qunit'
+import { render } from '@ember/test-helpers'
+import { hbs } from 'ember-cli-htmlbars'
 
-module('Integration | Component | <%= classifiedModuleName %>', function(hooks) {
-  setupRenderingTest(hooks);
+const ROOT = '[data-test-root]'
+
+module('Integration | Components.<%= classifiedModuleName %>', function(hooks) {
+  setupRenderingTest(hooks)
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value')
+    // Handle any actions with this.set('myAction', function(val) { ... })
 
-    await render(hbs`<<%= tagName %> />`);
+    await render(hbs`
+      <<%= tagName %>
+        data-foo="bar"
+      />
+    `)
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert
+      .dom(ROOT)
+      .exists()
+      .hasNoText()
+      .hasAttribute('data-foo', 'bar', 'applies ...attributes')
+      .hasClass('<%= cssClassName %>')
 
     // Template block usage:
     await render(hbs`
       <<%= tagName %>>
         template block text
       </<%= tagName %>>
-    `);
+    `)
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
-  });
-});
+    assert
+      .dom(ROOT)
+      .hasText('template block text')
+
+    // Remove next line and update tests
+    assert.ok(false, 'write additional tests')
+  })
+})
 

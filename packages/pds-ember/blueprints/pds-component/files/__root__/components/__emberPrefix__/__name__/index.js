@@ -1,15 +1,17 @@
-import Component from '@glimmer/component';
+import Component from '@glimmer/component'
+
 /**
  * @class <%= jsClass %>
  */
-export default class extends Component {
+export default class <%= jsClass %> extends Component {
 <% if (!dummy) { %>
   /**
    * Is component awesome?
    *
    * @argument isAwesome
    * @type { boolean }
+   * @default true
    */
-  isAwesome = true;
+  isAwesome = true
 <% } %>
 }

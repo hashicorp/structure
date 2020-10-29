@@ -55,6 +55,7 @@ module.exports = {
 
     let _locals = {
       PREFIX,
+      camelModule,
       cssClassName,
       emberPrefix,
       jsClass,

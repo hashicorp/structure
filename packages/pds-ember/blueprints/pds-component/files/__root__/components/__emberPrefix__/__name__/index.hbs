@@ -1,3 +1,10 @@
-<div class="<%= cssClassName %>" data-test-root>
+<div
+  class="<%= cssClassName %>"
+  ...attributes
+  data-test-root
+>
+  {{#if @isAwesome}}
+    Awesome!
+  {{/if}}
   {{ yield }}
 </div>

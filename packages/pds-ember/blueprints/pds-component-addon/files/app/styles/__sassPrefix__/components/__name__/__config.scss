@@ -1,0 +1,45 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.<%= classifiedModuleName %>";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../_config" as Component;
+
+//==========================================================================//
+// Define variables, functions, mixins, etc.
+//
+// - Nothing defined or imported in this module should generate CSS on its own.
+//==========================================================================//
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(<%= camelModule %>, $styles);
+}
+
+// TODO: migrate definition out of this module (avoid generating CSS)
+$DEFAULT: (
+  color: inherit,
+);
+:root {
+  @include theme($DEFAULT);
+}
+
+$color: var(--pds-<%= camelModule %>-color);
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  // TBD...
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  color: $color;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .<%= cssClassName %> {
+    @content;
+  }
+}
