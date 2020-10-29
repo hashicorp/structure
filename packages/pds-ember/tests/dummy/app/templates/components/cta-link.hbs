@@ -1,0 +1,18 @@
+<div id="tests">
+  <Pds::CtaLink
+    @route="index"
+    data-foo="bar"
+    data-test-cta-enabled
+  >
+    Enabled CTA
+  </Pds::CtaLink>
+
+  <Pds::CtaLink
+    @route="index"
+    @disabled={{true}}
+    tabindex="-1"
+    data-test-cta-disabled
+  >
+    Disabled CTA
+  </Pds::CtaLink>
+</div>

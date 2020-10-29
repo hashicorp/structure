@@ -1,0 +1,54 @@
+import { Props } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / CtaLink';
+
+# CTA Link
+The CTA Link component extends the Ember `<LinkTo>` component by applying
+additional CSS class names in order to give the resulting hyperlink a
+button-like appearance.
+
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+`<Pds::CtaLink />` has the same functionality as the
+[`<LinkTo />`](https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/LinkTo?anchor=LinkTo)
+Ember component.
+
+**NOTE:** `<Pds::CtaLink>` renders a hyperlink (`<a href="...">`), which cannot
+be semantically `:disabled`.
+
+### @disabled
+**WARNING: Use sparingly!**
+
+Because `<Pds::CtaLink>` extends `<LinkTo>`, it also supports the use of the
+`@disabled` argument.  However, this will only prevent Ember route transitions
+and will not prevent element focus.
+
+
+## Styling
+```scss
+@use "pds/components/cta-link";
+```
+
+
+## Markup
+The `<Pds::CtaLink>` component handles generation of semantic HTML markup.
+
+
+## Accessibility
+* `@disabled` applies a CSS class for styling and prevents route transitions,
+  but does not prevent focus.
+  - **Use sparingly!**
+  - Keyboard focus can be removed by setting `[tabindex="-1"]` on the component
+    (removing it from the focus order).
+  - Mouse focus can only be prevented by blocking the 'click' event via a
+    JavaScript event listener.
+
+
+## See Also
+TBD...
