@@ -1,0 +1,5 @@
+pds:
+  components:
+    breadcrumbs:
+      aria:
+        label: breadcrumbs
