@@ -280,5 +280,10 @@ $control-fontSize: var(--pds-control-fontSize);
 ///----------------------------------------///
 $breadcrumbs-fontSize: $_size14;
 
+///----------------------------------------///
+/// Nav Link
+///----------------------------------------///
+$navLink-fontSize: $_size14;
+
 // deprecated vars (prevent breaking existing consumption)
 @import "light-deprecated";

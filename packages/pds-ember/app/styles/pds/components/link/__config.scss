@@ -10,21 +10,40 @@ $_module: "PDS.Components.Link";
 }
 
 // Themable Properties with defaults
+$backgroundColor: var(--pds-link-backgroundColor, transparent);
+$borderColor: var(--pds-link-borderColor, transparent);
 $boxShadow: var(--pds-link-boxShadow, none);
 $color: var(--pds-link-color, inherit);
-$borderBottomColor: var(--pds-link-borderBottomColor, transparent);
+$textDecoration: var(--pds-link-textDecoration, none);
 
 
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  border-bottom: 1px solid $borderColor;
   box-shadow: $boxShadow;
   color: $color;
   cursor: pointer;
-  text-decoration: none;
-  border-bottom: 1px solid $borderBottomColor;
+  text-decoration: $textDecoration;
 
   @include Pseudo.focus {
     outline: none;
+  }
+}
+
+// `<LinkTo>` applies the .active class to communicate that a link targets the
+// _current route_.  However, this can be confusing alongside the :active
+// pseudo-class, which indicates that the link is actively being _pressed_.
+//
+// Rather than override every `<LinkTo>`, we'll embrace the default behavior.
+// This mixin is provided to declaratively apply "current" styling in Sass
+// stylesheets, using the expected semantic naming.
+//
+// See https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/LinkTo#handling-current-route
+@mixin whenCurrent {
+  /* [debug] #{$_module}@whenCurrent */
+  &.active {
+    @content;
   }
 }
 

@@ -11,7 +11,7 @@ $DEFAULT: (
 );
 // :any-link:hover
 $HOVER: map.merge($DEFAULT, (
-  borderBottomColor: currentcolor,
+  borderColor: currentcolor,
 ));
 // :any-link:focus
 $FOCUS: map.merge($HOVER, (

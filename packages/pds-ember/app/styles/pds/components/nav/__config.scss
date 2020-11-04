@@ -1,0 +1,54 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Nav";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/_config" as Typography;
+@use "../../tokens/color";
+@use "../../tokens/scale";
+@use "../link/__config" as Link;
+@use "../link/nav/__config" as NavLink;
+
+$color: color.$ui-gray-400;
+$gapRow: scale.$lg--3;
+$paddingInline: scale.$lg--5;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include Link.apply {
+    @include NavLink.layout;
+  }
+
+  > * + * {
+    margin-block-start: $gapRow;
+  }
+
+  > section {
+    > header {
+      margin: 0;
+      padding: 0 $paddingInline;
+    }
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  color: $color;
+
+  @include Link.apply {
+    @include NavLink.appearance;
+  }
+
+  > section {
+    > header {
+      @include Typography.Interface(S);
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-nav {
+    @content;
+  }
+}
