@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Installation" />
+
+# Installing pds-ember
+
+In an Ember project, run:
+
+```
+ember install @hashicorp/pds-ember
+```
+
+This will install NPM dependencies automatically, but additional configuration
+may be required.
+
+* [Icons](#icons)
+* [Sass](#sass)
+
+
+## Icons
+(`ember-svg-jar` and `@hashicorp/structure-icons` are automatically installed
+as dependencies of `@hashicorp/pds-ember`)
+
+The `<Pds::Icon>` component uses `ember-svg-jar` to inline SVG icons in HTML
+markup, and multiple component templates use icons that are provided by
+`@hashicorp/structure-icons`.  However, these icons aren't loaded by default,
+so you'll need to add them to the `svgJar.paths` configuration.
+
+
+```javascript
+/* ember-cli-build.js */
+
+module.exports = function(defaults) {
+  let app = new EmberAddon(defaults, {
+    svgJar: {
+      paths: [
+        // exact path may vary depending on project file structure
+        'node_modules/@hashicorp/structure-icons/dist',
+      ]
+    }
+  })
+
+  return app.toTree()
+}
+```
+
+See [@hashicorp/structure-icons](https://github.com/hashicorp/structure-icons#ember-svg-jar)
+for additional configuration details.
+
+
+
+## Sass
+(`ember-cli-sass` and `sass` are automatically installed as dependencies of
+`@hashicorp/pds-ember`)
+
+By default, Ember addons only expose the top-level Sass module (i.e.,
+`@use "<addon>";`), but `@hashicorp/pds-ember` provides many useful Sass modules
+to simplify ad hoc styling in a way that minimizes deviation from the design
+system.
+
+Some project configurations may not require it, but if you encounter
+`Error: Can't find stylesheet to import.`
+when you try to `@use "pds/*";` modules, you'll need to update your
+`ember-cli-build.js` to add `@hashicorp/pds-ember` styles to the
+`sassOptions.includePaths` configuration.
+
+
+```javascript
+/* ember-cli-build.js */
+
+module.exports = function(defaults) {
+  let app = new EmberAddon(defaults, {
+    sassOptions: {
+      includePaths: [
+        // exact path may vary depending on project file structure
+        'node_modules/@hashicorp/pds-ember/app/styles',
+      ],
+    },
+  })
+
+  return app.toTree()
+}
+```

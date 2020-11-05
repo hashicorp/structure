@@ -1,4 +1,4 @@
-# pds-ember
+# @hashicorp/pds-ember
 
 Ember addon for building Structure-styled UIs.
 
@@ -8,55 +8,18 @@ Ember addon for building Structure-styled UIs.
 * Ember.js v3.16 or above
 * Ember CLI v2.13 or above
 * Node.js v10 or above
+* [Dart Sass](https://www.npmjs.com/package/sass) v1.23.0 or above
 
 
-# Installation
+# Installation & Usage
 
 ```
 ember install @hashicorp/pds-ember
 ```
+\*Additional configuration may be required.
 
-
-# Usage
-
-## Styles
-`ember-cli-sass` is required to make use of provided Sass assets.
-
-```
-ember install ember-cli-sass
-```
-\*The addon should handle installing the required Sass package, so there
-shouldn't be a need to explicitly install one.
-
-All Sass modules are namespaced under the `pds/*` prefix, so you can apply all
-available styles by adding the following to your `app/styles/app.scss`:
-
-```scss
-@use "pds";
-```
-
-
-## Icons
-This addon uses `ember-svg-jar` to inline SVG icons via the `<Pds::Icon>` component.
-
-```
-ember install ember-svg-jar
-```
-
-No icons are currently provided by the addon, so you'll need to add your own and
-configure your app to load them.
-
-```javascript
-let app = new EmberApp(defaults, {
-  svgJar: {
-    sourceDirs: [
-      'public',
-      'path/to/node_modules/package/with/icons',
-      // ...
-    ],
-  },
-});
-```
+Check out our comprehensive [documentation](https://structure.hashicorp.vercel.app/)
+for more details.
 
 
 # Contributing
