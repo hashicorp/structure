@@ -1,0 +1,38 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.TabNav";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../link/__config" as Link;
+@use "../link/tab/utils" as Tab;
+@use "./_top" as _Top;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include _Top.layout;
+
+  @include Link.apply {
+    @include Tab.base-layout;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include _Top.appearance;
+
+  @include Link.apply {
+    @include Tab.base-appearance;
+    @include Tab.default-appearance;
+
+    @include Link.whenCurrent {
+      @include Tab.current-appearance;
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-tabNav {
+    @content;
+  }
+}

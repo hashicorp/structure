@@ -1,0 +1,63 @@
+$_module: "PDS.Components.Link.Tab.Default";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../../theme";
+@use "../../../tokens/color";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../__config" as Link;
+
+// :any-link
+$DEFAULT: (
+  borderColor: transparent,
+  color: color.$ui-gray-500,
+  textDecoration: none,
+);
+$HOVER: map.merge($DEFAULT, (
+  backgroundColor: color.$ui-gray-100,
+  borderColor: theme.$borderColor,
+));
+$FOCUS: map.merge($DEFAULT, (
+  boxShadow: inset theme.$boxShadow--focus,
+));
+$FOCUS_HOVER: map.merge($FOCUS, $HOVER);
+// :active (pseudo-class) [transient]
+$ACTIVE: map.merge($HOVER, (
+  borderColor: theme.$action-base,
+));
+$ACTIVE_HOVER: map.merge($HOVER, $ACTIVE);
+// .disabled (class) [static]
+$DISABLED: (
+  color: color.$ui-gray-300,
+  backgroundColor: transparent,
+  borderColor: transparent,
+);
+
+// NOTE: Tabs on Top (above tab content)
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Link.theme($DEFAULT);
+
+  @include Pseudo.hover {
+    @include Link.theme($HOVER);
+  }
+
+  @include Pseudo.focus {
+    @include Link.theme($FOCUS);
+
+    @include Pseudo.hover {
+      @include Link.theme($FOCUS_HOVER);
+    }
+  }
+
+  @include Pseudo.active {
+    @include Link.theme($ACTIVE);
+
+    @include Pseudo.hover {
+      @include Link.theme($ACTIVE_HOVER);
+    }
+  }
+
+  &.disabled {
+    @include Link.theme($DISABLED);
+  }
+}
