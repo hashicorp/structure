@@ -72,11 +72,14 @@ $_size14: 0.875rem; // ~14px
 // queries.  Media Queries Level 5 spec will enable
 // this, but it's not yet available in any browser.
 
-// Tablets & Low-res PCs
+/// Mobile (small) -- low/medium res smartphones
+/// Mobile (large) -- Tablets (portrait) & high-res smartphones
+$media--xs: 30rem !default; // ~480px
+/// Desktop (small) -- Tablets (landscape) & Low-res PCs
 $media--sm: resolutions.$svga-width !default;
-// High-res PCs
+/// Desktop (medium) -- High-res screens
 $media--md: resolutions.$hd-width !default;
-// Ultra High-res PCs
+/// Desktop (large) -- High-definition screens (1080p and higher)
 $media--lg: resolutions.$fhd-width !default;
 
 
