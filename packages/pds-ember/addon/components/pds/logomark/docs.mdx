@@ -1,0 +1,55 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Logomark';
+
+# Logomark
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::Logomark ...attributes>
+  {{! SVG markup goes here }}
+</Pds::Logomark>
+```
+
+
+### Logomarks
+The following logomarks are available for use without custom SVG markup.
+
+```handlebars
+<Pds::Logomark::Consul />
+<Pds::Logomark::Hashicorp />
+<Pds::Logomark::Nomad />
+<Pds::Logomark::Terraform />
+<Pds::Logomark::Vault />
+```
+
+
+## Styling
+```scss
+@use "pds/components/logomark";
+```
+Logomarks are styled similar to the [Icon component](?path=/docs/components-icon--index).
+
+Each logomark is an inline-block element with a 1:1 aspect ratio and can be
+resized using the `font-size` CSS property.
+
+
+## Markup
+The `<Pds::Logomark>` component handles generation of common HTML markup for
+the predefined logomark subcomponents documented in [Logomarks](#logomarks),
+above.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+- [Icon](?path=/docs/components-icon--index)

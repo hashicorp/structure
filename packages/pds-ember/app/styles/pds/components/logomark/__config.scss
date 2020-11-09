@@ -1,0 +1,23 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Logomark";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../icon/__config" as Icon;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include Icon.layout;
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Icon.appearance;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-logomark {
+    @content;
+  }
+}
