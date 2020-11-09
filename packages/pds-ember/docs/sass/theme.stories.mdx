@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Sass / Theme" />
+
+# Theme
+The `pds/theme` module is intended to be the primary means of consuming
+design tokens for use in consuming applications.
+
+```sass
+@use "pds/theme";
+```
+
+## Responsive Breakpoints
+
+Screen Size          | Width             | Token
+-------------------- | ----------------- | -----
+**Mobile (small)**   | < 30rem   (480px) | _n/a_
+**Mobile (large)**   | ≥ 30rem   (480px) | `$media--xs`
+**Desktop (small)**  | ≥ 50rem   (800px) | `$media--sm`
+**Desktop (medium)** | ≥ 85rem  (1360px) | `$media--md`
+**Desktop (large)**  | ≥ 120rem (1920px) | `$media--lg`
+
+* Tablets tend to flip-flop between breakpoints depending on the device orientation.
+    * In portrait orientation, it may register as `Mobile (large)`
+    * In landscape orientation, it may register as `Desktop (small)`
