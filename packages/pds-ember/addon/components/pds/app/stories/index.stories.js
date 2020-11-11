@@ -23,7 +23,9 @@ export const Index = (args) => ({
     <Pds::App @showDrawer={{showDrawer}} as |App|>
       <App.Banner></App.Banner>
       <App.Header>Header</App.Header>
-      <App.Sidebar>Sidebar</App.Sidebar>
+      <App.Sidebar>
+        <Docs::Nav />
+      </App.Sidebar>
       <App.Body>Body</App.Body>
       <App.Footer>Footer</App.Footer>
       <App.Drawer>Drawer</App.Drawer>

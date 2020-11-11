@@ -1,0 +1,90 @@
+/// Styles for links in vertical nav (See pds/components/nav)
+$_module: "PDS.Components.Link.Nav";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../__config" as Link;
+@use "../../../theme";
+@use "../../../tokens/color";
+@use "../../../tokens/scale";
+@use "../../../utils/pseudo" as Pseudo;
+
+$paddingBlock: scale.$sm--2;
+$paddingInline: scale.$lg--5;
+
+// :any-link
+$DEFAULT: (
+  borderColor: transparent,
+  color: color.$ui-gray-200,
+);
+$HOVER: map.merge($DEFAULT, (
+  backgroundColor: rgba(white, 0.05), // TODO: switch to solid color
+  color: color.$white,
+  textDecoration: underline,
+));
+$FOCUS: map.merge($DEFAULT, (
+  boxShadow: inset theme.$boxShadow--focus,
+  textDecoration: underline,
+));
+// :active (pseudo-class) [transient]
+$ACTIVE: map.merge($FOCUS, (
+  backgroundColor: rgba(white, 0.1),
+  color: color.$white,
+));
+// .active (class) [static]
+$CURRENT: map.merge($ACTIVE, (
+  borderColor: color.$ui-gray-300,
+  boxShadow: none,
+  textDecoration: none,
+));
+
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: block;
+  padding: $paddingBlock $paddingInline;
+  width: 100%;
+}
+
+@mixin appearance {
+  border-color: Link.$borderColor; // TODO: convert to var()
+  border-style: solid;
+  border-width: 0 scale.$sm--3 0 0; // TODO: convert to $borderWidth
+  font-size: theme.$navLink-fontSize;
+
+  @include Link.theme($DEFAULT);
+
+  /* [debug] #{$_module}@appearance */
+  @include Pseudo.hover {
+    @include Link.theme($HOVER);
+  }
+
+  @include Pseudo.focus {
+    @include Link.theme($FOCUS);
+  }
+
+  // :active (pseudo-class) = "pressed"/mousedown/keydown [transient]
+  //         - applied as user is pressing the link (before navigation)
+  @include Pseudo.active {
+    @include Link.theme($ACTIVE);
+  }
+
+  // .active (class) = "current route" [static]
+  //         - default class name applied by `<LinkTo />`
+  @include Link.whenCurrent {
+    @include Link.theme($CURRENT);
+  }
+
+  // `<LinkTo @disabled={{true}}>`
+  &.disabled {
+    // TBD...
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include Nav.apply {
+    @include Link.apply {
+      @content;
+    }
+  }
+}

@@ -6,12 +6,21 @@
   <App.Banner>Banner</App.Banner>
 
   <App.Sidebar>
-    <nav>
-      <LinkTo @route="index">Home</LinkTo>
-      <LinkTo @route="components.cta-link">
-        CtaLink
-      </LinkTo>
-    </nav>
+    <Pds::Nav>
+      <section>
+        <LinkTo @route="index">Home</LinkTo>
+        <Pds::ExternalLink href="/tests?hidepassed&dockcontainer">
+          Tests
+        </Pds::ExternalLink>
+      </section>
+
+      <section>
+        <header>Components</header>
+        <LinkTo @route="components.cta-link">
+          CtaLink
+        </LinkTo>
+      </section>
+    </Pds::Nav>
   </App.Sidebar>
 
   <App.Body>

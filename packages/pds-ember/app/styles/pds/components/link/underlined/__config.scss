@@ -6,7 +6,7 @@ $_module: "PDS.Components.Link.Underlined";
 @use "../default/__config" as DefaultLink;
 
 $DEFAULT: map.merge(DefaultLink.$DEFAULT, (
-  borderBottomColor: currentColor,
+  borderColor: currentColor,
   color: currentColor,
 ));
 

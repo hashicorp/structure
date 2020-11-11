@@ -6,18 +6,18 @@ $_module: "PDS.Components.Link.Incognito";
 @use "../default/__config" as DefaultLink;
 
 $DEFAULT: map.merge(DefaultLink.$DEFAULT, (
-  borderBottomColor: transparent,
+  borderColor: transparent,
   color: currentColor,
 ));
 
 $HOVER: map.merge(DefaultLink.$HOVER, (
-  borderBottomColor: transparent,
+  borderColor: transparent,
 ));
 
 $FOCUS: DefaultLink.$FOCUS;
 
 $ACTIVE: map.merge(DefaultLink.$ACTIVE, (
-  borderBottomColor: transparent,
+  borderColor: transparent,
 ));
 
 
