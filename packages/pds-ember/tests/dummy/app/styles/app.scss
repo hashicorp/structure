@@ -1,8 +1,9 @@
 // load PDS styles in DEV mode
 @use "pds/config" with ($env: DEV);
+@use "pds/tokens/font" as Font;
 @use "pds";
 
-@use "pds/tokens/font" as Font;
+@use "./_shame";
 
 // load additional styles for docs
 @mixin checkered-background {

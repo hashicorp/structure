@@ -1,0 +1,17 @@
+@use "pds/theme";
+
+// TODO: replace with <Pds::Page> styles
+.pds-page {
+  > * {
+    margin-block-end: theme.$size--2xl;
+  }
+}
+
+// TODO: replace with proper PDS table styles
+.pds-table {
+  td, th {
+    font-weight: normal;
+    padding: theme.$size--2xs;
+    text-align: left;
+  }
+}
