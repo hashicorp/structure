@@ -1,0 +1,26 @@
+// TOP Variant: tabs above content
+$_module: "PDS.Components.TabNav.Top";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../link/__config" as Link;
+
+$borderColor: theme.$borderColor;
+$borderWidth: 1px;
+
+@mixin layout {
+  display: flex;
+  border-bottom: $borderWidth solid $borderColor;
+
+  // FIXME: how should this [over]flow with constrained dimensions?
+  //overflow-x: auto; // scrollbar interferes with borders
+
+  @include Link.apply {
+    margin-bottom: -($borderWidth);
+  }
+}
+
+@mixin appearance {
+  @include Link.apply {
+    border-bottom: 3px solid Link.$borderColor;
+  }
+}
