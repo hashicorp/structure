@@ -1,0 +1,15 @@
+<div
+  class="pds-banner pds-banner--{{this.variant}}"
+  ...attributes
+  data-test-banner
+>
+  <div class="pds-banner__icon">
+    <Pds::Icon @type={{this.iconType}} />
+  </div>
+
+  {{ yield (hash
+    Header=(component 'pds/banner/header')
+    Body=(component 'pds/banner/body')
+    Footer=(component 'pds/banner/footer')
+  )}}
+</div>
