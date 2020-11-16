@@ -1,0 +1,162 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.CheckboxField.Facade";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../../theme";
+@use "../../../tokens/color";
+@use "../../../utils/env";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../../_config" as Component;
+
+// public theming
+$backgroundColor: var(--pds-checkboxFacade-backgroundColor, transparent);
+$borderColor: var(--pds-checkboxFacade-borderColor, transparent);
+$boxShadow: var(--pds-checkboxFacade-boxShadow, none);
+$color: var(--pds-checkboxFacade-color, currentColor); // "tick" color (may be invisible)
+$cursor: var(--pds-checkboxFacade-cursor, auto);
+// "private" theme var
+$__tick-visibility: var(--pds-checkboxFacade-tick-visibility, hidden);
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(checkboxFacade, $styles);
+}
+
+/// ----- STATE STYLES ----- ///
+// shared states
+$ANY_CHECKED: (
+  tick-visibility: visible,
+);
+// interactive states
+$VALID: (
+  backgroundColor: theme.$backgroundColor,
+  borderColor: theme.$borderColor,
+  color: theme.$action-base, // "tick" color (may be invisible)
+  cursor: pointer,
+);
+$VALID_HOVER: map.merge($VALID, (
+  borderColor: color.$ui-gray-500,
+));
+$VALID_FOCUS: map.merge($VALID, (
+  boxShadow: theme.$boxShadow--focus,
+));
+$VALID_ACTIVE: map.merge($VALID_FOCUS, (
+  borderColor: theme.$action-base,
+));
+$INVALID: (
+  borderColor: theme.$failure-base,
+  color: theme.$failure-base,
+);
+$INVALID_HOVER: map.merge($INVALID, (
+  borderColor: color.$red-700,
+));
+$INVALID_FOCUS: map.merge($INVALID, (
+  boxShadow: theme.$boxShadow--focus,
+));
+$INVALID_ACTIVE: $VALID_ACTIVE;
+$DISABLED: (
+  backgroundColor: color.$ui-gray-100,
+  borderColor: color.$ui-gray-200,
+  color: color.$ui-gray-300,
+  cursor: not-allowed,
+);
+$DISABLED_ACTIVE: map.merge($DISABLED, (
+  boxShadow: none,
+));
+
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1;
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  border-radius: theme.$borderRadius;
+  border: 1px solid $borderColor;
+  box-shadow: $boxShadow;
+  color: $color;
+  cursor: $cursor;
+
+  &__tick {
+    visibility: $__tick-visibility;
+  }
+
+  @include theme($VALID);
+
+  // :hover styles are okay to apply directly to the facade because it doesn't
+  // require context from the checkbox input.
+  @include Pseudo.hover {
+    @include theme($VALID_HOVER);
+  }
+
+  // Many of the pseudo classes used for styling do not apply to the facade,
+  // itself because it is not interactive.  They must be applied to the facade
+  // in context of a checkbox input (`input[type="checkbox"]`).
+  //
+  // This includes the following:
+  //   - :active
+  //   - :checked
+  //   - :disabled
+  //   - :focus
+  //   - :invalid
+  //
+  // As such, the following styles are defined to simplify development
+  // and documentation of the various styles that apply to each state, without
+  // shipping unnecessary CSS.
+  @include env.DEV {
+    // (Any State) / Checked
+    &.mock-checked {
+      @include theme($ANY_CHECKED);
+    }
+
+    // Enabled / Valid
+    &.mock-focus {
+      @include theme($VALID_FOCUS);
+    }
+    &.mock-active {
+      @include theme($VALID_ACTIVE);
+    }
+
+    // Enabled / Invalid
+    &.mock-invalid {
+      @include theme($INVALID);
+      &.mock-hover {
+        @include theme($INVALID_HOVER);
+      }
+      &.mock-focus {
+        @include theme($INVALID_FOCUS);
+      }
+      &.mock-active {
+        @include theme($INVALID_ACTIVE);
+      }
+    }
+
+    // Disabled
+    &.mock-disabled {
+      @include theme($DISABLED);
+      &.mock-hover {
+        @include theme($DISABLED);
+      }
+      &.mock-focus {
+        @include theme($DISABLED);
+      }
+      &.mock-active {
+        @include theme($DISABLED_ACTIVE);
+      }
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-checkboxFacade {
+    @content;
+  }
+}

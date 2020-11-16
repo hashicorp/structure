@@ -1,0 +1,31 @@
+<div
+  class="pds-checkboxField"
+  data-test-checkbox-field
+>
+  <Pds::Input
+    class="pds-checkboxField__input"
+    id={{this.id}}
+    @invalid={{@invalid}}
+    @type="checkbox"
+    ...attributes
+    data-test-checkbox-field-input
+  />
+
+  <label
+    class="pds-checkboxField__label"
+    for={{this.id}}
+    data-test-checkbox-field-label
+  >
+    {{!--
+      The wrapper is required so that line-height is inherited
+      for vertical alignment with label text.
+    --}}
+    <div class="pds-checkboxField__facadeWrapper">
+      <Pds::CheckboxField::Facade />
+    </div>
+
+    <div class="pds-checkboxField__text">
+      {{yield (hash id=this.id)}}
+    </div>
+  </label>
+</div>

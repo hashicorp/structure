@@ -1,0 +1,151 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.CheckboxField";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../utils/a11y" as A11y;
+@use "../../utils/pseudo" as Pseudo;
+@use "../input/_config" as Input;
+@use "./facade/__config" as Facade;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+
+  // native control is visually hidden, which leaves it in the DOM
+  // for interaction via an associated <label>
+  &__input {
+    @include A11y.visuallyHidden;
+  }
+
+  ///  (auto)    1fr
+  /// +--------+-----+
+  /// | facade | txt |
+  /// +--------+-----+
+  &__label {
+    display: inline-grid;
+    grid-gap: theme.$size--xs;
+    grid-template-areas: 'facade txt';
+    grid-template-columns: auto 1fr;
+  }
+
+  &__text {
+    grid-area: txt;
+  }
+
+  &__facadeWrapper {
+    grid-area: facade;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  > label {
+    cursor: pointer;
+  }
+
+  &__input {
+    // :focus
+    @include Pseudo.focus {
+      + label {
+        @include Facade.apply {
+          @include Facade.theme(Facade.$VALID_FOCUS);
+        }
+      }
+    }
+
+    // :active
+    @include Pseudo.active {
+      + label {
+        @include Facade.apply {
+          @include Facade.theme(Facade.$VALID_ACTIVE);
+        }
+      }
+    }
+
+    &:checked + label {
+      @include Facade.apply {
+        @include Facade.theme(Facade.$ANY_CHECKED);
+      }
+    }
+
+    @include Input.whenInvalid {
+      // input:invalid + label
+      + label {
+        @include Facade.apply {
+          @include Facade.theme(Facade.$INVALID);
+        }
+      }
+
+      // :invalid:hover
+      @include Pseudo.hover {
+        + label {
+          @include Facade.apply {
+            @include Facade.theme(Facade.$INVALID_HOVER);
+          }
+        }
+      }
+
+      // :invalid:focus
+      @include Pseudo.focus {
+        + label {
+          @include Facade.apply {
+            @include Facade.theme(Facade.$INVALID_FOCUS);
+          }
+        }
+      }
+
+      // :invalid:active
+      @include Pseudo.active {
+        + label {
+          @include Facade.apply {
+            @include Facade.theme(Facade.$INVALID_ACTIVE);
+          }
+        }
+      }
+    }
+
+    &:disabled {
+      // input:disabled + label
+      + label {
+        cursor: auto;
+
+        @include Facade.apply {
+          @include Facade.theme(Facade.$DISABLED);
+        }
+      }
+      // :disabled:hover
+      @include Pseudo.hover {
+        + label {
+          @include Facade.apply {
+            @include Facade.theme(Facade.$DISABLED);
+          }
+        }
+      }
+      // :disabled:focus
+      @include Pseudo.focus {
+        + label {
+          @include Facade.apply {
+            @include Facade.theme(Facade.$DISABLED);
+          }
+        }
+      }
+
+      // :disabled:active (triggers when pressing an associated <label>)
+      @include Pseudo.active {
+        + label {
+          @include Facade.apply {
+            @include Facade.theme(Facade.$DISABLED_ACTIVE);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-checkboxField {
+    @content;
+  }
+}

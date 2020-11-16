@@ -1,0 +1,56 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / CheckboxField / Facade';
+
+# CheckboxField::Facade
+The `<Pds::CheckboxField::Facade>` subcomponent is a non-interactive, visual
+facade designed to be used within the `<Pds::CheckboxField>` component, in
+order to apply contextual styling that reflects the logical state of an HTML
+checkbox control (i.e., `<input type="checkbox">`).
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::CheckboxField::Facade />
+```
+<ArgsTable of="PdsCheckboxFieldFacade" />
+
+
+## Styling
+```scss
+@use "pds/components/checkbox-field/facade";
+```
+
+CSS styles are intended to be applied in the context of `<Pds::CheckboxField>`.
+
+* **NOTE:** A checkbox `<input>` may still match `:disabled:active` if an
+  associated `<label>` is being pressed.
+
+### Theming
+
+* **facade**
+  * `--pds-checkboxFacade-backgroundColor`
+  * `--pds-checkboxFacade-borderColor`
+  * `--pds-checkboxFacade-boxShadow`
+  * `--pds-checkboxFacade-color`
+  * `--pds-checkboxFacade-cursor`
+* **checkmark** (i.e., "tick")
+  * `--pds-checkboxFacade-tick-visibility`
+
+
+## Markup
+The `<Pds::CheckboxField::Facade>` component handles generating required markup.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+- [CheckboxField](?path=/docs/components-checkboxfield--index)
