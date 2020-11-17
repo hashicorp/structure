@@ -1,0 +1,13 @@
+.docs-content-skeleton {
+  > * {
+    background-color: #eaeaea;
+    border-radius: 2px;
+    display: block;
+    height: 1em;
+    margin: 1em;
+  }
+
+  .line-1 { width: 50%; }
+  .line-2 { width: 67%; }
+  .line-3 { width: 25%; }
+}

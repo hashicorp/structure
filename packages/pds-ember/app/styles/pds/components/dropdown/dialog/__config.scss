@@ -1,0 +1,49 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Dropdown.Dialog";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../theme";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../../_config" as Component;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(dropdownDialog, $styles);
+}
+
+$backgroundColor: var(--pds-dropdownDialog-backgroundColor, #{theme.$backgroundColor});
+$borderRadius: var(--pds-dropdownDialog-borderRadius, #{theme.$borderRadius});
+$borderColor: theme.$borderColor;
+$boxShadow: theme.$boxShadow--low;
+$color: var(--pds-dropdownDialog-color, #{theme.$color});
+$width: var(--pds-dropdownDialog-width, 12.5rem); // ~200px // FIXME: magic number
+
+// Most of the layout styles come from the applied Button classes.
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  position: absolute;
+  top: calc(100% - 1px);
+  width: $width;
+}
+
+// Most of the appearance styles come from the applied Button classes.
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  box-shadow: $boxShadow;
+  color: $color;
+
+  @include Pseudo.focus {
+    outline: none;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-dropdownDialog {
+    @content;
+  }
+}

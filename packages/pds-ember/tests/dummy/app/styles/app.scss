@@ -3,6 +3,7 @@
 @use "pds/tokens/font" as Font;
 @use "pds";
 
+@use "./_content-skeleton";
 @use "./_shame";
 
 // load additional styles for docs
@@ -51,11 +52,6 @@
   @import "figure";
 
   // SHAME (TODO: migrate the below styles to the appropriate location)
-
-  // TODO: migrate to PDS proper when <Pds::Menu> (or similar) component is added
-  summary::-webkit-details-marker {
-    display: none;
-  }
 
   .button-set {
     display: flex;

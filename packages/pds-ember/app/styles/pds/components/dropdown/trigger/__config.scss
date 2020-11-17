@@ -1,0 +1,31 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Dropdown.Trigger";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../utils/pseudo" as Pseudo;
+
+// Most of the layout styles come from the applied Button classes.
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  box-sizing: border-box; // <summary> doesn't inherit box-sizing from <details>
+}
+
+// Most of the appearance styles come from the applied Button classes.
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  @include Pseudo.focus {
+    outline: none;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-dropdownTrigger {
+    @content;
+  }
+}

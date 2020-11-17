@@ -1,0 +1,16 @@
+<details
+  class="pds-dropdown {{this.alignmentClass}}"
+  open={{this.isOpen}}
+  ...attributes
+  data-test-dropdown
+  {{did-insert this.didInsert}}
+  {{will-destroy this.willDestroy}}
+  {{on 'toggle' this.handleToggle}}
+>
+  {{ yield (hash
+    isOpen=this.isOpen
+    close=this.close
+    Trigger=(component 'pds/dropdown/trigger')
+    Dialog=(component 'pds/dropdown/dialog')
+  )}}
+</details>
