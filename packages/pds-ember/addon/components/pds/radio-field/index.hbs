@@ -1,0 +1,31 @@
+<div
+  class="pds-radioField"
+  data-test-radio-field
+>
+  <Pds::Input
+    class="pds-radioField__input"
+    id={{this.id}}
+    @invalid={{@invalid}}
+    @type="radio"
+    ...attributes
+    data-test-radio-field-input
+  />
+
+  <label
+    class="pds-radioField__label"
+    for={{this.id}}
+    data-test-radio-field-label
+  >
+    {{!--
+      The wrapper is required so that line-height is inherited
+      for vertical alignment with label text.
+    --}}
+    <div class="pds-radioField__facadeWrapper">
+      <Pds::RadioField::Facade />
+    </div>
+
+    <div class="pds-radioField__text">
+      {{yield (hash id=this.id)}}
+    </div>
+  </label>
+</div>

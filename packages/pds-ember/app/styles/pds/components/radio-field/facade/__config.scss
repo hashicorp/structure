@@ -1,0 +1,165 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.RadioField.Facade";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../../theme";
+@use "../../../tokens/color";
+@use "../../../utils/env";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../../_config" as Component;
+@use "../../icon/__config" as Icon;
+
+// public theming
+$backgroundColor: var(--pds-radioFacade-backgroundColor, transparent);
+$borderColor: var(--pds-radioFacade-borderColor, transparent);
+$boxShadow: var(--pds-radioFacade-boxShadow, none);
+$color: var(--pds-radioFacade-color, currentColor); // "tick" color (may be invisible)
+$cursor: var(--pds-radioFacade-cursor, auto);
+// "private" theme var
+$__tick-visibility: var(--pds-radioFacade-tick-visibility, hidden);
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(radioFacade, $styles);
+}
+
+
+// FOCUSED = CHECKED, but CHECKED ≠ FOCUSED
+
+/// ----- STATE STYLES ----- ///
+// shared states
+$UNCHECKED: (
+  tick-visibility: hidden,
+);
+$CHECKED: (
+  tick-visibility: visible,
+);
+// interactive states
+$VALID: (
+  backgroundColor: theme.$backgroundColor,
+  borderColor: theme.$borderColor,
+  color: theme.$action-base, // "tick" color (may be invisible)
+  cursor: pointer,
+);
+$VALID_HOVER: map.merge($VALID, (
+  borderColor: color.$ui-gray-500,
+));
+$VALID_FOCUS: map.merge($VALID, (
+  tick-visibility: visible,
+  borderColor: theme.$action-base,
+  boxShadow: theme.$boxShadow--focus,
+));
+$VALID_ACTIVE: $VALID_FOCUS;
+$INVALID: (
+  borderColor: theme.$failure-base,
+  color: theme.$failure-base,
+);
+$INVALID_HOVER: map.merge($INVALID, (
+  borderColor: color.$red-700,
+));
+$INVALID_FOCUS: map.merge($INVALID, (
+  tick-visibility: visible,
+  boxShadow: theme.$boxShadow--focus,
+));
+$INVALID_ACTIVE: $VALID_ACTIVE;
+$DISABLED: (
+  backgroundColor: color.$ui-gray-100,
+  borderColor: color.$ui-gray-200,
+  color: color.$ui-gray-300,
+  cursor: not-allowed,
+);
+$DISABLED_ACTIVE: map.merge($DISABLED, (
+  boxShadow: none,
+));
+
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include Icon.layout;
+  line-height: 1;
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  border-radius: 1em;
+  box-shadow: $boxShadow;
+  color: $color;
+  cursor: $cursor;
+
+  &__bg {
+    fill: $backgroundColor;
+    stroke: $borderColor;
+  }
+
+  &__tick {
+    fill: currentColor;
+    visibility: $__tick-visibility;
+  }
+
+  @include theme($VALID);
+
+  // :hover styles are okay to apply directly to the facade because it doesn't
+  // require context from the radio input.
+  @include Pseudo.hover {
+    @include theme($VALID_HOVER);
+  }
+
+  // Many of the pseudo classes used for styling do not apply to the facade,
+  // itself because it is not interactive.  They must be applied to the facade
+  // in context of a radio input (`input[type="radio"]`).
+  //
+  // This includes the following:
+  //   - :checked
+  //   - :disabled
+  //   - :focus / :active
+  //   - :invalid
+  //
+  // As such, the following styles are defined to simplify development
+  // and documentation of the various styles that apply to each state, without
+  // shipping unnecessary CSS.
+  @include env.DEV {
+    // (Any State) / Checked
+    &.mock-checked {
+      @include theme($CHECKED);
+    }
+
+    // Enabled / Valid
+    &.mock-active,
+    &.mock-focus {
+      @include theme($VALID_FOCUS);
+    }
+
+    // Enabled / Invalid
+    &.mock-invalid {
+      @include theme($INVALID);
+      &.mock-hover {
+        @include theme($INVALID_HOVER);
+      }
+      &.mock-active,
+      &.mock-focus {
+        @include theme($INVALID_FOCUS);
+      }
+    }
+
+    // Disabled
+    &.mock-disabled {
+      @include theme($DISABLED);
+      &.mock-hover {
+        @include theme($DISABLED);
+      }
+      &.mock-active,
+      &.mock-focus {
+        @include theme($DISABLED);
+      }
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-radioFacade {
+    @content;
+  }
+}
