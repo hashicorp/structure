@@ -13,13 +13,13 @@
 
   ...attributes
 
-  data-test-root
+  data-test-button
 >
   {{#if @iconStart}}
     <Pds::Icon
       @type={{@iconStart}}
       class="pds-button__iconStart"
-      data-test-icon-start
+      data-test-button-icon-start
     />
   {{/if}}
 
@@ -29,7 +29,7 @@
       pds-button__blockContent
       {{if @hideText 'pds--visuallyHidden'}}
     "
-    data-test-block-content
+    data-test-button-block-content
   >
     {{ yield }}
   </span>
@@ -39,7 +39,7 @@
     <Pds::Icon
       @type={{@iconEnd}}
       class="pds-button__iconEnd"
-      data-test-icon-end
+      data-test-button-icon-end
     />
   {{/if}}
 </button>

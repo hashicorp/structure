@@ -22,39 +22,65 @@ $DEFAULT: (
   color: inherit,
 );
 
-:root {
-  @include theme($DEFAULT);
-}
-
-// TODO: it'd be nice if we could generated these variables dynamically
+// Dynamic Layout
+$colGap: var(--pds-button-colGap);
+$height: var(--pds-button-height);
+$paddingInlineEnd: var(--pds-button-paddingInlineEnd);
+$paddingInlineStart: var(--pds-button-paddingInlineStart);
+// Dynamic Appearance
 $backgroundColor: var(--pds-button-backgroundColor);
 $borderColor: var(--pds-button-borderColor);
 $borderRadius: var(--pds-button-borderRadius);
 $boxShadow: var(--pds-button-boxShadow);
 $color: var(--pds-button-color);
-
-// Typography
+// Static Variables
 $fontFamily: font.$family--sans;
-// Layout
-$height: scale.$lg--5; // 2.25rem (36px)
-$height--compact: scale.$lg--2; // 1.5rem (24px)
-// inline white space BETWEEN children
-$marginInline: scale.$sm--3; // 0.25rem (4px)
-$marginInline--iconOnly: 0;
-// inline white space AROUND children
-$paddingInline: scale.$lg--2; // 1.5rem (24px)
 $paddingInline--compact: scale.$sm--1; // 0.75rem (12px)
 $paddingInline--iconOnly: 0.625rem; // (~10px) FIXME: not part of the scale!
 $paddingInline--iconOnly--compact: scale.$sm--2; // 0.5rem (8px)
 $paddingInline--nearIcon: scale.$lg--1; // 1rem (16px)
 
-@mixin layout {
-  /* [debug] #{$_module}@layout */
+
+$LAYOUT_DEFAULT: (
+  colGap: scale.$sm--3,
+  height: scale.$lg--5, // 2.25rem (36px)
+  paddingInlineEnd: scale.$lg--2,
+  paddingInlineStart: scale.$lg--2,
+);
+$LAYOUT_ICON_START: (
+  paddingInlineStart: $paddingInline--nearIcon,
+);
+$LAYOUT_ICON_END: (
+  paddingInlineEnd: $paddingInline--nearIcon,
+);
+$LAYOUT_COMPACT: (
+  height: scale.$lg--2, // 1.5rem (24px)
+  paddingInlineEnd: $paddingInline--compact,
+  paddingInlineStart: $paddingInline--compact,
+);
+$LAYOUT_ICON_ONLY: (
+  colGap: 0, // remove white space between icons
+  paddingInlineEnd: $paddingInline--iconOnly,
+  paddingInlineStart: $paddingInline--iconOnly,
+);
+$LAYOUT_ICON_ONLY_COMPACT: (
+  paddingInlineEnd: $paddingInline--iconOnly--compact,
+  paddingInlineStart: $paddingInline--iconOnly--compact,
+);
+
+@mixin layout--reset {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin layout--base {
   align-items: center;
   display: inline-flex;
   height: $height;
   justify-content: center;
-  padding: 0 $paddingInline;
+  margin: 0;
+  padding: 0 $paddingInlineEnd 0 $paddingInlineStart;
   white-space: nowrap;
 
   > * {
@@ -62,34 +88,37 @@ $paddingInline--nearIcon: scale.$lg--1; // 1rem (16px)
   }
 
   > * + * {
-    margin-inline-start: $marginInline;
+    margin-inline-start: $colGap;
   }
+}
+
+// default (unwrapped) layout
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include layout--reset;
+  @include layout--base;
+
+  @include theme($LAYOUT_DEFAULT);
 
   &.pds--iconStart {
-    padding-inline-start: $paddingInline--nearIcon;
+    @include theme($LAYOUT_ICON_START);
   }
 
   &.pds--iconEnd {
-    padding-inline-end: $paddingInline--nearIcon;
+    @include theme($LAYOUT_ICON_END);
   }
 
   // 12px inline padding (regardless of icon presence)
   // should override iconStart/iconEnd padding
   &.pds--compact {
-    height: $height--compact;
-    padding: 0 $paddingInline--compact;
+    @include theme($LAYOUT_COMPACT);
   }
 
   &.pds--iconOnly {
-    padding: 0 $paddingInline--iconOnly;
-
-    // remove white space between icons
-    > * {
-      margin: $marginInline--iconOnly;
-    }
+    @include theme($LAYOUT_ICON_ONLY);
 
     &.pds--compact {
-      padding: 0 $paddingInline--iconOnly--compact;
+      @include theme($LAYOUT_ICON_ONLY_COMPACT);
     }
   }
 }
@@ -105,6 +134,9 @@ $paddingInline--nearIcon: scale.$lg--1; // 1rem (16px)
   color: $color;
   cursor: pointer;
   font-family: $fontFamily;
+  line-height: 1;
+
+  @include theme($DEFAULT);
 
   @include Pseudo.focus {
     outline: none;

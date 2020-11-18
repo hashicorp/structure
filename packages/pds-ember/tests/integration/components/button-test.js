@@ -6,11 +6,11 @@ import { hbs } from 'ember-cli-htmlbars';
 import { CSS } from 'dummy/tests/fixtures/components/button-fixtures'
 
 // TODO: consider migrating these selectors to a page object
-const ROOT = '[data-test-root]'
+const ROOT = '[data-test-button]'
 const CHILDREN = `${ROOT} > *`
-const ICON_START = '[data-test-icon-start]'
-const ICON_END = '[data-test-icon-end]'
-const BLOCK_CONTENT = '[data-test-block-content]'
+const ICON_START = '[data-test-button-icon-start]'
+const ICON_END = '[data-test-button-icon-end]'
+const BLOCK_CONTENT = '[data-test-button-block-content]'
 
 module('Integration | Components.Button', function(hooks) {
   setupRenderingTest(hooks);

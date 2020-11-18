@@ -4,11 +4,17 @@
 $_module: "PDS.Components.Dropdown.Trigger";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../../utils/pseudo" as Pseudo;
+@use "../../button/_config" as Button;
 
 // Most of the layout styles come from the applied Button classes.
 @mixin layout {
   /* [debug] #{$_module}@layout */
+  @include Button.layout--reset;
   box-sizing: border-box; // <summary> doesn't inherit box-sizing from <details>
+
+  &__layoutWrapper {
+    @include Button.layout--base;
+  }
 }
 
 // Most of the appearance styles come from the applied Button classes.
