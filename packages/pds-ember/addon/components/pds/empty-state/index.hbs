@@ -1,0 +1,11 @@
+<section
+  class="pds-emptyState"
+  ...attributes
+  data-test-empty-state
+>
+  {{ yield (hash
+    Header=(component 'pds/empty-state/header')
+    Body=(component 'pds/empty-state/body')
+    Footer=(component 'pds/empty-state/footer')
+  )}}
+</section>

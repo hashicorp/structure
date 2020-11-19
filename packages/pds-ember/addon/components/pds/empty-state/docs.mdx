@@ -1,0 +1,47 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Empty State';
+
+# Empty State
+The `<Pds::EmptyState>` provides a means to arrange simple content in UI views
+that communicate a lack of data to end users.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::EmptyState as |E|>
+  <E.Header>...</E.Header>
+  <E.Body>...</E.Body>
+  <E.Footer>...</E.Footer>
+</Pds::EmptyState>
+```
+<ArgsTable of="PdsEmptyState" />
+
+
+## Styling
+```scss
+@use "pds/components/empty-state";
+```
+
+**NOTE:** The root component (`<Pds::EmptyState>`) does not include any
+internal padding.  It is designed to reside within the _content box_ of a parent
+element.
+
+
+## Markup
+The `<Pds::EmptyState>` Ember component and its subcomponents handle generation
+of semantic markup.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+TBD...

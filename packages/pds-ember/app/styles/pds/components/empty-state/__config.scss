@@ -1,0 +1,49 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.EmptyState";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/_config" as Typography;
+@use "../../theme";
+@use "../../tokens/color";
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: block;
+  margin: 0 auto; // horizontally centered
+  max-width: 40ch;
+  padding: 0;
+
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__header + * {
+    margin-block-start: theme.$size--xs;
+  }
+
+  &__body + * {
+    margin-block-start: theme.$size--md;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  color: color.$ui-gray-500;
+
+  &__header {
+    @include Typography.Heading(2);
+  }
+
+  &__body {
+    @include Typography.Body;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-emptyState {
+    @content;
+  }
+}
