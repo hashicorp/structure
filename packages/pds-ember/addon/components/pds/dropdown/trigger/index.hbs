@@ -1,0 +1,27 @@
+{{!-- template-lint-disable simple-unless --}}
+<summary
+  class="
+    pds-dropdownTrigger
+    pds-button
+    {{this.variantClass}}
+    {{if @compact 'pds--compact'}}
+    {{if @hideText 'pds--iconOnly'}}
+    {{unless (has-block) 'pds--iconOnly'}}
+  "
+  ...attributes
+  data-test-dropdown-trigger
+>
+  {{#if (has-block)}}
+    <span
+      class="{{if @hideText 'pds--visuallyHidden'}}"
+      data-test-dropdown-trigger-block-content
+    >
+      {{yield}}
+    </span>
+  {{/if}}
+  <Pds::Icon
+    @type={{this.icon}}
+    data-test-dropdown-trigger-icon
+  />
+</summary>
+{{!-- template-lint-enable simple-unless --}}

@@ -139,5 +139,89 @@ module('Integration | Components.Button', function(hooks) {
       .dom(BLOCK_CONTENT)
       .hasClass(CSS.visuallyHidden, 'has "visually-hidden" modifier CSS class')
   })
+
+
+  test('supports @variant', async function(assert) {
+    this.set('variant', '')
+    await render(hbs`
+      <Pds::Button
+        @variant={{this.variant}}
+      />
+    `)
+
+    assert
+      .dom(ROOT)
+      .doesNotHaveClass(CSS.ghost)
+      .doesNotHaveClass(CSS.primary)
+      .doesNotHaveClass(CSS.warning)
+
+    this.set('variant', 'ghost')
+    assert
+      .dom(ROOT)
+      .hasClass(CSS.ghost)
+      .doesNotHaveClass(CSS.primary)
+      .doesNotHaveClass(CSS.warning)
+
+    this.set('variant', 'primary')
+    assert
+      .dom(ROOT)
+      .doesNotHaveClass(CSS.ghost)
+      .hasClass(CSS.primary)
+      .doesNotHaveClass(CSS.warning)
+
+    this.set('variant', 'warning')
+    assert
+      .dom(ROOT)
+      .doesNotHaveClass(CSS.ghost)
+      .doesNotHaveClass(CSS.primary)
+      .hasClass(CSS.warning)
+  })
+
+
+  test('supports @compact', async function(assert) {
+    await render(hbs`
+      <Pds::Button @compact={{this.compact}} />
+    `)
+
+    assert
+      .dom(ROOT)
+      .doesNotHaveClass(CSS.compact, 'does not have "compact" modifier CSS class')
+
+    this.set('compact', true)
+    assert
+      .dom(ROOT)
+      .hasClass(CSS.compact, 'has "compact" modifier CSS class')
+  })
+
+
+  test('supports @hideText', async function(assert) {
+    await render(hbs`
+      <Pds::Button
+        @hideText={{this.hideText}}
+      >
+        block text
+      </Pds::Button>
+    `)
+
+    assert
+      .dom(ROOT)
+      .hasText('block text')
+      .doesNotHaveClass(CSS.iconOnly, 'does not have "icon-only" modifier CSS class')
+
+    assert
+      .dom(BLOCK_CONTENT)
+      .doesNotHaveClass(CSS.visuallyHidden, 'does not have "visually-hidden" modifier CSS class')
+
+    // @hideText={{true}}
+    this.set('hideText', true)
+    assert
+      .dom(ROOT)
+      .hasText('block text')
+      .hasClass(CSS.iconOnly, 'has "icon-only" modifier CSS class')
+
+    assert
+      .dom(BLOCK_CONTENT)
+      .hasClass(CSS.visuallyHidden, 'has "visually-hidden" modifier CSS class')
+  })
 });
 
