@@ -19,12 +19,15 @@ node_modules
 *~
 .DS_Store
 
-#---(Yarn v2)---
-# See https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
-#---------------
+##---(Yarn v2)---
+## See https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
+##---------------
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
+## Remote-Install strategy
+#.pnp.*
+## Zero-Install strategy
+!.yarn/cache
