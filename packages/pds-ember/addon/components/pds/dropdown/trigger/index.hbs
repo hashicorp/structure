@@ -3,6 +3,7 @@
   class="
     pds-dropdownTrigger
     pds-button
+    pds--iconEnd
     {{this.variantClass}}
     {{if @compact 'pds--compact'}}
     {{if @hideText 'pds--iconOnly'}}
@@ -11,17 +12,21 @@
   ...attributes
   data-test-dropdown-trigger
 >
-  {{#if (has-block)}}
-    <span
-      class="{{if @hideText 'pds--visuallyHidden'}}"
-      data-test-dropdown-trigger-block-content
-    >
-      {{yield}}
-    </span>
-  {{/if}}
-  <Pds::Icon
-    @type={{this.icon}}
-    data-test-dropdown-trigger-icon
-  />
+  <span class="pds-dropdownTrigger__layoutWrapper">
+    {{#if (has-block)}}
+      <span
+        class="{{if @hideText 'pds--visuallyHidden'}}"
+        data-test-dropdown-trigger-block-content
+      >
+        {{yield}}
+      </span>
+    {{/if}}
+
+    <Pds::Icon
+      @type={{this.icon}}
+      class="pds-button__iconEnd"
+      data-test-dropdown-trigger-icon
+    />
+  </span>
 </summary>
 {{!-- template-lint-enable simple-unless --}}

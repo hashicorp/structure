@@ -20,13 +20,6 @@ $ACTIVE: PrimaryButton.$ACTIVE;
 $DISABLED: PrimaryButton.$DISABLED;
 $DISABLED-FOCUS: PrimaryButton.$DISABLED-FOCUS;
 
-// TODO: migrate :root {} to somewhere else,
-// so that this module doesn't implicitly generate CSS
-:root {
-  // Use the same default values from the Button component,
-  // but with --pds-ctaLink-* prefix, instead.
-  @include theme(Button.$DEFAULT);
-}
 $backgroundColor: var(--pds-ctaLink-backgroundColor);
 $borderColor: var(--pds-ctaLink-borderColor);
 $borderRadius: var(--pds-ctaLink-borderRadius);
@@ -50,6 +43,8 @@ $fontFamily: Button.$fontFamily;
   cursor: pointer;
   font-family: $fontFamily;
   text-decoration: none;
+
+  @include theme(Button.$DEFAULT);
 
   // STATES
   @include theme($DEFAULT);
