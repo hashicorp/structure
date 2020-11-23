@@ -22,13 +22,62 @@ export const Index = (args) => ({
   template: hbs`
     <Pds::App @showDrawer={{showDrawer}} as |App|>
       <App.Banner></App.Banner>
-      <App.Header>Header</App.Header>
+
+      <App.Header>
+        App Header
+      </App.Header>
+
       <App.Sidebar>
         <Docs::Nav />
       </App.Sidebar>
-      <App.Body>Body</App.Body>
-      <App.Footer>Footer</App.Footer>
-      <App.Drawer>Drawer</App.Drawer>
+
+      <App.Body>
+        <Pds::Page as |Page|>
+          <Page.Header @variant="filled" as |H|>
+            <H.Breadcrumbs>
+              <Docs::Breadcrumbs
+                @depth={{3}}
+                @showIcon={{true}}
+              />
+            </H.Breadcrumbs>
+
+            <H.Title>
+              Page Title
+            </H.Title>
+
+            <H.Actions>
+              <Pds::ButtonSet>
+                <Pds::Button @variant="primary">
+                  Primary
+                </Pds::Button>
+                <Pds::Dropdown @align="right" as |D|>
+                  <D.Trigger>Secondary</D.Trigger>
+                  <D.Dialog>
+                    <Docs::ContentSkeleton />
+                  </D.Dialog>
+                </Pds::Dropdown>
+              </Pds::ButtonSet>
+            </H.Actions>
+
+            <H.Tabs>
+              <Docs::TabNav />
+            </H.Tabs>
+          </Page.Header>
+
+          <Page.Body>
+            {{! TODO: demonstrate some body content }}
+            Page body
+          </Page.Body>
+        </Pds::Page>
+      </App.Body>
+
+      <App.Footer>
+        App Footer
+      </App.Footer>
+
+      <App.Drawer>
+        App Drawer
+      </App.Drawer>
     </Pds::App>
   `,
   context: args,
