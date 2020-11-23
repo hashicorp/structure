@@ -1,0 +1,81 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.PageHeader";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../tokens/scale";
+@use "../_config" as Component;
+@use "../tab-nav/_config" as TabNav;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(pageHeader, $styles);
+}
+
+//  1fr           auto
+// +-------------+-------------+
+// | breadcrumbs | breadcrumbs | auto
+// +-------------+-------------+
+// | title       | actions     | auto
+// +-------------+-------------+
+// | tabs        | tabs        | auto
+// +-------------+-------------+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: grid;
+  flex-shrink: 0;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'breadcrumbs breadcrumbs'
+    'title       actions'
+    'tabs        tabs';
+  padding: scale.$lg--3 theme.$size--2xl theme.$size--lg; // 28 48 24 48
+
+  &__actions {
+    grid-area: actions;
+    justify-self: end;
+  }
+
+  &__breadcrumbs {
+    grid-area: breadcrumbs;
+  }
+
+  &__tabs {
+    grid-area: tabs;
+    /// container eats bottom white space via negative margin, so that
+    /// it butts up against the bottom edge of the container
+    margin-block-end: -(theme.$size--lg);
+  }
+
+  &__title {
+    grid-area: title;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: transparent;
+  border: none;
+
+  // Filled
+  &.pds--filled {
+    background-color: color.$ui-gray-010;
+    border-bottom: 1px solid theme.$borderColor;
+  }
+
+  &.pds--filled &__tabs {
+    @include TabNav.apply {
+      border: none;
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-pageHeader {
+    @content;
+  }
+}
