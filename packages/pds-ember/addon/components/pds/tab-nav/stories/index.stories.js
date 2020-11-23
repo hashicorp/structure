@@ -9,13 +9,7 @@ export default {
 
 export const Index = (args) => ({
   template: hbs`
-    <Pds::TabNav>
-      <a href="#" class="active">Tab 1</a>
-      <a href="#">Tab 2</a>
-      <a href="#">Tab 3</a>
-      <a href="#">Tab 4</a>
-      <a href="#" class="disabled">Tab 5</a>
-    </Pds::TabNav>
+    <Docs::TabNav />
   `,
   context: args,
 })
