@@ -1,0 +1,24 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.ButtonSet";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+
+$columnGap: theme.$size--sm;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: flex; // non-wrapping
+
+  > * + * {
+    margin-inline-start: $columnGap;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-buttonSet {
+    @content;
+  }
+}
