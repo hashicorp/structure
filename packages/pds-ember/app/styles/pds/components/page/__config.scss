@@ -1,0 +1,32 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Page";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../page-header/_config" as PageHeader;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  &__body {
+    flex-grow: 1;
+    padding: 0 theme.$size--2xl theme.$size--2xl; // 0 48 48 48
+  }
+
+  @include PageHeader.apply {
+    &.pds--filled + .pds-page__body {
+      padding-block-start: theme.$size--xl; // 36
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-page {
+    @content;
+  }
+}

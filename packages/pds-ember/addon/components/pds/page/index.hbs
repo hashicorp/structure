@@ -1,0 +1,10 @@
+<div
+  class="pds-page"
+  ...attributes
+  data-test-page
+>
+  {{ yield (hash
+    Header=(component 'pds/page-header')
+    Body=(component 'pds/page/body')
+  )}}
+</div>

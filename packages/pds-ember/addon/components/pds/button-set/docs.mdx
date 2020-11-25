@@ -1,0 +1,42 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / ButtonSet';
+
+# ButtonSet
+Provides consistent layout and spacing of buttons.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::ButtonSet>
+  <Pds::Button>...</Pds::Button>
+  <Pds::Dropdown>...</Pds::Dropdown>
+  ...
+</Pds::ButtonSet>
+```
+<ArgsTable of="PdsButtonSet" />
+
+
+## Styling
+```scss
+@use "pds/components/button-set";
+```
+
+
+## Markup
+The `<Pds::ButtonSet>` Ember component handles generation of semantic markup.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+- [Button](?path=/docs/components-button--index)
+- [Dropdown](?path=/docs/components-dropdown--index)

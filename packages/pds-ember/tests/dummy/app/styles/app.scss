@@ -51,18 +51,14 @@
   @import "blueprint";
   @import "figure";
 
-  // SHAME (TODO: migrate the below styles to the appropriate location)
-
-  .button-set {
-    display: flex;
-    flex-wrap: wrap;
-
-    > * { margin: 0.75rem 0; }
-    > * + * { margin-inline-start: 0.75rem; }
-  }
-
   .docs-formField-select {
     max-width: 20rem;
+  }
+
+  .docs-button {
+    > * + * {
+      margin: 0.75rem 0;
+    }
   }
 }
 
