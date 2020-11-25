@@ -1,11 +1,12 @@
 <div
   class="pds-icon"
   ...attributes
-  data-test-root
+  data-test-icon
+  data-test-icon-type="{{@type}}"
 >
   <div
     class="pds-icon__svgWrapper"
-    data-test-wrapper
+    data-test-icon-svg-wrapper
   >
     {{ svg-jar @type aria-hidden="true" }}
   </div>

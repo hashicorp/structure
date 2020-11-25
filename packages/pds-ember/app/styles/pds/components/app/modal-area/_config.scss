@@ -1,4 +1,4 @@
-$_module: "PDS.Components.Modal.Area";
+$_module: "PDS.Components.App.ModalArea";
 /* --- [debug] CONFIG: #{$_module} --- */
 
 // TODO: need theme vars for elevation
@@ -38,7 +38,7 @@ $zIndex: 10;
 
 @mixin apply {
   /* [debug] #{$_module}@apply */
-  .pds-modalArea {
+  .pds-app__modalArea {
     @content;
   }
 }
