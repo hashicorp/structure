@@ -1,0 +1,14 @@
+<div
+  class="pds-globalFooter"
+  ...attributes
+  data-test-global-footer
+>
+  <Pds::Copyright
+    data-test-global-footer-copyright
+  />
+
+  {{yield (hash
+    ProductName=(component 'pds/global-footer/product-name')
+    Nav=(component 'pds/global-footer/nav')
+  )}}
+</div>

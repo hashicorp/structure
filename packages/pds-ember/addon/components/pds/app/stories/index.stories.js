@@ -72,7 +72,7 @@ export const Index = (args) => ({
       </App.Body>
 
       <App.Footer>
-        App Footer
+        <Pds::GlobalFooter />
       </App.Footer>
 
       <App.Drawer>

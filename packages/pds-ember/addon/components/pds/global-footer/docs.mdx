@@ -1,0 +1,43 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / GlobalFooter';
+
+# GlobalFooter
+Provides a styled container for presenting global footer content alongside
+standardized copyright info.
+
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::GlobalFooter as |F|>
+  <F.ProductName>...</F.ProductName>
+  <F.Nav>...</F.Nav>
+</Pds::GlobalFooter>
+```
+<ArgsTable of="PdsGlobalFooter" />
+
+
+## Styling
+```scss
+@use "pds/components/global-footer";
+```
+
+
+## Markup
+The `<Pds::GlobalFooter>` Ember component and its subcomponents handle
+generation of semantic markup and copyright info.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+- [Copyright](?path=/docs/components-copyright--index)
