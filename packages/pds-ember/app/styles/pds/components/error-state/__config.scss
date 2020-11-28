@@ -1,0 +1,82 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.ErrorState";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/_config" as Typography;
+@use "../../theme";
+@use "../../tokens/color";
+
+$color: color.$ui-gray-500;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: grid;
+  grid-gap: theme.$size-sm;
+  grid-template-areas:
+    'header'
+    'body'
+    'footer';
+  margin: 0 auto; // horizontally centered
+  max-width: 40ch;
+  padding: 0;
+
+  &__header {
+    display: grid;
+    grid-template-areas: 'icon headings';
+    grid-template-columns: auto 1fr;
+    grid-gap: 0 theme.$size--xs;
+  }
+
+  &__icon {
+    grid-area: icon;
+    line-height: 1;
+  }
+
+  &__headings {
+    display: flex;
+    flex-direction: column;
+    grid-area: headings;
+    justify-content: center;
+  }
+
+  &__footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-block-start: theme.$size--sm;
+    padding: theme.$size--xs 0;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  color: $color;
+
+  &__icon {
+    font-size: theme.$size--2xl;
+  }
+
+  &__title {
+    @include Typography.Heading(2);
+  }
+
+  &__subtitle {
+    @include Typography.Interface(S);
+  }
+
+  &__body {
+    @include Typography.Body;
+  }
+
+  &__footer {
+    border-top: 1px solid theme.$borderColor;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-errorState {
+    @content;
+  }
+}
