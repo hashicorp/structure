@@ -12,7 +12,9 @@ $padding--inline: theme.$size--sm; // ~12px
 
 @mixin layout {
   height: $height;
+  min-width: 10ch;
   padding-inline-start: $padding--inline;
+  width: 100%;
 }
 
 // @protected
@@ -26,7 +28,6 @@ $padding--inline: theme.$size--sm; // ~12px
   font-family: $fontFamily;
   font-size: $fontSize;
   line-height: inherit;
-  width: 100%;
 
   @include Pseudo.focus {
     outline: none;

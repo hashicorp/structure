@@ -4,24 +4,23 @@ $_module: "PDS.Components.Select._Facade";
 @use "../_custom";
 
 $height: theme.$control-height !default;
-$selector: '.pds-selectFacade';
 
 // @protected
 @mixin layout {
   /* [debug] #{$_module}@layout */
   display: flex;
   flex-direction: row-reverse;
+  height: $height;
   overflow: hidden;
   pointer-events: none;
-  height: $height;
 
   .pds-selectFacade__grabber {
+    align-items: center;
+    display: flex;
     flex-grow: 0;
     flex-shrink: 0;
-    width: $height;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    width: $height;
   }
 }
 
