@@ -1,0 +1,44 @@
+$_module: "PDS.Components.CtaLink.Primary";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../utils/pseudo" as Pseudo;
+@use "../../button/primary/_config" as PrimaryButton;
+@use "../_config" as CtaLink;
+
+$DEFAULT: PrimaryButton.$DEFAULT;
+$HOVER: PrimaryButton.$HOVER;
+$FOCUS: PrimaryButton.$FOCUS;
+$ACTIVE: PrimaryButton.$ACTIVE;
+$DISABLED: PrimaryButton.$DISABLED;
+$DISABLED-FOCUS: PrimaryButton.$DISABLED-FOCUS;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include CtaLink.theme($DEFAULT);
+
+  @include Pseudo.hover {
+    @include CtaLink.theme($HOVER);
+  }
+
+  @include Pseudo.focus {
+    @include CtaLink.theme($FOCUS);
+  }
+
+  @include Pseudo.active {
+    @include CtaLink.theme($ACTIVE);
+  }
+
+  @include CtaLink.whenDisabled {
+    @include CtaLink.theme($DISABLED);
+
+    @include Pseudo.focus {
+      @include CtaLink.theme($DISABLED-FOCUS);
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include CtaLink.apply {
+    @content;
+  }
+}

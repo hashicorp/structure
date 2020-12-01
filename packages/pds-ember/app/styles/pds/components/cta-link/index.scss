@@ -1,6 +1,5 @@
-@use "__config" as *;
-
-@include apply {
-  @include layout;
-  @include appearance;
-}
+@use "base";
+/// Default
+@use "primary"; // .pds--cta
+/// Variants
+@use "ghost"; // .pds--ghost

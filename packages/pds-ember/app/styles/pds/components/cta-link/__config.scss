@@ -4,21 +4,12 @@ $_module: "PDS.Components.CtaLink";
 @use "../../utils/pseudo" as Pseudo;
 @use "../config" as Component;
 @use "../button/_config" as Button;
-@use "../button/primary/_config" as PrimaryButton;
 @use "../link/__config" as Link;
 
 @mixin theme($styles) {
   /* [debug] #{$_module}@theme */
   @include Component.theme(ctaLink, $styles);
 }
-
-/// STATES
-$DEFAULT: PrimaryButton.$DEFAULT;
-$HOVER: PrimaryButton.$HOVER;
-$FOCUS: PrimaryButton.$FOCUS;
-$ACTIVE: PrimaryButton.$ACTIVE;
-$DISABLED: PrimaryButton.$DISABLED;
-$DISABLED-FOCUS: PrimaryButton.$DISABLED-FOCUS;
 
 $backgroundColor: var(--pds-ctaLink-backgroundColor);
 $borderColor: var(--pds-ctaLink-borderColor);
@@ -30,6 +21,14 @@ $fontFamily: Button.$fontFamily;
 @mixin layout {
   /* [debug] #{$_module}@layout */
   @include Button.layout;
+  margin: unset;
+}
+
+@mixin whenDisabled {
+  /* [debug] #{$_module}@whenDisabled */
+  &.pds--disabled {
+    @content;
+  }
 }
 
 @mixin appearance {
@@ -46,29 +45,12 @@ $fontFamily: Button.$fontFamily;
 
   @include theme(Button.$DEFAULT);
 
-  // STATES
-  @include theme($DEFAULT);
-
-  @include Pseudo.hover {
-    @include theme($HOVER);
-  }
-
   @include Pseudo.focus {
     outline: none;
-    @include theme($FOCUS);
   }
 
-  @include Pseudo.active {
-    @include theme($ACTIVE);
-  }
-
-  &.pds--disabled {
+  @include whenDisabled {
     cursor: default;
-    @include theme($DISABLED);
-
-    @include Pseudo.focus {
-      @include theme($DISABLED-FOCUS);
-    }
   }
 }
 

@@ -1,18 +1,48 @@
-<div id="tests">
-  <Pds::CtaLink
-    @route="index"
-    data-foo="bar"
-    data-test-cta-enabled
-  >
-    Enabled CTA
-  </Pds::CtaLink>
+<Pds::Page id="tests" as |Page|>
+  <Page.Body>
+    <section>
+      <header>Primary (default)</header>
 
-  <Pds::CtaLink
-    @route="index"
-    @disabled={{true}}
-    tabindex="-1"
-    data-test-cta-disabled
-  >
-    Disabled CTA
-  </Pds::CtaLink>
-</div>
+      <Pds::CtaLink
+        @route="index"
+        data-foo="bar"
+        data-test-cta-enabled
+      >
+        Enabled CTA
+      </Pds::CtaLink>
+
+      <Pds::CtaLink
+        @route="index"
+        @disabled={{true}}
+        tabindex="-1"
+        data-test-cta-disabled
+      >
+        Disabled CTA
+      </Pds::CtaLink>
+    </section>
+
+    <section>
+      <header>Ghost</header>
+
+      <Pds::CtaLink
+        @route="index"
+        @variant="ghost"
+        data-foo="bar"
+        data-test-cta-ghost-enabled
+      >
+        Enabled CTA (ghost)
+      </Pds::CtaLink>
+
+      <Pds::CtaLink
+        @route="index"
+        @variant="ghost"
+        @disabled={{true}}
+        tabindex="-1"
+        data-test-cta-ghost-disabled
+      >
+        Disabled CTA (ghost)
+      </Pds::CtaLink>
+    </section>
+
+  </Page.Body>
+</Pds::Page>

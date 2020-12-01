@@ -1,0 +1,16 @@
+{{!--
+  NOTE: we're imitating rendered HTML, because we cannot
+  register any routes in storybook for `<LinkTo>` to render
+  a live hyperlink.
+--}}
+<a
+  href="#"
+  class="
+    pds--cta
+    {{if @disabled 'pds--disabled'}}
+    {{if @variant (concat 'pds--' @variant)}}
+  "
+  ...attributes
+>
+  {{yield}}
+</a>
