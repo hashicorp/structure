@@ -1,0 +1,57 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Divider";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/scale";
+
+$__space--end: theme.$size--2xs; // space at ends of rule
+$__space--side: scale.$sm--4; // space parallel to rule
+$__rule-width: 1px;
+
+$color: theme.$borderColor--l1;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: stretch;
+
+  &.pds--horizontal {
+    display: flex;
+    padding: $__space--end 0;
+
+    > span {
+      height: $__rule-width;
+      margin: 0 $__space--side;
+      width: 100%;
+    }
+  }
+
+  &.pds--vertical {
+    display: inline-flex;
+    min-height: 1.5em;
+    padding: 0 $__space--end;
+    vertical-align: top;
+
+    > span {
+      margin: $__space--side 0;
+      width: $__rule-width;
+    }
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  color: $color;
+
+  > span {
+    background-color: currentColor;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-divider {
+    @content;
+  }
+}
