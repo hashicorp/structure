@@ -1,0 +1,12 @@
+<div
+  class="pds-toolbar"
+  ...attributes
+  data-test-toolbar
+>
+  {{ yield (hash
+    Divider=(component 'pds/toolbar/divider')
+    End=(component 'pds/toolbar/end')
+    Label=(component 'pds/toolbar/label')
+    Start=(component 'pds/toolbar/start')
+  )}}
+</div>
