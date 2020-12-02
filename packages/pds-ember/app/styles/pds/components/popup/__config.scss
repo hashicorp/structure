@@ -1,0 +1,132 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Popup";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../tokens/font" as Font;
+@use "../../tokens/scale";
+@use "../_config" as Component;
+@use "../button/_config" as Button;
+@use "../icon/_config" as Icon;
+@use "../banner/_config" as Banner;
+@use "../../core/typography/_config" as Typography;
+
+$__size14: 14px; // FIXME: replace with PDS.Tokens.Scale value
+$__icon-color: var(--pds-popup-icon-color, inherit);
+$__header-color: var(--pds-popup-header-color, inherit);
+
+$backgroundColor: var(--pds-popup-backgroundColor, transparent);
+$borderColor: var(--pds-popup-borderColor, transparent);
+$borderRadius: theme.$borderRadius;
+$color: var(--pds-popup-color, inherit);
+$columnGap: theme.$size--2xs; // 0.25rem (4px)
+$fontSize: theme.$popup-fontSize;
+$paddingBlock: $__size14;
+$paddingInline: theme.$size--sm; // 0.75rem / 12px (scale.$sm--1 / 0.75rem / 12px)
+$rowGap: 0; // FIXME: use theme.$size--xs; // 0.5rem (8px)
+
+/// ===== VARIANT STYLES ===== ///
+$ERROR: Banner.$ERROR;
+$INFO: Banner.$INFO;
+$SUCCESS: Banner.$SUCCESS;
+$WARNING: Banner.$WARNING;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(popup, $styles);
+}
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  padding: $paddingBlock $paddingInline;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'icon header close'
+    '.    body   body'
+    '.    footer footer';
+  grid-gap: $rowGap $columnGap;
+
+  &__icon {
+    grid-area: icon;
+    padding-top: 2px; // FIXME: hack for vertical "centering"
+  }
+
+  &__close {
+    grid-area: close;
+  }
+
+  &__header { // <:title>
+    grid-area: header;
+    padding-top: 2px; // FIXME: hack for vertical "centering"
+  }
+
+  &__body { // <:content>
+    margin-top: theme.$size--2xs; // FIXME: use grid-gap
+    grid-area: body;
+  }
+
+  &__footer { // <:action>
+    margin-top: theme.$size--xs; // FIXME: use grid-gap
+    grid-area: footer;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  color: $color;
+  font-size: $fontSize;
+
+  &__close {
+    @include Button.apply {
+      background: none;
+      border: none;
+      color: color.$ui-gray-500;
+    }
+  }
+
+  &__header { // <:title>
+    @include Typography.Heading(3);
+    color: $__header-color;
+  }
+
+  &__icon {
+    line-height: theme.$lineHeight--dense;
+
+    @include Icon.apply {
+      color: $__icon-color;
+      font-size: theme.$size--md; // same as <Icon @size="md">
+    }
+  }
+
+  /// ----- Variants ----- ///
+  &--error {
+    @include theme($ERROR);
+  }
+
+  &--info {
+    @include theme($INFO);
+  }
+
+  &--success {
+    @include theme($SUCCESS);
+  }
+
+  &--warning {
+    @include theme($WARNING);
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-popup {
+    @content;
+  }
+}

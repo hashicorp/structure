@@ -1,0 +1,32 @@
+<div
+  class="pds-popup pds-popup--{{this.variant}}"
+  ...attributes
+  data-test-popup
+>
+  <div
+    class="pds-popup__icon"
+    data-test-popup-icon
+  >
+    <Pds::Icon @type={{this.iconType}} />
+  </div>
+
+  <div
+    class="pds-popup__close"
+    data-test-popup-close
+  >
+    <Pds::Button
+      @compact={{true}}
+      @iconStart="cancel-plain"
+      @variant="ghost"
+      {{on 'click' this._handleClose}}
+      aria-label="close popup"
+      data-test-popup-close-button
+    />
+  </div>
+
+  {{ yield (hash
+    Header=(component 'pds/popup/header')
+    Body=(component 'pds/popup/body')
+    Footer=(component 'pds/popup/footer')
+  )}}
+</div>

@@ -295,5 +295,10 @@ $tabLink-fontSize: $_size14;
 ///----------------------------------------///
 $banner-fontSize: $_size14;
 
+///----------------------------------------///
+/// Popup
+///----------------------------------------///
+$popup-fontSize: $fontSize;
+
 // deprecated vars (prevent breaking existing consumption)
 @import "light-deprecated";
