@@ -9,6 +9,8 @@ $_module: "PDS.Components.Link";
   @include Component.theme(link, $styles);
 }
 
+$borderWidth: 1px;
+
 // Themable Properties with defaults
 $backgroundColor: var(--pds-link-backgroundColor, transparent);
 $borderColor: var(--pds-link-borderColor, transparent);
@@ -17,10 +19,16 @@ $color: var(--pds-link-color, inherit);
 $textDecoration: var(--pds-link-textDecoration, none);
 
 
+// [1] accounts for invisible border (which adds height)
+//     to correct vertical alignment with adjacent, non-link text
+@mixin layout {
+  margin-block-end: -($borderWidth); // [1]
+}
+
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
   background-color: $backgroundColor;
-  border-bottom: 1px solid $borderColor;
+  border-bottom: $borderWidth solid $borderColor;
   box-shadow: $boxShadow;
   color: $color;
   cursor: pointer;

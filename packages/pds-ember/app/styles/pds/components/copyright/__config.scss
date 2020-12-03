@@ -1,0 +1,35 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Copyright";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../logomark/_config" as Logomark;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: center;
+  display: inline-flex;
+  line-height: 1;
+
+  // child spacing
+  > * + * {
+    margin-inline-start: theme.$size--xs;
+  }
+}
+
+// NOTE: Most styling should be applied externally as if content
+//       were treated like body copy.
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Logomark.apply {
+    font-size: 1.25em; // scales with text
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-copyright {
+    @content;
+  }
+}
