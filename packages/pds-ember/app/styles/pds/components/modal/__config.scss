@@ -1,0 +1,196 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Modal";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../../tokens/color";
+@use "../_config" as Component;
+@use "../button/_config" as Button;
+@use "../../core/typography/_config" as Typography;
+
+$margin-block: 20px;
+// padding on the outer container (with the backdrop)
+// provides space around the dialog to avoid hitting the edge
+// of the viewport
+$paddingBlock: 20px;
+$paddingInline: 20px;
+
+$__blanket-backgroundColor: rgba(color.$ui-gray-900, 0.86);
+
+$__header-backgroundColor: var(--pds-modal-header-backgroundColor);
+$__header-borderColor: var(--pds-modal-header-borderColor);
+$__title-color: var(--pds-modal-title-color);
+$__icon-color: var(--pds-modal-icon-color);
+$__footer-backgroundColor: color.$ui-gray-050;
+
+@mixin theme($styles) {
+  /* [debug] #{$_module}@theme */
+  @include Component.theme(modal, $styles);
+}
+
+$PLAIN: (
+  header-backgroundColor: color.$ui-gray-050,
+  header-borderColor: theme.$borderColor,
+  icon-color: color.$ui-gray-800,
+  title-color: color.$ui-gray-900,
+);
+$ERROR: (
+  header-backgroundColor: theme.$failure-l2,
+  header-borderColor: theme.$failure-base,
+  icon-color: theme.$failure-base,
+  title-color: theme.$failure-d1,
+);
+$INFO: (
+  header-backgroundColor: theme.$info-l2,
+  header-borderColor: theme.$info-base,
+  icon-color: theme.$info-base,
+  title-color: theme.$info-d1,
+);
+$SUCCESS: (
+  header-backgroundColor: theme.$success-l2,
+  header-borderColor: theme.$success-base,
+  icon-color: theme.$success-base,
+  title-color: theme.$success-d1,
+);
+$WARNING: (
+  header-backgroundColor: theme.$warning-l2,
+  header-borderColor: theme.$warning-base,
+  icon-color: theme.$warning-base,
+  title-color: theme.$warning-d1,
+);
+
+@mixin _layout--root {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  padding: $paddingBlock $paddingInline; // defines gap between viewport and dialog
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+@mixin _layout--dialog {
+  &__dialog {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    width: 30rem; // ~480px // TODO: verify with Design
+
+    > * {
+      padding: theme.$size--sm theme.$size--md; // 12 16 12 16
+    }
+  }
+
+  &__header {
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  &__body {
+    flex-grow: 1;
+    order: 2;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+    order: 3;
+  }
+}
+
+@mixin _layout--dialog-header {
+  &__header {
+    align-items: center;
+    display: grid;
+    grid-gap: 0 theme.$size--2xs; // 0 0.25rem (0 4px)
+    grid-template-areas: 'icon title close';
+    grid-template-columns: auto 1fr auto;
+  }
+
+  &__title {
+    grid-area: title;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    grid-area: icon;
+  }
+
+  &__close {
+    grid-area: close;
+
+    @include Button.apply {
+      height: 1.5rem;
+      padding: 0;
+      width: 1.5rem;
+    }
+  }
+}
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include _layout--root;
+  @include _layout--dialog;
+  @include _layout--dialog-header;
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $__blanket-backgroundColor;
+
+  &__dialog {
+    background-color: color.$white;
+    box-shadow: theme.$boxShadow--high;
+  }
+
+  &__header {
+    background-color: $__header-backgroundColor;
+    border-bottom: 1px solid $__header-borderColor;
+  }
+
+  &__body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    background-color: $__footer-backgroundColor;
+    border-top: 1px solid theme.$borderColor;
+  }
+
+  &__icon {
+    color: $__icon-color;
+  }
+
+  &__title {
+    @include Typography.Heading(3);
+    color: $__title-color;
+  }
+
+  &__close {
+    @include Button.apply {
+      --pds-button-boxShadow: none; // FIXME: removes focus glow
+      color: color.$ui-gray-600; // prevents state override
+    }
+  }
+
+  /// ===== VARIANTS ===== ///
+  @include theme($PLAIN);
+  &--error { @include theme($ERROR); }
+  &--info { @include theme($INFO); }
+  &--success { @include theme($SUCCESS); }
+  &--warning { @include theme($WARNING); }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-modal {
+    @content;
+  }
+}

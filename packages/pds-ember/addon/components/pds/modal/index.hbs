@@ -1,0 +1,45 @@
+<div
+  class="pds-modal pds-modal--{{this.variant}}"
+  ...attributes
+  data-test-modal
+  {{on 'keyup' this._handleKeyup}}
+>
+  <div
+    class="pds-modal__dialog"
+    role="dialog"
+    data-test-modal-dialog
+    aria-labeledby={{this.titleId}}
+  >
+    <header class="pds-modal__header">
+      <div class="pds-modal__icon">
+        <Pds::Icon
+          @type={{this.iconType}}
+          data-test-modal-icon
+        />
+      </div>
+
+      <div
+       class="pds-modal__title"
+       id={{this.titleId}}
+       data-test-modal-title
+      >
+        {{@title}}
+      </div>
+
+      <div class="pds-modal__close">
+        <Pds::Button
+          @compact={{true}}
+          @iconStart="cancel-plain"
+          aria-label={{t 'pds.components.modal.close'}}
+          {{on 'click' this.close}}
+          data-test-modal-close-button
+        />
+      </div>
+    </header>
+
+    {{ yield (hash
+      Body=(component 'pds/modal/body')
+      Footer=(component 'pds/modal/footer')
+    )}}
+  </div>
+</div>

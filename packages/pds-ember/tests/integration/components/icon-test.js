@@ -3,7 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | Icon', function(hooks) {
+const ROOT = '[data-test-icon]'
+const WRAPPER = '[data-test-icon-svg-wrapper]'
+
+module('Integration | Components.Icon', function(hooks) {
   setupRenderingTest(hooks);
 
   // within test() callback:
@@ -27,14 +30,14 @@ module('Integration | Component | Icon', function(hooks) {
   }, function() {
     test('should render the root element', async function(assert) {
       assert
-        .dom('[data-test-root]')
+        .dom(ROOT)
         .exists('renders root element')
         .doesNotHaveClass(/pds--.*/, 'does not have any unexpected classes')
     });
 
     test('should not render any svg elements', async function(assert) {
       assert
-        .dom('[data-test-wrapper] *')
+        .dom(`${WRAPPER} *`)
         .doesNotExist('does not render svg elements');
     });
 
@@ -47,7 +50,7 @@ module('Integration | Component | Icon', function(hooks) {
     await render(hbs`<Pds::Icon id="foo" />`);
 
     assert
-      .dom('[data-test-root]')
+      .dom(ROOT)
       .hasAttribute('id', 'foo')
       .doesNotHaveAttribute('foo', 'bar');
   });
@@ -56,7 +59,7 @@ module('Integration | Component | Icon', function(hooks) {
     await render(hbs`<Pds::Icon foo-bar="fizzbuzz" />`);
 
     assert
-      .dom('[data-test-root]')
+      .dom(ROOT)
       .hasAttribute('foo-bar', 'fizzbuzz');
   });
 
@@ -64,7 +67,7 @@ module('Integration | Component | Icon', function(hooks) {
     await render(hbs`<Pds::Icon class="foobar" />`);
 
     assert
-      .dom('[data-test-root]')
+      .dom(ROOT)
       .exists('renders root element with expected class')
       .hasClass('foobar');
   });
@@ -74,7 +77,7 @@ module('Integration | Component | Icon', function(hooks) {
       await render(hbs`<Pds::Icon @type="missing-icon-dne" />`);
 
       assert
-        .dom('[data-test-wrapper] *')
+        .dom(`${WRAPPER} *`)
         .doesNotExist('does not render svg elements');
     });
   });
@@ -86,14 +89,14 @@ module('Integration | Component | Icon', function(hooks) {
   }, function () {
     test('should render an <svg> element', async function(assert) {
       assert
-        .dom('[data-test-root] svg')
+        .dom(`${ROOT} svg`)
         .exists({ count: 1 }, 'renders one <svg> element')
         .hasAria('hidden', 'true', 'aria-hidden exists on <svg>');
     });
 
     test('should render at least one <path>', async function(assert) {
       assert
-        .dom('[data-test-root] svg path')
+        .dom(`${ROOT} svg path`)
         .exists('renders at least one <path> element');
     });
   });
@@ -110,14 +113,14 @@ module('Integration | Component | Icon', function(hooks) {
   }, function () {
     test('should render an <svg> element', async function(assert) {
       assert
-        .dom('[data-test-root] svg')
+        .dom(`${ROOT} svg`)
         .exists({ count: 1 }, 'renders one <svg> element')
         .hasAria('hidden', 'true', 'has svg[aria-hidden]');
     });
 
     test('should render at least one <path>', async function(assert) {
       assert
-        .dom('[data-test-root] svg path')
+        .dom(`${ROOT} svg path`)
         .exists('renders at least one <path> element');
     });
   });

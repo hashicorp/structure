@@ -1,0 +1,49 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / Modal';
+
+# Modal
+Render a modal dialog with a semi-transparent backdrop.
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::Modal as |M|>
+  <M.Body>...</M.Body>
+  <M.Footer>...</M.Footer>
+</Pds::Modal>
+```
+<ArgsTable of="PdsModal" />
+
+
+## Styling
+```scss
+@use "pds/components/modal";
+```
+
+
+## Markup
+The `<Pds::Modal>` Ember component and its subcomponents handle generation of
+semantic markup.
+
+
+## Accessibility
+- `Esc` may be pressed to call the `@onClose` action (only when focus is
+  _within_ the Modal root element).
+- While one or more modals are open, `<main>` page content as well as
+  other siblings of the ModalArea container should be inert.
+- Modals should open in a last-in-first-out (LIFO) manner.
+  - The most recent modal should be active with contextual focus
+    (all other modals should be inert).
+  - When a modal closes, the previous modal should become active.
+- Keyboard focus should not escape the modal dialog.
+
+
+## See Also
+TBD...

@@ -1,2 +1,6 @@
-@use "area";
-@use "dialog";
+@use "__config" as *;
+
+@include apply {
+  @include layout;
+  @include appearance;
+}
