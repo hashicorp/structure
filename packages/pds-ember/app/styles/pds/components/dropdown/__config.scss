@@ -1,17 +1,15 @@
 ///-------------------------------------------------------------------------///
 /// WARNING: Private Sass module (definitions may change at ANY time)
 ///-------------------------------------------------------------------------///
+@forward "dialog/__config" as Dialog-*;
+@forward "item/button/__config" as Button-*;
+@forward "item/link/__config" as Link-*;
+@forward "trigger/__config" as Trigger-*;
 $_module: "PDS.Components.Dropdown";
 /* --- [debug] CONFIG: #{$_module} --- */
-@use "../../theme";
-@use "../../tokens/color";
-@use "../_config" as Component;
-@use "../../utils/pseudo" as Pseudo;
-@use "../../utils/env";
 @use "./dialog/__config" as Dialog;
 
 // NOTE: transforms and animations omitted (no design specs)
-// NOTE: styling of dialog content omitted (includes padding)
 
 // TODO: theme.* var for elevation (see "Figma > Docs > Elevations")
 $zIndex--closed: 0;

@@ -139,5 +139,26 @@ module('Integration | Components.DropdownTrigger', function(hooks) {
       .dom(BLOCK_CONTENT)
       .hasClass(CSS.visuallyHidden, 'has "visually-hidden" modifier CSS class')
   })
+
+  test('supports @isOpen', async function(assert) {
+    let _class = 'pds--open'
+    await render(hbs`
+      <Pds::Dropdown::Trigger
+        @isOpen={{this.isOpen}}
+      >
+        block text
+      </Pds::Dropdown::Trigger>
+    `)
+
+    assert
+      .dom(ROOT)
+      .doesNotHaveClass(_class, 'does not apply open modifier CSS class')
+
+    // @isOpen={{true}}
+    this.set('isOpen', true)
+    assert
+      .dom(ROOT)
+      .hasClass(_class, 'applies open modifier CSS class')
+  })
 })
 

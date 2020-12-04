@@ -1,0 +1,39 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Dropdown.Item.Theme";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../tokens/color";
+@use "../../../utils/pseudo" as Pseudo;
+
+// NOTE: styles define a "Light" theme
+
+@mixin _disabled {
+  --pds-backgroundColor: transparent;
+  --pds-color: #{color.$ui-gray-300};
+}
+
+@mixin appearance--disabled {
+  @include _disabled;
+
+  @include Pseudo.hover {
+    @include _disabled;
+  }
+
+  @include Pseudo.focus {
+    @include _disabled;
+  }
+}
+
+@mixin appearance {
+  --pds-backgroundColor: transparent;
+  --pds-color: #{color.$ui-gray-900};
+
+  @include Pseudo.hover {
+    --pds-backgroundColor: #{color.$ui-gray-050};
+  }
+
+  @include Pseudo.active {
+    --pds-backgroundColor: #{color.$ui-gray-050};
+  }
+}

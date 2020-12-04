@@ -3,29 +3,32 @@
 ///-------------------------------------------------------------------------///
 $_module: "PDS.Components.Dropdown.Trigger";
 /* --- [debug] CONFIG: #{$_module} --- */
-@use "../../../utils/pseudo" as Pseudo;
-@use "../../button/_config" as Button;
+@use "../../../theme";
+@use "../../button/__config" as Button;
 
-// Most of the layout styles come from the applied Button classes.
+// Majority of theming/variation comes from Button modifier classes.
+
 @mixin layout {
   /* [debug] #{$_module}@layout */
-  @include Button.layout--reset;
-  box-sizing: border-box; // <summary> doesn't inherit box-sizing from <details>
 
+  // remove conflicting layout styles on <summary> so that we can reapply them
+  // to the wrapper
+  @include Button.layout--reset;
+
+  // retarget the wrapper for Button layout styling
   &__layoutWrapper {
-    @include Button.layout--base;
+    @include Button.layout--root;
   }
 }
 
-// Most of the appearance styles come from the applied Button classes.
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
   &::-webkit-details-marker {
     display: none;
   }
 
-  @include Pseudo.focus {
-    outline: none;
+  &.pds--open &__icon {
+    transform: scaleY(-1);
   }
 }
 

@@ -4,6 +4,11 @@ import DocsPage, { TITLE } from '../docs.mdx'
 export default {
   title: TITLE,
   component: 'PdsDropdown',
+  subcomponents: {
+    'D.Trigger': 'PdsDropdownTrigger',
+    'D.Dialog': 'PdsDropdownDialog',
+    'D.ListItem': 'PdsDropdownListItem',
+  },
   parameters: { docs: { page: DocsPage } },
   argTypes: {
     onToggle: { action: '@onToggle' },

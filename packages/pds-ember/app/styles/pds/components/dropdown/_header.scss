@@ -1,0 +1,16 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Dropdown.Header";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/_config" as Typography;
+@use "../../theme";
+@use "__config" as _super;
+
+@include _super.apply {
+  header {
+    @include Typography.Label;
+    color: theme.$label-color;
+    padding: theme.$size--2xs theme.$size--sm;
+  }
+}

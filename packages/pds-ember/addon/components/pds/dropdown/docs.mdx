@@ -21,12 +21,29 @@ its visibility.
   </D.Trigger>
 
   <D.Dialog>
-    ...
+    <section>
+      <!-- optional -->
+      <header>...</header>
+
+      <!-- any of the following -->
+      <D.ListItem />
+      <LinkTo />
+      <Pds::Button />
+      <Pds::CtaLink />
+    </section>
   </D.Dialog>
 </Pds::Dropdown>
 ```
-<ArgsTable of="PdsDropdown" />
+* `D.isOpen` (boolean) reflects the open state of the Dropdown.
+* `D.close` (action) can be used to programmatically close the Dropdown.
+* `<D.ListItem>` is a generic wrapper for text content.
+* `<D.Trigger>` is a wrapper for a semantic `<summary>` element.
+* `<D.Dialog>` is a wrapper for content to be displayed when the dialog is open.
+    * Dialog content will vary depending on the use case.
+    * Dialog content should be nested in one or more `<section>` elements to
+      ensure proper layout and styling.
 
+<ArgsTable of="PdsDropdown" />
 
 
 ## Styling
@@ -37,25 +54,13 @@ its visibility.
 ### Trigger
 Default Button styles are applied to the Trigger.
 
-* It should also accept the majority of Button variation CSS classes
+* It should also support all Button modifier classess.
   (e.g., `.pds--primary`, `.pds--compact`, etc.).
 
 
 ## Markup
 The `Pds::Dropdown` component and its subcomponents handle rendering of semantic
 markup for a non-modal, dropdown dialog.
-
-
-```html
-<!-- dropdown -->
-<details>
-  <!-- trigger -->
-  <summary>...</summary>
-
-  <!-- body -->
-  <div>...</div>
-</details>
-```
 
 
 ## Accessibility
@@ -68,5 +73,7 @@ markup for a non-modal, dropdown dialog.
 - [Button (disabled)](?path=/story/components-button-states--disabled)
 - [ButtonSet](?path=/docs/components-buttonset--index)
 - [Dropdown::Trigger](?path=/docs/components-dropdown-trigger--index)
+- [GlobalHeader](?path=/docs/components-globalheader--index)
+    - Specifically `Switcher` and `UserMenu` subcomponents.
 - [WAI-ARIA Authoring Practices: Dialog (Modal)](https://www.w3.org/TR/wai-aria-practices/#dialog_modal)
     - Similar behavior applies to _non-modal_ dialogs, as well.
