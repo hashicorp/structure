@@ -1,4 +1,4 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
 export const TITLE = 'Components / CtaLink';
 
 # CTA Link
@@ -22,12 +22,7 @@ Ember component.
 **NOTE:** `<Pds::CtaLink>` renders a hyperlink (`<a href="...">`), which cannot
 be semantically `:disabled`.
 
-### @disabled
-**WARNING: Use sparingly!**
-
-Because `<Pds::CtaLink>` extends `<LinkTo>`, it also supports the use of the
-`@disabled` argument.  However, this will only prevent Ember route transitions
-and will not prevent element focus.
+<ArgsTable of="PdsCtaLink" />
 
 
 ## Styling

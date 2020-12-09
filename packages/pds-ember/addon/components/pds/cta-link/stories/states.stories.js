@@ -1,60 +1,59 @@
 import hbs from 'htmlbars-inline-precompile'
-import Parent from './index.stories'
+import DocsPage, { TITLE } from '../docs.mdx'
 
 export default {
-  ...Parent,
-  title: `${Parent.title} / States`,
+  title: `${TITLE} / States`,
+  component: 'PdsCtaLink',
+  parameters: { docs: { page: DocsPage } },
 }
 
 export const Enabled = () => ({
   template: hbs`
-    <a href="#" class="pds--cta">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States />
   `,
 })
 
 export const EnabledHover = () => ({
   template: hbs`
-    <a href="#" class="pds--cta mock-hover">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-hover"
+    />
   `,
 })
 EnabledHover.storyName = 'Enabled + Hover'
 
 export const EnabledFocus = () => ({
   template: hbs`
-    <a href="#" class="pds--cta mock-focus">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus"
+    />
   `,
 })
 EnabledFocus.storyName = 'Enabled + Focus'
 
 export const EnabledFocusHover = () => ({
   template: hbs`
-    <a href="#" class="pds--cta mock-focus mock-hover">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus mock-hover"
+    />
   `,
 })
 EnabledFocusHover.storyName = 'Enabled + Focus + Hover'
 
 export const EnabledFocusActive = () => ({
   template: hbs`
-    <a href="#" class="pds--cta mock-focus mock-active">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus mock-active"
+    />
   `,
 })
 EnabledFocusActive.storyName = 'Enabled + Focus + Active'
 
 export const EnabledFocusActiveHover = () => ({
   template: hbs`
-    <a href="#" class="pds--cta mock-focus mock-active mock-hover">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus mock-active mock-hover"
+    />
   `,
 })
 EnabledFocusActiveHover.storyName = 'Enabled + Focus + Active + Hover'
@@ -64,53 +63,58 @@ EnabledFocusActiveHover.storyName = 'Enabled + Focus + Active + Hover'
 
 export const Disabled = () => ({
   template: hbs`
-    <a href="#" class="pds--cta pds--disabled">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      @disabled={{true}}
+    />
   `,
 })
 
 export const DisabledHover = () => ({
   template: hbs`
-    <a href="#" class="pds--cta pds--disabled mock-hover">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-hover"
+      @disabled={{true}}
+    />
   `,
 })
 DisabledHover.storyName = 'Disabled + Hover'
 
 export const DisabledFocus = () => ({
   template: hbs`
-    <a href="#" class="pds--cta pds--disabled mock-focus">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus"
+      @disabled={{true}}
+    />
   `,
 })
 DisabledFocus.storyName = 'Disabled + Focus'
 
 export const DisabledFocusHover = () => ({
   template: hbs`
-    <a href="#" class="pds--cta pds--disabled mock-focus mock-hover">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus mock-hover"
+      @disabled={{true}}
+    />
   `,
 })
 DisabledFocusHover.storyName = 'Disabled + Focus + Hover'
 
 export const DisabledFocusActive = () => ({
   template: hbs`
-    <a href="#" class="pds--cta pds--disabled mock-focus mock-active">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus mock-active"
+      @disabled={{true}}
+    />
   `,
 })
 DisabledFocusActive.storyName = 'Disabled + Focus + Active'
 
 export const DisabledFocusActiveHover = () => ({
   template: hbs`
-    <a href="#" class="pds--cta pds--disabled mock-focus mock-active mock-hover">
-      CTA Link
-    </a>
+    <Docs::CtaLink::States
+      class="mock-focus mock-active mock-hover"
+      @disabled={{true}}
+    />
   `,
 })
 DisabledFocusActiveHover.storyName = 'Disabled + Focus + Active + Hover'

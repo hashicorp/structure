@@ -1,0 +1,99 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Toolbar";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/_config" as Typography;
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../utils/pseudo" as Pseudo;
+@use "../cta-link/_config" as CtaLink;
+@use "../dropdown/trigger/_config" as DropdownTrigger;
+@use "../button/_config" as Button;
+@use "../select/_control/_config" as SelectControl;
+
+$__label-color: color.$black;
+
+$backgroundColor: color.$ui-gray-010;
+$borderColor: theme.$borderColor--l1;
+$colGap: theme.$size--2xs;
+$color: color.$ui-gray-800;
+$padding: theme.$size--2xs;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: center;
+  display: grid;
+  grid-template-areas: 'start . end';
+  grid-template-columns: auto 1fr auto;
+  padding: $padding;
+  grid-gap: 0 $colGap;
+
+  > * {
+    align-items: center;
+    display: flex;
+
+    /// [1] `!important` required to override resets of higher
+    ///     CSS specificity
+    > * + * {
+      margin-inline-start: $colGap !important; // [1]
+    }
+  }
+
+  &__start {
+    grid-area: start;
+  }
+
+  &__end {
+    grid-area: end;
+  }
+
+  &__divider {
+    align-self: stretch;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  background-color: $backgroundColor;
+  border-color: $borderColor;
+  border-style: solid;
+  border-width: 1px 0;
+  color: $color;
+
+  &__label {
+    @include Typography.Label();
+    color: $__label-color;
+  }
+
+  // OVERRIDES
+
+  @include CtaLink.apply {
+    color: inherit;
+  }
+
+  @include DropdownTrigger.apply {
+    color: inherit;
+  }
+
+  @include Button.apply {
+    color: inherit;
+  }
+
+  @include SelectControl.apply {
+    // remove default shadow
+    --pds-select-boxShadow: none;
+
+    @include Pseudo.focus {
+      // allow focus shadow
+      --pds-select-boxShadow: #{theme.$boxShadow--focus};
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-toolbar {
+    @content;
+  }
+}

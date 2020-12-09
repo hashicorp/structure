@@ -1,19 +1,56 @@
 import hbs from 'htmlbars-inline-precompile'
 import DocsPage, { TITLE } from '../docs.mdx'
+import ICONS from '@hashicorp/structure-icons/dist/index';
 
 export default {
   title: TITLE,
   component: 'PdsCtaLink',
   parameters: { docs: { page: DocsPage } },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'radio',
+        options: {
+          'primary (default)': '',
+          'ghost': 'ghost',
+        },
+      },
+    },
+  },
+  args: {
+    variant: '',
+  },
 }
 
-// NOTE: we're imitating rendered HTML, because we cannot
-// register any routes in storybook for `<LinkTo>` to render
-// a live hyperlink
-export const Index = () => ({
+
+export const Index = (args) => ({
   template: hbs`
-    <a href="#" class="pds--cta">
+    <Docs::CtaLink @variant={{variant}}>
       Call to Action
-    </a>
+    </Docs::CtaLink>
   `,
+  context: args,
 })
+
+
+export const WithIcon = (args) => ({
+  template: hbs`
+    <Docs::CtaLink class="pds--iconEnd" @variant={{variant}}>
+      {{! text MUST be wrapped in <span> }}
+      <span>Action</span>
+      <Pds::Icon @type={{icon}} />
+    </Docs::CtaLink>
+  `,
+  context: args,
+})
+WithIcon.argTypes = {
+  icon: {
+    control: {
+      type: 'select',
+      options: ICONS,
+    },
+  },
+}
+WithIcon.args = {
+  icon: 'chevron-right',
+}
