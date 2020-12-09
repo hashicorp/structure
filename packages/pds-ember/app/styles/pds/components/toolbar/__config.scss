@@ -7,7 +7,6 @@ $_module: "PDS.Components.Toolbar";
 @use "../../theme";
 @use "../../tokens/color";
 @use "../../utils/pseudo" as Pseudo;
-@use "../cta-link/_config" as CtaLink;
 @use "../dropdown/trigger/_config" as DropdownTrigger;
 @use "../button/_config" as Button;
 @use "../select/_control/_config" as SelectControl;
@@ -67,10 +66,6 @@ $padding: theme.$size--2xs;
   }
 
   // OVERRIDES
-
-  @include CtaLink.apply {
-    color: inherit;
-  }
 
   @include DropdownTrigger.apply {
     color: inherit;

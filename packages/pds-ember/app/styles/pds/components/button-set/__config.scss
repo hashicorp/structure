@@ -5,14 +5,12 @@ $_module: "PDS.Components.ButtonSet";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../theme";
 
-$columnGap: theme.$size--sm;
-
 @mixin layout {
   /* [debug] #{$_module}@layout */
   display: flex; // non-wrapping
 
   > * + * {
-    margin-inline-start: $columnGap;
+    margin-inline-start: theme.$size--sm !important;
   }
 }
 

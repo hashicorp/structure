@@ -35,7 +35,7 @@ async function renders(assert, selector) {
     .dom(selector)
     .exists()
     .hasTagName('a')
-    .hasClass('pds--cta')
+    .hasClass('pds-button')
     .doesNotHaveStyle({ cursor: 'auto' }, 'has custom style')
     .hasAttribute('href', /.*/, 'is a hyperlink')
 }

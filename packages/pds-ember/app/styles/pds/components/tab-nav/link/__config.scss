@@ -1,0 +1,46 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Link.Tab";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../core/typography/_config" as Typography;
+@use "../../../theme";
+@use "../../../utils/pseudo" as Pseudo;
+@use "../../link/__config" as Link;
+@use "../__config" as _super;
+@use "__theme";
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  display: inline-block;
+  padding: theme.$size--md;
+  white-space: nowrap;
+}
+
+// base appearance/common styles
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include _theme.appearance;
+  @include Typography.Interface;
+  background-color: theme.$tab-backgroundColor;
+  border-bottom: 3px solid theme.$tab-accent-color;
+  box-shadow: none;
+  color: theme.$tab-color;
+  text-decoration: none;
+
+  @include Link.whenDisabled {
+    cursor: not-allowed;
+  }
+
+  @include Pseudo.focus {
+    box-shadow: inset theme.$boxShadow--focus;
+  }
+}
+
+@mixin apply {
+  @include _super.apply {
+    @include Link.apply {
+      @content;
+    }
+  }
+}

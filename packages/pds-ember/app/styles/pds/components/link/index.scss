@@ -1,7 +1,6 @@
 @use "reset";
-// Common Styles
 @use "base";
-// Variant Styles
-@use "default";    // :any-link
-@use "underlined"; // :any-link.pds--underlined
-@use "incognito";  // :any-link.pds--incognito
+// Variants
+@use "incognito";
+@use "plain";
+@use "underlined";

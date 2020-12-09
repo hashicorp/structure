@@ -1,0 +1,5 @@
+@use "__config" as *;
+
+@include apply {
+  @include reset;
+}

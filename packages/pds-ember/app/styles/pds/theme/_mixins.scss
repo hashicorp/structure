@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "vars";
+
+$SHADOWS: (
+  well: vars.$boxShadow--well,
+  low: vars.$boxShadow--low,
+  middle: vars.$boxShadow--middle,
+  high: vars.$boxShadow--high,
+  highest: vars.$boxShadow--highest,
+);
+
+@function getShadow($elevation: none, $focus: false) {
+  /* [debug] getShadow(#{$elevation}, $focused: #{$focused}) */
+  $base: ();
+  @if $elevation != none {
+    $base: map.get($SHADOWS, $elevation);
+  }
+
+  $result: ($base);
+  @if $focus {
+    $result: ($base, vars.$boxShadow--focus);
+  }
+
+  @return $result;
+}
+
+/// TODO: remove this mixin in favor of explicit CSS custom property defs
+/// Generate prefixed CSS Custom Properties for every key
+/// defined in the provided style map.  Custom properties
+/// will be defined in the following format:
+///
+///   --pds-{propName}: {propValue};
+///
+@mixin config($styles: (), $component: none, $prefix: pds) {
+  @each $propName, $propValue in $styles {
+    $key: #{$prefix}-#{$component}-#{$propName};
+    @if ($component == none) {
+      $key: #{$prefix}-#{$propName};
+    }
+
+    --#{$key}: #{$propValue};
+  }
+}

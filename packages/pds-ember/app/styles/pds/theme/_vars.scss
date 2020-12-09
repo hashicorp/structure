@@ -1,0 +1,301 @@
+@use "../tokens/color";
+@use "../tokens/font";
+@use "../tokens/resolutions";
+@use "../tokens/scale";
+
+// TODO: document dim/amp variants
+
+// TODO: deprecate/rename vars to fit EPM naming format
+
+// TODO: update with generic set of baseline
+// variables in order to easily apply a theme.
+// (see p39-42 in October 2019 Brand Guide)
+
+// Ideally, configuration can be done via CSS custom properties
+// in order to enable simpler client-side a11y configuration.
+// This requires some auditing and research to identify which
+// settings should be client-side configurable.
+//
+// For now, we define everything in Sass.
+// Sass variables define the theme module "exports"
+// for `@use "pds/theme";` within consuming apps as `theme.*` vars.
+//
+// This should allow for the replacement, or injection of
+// new/custom themes into the module @use chain.
+
+// FIXME: "magic number" outside of defined scale
+//
+// DO NOT use this variable outside of this module!
+//
+// This private var is used to apply a 14px font size to theme variables
+// that require it as part of design specifications.  Because it is a value that
+// doesn't exist in the modular scale (see tokens/scale.scss), we need to keep
+// it centralized to prevent accidental use by consumers and to provide an
+// upgrade path if designs are modified in the future.
+$size--14: 0.875rem; // ~14px
+
+
+///----------------------------------------///
+/// PRIVATE VARS
+///----------------------------------------///
+$_black--a05: rgba(0, 0, 0, 0.05);
+$_black--a06: rgba(0, 0, 0, 0.06);
+$_black--a08: rgba(0, 0, 0, 0.08);
+$_black--a10: rgba(0, 0, 0, 0.10);
+$_black--a20: rgba(0, 0, 0, 0.20);
+$_black--a25: rgba(0, 0, 0, 0.25);
+
+///----------------------------------------///
+/// CORE DEFAULTS
+///----------------------------------------///
+$rem: 16px;
+$backgroundColor: var(--pds-backgroundColor);
+$color: var(--pds-color);
+$focus-color: var(--pds-focus-color);
+$underline-color: var(--pds-underline-color);
+
+
+///----------------------------------------///
+/// CORE SCALE
+///----------------------------------------///
+// Useful for:
+//   - Dimensions (height, width, offset, etc.)
+//   - Spacing (margin, padding, etc.)
+//   - Font Size (headings, body copy, subtext, supertext, etc.)
+$size--2xs: scale.$sm-3; // 4px  (0.25rem)
+$size--xs:  scale.$sm-2; // 8px  (0.5rem)
+$size--sm:  scale.$sm-1; // 12px (0.75rem)
+$size--md:  scale.$base; // 16px (1rem)
+$size--lg:  scale.$lg-2; // 24px (1.5rem)
+$size--xl:  scale.$lg-5; // 36px (2.25rem)
+$size--2xl: scale.$lg-7; // 48px (3rem)
+
+
+///----------------------------------------///
+/// CORE MEDIA/RESPONSIVE BREAKPOINTS
+///----------------------------------------///
+// Sass Only! (DO NOT allow client configuration)
+//
+// Even if we did allow client a11y configuration,
+// CSS custom properties can't be used in @media
+// queries.  Media Queries Level 5 spec will enable
+// this, but it's not yet available in any browser.
+
+/// Mobile (small) -- low/medium res smartphones
+/// Mobile (large) -- Tablets (portrait) & high-res smartphones
+$media--xs: 30rem !default; // ~480px
+/// Desktop (small) -- Tablets (landscape) & Low-res PCs
+$media--sm: resolutions.$svga-width !default;
+/// Desktop (medium) -- High-res screens
+$media--md: resolutions.$hd-width !default;
+/// Desktop (large) -- High-definition screens (1080p and higher)
+$media--lg: resolutions.$fhd-width !default;
+
+
+///----------------------------------------///
+/// CORE TYPOGRAPHY
+///----------------------------------------///
+$fontFamily: font.$family-system-sans;
+$fontFamily--code: font.$family-system-mono;
+$fontSize--sm: scale.$sm--1; // 0.75rem (12px)
+$fontSize--md: $size--md;    // 1rem    (16px)
+$fontSize--lg: scale.$lg--1; // 1.25rem (20px)
+$fontSize: $fontSize--md; // alias
+$fontWeight: var(--pds-fontWeight);
+$letterSpacing: var(--pds-letterSpacing);
+$lineHeight: var(--pds-lineHeight);
+$lineHeight--dense: var(--pds-lineHeight--dense);
+$paragraphSpacing: var(--pds-paragraphSpacing);
+$wordSpacing: var(--pds-wordSpacing);
+
+
+///----------------------------------------///
+/// CORE BORDERS
+///----------------------------------------///
+$borderColor: var(--pds-borderColor);
+$borderColor--dim: var(--pds-borderColor--dim);
+$borderRadius: var(--pds-borderRadius);
+
+///----------------------------------------///
+/// Action / Accent
+///----------------------------------------///
+$action--dim2: var(--pds-action--dim2);
+$action--dim1: var(--pds-action--dim1);
+$action--base: var(--pds-action--base);
+$action--amp1: var(--pds-action--amp1);
+
+///----------------------------------------///
+/// CORE STATUS (INFO)
+///----------------------------------------///
+$info--dim2: var(--pds-info--dim2);
+$info--dim1: var(--pds-info--dim1);
+$info--base: var(--pds-info--base);
+$info--amp1: var(--pds-info--amp1);
+
+///----------------------------------------///
+/// CORE STATUS (ALERT)
+///----------------------------------------///
+$alert--dim2: var(--pds-alert--dim2);
+$alert--dim1: var(--pds-alert--dim1);
+$alert--base: var(--pds-alert--base);
+$alert--amp1: var(--pds-alert--amp1);
+
+///----------------------------------------///
+/// CORE STATUS (SUCCESS)
+///----------------------------------------///
+$success--dim2: var(--pds-success--dim2);
+$success--dim1: var(--pds-success--dim1);
+$success--base: var(--pds-success--base);
+$success--amp1: var(--pds-success--amp1);
+
+///----------------------------------------///
+/// CORE STATUS (WARNING)
+///----------------------------------------///
+$warning--dim2: var(--pds-warning--dim2);
+$warning--dim1: var(--pds-warning--dim1);
+$warning--base: var(--pds-warning--base);
+$warning--amp1: var(--pds-warning--amp1);
+
+///----------------------------------------///
+/// CORE STATUS (FAILURE)
+///----------------------------------------///
+$failure--dim2: var(--pds-failure--dim2);
+$failure--dim1: var(--pds-failure--dim1);
+$failure--base: var(--pds-failure--base);
+$failure--amp1: var(--pds-failure--amp1);
+
+
+///----------------------------------------///
+/// SHADOWS
+///----------------------------------------///
+// TODO: refactor/simplify
+$boxShadow--focus: 0 0 0 3px #{$focus-color};
+$boxShadow--well: inset 0 3px 1px $_black--a06;
+$boxShadow--low:     0 4px 4px $_black--a25;
+$boxShadow--middle:  0 4px 8px $_black--a05, 0 4px  4px $_black--a10;
+$boxShadow--high:    0 5px 5px $_black--a08, 0 8px  10px $_black--a10;
+$boxShadow--highest: 0 6px 6px $_black--a06, 0 12px 16px $_black--a20;
+
+
+///----------------------------------------///
+/// Headings
+///----------------------------------------///
+$heading-fontSize--0: scale.$lg--5; // 36px;
+$heading-fontSize--1: scale.$lg--3; // 28px
+$heading-fontSize--2: $fontSize--lg;
+$heading-fontSize--3: scale.$base; // 16px
+$heading-fontSize--4: $size--14;
+$heading-lineHeight: $lineHeight--dense;
+$heading-fontWeight: font.weight(Bold);
+
+
+///----------------------------------------///
+/// UI Elements
+///----------------------------------------///
+$ui-fontSize: $size--14;
+$ui-fontSize--sm: $fontSize--sm; // 12px
+$ui-fontSize--lg: scale.$base; // 16px (1rem)
+$ui-fontWeight: font.weight(Medium);
+$ui-lineHeight: $lineHeight--dense;
+
+
+///----------------------------------------///
+/// Labels
+///----------------------------------------///
+$label-fontSize: $size--14;
+$label-fontWeight: font.weight(Bold);
+$label-lineHeight: $lineHeight--dense;
+$label-color: var(--pds-label-color);
+
+///----------------------------------------///
+/// Inline Code
+///----------------------------------------///
+$inlineCode-backgroundColor: color.$ui-gray-050;
+$inlineCode-borderColor: color.$ui-gray-200;
+$inlineCode-color: color.$magenta-500;
+$inlineCode-font: inherit;
+$inlineCode-fontFamily: font.$family-system-mono;
+$inlineCode-lineHeight: inherit;
+$inlineCode-padding: 0 $size--2xs;
+$inlineCode-borderRadius: $borderRadius;
+
+
+///----------------------------------------///
+/// Code Blocks
+///----------------------------------------///
+$codeBlock-fontFamily: font.$family-system-mono;
+$codeBlock-fontSize: $size--14;
+$codeBlock-fontWeight: font.weight(Medium);
+$codeBlock-lineHeight: $lineHeight;
+
+
+///----------------------------------------///
+/// Breadcrumb Nav
+///----------------------------------------///
+$breadcrumbs-fontSize: $size--14;
+
+
+///----------------------------------------///
+/// Nav
+///----------------------------------------///
+$nav-fontSize: $size--14;
+$nav-color: var(--pds-nav-color);
+$navLink-accent-color: var(--pds-navLink-accent-color);
+$navLink-backgroundColor: var(--pds-navLink-backgroundColor);
+$navLink-boxShadow: var(--pds-navLink-boxShadow);
+$navLink-color: var(--pds-navLink-color);
+$navLink-fontSize: $nav-fontSize;
+
+
+///----------------------------------------///
+/// Tabs
+///----------------------------------------///
+$tab-accent-color: var(--pds-tab-accent-color);
+$tab-backgroundColor: var(--pds-tab-backgroundColor);
+$tab-color: var(--pds-tab-color);
+
+
+///----------------------------------------///
+/// Banner
+///----------------------------------------///
+$banner-fontSize: $size--14;
+
+
+///----------------------------------------///
+/// Popup
+///----------------------------------------///
+$popup-fontSize: $fontSize;
+
+
+///----------------------------------------///
+/// Links
+///----------------------------------------///
+$link-color: var(--pds-link-color);
+$link-underline-color: var(--pds-link-underline-color);
+
+
+///----------------------------------------///
+/// Buttons
+///----------------------------------------///
+// Layout
+$button-columnGap: var(--pds-button-columnGap);
+$button-height: var(--pds-button-height);
+$button-paddingInlineEnd: var(--pds-button-paddingInlineEnd);
+$button-paddingInlineStart: var(--pds-button-paddingInlineStart);
+// Appearance
+$button-backgroundColor: var(--pds-button-backgroundColor);
+$button-borderColor: var(--pds-button-borderColor);
+$button-boxShadow: var(--pds-button-boxShadow);
+$button-color: var(--pds-button-color);
+
+
+///----------------------------------------///
+/// Avatar
+///----------------------------------------///
+$avatar-size: var(--pds-avatar-size);
+
+///----------------------------------------///
+/// Select
+///----------------------------------------///
+$select-fontSize: var(--pds-select-fontSize);
+$select-height: var(--pds-select-height);

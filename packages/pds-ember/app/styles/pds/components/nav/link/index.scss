@@ -1,0 +1,7 @@
+@use "__config" as *;
+
+@include apply {
+  @include reset;
+  @include layout;
+  @include appearance;
+}

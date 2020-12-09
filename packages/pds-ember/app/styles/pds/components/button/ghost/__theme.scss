@@ -1,0 +1,49 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Button.Ghost.Theme";
+/* -- [DEBUG] CONFIG: #{$_module} --- */
+@use "../../../theme";
+@use "../../../tokens/color";
+@use "../../../utils/pseudo" as Pseudo;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  --pds-button-backgroundColor: transparent;
+  --pds-button-borderColor: transparent;
+  --pds-button-boxShadow: none;
+  --pds-button-color: #{theme.$action-base};
+
+  @include Pseudo.hover {
+    --pds-button-backgroundColor: #{color.$ui-gray-100};
+    --pds-button-borderColor: transparent;
+    --pds-button-boxShadow: none;
+    --pds-button-color: #{theme.$action-base};
+  }
+
+  @include Pseudo.focus {
+    --pds-button-boxShadow: #{theme.getShadow($focus: true)};
+  }
+
+  @include Pseudo.active {
+    --pds-button-backgroundColor: #{color.$ui-gray-200};
+    --pds-button-borderColor: transparent;
+    --pds-button-boxShadow: #{theme.getShadow($focus: true)};
+    --pds-button-color: #{color.$blue-700};
+  }
+}
+
+@mixin appearance--disabled {
+  /* [debug] #{$_module}@appearance--disabled */
+  --pds-button-backgroundColor: transparent;
+  --pds-button-borderColor: transparent;
+  --pds-button-boxShadow: none;
+  --pds-button-color: #{color.$ui-gray-400};
+
+  @include Pseudo.focus {
+    --pds-button-backgroundColor: transparent;
+    --pds-button-borderColor: transparent;
+    --pds-button-boxShadow: #{theme.getShadow($focus: true)};
+    --pds-button-color: #{color.$ui-gray-400};
+  }
+}

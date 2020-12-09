@@ -56,6 +56,7 @@ $_module: "PDS.Core.Typography";
 
 @mixin Interface($size: default) {
   /* [debug] #{$_module}@Interface(#{$size}) */
+  font-family: theme.$fontFamily;
   font-weight: theme.$ui-fontWeight;
   line-height: theme.$ui-lineHeight;
 

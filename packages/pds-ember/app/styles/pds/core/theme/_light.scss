@@ -1,0 +1,83 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+// NOTE: this module should NOT generate CSS on import/use
+$_module: "PDS.Core.Theme.Light";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../tokens/color";
+@use "../../tokens/font";
+@use "../../tokens/scale";
+
+$__size14: 0.875rem; // 14px;
+$__control-height: scale.$lg--4; // 32px
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+
+  // --- CORE ---
+  --pds-backgroundColor: #{color.$white};
+  --pds-borderColor--dim: #{color.$ui-gray-200};
+  --pds-borderColor: #{color.$ui-gray-300};
+  --pds-borderRadius: #{scale.$sm--4}; // 2px
+  --pds-color: #{color.$black};
+  --pds-focus-color: #{rgba(color.$blue-500, 0.5)};
+  --pds-underline-color: currentColor;
+
+  // --- STATUS/ACTION COLORS ---
+  // Action
+  --pds-action--dim2: #{color.$blue-010}; // even less contrast
+  --pds-action--dim1: #{color.$blue-100}; // less contrast
+  --pds-action--base: #{color.$blue-500}; // base contrast
+  --pds-action--amp1: #{color.$blue-700}; // more contrast
+  // Status:Info
+  --pds-info--dim2: #{color.$blue-010}; // even less contrast
+  --pds-info--dim1: #{color.$blue-100}; // less contrast
+  --pds-info--base: #{color.$blue-500}; // base contrast
+  --pds-info--amp1: #{color.$blue-700}; // more contrast
+  // Status:Alert
+  --pds-alert--dim2: #{color.$orange-010}; // even less contrast
+  --pds-alert--dim1: #{color.$orange-100}; // less contrast
+  --pds-alert--base: #{color.$orange-500}; // base contrast
+  --pds-alert--amp1: #{color.$orange-800}; // more contrast
+  // Status:Success
+  --pds-success--dim2: #{color.$green-010}; // even less contrast
+  --pds-success--dim1: #{color.$green-100}; // less contrast
+  --pds-success--base: #{color.$green-500}; // base contrast
+  --pds-success--amp1: #{color.$green-800}; // more contrast
+  // Status:Warning
+  --pds-warning--dim2: #{color.$yellow-010}; // even less contrast
+  --pds-warning--dim1: #{color.$yellow-100}; // less contrast
+  --pds-warning--base: #{color.$yellow-500}; // base contrast
+  --pds-warning--amp1: #{color.$yellow-800}; // more contrast
+  // Status:Failure
+  --pds-failure--dim2: #{color.$red-010}; // even less contrast
+  --pds-failure--dim1: #{color.$red-100}; // less contrast
+  --pds-failure--base: #{color.$red-500}; // base contrast
+  --pds-failure--amp1: #{color.$red-800}; // more contrast
+
+  // ===== TYPOGRAPHY =====
+  --pds-fontWeight: #{font.weight(Regular)};
+  /// ----- Accessibility ----- ///
+  // Per WCAG2.0 § 1.4.12 ("Text Spacing -- Level AA"),
+  // these properties must be configurable in order
+  // to meet requirements for Level AA compliance.
+  //
+  // For more info, see https://www.w3.org/WAI/WCAG21/quickref/#text-spacing
+  --pds-letterSpacing: 0.12em;
+  --pds-lineHeight: 1.5;
+  --pds-lineHeight--dense: 1.2;
+  --pds-paragraphSpacing: 2em;
+  --pds-wordSpacing: 0.16em;
+
+
+  // ===== Components =====
+  // TODO: migrate these to appropriate  __theme.scss files
+
+  // --- AVATAR ---
+  --pds-avatar-size: #{scale.$lg--4};
+  // --- LABEL ---
+  --pds-label-color: #{color.$ui-gray-400};
+  // --- SELECT ---
+  --pds-select-fontSize: #{$__size14};
+  --pds-select-height: #{$__control-height};
+}

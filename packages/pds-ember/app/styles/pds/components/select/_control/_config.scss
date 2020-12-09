@@ -6,12 +6,10 @@ $_module: "PDS.Components.Select._Control";
 @use "../_custom";
 
 $fontFamily: theme.$fontFamily;
-$fontSize: theme.$control-fontSize;
-$height: theme.$control-height;
 $padding--inline: theme.$size--sm; // ~12px
 
 @mixin layout {
-  height: $height;
+  height: theme.$select-height;
   min-width: 10ch;
   padding-inline-start: $padding--inline;
   width: 100%;
@@ -26,7 +24,7 @@ $padding--inline: theme.$size--sm; // ~12px
   box-shadow: custom.$boxShadow;
   color: custom.$color;
   font-family: $fontFamily;
-  font-size: $fontSize;
+  font-size: theme.$select-fontSize;
   line-height: inherit;
 
   @include Pseudo.focus {

@@ -11,8 +11,10 @@ export default {
       control: {
         type: 'radio',
         options: {
-          'primary (default)': '',
           'ghost': 'ghost',
+          'primary': 'primary',
+          'secondary (default)': '',
+          'warning': 'warning',
         },
       },
     },

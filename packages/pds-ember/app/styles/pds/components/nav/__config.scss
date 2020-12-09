@@ -3,47 +3,22 @@
 ///-------------------------------------------------------------------------///
 $_module: "PDS.Components.Nav";
 /* --- [debug] CONFIG: #{$_module} --- */
-@use "../../core/typography/_config" as Typography;
+@use "../../theme";
 @use "../../tokens/color";
 @use "../../tokens/scale";
-@use "../link/__config" as Link;
-@use "../link/nav/__config" as NavLink;
-
-$color: color.$ui-gray-400;
-$gapRow: scale.$lg--3;
-$paddingInline: scale.$lg--5;
 
 @mixin layout {
   /* [debug] #{$_module}@layout */
-  @include Link.apply {
-    @include NavLink.layout;
-  }
-
   > * + * {
-    margin-block-start: $gapRow;
-  }
-
-  > section {
-    > header {
-      margin: 0;
-      padding: 0 $paddingInline;
-    }
+    margin-block-start: scale.$lg--3; // 28px;
   }
 }
 
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
-  color: $color;
+  --pds-nav-color: #{color.$ui-gray-400};
 
-  @include Link.apply {
-    @include NavLink.appearance;
-  }
-
-  > section {
-    > header {
-      @include Typography.Interface(S);
-    }
-  }
+  color: theme.$nav-color;
 }
 
 @mixin apply {

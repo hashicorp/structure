@@ -8,8 +8,6 @@ $_module: "PDS.Components.Select";
 @use "./_control/config" as _Control;
 @use "./_facade/config" as _Facade;
 
-$height: theme.$control-height;
-
 @mixin _siblingFacade {
   ~ .pds-select__facade {
     /* [debug] #{$_module}@_siblingFacade */
@@ -21,7 +19,7 @@ $height: theme.$control-height;
   /* [debug] #{$_module}@layout */
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: $height;
+  grid-template-rows: theme.$select-height;
   line-height: 1;
 
   > * {

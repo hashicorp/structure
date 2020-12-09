@@ -1,6 +1,4 @@
-@use "__config" as *;
+@use "root";
 
-@include apply {
-  @include layout;
-  @include appearance;
-}
+@use "link";
+@use "header";
