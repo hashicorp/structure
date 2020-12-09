@@ -1,0 +1,22 @@
+<div
+  class="pds-avatar"
+  ...attributes
+  data-test-avatar
+  aria-hidden="true"
+>
+  <div class="pds-avatar__picture">
+    {{#if @src}}
+      <img
+        src={{@src}}
+        alt={{this.alt}}
+        data-test-avatar-img
+      />
+    {{else}}
+      <Pds::Icon
+        @type="user-square-outline"
+        aria-label={{this.alt}}
+        data-test-avatar-icon
+      />
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,35 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Avatar";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
+@use "../icon/_config" as Icon;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: center;
+  display: inline-flex;
+  font-size: theme.$avatar-size;
+  margin: 0;
+  padding: 0;
+
+  &__picture {
+    > img {
+      border-radius: theme.$borderRadius;
+      margin: 0;
+    }
+
+    > * {
+      height: 1em;
+      width: 1em;
+    }
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-avatar {
+    @content;
+  }
+}
