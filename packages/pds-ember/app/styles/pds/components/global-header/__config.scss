@@ -1,0 +1,65 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.GlobalHeader";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/_config" as Typography;
+@use "../../theme";
+@use "../../tokens/scale";
+@use "__theme";
+
+///  auto   auto       auto      1fr       auto        auto
+/// +------+----------+---------+---------+-----------+----------+
+/// | logo | switcher | primary | other   | secondary | usermenu | auto
+/// +------+----------+---------+---------+-----------+----------+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: center;
+  display: grid;
+  grid-gap: 0 theme.$size--xs; // 0 8px
+  grid-template-areas: "logo switcher primary other secondary usermenu";
+  grid-template-columns: auto auto auto 1fr auto;
+  height: scale.$lg--10; // 64px
+  padding: 0 theme.$size--lg; // 0 24px
+
+  > * {
+    align-items: center;
+    display: flex;
+    grid-area: other;
+  }
+
+  &__logo {
+    grid-area: logo;
+  }
+
+  &__switcher {
+    grid-area: switcher;
+  }
+
+  &__primaryNav {
+    grid-area: primary;
+  }
+
+  &__secondaryNav {
+    grid-area: secondary;
+  }
+
+  &__userMenu {
+    grid-area: usermenu;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include _theme.appearance;
+  @include Typography.Interface;
+  background-color: theme.$backgroundColor;
+  color: theme.$color;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-globalHeader {
+    @content;
+  }
+}

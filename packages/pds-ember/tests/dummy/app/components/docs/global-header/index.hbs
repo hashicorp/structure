@@ -1,0 +1,71 @@
+<Pds::GlobalHeader as |H|>
+  <H.Logo
+    src="@hashicorp/pds-ember/logomarks/HashiCorp_White.svg"
+  />
+
+  <H.Switcher as |S|>
+    <S.Trigger>
+      Workspace
+    </S.Trigger>
+
+    <S.Dialog>
+      <section>
+        <a href="#">Beta-Project</a>
+        <a href="#" class="active">
+          <span>MyProject_1</span>
+          <small>(current)</small>
+        </a>
+        <a href="#">
+          MyProject_2
+        </a>
+      </section>
+      <section>
+        <a href="#">
+          View All Projects
+        </a>
+      </section>
+    </S.Dialog>
+  </H.Switcher>
+
+  <H.PrimaryNav>
+    <a href="#" class="active">Section 1</a>
+    <a href="#">Section 2</a>
+    <a href="#">Section 3</a>
+  </H.PrimaryNav>
+
+  <H.SecondaryNav>
+    <a href="#">Link</a>
+    <a href="#" class="pds--iconOnly">
+      <Pds::Icon @type="help-circle-outline" />
+      <span class="pds--visuallyHidden">Icon Link</span>
+    </a>
+  </H.SecondaryNav>
+
+  <H.UserMenu as |M|>
+    <M.Trigger>
+      <Pds::Avatar />
+      <span class="pds--visuallyHidden">
+        User Menu
+      </span>
+    </M.Trigger>
+
+    <M.Dialog>
+      <section>
+        <header>User</header>
+        <M.ListItem>
+          Signed in as<br />
+          <b>user@example.com</b>
+        </M.ListItem>
+      </section>
+
+      <section>
+        <Pds::Button>
+          Log Out
+        </Pds::Button>
+      </section>
+    </M.Dialog>
+  </H.UserMenu>
+
+  {{! extra content }}
+  {{yield}}
+</Pds::GlobalHeader>

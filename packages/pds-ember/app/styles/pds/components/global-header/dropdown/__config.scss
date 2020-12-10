@@ -1,0 +1,22 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.GlobalHeader.Dropdown";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../dropdown/__config" as Dropdown;
+@use "../__config" as _super;
+@use "__theme";
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include _theme.appearance;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include _super.apply {
+    @include Dropdown.apply {
+      @content;
+    }
+  }
+}

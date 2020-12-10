@@ -1,0 +1,7 @@
+@use "../../__config" as _super;
+
+@mixin apply {
+  @include _super.apply {
+    @content;
+  }
+}

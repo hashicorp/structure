@@ -1,0 +1,69 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.GlobalHeader.Dropdown.Trigger.Theme";
+/* -- [DEBUG] CONFIG: #{$_module} --- */
+@use "../../../../theme";
+@use "../../../../tokens/color";
+@use "../../../../utils/pseudo" as Pseudo;
+@use "../../__config" as _super;
+
+// NOTE: styles define a "Dark" theme
+
+$_paddingInline: theme.$size--sm;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  --pds-button-paddingInlineStart: #{$_paddingInline};
+  --pds-button-paddingInlineEnd: #{$_paddingInline};
+
+  &.pds--iconOnly {
+    --pds-button-paddingInlineStart: 0;
+    --pds-button-paddingInlineEnd: 0;
+  }
+}
+
+// Untoggled (i.e., typical button)
+@mixin appearance {
+  --pds-button-backgroundColor: transparent;
+  --pds-button-borderColor: transparent;
+  --pds-button-boxShadow: none;
+  --pds-button-color: #{color.$ui-gray-400};
+
+  @include Pseudo.hover {
+    --pds-button-backgroundColor: #{color.$ui-gray-900};
+  }
+
+  @include Pseudo.focus {
+    --pds-button-boxShadow: #{theme.$boxShadow--focus};
+  }
+
+  @include Pseudo.active {
+    --pds-button-backgroundColor: #{color.$ui-gray-800};
+    --pds-button-boxShadow: #{theme.$boxShadow--focus};
+    --pds-button-color: #{color.$ui-gray-200};
+  }
+}
+
+// Toggled Button styling
+@mixin appearance--toggled {
+  --pds-button-backgroundColor: #{color.$ui-gray-800};
+  --pds-button-color: #{color.$ui-gray-010};
+
+  @include Pseudo.hover {
+    --pds-button-backgroundColor: #{color.$ui-gray-900};
+  }
+
+  @include Pseudo.focus {
+    --pds-button-backgroundColor: #{color.$ui-gray-800};
+
+    @include Pseudo.hover {
+      --pds-button-backgroundColor: #{color.$ui-gray-900};
+    }
+  }
+
+  @include Pseudo.active {
+    --pds-button-backgroundColor: transparent;
+    --pds-button-color: #{color.$ui-gray-200};
+  }
+}

@@ -1,0 +1,23 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.GlobalHeader.Nav";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../theme";
+@use "../__config" as _super;
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  > * + * {
+    margin-inline-start: theme.$size--2xs !important;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include _super.apply {
+    &__nav {
+      @content;
+    }
+  }
+}
