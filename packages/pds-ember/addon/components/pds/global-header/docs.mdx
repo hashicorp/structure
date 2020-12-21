@@ -1,0 +1,90 @@
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+export const TITLE = 'Components / GlobalHeader';
+export const SUBCOMPONENTS = {
+  'H.Logo': 'PdsGlobalHeaderLogo',
+  'H.PrimaryNav': 'PdsGlobalHeaderPrimaryNav',
+  'H.SecondaryNav': 'PdsGlobalHeaderSecondaryNav',
+  'H.Switcher': 'PdsDropdown',
+  'H.UserMenu': 'PdsDropdown',
+};
+
+# GlobalHeader
+
+- [Usage](#usage)
+- [Styling](#styling)
+- [Markup](#markup)
+- [Accessibility](#accessibility)
+- [See Also](#see-also)
+
+
+## Usage
+
+```handlebars
+<Pds::GlobalHeader as |H|>
+  <H.Logo
+    @src="@hashicorp/pds-ember/logomarks/HashiCorp_White.svg" alt="logo"
+  />
+
+  <H.PrimaryNav>
+    <LinkTo @route="...">...</LinkTo>
+    ...
+  </H.PrimaryNav>
+
+  <H.SecondaryNav>
+    <LinkTo @route="...">...</LinkTo>
+    ...
+  </H.SecondaryNav>
+
+  <H.Switcher as |S|>
+    <section>
+      <LinkTo @route="...">...</LinkTo>
+      ...
+    </section>
+    <section>...</section>
+  </H.Switcher>
+
+  <H.UserMenu as |U|>...</H.UserMenu>
+
+  {{!-- extra content --}}
+  ...
+</Pds::GlobalHeader>
+```
+<ArgsTable of="PdsGlobalHeader" />
+
+
+
+## Styling
+```scss
+@use "pds/components/global-header";
+```
+* Extra content will be slotted into a single area of the grid layout, so it's
+  recommended that you wrap extra content in a `<div>` to avoid unexpected
+  grid placement.
+
+
+## Markup
+
+* `<H.Logo>` renders a styled `<img>` element
+    - __NOTE:__ Currently, it cannot be used as a link to the "home" page.
+* `<H.PrimaryNav>` renders a semantic `<nav>` element
+    - It's primarily used to navigate to different contexts within an application.
+* `<H.SecondaryNav>` renders a semantic `<nav>` element
+    - It's primarily used to provide helpful links that aren't specific to a
+      particular application context (e.g., "support", "notifications", etc.)
+* `<H.Switcher>` is an alias for the [Dropdown](?path=/docs/components-dropdown--index)
+  component with custom styling and preconfigured args.
+    - It's primarily used as a means to switch applications.
+* `<H.UserMenu>` is an alias for the [Dropdown](?path=/docs/components-dropdown--index)
+  component with custom styling and preconfigured args.
+    - It's primarily used to provide information and actions related to the
+      logged in user account.
+
+
+## Accessibility
+TBD...
+
+
+## See Also
+- [App](?path=/story/components-app--index)
+- [Avatar](?path=/story/components-avatar--index)
+- [Dropdown](?path=/story/components-dropdown--index)

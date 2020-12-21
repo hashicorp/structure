@@ -20,10 +20,10 @@ export const Lists = () => ({
       </T.Start>
 
       <T.End>
-        <a href="#" class="pds--cta pds--ghost pds--iconEnd">
+        <Docs::CtaLink @variant="ghost" class="pds--iconEnd">
           <span>Create Item</span>
           <Pds::Icon @type="plus-plain" />
-        </a>
+        </Docs::CtaLink>
       </T.End>
     </Pds::Toolbar>
   `,
@@ -52,10 +52,10 @@ export const Details = () => ({
           </Drop.Dialog>
         </Pds::Dropdown>
 
-        <a href="#" class="pds--cta pds--ghost pds--iconEnd">
+        <Docs::CtaLink @variant="ghost" class="pds--iconEnd">
           <span>Edit Item</span>
           <Pds::Icon @type="chevron-right" />
-        </a>
+        </Docs::CtaLink>
       </T.End>
     </Pds::Toolbar>
   `,

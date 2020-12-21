@@ -59,7 +59,7 @@ const Enabled_focused_active_hovered = () => ({
 const Disabled = () => ({
   template: hbs`
     <Docs::Button
-      disabled={{true}}
+      @disabled={{true}}
     />
   `,
 });
@@ -68,7 +68,7 @@ const Disabled_hovered = () => ({
   template: hbs`
     <Docs::Button
       @isHovered={{true}}
-      disabled={{true}}
+      @disabled={{true}}
     />
   `,
 });
@@ -77,7 +77,7 @@ const Disabled_focused = () => ({
   template: hbs`
     <Docs::Button
       @isFocused={{true}}
-      disabled={{true}}
+      @disabled={{true}}
     />
   `,
 });
@@ -87,7 +87,7 @@ const Disabled_focused_hovered = () => ({
     <Docs::Button
       @isFocused={{true}}
       @isHovered={{true}}
-      disabled={{true}}
+      @disabled={{true}}
     />
   `,
 });

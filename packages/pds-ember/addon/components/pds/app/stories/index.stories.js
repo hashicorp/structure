@@ -24,7 +24,7 @@ export const Index = (args) => ({
       <App.Banner></App.Banner>
 
       <App.Header>
-        App Header
+        <Docs::GlobalHeader />
       </App.Header>
 
       <App.Sidebar>

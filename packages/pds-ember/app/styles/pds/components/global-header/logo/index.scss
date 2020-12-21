@@ -1,0 +1,10 @@
+@use "../../../theme";
+@use "../__config" as _super;
+
+@include _super.apply {
+  &__logo {
+    font-size: theme.$size--xl;
+    height: 1em;
+    width: 1em;
+  }
+}

@@ -1,6 +1,0 @@
-@use "config" as *;
-
-@include apply {
-  @include layout;
-  @include appearance;
-}

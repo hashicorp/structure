@@ -1,0 +1,30 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Link.Plain.Theme";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../theme";
+@use "../../../utils/pseudo" as Pseudo;
+
+// NOTE: styles are for a "Light" theme
+
+@mixin appearance {
+  --pds-link-color: #{theme.$action--base};
+  --pds-link-underline-color: transparent;
+
+  /* [debug] #{$_module}@appearance */
+  @include Pseudo.hover {
+    --pds-link-color: #{theme.$action--base};
+    --pds-link-underline-color: currentColor;
+  }
+
+  @include Pseudo.focus {
+    --pds-link-color: #{theme.$action--base};
+    --pds-link-underline-color: currentColor;
+  }
+
+  @include Pseudo.active {
+    --pds-link-color: #{theme.$action-d1};
+    --pds-link-underline-color: currentColor;
+  }
+}

@@ -19,25 +19,33 @@ The `Pds::App` component helps construct consistent application layouts.
   as |App|
 >
   {{! keep :empty if no modal dialogs are displayed }}
-  <App.ModalArea></App.ModalArea>
+  <App.ModalArea>
+    <Pds::Modal>...</Pds::Modal>
+  </App.ModalArea>
 
   {{! optional, full-width banner }}
-  <App.Banner>...<App.Banner>
+  <App.Banner>
+    <Pds::Banner>...</Pds::Banner>
+  <App.Banner>
 
   <App.Header>
     {{! a.k.a., "Top Nav" or "Nav Bar" }}
+    <Pds::GlobalHeader>...</Pds::GlobalHeader>
   </App.Header>
 
   <App.Sidebar>
     {{! a.k.a., "Left Nav" }}
+    <Pds::Nav>...</Pds::Nav>
   </App.Sidebar>
 
   <App.Body>
     {{! page content goes here }}
+    <Pds::Page>...</Pds::Page>
   </App.Body>
 
   <App.Footer>
     {{! footer content here }}
+    <Pds::GlobalFooter>...</Pds::GlobalFooter>
   </App.Footer>
 
   {{! hidden by default }}
@@ -70,6 +78,7 @@ This includes:
 ## See Also
 - [Banner](?path=/docs/components-banner--index)
 - [GlobalFooter](?path=/docs/components-globalfooter--index)
+- [GlobalHeader](?path=/docs/components-globalheader--index)
+- [Modal](?path=/docs/components-modal--index)
 - [Nav](?path=/docs/components-nav--index)
-- [PageHeader](?path=/docs/components-pageheader--index)
 - [Page](?path=/docs/components-page--index)

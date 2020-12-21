@@ -1,0 +1,53 @@
+@use "vars" as *;
+
+///==================================================///
+/// DEPRECATED (will be removed in future update)    ///
+///==================================================///
+$action-base: $action--base;
+$action-d1: $action--amp1;
+$action-l1: $action--dim1;
+$action-l2: $action--dim2;
+$alert-base: $alert--base;
+$alert-d1: $alert--amp1;
+$alert-l1: $alert--dim1;
+$alert-l2: $alert--dim2;
+$background-color: $backgroundColor;
+$body-font-family: $fontFamily;
+$body-font-size: $fontSize;
+$border-color-l1: $borderColor--dim;
+$border-color: $borderColor;
+$borderColor--l1: $borderColor--dim;
+$border-radius: $borderRadius;
+$code-font-family: $fontFamily--code;
+$failure-base: $failure--base;
+$failure-d1: $failure--amp1;
+$failure-l1: $failure--dim1;
+$failure-l2: $failure--dim2;
+$fontSize--ui: $ui-fontSize;
+$info-base: $info--base;
+$info-d1: $info--amp1;
+$info-l1: $info--dim1;
+$info-l2: $info--dim2;
+$letter-spacing: $letterSpacing;
+$line-height--dense: $lineHeight--dense;
+$line-height: $lineHeight;
+$media-lg: $media--lg;
+$media-md: $media--md;
+$media-sm: $media--sm;
+$paragraph-spacing: $paragraphSpacing;
+$size-2xl: $size--2xl;
+$size-2xs: $size--2xs;
+$size-lg:  $size--lg;
+$size-md:  $size--md;
+$size-sm:  $size--sm;
+$size-xl:  $size--xl;
+$size-xs:  $size--xs;
+$success-base: $success--base;
+$success-d1: $success--amp1;
+$success-l1: $success--dim1;
+$success-l2: $success--dim2;
+$warning-base: $warning--base;
+$warning-d1: $warning--amp1;
+$warning-l1: $warning--dim1;
+$warning-l2: $warning--dim2;
+$word-spacing: $wordSpacing;

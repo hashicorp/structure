@@ -1,40 +1,33 @@
 $_module: "PDS.Components.Link";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "sass:map";
-@use "../config" as Component;
+@use "../../core/typography/config" as Typography;
+@use "../../theme";
 @use "../../utils/pseudo" as Pseudo;
 
-@mixin theme($styles) {
-  /* [debug] #{$_module}@theme */
-  @include Component.theme(link, $styles);
+$underline-width: 1px;
+
+@mixin reset {
+  @include Typography.reset;
 }
-
-$borderWidth: 1px;
-
-// Themable Properties with defaults
-$backgroundColor: var(--pds-link-backgroundColor, transparent);
-$borderColor: var(--pds-link-borderColor, transparent);
-$boxShadow: var(--pds-link-boxShadow, none);
-$color: var(--pds-link-color, inherit);
-$textDecoration: var(--pds-link-textDecoration, none);
-
 
 // [1] accounts for invisible border (which adds height)
 //     to correct vertical alignment with adjacent, non-link text
 @mixin layout {
-  margin-block-end: -($borderWidth); // [1]
+  margin-block-end: -($underline-width); // [1]
 }
 
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
-  background-color: $backgroundColor;
-  border-bottom: $borderWidth solid $borderColor;
-  box-shadow: $boxShadow;
-  color: $color;
+  background-color: transparent;
+  border-bottom: $underline-width solid theme.$link-underline-color;
+  box-shadow: none;
+  color: theme.$link-color;
   cursor: pointer;
-  text-decoration: $textDecoration;
+  text-decoration: none;
 
   @include Pseudo.focus {
+    box-shadow: theme.$boxShadow--focus;
     outline: none;
   }
 }
@@ -55,9 +48,17 @@ $textDecoration: var(--pds-link-textDecoration, none);
   }
 }
 
+@mixin whenDisabled {
+  /* [debug] #{$_module}@whenDisabled */
+  &.disabled, // <LinkTo @disabled={{true}}>
+  &.pds--disabled { // <Pds::CtaLink @disabled={{true}}>
+    @content;
+  }
+}
+
 @mixin apply {
   /* [debug] #{$_module}@apply */
-  :any-link {
+  :any-link:not(.pds-button) {
     @content;
   }
 }

@@ -1,0 +1,5 @@
+@use "light" as LightTheme;
+
+:root {
+  @include LightTheme.apply;
+}

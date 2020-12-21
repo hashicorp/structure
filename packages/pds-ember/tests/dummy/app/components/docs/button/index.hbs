@@ -1,5 +1,6 @@
 <div class="docs-button">
   <Docs::Button::Button
+     @disabled={{@disabled}}
      class="
        {{ if @isActive 'mock-active' }}
        {{ if @isHovered 'mock-hover' }}
@@ -8,11 +9,23 @@
      ...attributes
   />
 
-  <Docs::Button::Input
+  <Docs::Button::CtaLink
+     @disabled={{@disabled}}
      class="
        {{ if @isActive 'mock-active' }}
        {{ if @isHovered 'mock-hover' }}
        {{ if @isFocused 'mock-focus' }}
+     "
+     ...attributes
+  />
+
+  <Docs::Button::DropdownTrigger
+     @disabled={{@disabled}}
+     class="
+       {{ if @isActive 'mock-active' }}
+       {{ if @isHovered 'mock-hover' }}
+       {{ if @isFocused 'mock-focus' }}
+       {{ if @disabled 'pds--disabled' }}
      "
      ...attributes
   />

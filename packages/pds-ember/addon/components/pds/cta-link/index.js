@@ -20,18 +20,20 @@ export default class PdsCtaLink extends LinkComponent {
   /**
    * Display variant
    *
-   * If left blank or undefined, defaults to "primary" appearance.
+   * If left blank or undefined, defaults to "secondary" appearance.
    *
    * Valid values include:
    *
+   *   - (blank)
    *   - `ghost`
-   *   - (none)
+   *   - `primary`
+   *   - `warning`
    *
    * @argument variant
    * @type {string}
    */
   get classNames() {
-    let result = ['pds--cta']
+    let result = ['pds-button']
 
     if (this.variant) {
       result.push(`pds--${this.variant}`)

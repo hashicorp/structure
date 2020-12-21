@@ -1,6 +1,0 @@
-@use "__config" as *;
-
-/* Default link */
-@include apply {
-  @include appearance;
-}

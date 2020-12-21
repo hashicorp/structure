@@ -1,0 +1,25 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Button.Ghost";
+/* -- [DEBUG] CONFIG: #{$_module} --- */
+@use "../__config" as _super;
+@use "__theme";
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include _theme.appearance;
+
+  @include _super.whenDisabled {
+    @include _theme.appearance--disabled;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include _super.apply {
+    &.pds--ghost {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div
+  class="pds-globalHeader"
+  ...attributes
+  data-test-global-header
+>
+  {{ yield (hash
+    Logo=(component 'pds/global-header/logo')
+    PrimaryNav=(component 'pds/global-header/nav' attr-class='pds-globalHeader__primaryNav')
+    SecondaryNav=(component 'pds/global-header/nav' attr-class='pds-globalHeader__secondaryNav')
+    Switcher=(component 'pds/dropdown' align='left'  attr-class='pds-globalHeader__switcher')
+    UserMenu=(component 'pds/dropdown' align='right' attr-class='pds-globalHeader__userMenu')
+  )}}
+</div>

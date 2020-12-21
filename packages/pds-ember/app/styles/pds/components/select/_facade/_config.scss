@@ -3,14 +3,14 @@ $_module: "PDS.Components.Select._Facade";
 @use "../../../theme";
 @use "../_custom";
 
-$height: theme.$control-height !default;
+$__height: theme.$select-height;
 
 // @protected
 @mixin layout {
   /* [debug] #{$_module}@layout */
   display: flex;
   flex-direction: row-reverse;
-  height: $height;
+  height: $__height;
   overflow: hidden;
   pointer-events: none;
 
@@ -20,7 +20,7 @@ $height: theme.$control-height !default;
     flex-grow: 0;
     flex-shrink: 0;
     justify-content: center;
-    width: $height;
+    width: $__height;
   }
 }
 

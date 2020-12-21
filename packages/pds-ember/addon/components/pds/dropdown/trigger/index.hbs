@@ -1,4 +1,8 @@
 {{!-- template-lint-disable simple-unless --}}
+{{!--
+  NOTE: Button classes must be applied to the <summary> to get
+        correct styling of :active and :focus states.
+--}}
 <summary
   class="
     pds-dropdownTrigger
@@ -8,10 +12,15 @@
     {{if @compact 'pds--compact'}}
     {{if @hideText 'pds--iconOnly'}}
     {{unless (has-block) 'pds--iconOnly'}}
+    {{if @isOpen 'pds--open'}}
   "
   ...attributes
   data-test-dropdown-trigger
 >
+  {{!--
+    <span> is required because Safari doesn't apply flexbox to the <summary> element.
+    It should receive all Button layout styling, instead of <summary>.
+  --}}
   <span class="pds-dropdownTrigger__layoutWrapper">
     {{#if (has-block)}}
       <span
@@ -24,7 +33,7 @@
 
     <Pds::Icon
       @type={{this.icon}}
-      class="pds-button__iconEnd"
+      class="pds-button__iconEnd pds-dropdownTrigger__icon"
       data-test-dropdown-trigger-icon
     />
   </span>

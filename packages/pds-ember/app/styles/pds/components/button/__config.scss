@@ -1,0 +1,120 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.Button";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../core/typography/config" as Typography;
+@use "../../theme";
+@use "../../utils/pseudo" as Pseudo;
+@use "__theme";
+
+// TODO: build utility module for applying layout to an element with wrapped
+//       content ("wrapped" button)
+
+// Remove ROOT layout styling so that it doesn't interfere with a child LAYOUT
+// element.  Use this in conjunction with layout--root().
+@mixin layout--reset {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+  > * {
+    margin: 0;
+  }
+}
+
+// Styles to be applied to the LAYOUT element.  For most cases, this will be the
+// same as the targeted ROOT element.  However, browsers may refuse to properly
+// style the ROOT element, so a child element may be needed to act as the
+// LAYOUT element in order to apply layout styling.
+//
+//
+// Example 1:
+// ```
+//   <button class="pds-button">
+//     ...
+//   </button>
+// ```
+// - ROOT and LAYOUT are both <button>
+//
+//
+// Example 2:
+// ```
+//   <summary class="pds-button">
+//     <span>...</span>
+//   </summary>
+// ```
+// - ROOT = <summary> (Safari won't apply flexbox to this element)
+// - LAYOUT = <span>
+//
+//
+// Note: This mixin should NOT define any CSS Custom Properties.
+@mixin layout--root {
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  height: theme.$button-height;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  padding:
+    0 theme.$button-paddingInlineEnd
+    0 theme.$button-paddingInlineStart;
+  white-space: nowrap;
+
+  > * {
+    margin: 0;
+  }
+
+  > * + * {
+    margin-inline-start: theme.$button-columnGap;
+  }
+}
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  @include layout--root;
+  @include _theme.layout;
+}
+
+// [1] default class name for built-in Ember components
+//     e.g., <LinkTo @disabled={{true}}>
+// [2] non <button>-like components
+//     e.g., <Pds::CtaLink @disabled={{true}}>
+// [3] native <button>-like elements/components
+//     e.g., <button>, <input type="button">, etc.
+@mixin whenDisabled {
+  &.disabled, // [1]
+  &.pds--disabled, // [2]
+  &:disabled { // [3]
+    @content;
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include _theme.appearance;
+  @include Typography.Interface(M);
+  background-color: theme.$button-backgroundColor;
+  border-radius: theme.$borderRadius;
+  border: 1px solid theme.$button-borderColor;
+  box-shadow: theme.$button-boxShadow;
+  color: theme.$button-color;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include Pseudo.focus {
+    outline: none;
+  }
+
+  @include whenDisabled {
+    cursor: default;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  .pds-button {
+    @content;
+  }
+}

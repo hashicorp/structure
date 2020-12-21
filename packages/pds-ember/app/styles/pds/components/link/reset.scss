@@ -1,6 +1,0 @@
-@use "__config" as Link;
-@use "../../core/typography/config" as Typography;
-
-@include Link.apply {
-  @include Typography.reset;
-}

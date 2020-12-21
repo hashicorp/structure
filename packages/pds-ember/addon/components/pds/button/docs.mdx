@@ -41,13 +41,26 @@ purposes of applying custom UI logic for single-line button content.
 (i.e., `<button>` or button-like `<input>` elements) and may not fully apply
 to other elements (i.e., elements that do not match `:disabled`).
 
-### CSS Custom Properties
+### Modifier Classes
+Several components support Button styling.  However, they may not provide args
+for every configuration.  If there's a missing configuration, you can add one of
+the following classes to the same element that `.pds-button` is applied to.
 
-* `--pds-button-backgroundColor`
-* `--pds-button-borderColor`
-* `--pds-button-borderRadius`
-* `--pds-button-boxShadow`
-* `--pds-button-color`
+* @variant
+  * **ghost**: `pds--ghost`
+  * **primary**: `pds--primary`
+  * **warning**: `pds--warning`
+* @compact
+  * **true**: `pds--compact`
+* @iconStart
+  * `pds--iconStart`
+* @iconEnd
+  * `pds--iconEnd`
+* @hideText
+  * **true**: `pds--iconOnly`
+* Disabled
+  * If the element supports `:disabled`, nothing extra is required, otherwise
+    use `pds--disabled`.
 
 
 ## Markup

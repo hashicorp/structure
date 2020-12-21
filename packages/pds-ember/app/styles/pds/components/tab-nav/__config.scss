@@ -3,31 +3,26 @@
 ///-------------------------------------------------------------------------///
 $_module: "PDS.Components.TabNav";
 /* --- [debug] CONFIG: #{$_module} --- */
+@use "../../theme";
 @use "../link/__config" as Link;
-@use "../link/tab/utils" as Tab;
-@use "./_top" as _Top;
+
+$borderWidth: 1px;
 
 @mixin layout {
   /* [debug] #{$_module}@layout */
-  @include _Top.layout;
+  display: flex;
+
+  // FIXME: how should this [over]flow with constrained dimensions?
+  //overflow-x: auto; // scrollbar interferes with borders
 
   @include Link.apply {
-    @include Tab.base-layout;
+    margin-bottom: -($borderWidth);
   }
 }
 
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
-  @include _Top.appearance;
-
-  @include Link.apply {
-    @include Tab.base-appearance;
-    @include Tab.default-appearance;
-
-    @include Link.whenCurrent {
-      @include Tab.current-appearance;
-    }
-  }
+  border-bottom: $borderWidth solid theme.$borderColor;
 }
 
 @mixin apply {

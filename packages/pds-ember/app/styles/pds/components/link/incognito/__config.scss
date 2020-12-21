@@ -1,46 +1,21 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
 $_module: "PDS.Components.Link.Incognito";
 /* --- [debug] CONFIG: #{$_module} --- */
-@use "sass:map";
-@use "../../../utils/pseudo" as Pseudo;
-@use "../__config" as Link;
-@use "../default/__config" as DefaultLink;
-
-$DEFAULT: map.merge(DefaultLink.$DEFAULT, (
-  borderColor: transparent,
-  color: currentColor,
-));
-
-$HOVER: map.merge(DefaultLink.$HOVER, (
-  borderColor: transparent,
-));
-
-$FOCUS: DefaultLink.$FOCUS;
-
-$ACTIVE: map.merge(DefaultLink.$ACTIVE, (
-  borderColor: transparent,
-));
+@use "../__config" as _super;
+@use "__theme";
 
 
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
-  @include Link.theme($DEFAULT);
-
-  @include Pseudo.hover {
-    @include Link.theme($HOVER);
-  }
-
-  @include Pseudo.focus {
-    @include Link.theme($FOCUS);
-  }
-
-  @include Pseudo.active {
-    @include Link.theme($ACTIVE);
-  }
+  @include _theme.appearance;
 }
+
 
 @mixin apply {
   /* [debug] #{$_module}@apply */
-  @include Link.apply {
+  @include _super.apply {
     &.pds--incognito {
       @content;
     }

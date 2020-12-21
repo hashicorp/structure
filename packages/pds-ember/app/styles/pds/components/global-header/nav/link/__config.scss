@@ -1,0 +1,70 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+$_module: "PDS.Components.GlobalNav.Link";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../../../../core/typography/_config" as Typography;
+@use "../../../../theme";
+@use "../../../../utils/pseudo" as Pseudo;
+@use "../../../link/__config" as Link;
+@use "../../_config" as GlobalNav; // TODO: update
+@use "__theme";
+
+@mixin layout {
+  /* [debug] #{$_module}@layout */
+  align-items: center;
+  display: inline-flex;
+  height: theme.$size--xl; // 36px
+  justify-content: center;
+  margin: 0;
+  padding: 0 theme.$size--sm; // 0 12px
+  white-space: nowrap;
+
+  > * {
+    margin: 0;
+  }
+
+  > * + * {
+    margin-inline-start: theme.$size--2xs; // 4px
+  }
+}
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+  @include Typography.Interface(M);
+  background-color: theme.$backgroundColor;
+  border-radius: theme.$borderRadius;
+  border: none;
+  box-shadow: none;
+  color: theme.$color;
+  cursor: pointer;
+  line-height: 1;
+  text-decoration: none;
+
+  @include Pseudo.focus {
+    box-shadow: theme.$boxShadow--focus;
+    outline: none;
+  }
+
+  @include Pseudo.active {
+    box-shadow: theme.$boxShadow--focus;
+  }
+
+  &.pds--iconOnly {
+    font-size: 1.5rem;
+  }
+
+  @include _theme.appearance;
+  @include Link.whenCurrent {
+    @include _theme.appearance--current;
+  }
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include GlobalNav.apply {
+    @include Link.apply {
+      @content;
+    }
+  }
+}

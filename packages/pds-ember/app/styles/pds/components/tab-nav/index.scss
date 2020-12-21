@@ -1,6 +1,3 @@
-@use "__config" as *;
-
-@include apply {
-  @include layout;
-  @include appearance;
-}
+@use "root";
+// sub-components
+@use "link";

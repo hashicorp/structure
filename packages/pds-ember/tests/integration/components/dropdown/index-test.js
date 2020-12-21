@@ -11,6 +11,8 @@ const DIALOG = '[data-test-dropdown-dialog]'
 module('Integration | Components.Dropdown', function(hooks) {
   setupRenderingTest(hooks)
 
+  let custom_class = 'custom-class'
+
   test('it renders', async function(assert) {
     await render(hbs`
       <Pds::Dropdown
@@ -66,6 +68,10 @@ module('Integration | Components.Dropdown', function(hooks) {
       .hasProperty('open', true, 'renders open')
 
     assert
+      .dom(TRIGGER)
+      .hasClass('pds--open', 'applies open modifier class to Trigger')
+
+    assert
       .dom(DIALOG)
       .isVisible()
   })
@@ -117,6 +123,22 @@ module('Integration | Components.Dropdown', function(hooks) {
     assert.ok(onToggle.calledWith(false), 'called with `false`')
 
     assert.ok(onToggle.calledTwice, 'called twice')
+  })
+
+  // used for defining extra class names when yielding an aliased contextual component
+  // {{ yield (hash FooDropdown=(component 'pds/dropdown' attr-class='custom-class-name') ) }}
+  test('it supports @attr-class', async function(assert) {
+    await render(hbs`
+      <Pds::Dropdown @attr-class={{this.attrClass}} />
+    `)
+    assert
+      .dom(ROOT)
+      .doesNotHaveClass(custom_class, 'does not apply @attr-class')
+
+    this.set('attrClass', custom_class)
+    assert
+      .dom(ROOT)
+      .hasClass(custom_class, 'applies @attr-class')
   })
 })
 

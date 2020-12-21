@@ -20,6 +20,7 @@ $zIndex: 10;
   top: 0;
   width: 100vw;
   z-index: $zIndex;
+  pointer-events: none;
 
   /*
     Should be hidden when `:empty` to prevent
