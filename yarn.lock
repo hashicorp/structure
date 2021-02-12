@@ -1845,6 +1845,7 @@ __metadata:
     ember-intl: ^5.5.0
     ember-load-initializers: ^2.1.1
     ember-maybe-import-regenerator: ^0.1.6
+    ember-named-blocks-polyfill: ^0.2.4
     ember-qunit: ^4.6.0
     ember-resolver: ^8.0.2
     ember-source: ~3.21.1
@@ -9708,6 +9709,16 @@ __metadata:
     ember-cli-version-checker: ^2.1.2
     ember-compatibility-helpers: ^1.2.0
   checksum: 05ad185afc3f1140ab74cd0eccacf0b592b382571c5105c2962d0d2089052051aa4fc1f1f1c204f698a375db73d03c71cedd0cbcc8fb9ffaa488e69069786ea9
+  languageName: node
+  linkType: hard
+
+"ember-named-blocks-polyfill@npm:^0.2.4":
+  version: 0.2.4
+  resolution: "ember-named-blocks-polyfill@npm:0.2.4"
+  dependencies:
+    ember-cli-babel: ^7.19.0
+    ember-cli-version-checker: ^5.1.1
+  checksum: 7efc05addb7ead7c4809b0877ed6a5fb7a1075715c7ead09d919c2df1d5bdf3ff70fc8f1a0045e6f2533bcb0c5d3adacf8d6f3e33cd8c3a4bd0e3382e6ec329e
   languageName: node
   linkType: hard
 
