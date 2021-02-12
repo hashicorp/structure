@@ -4,11 +4,11 @@ import { render } from '@ember/test-helpers'
 import { hbs } from 'ember-cli-htmlbars'
 
 const ROOT = '[data-test-global-header]'
-const LOGO = '[data-test-logo]'
-const PRIMARY_NAV = '[data-test-primary-nav]'
-const SECONDARY_NAV = '[data-test-secondary-nav]'
-const SWITCHER = '[data-test-switcher]'
-const USER_MENU = '[data-test-user-menu]'
+const LOGO = '.pds-globalHeader__logo'
+const PRIMARY_NAV = '.pds-globalHeader__primaryNav'
+const SECONDARY_NAV = '.pds-globalHeader__secondaryNav'
+const SWITCHER = '.pds-globalHeader__switcher'
+const USER_MENU = '.pds-globalHeader__userMenu'
 
 module('Integration | Components.GlobalHeader', function(hooks) {
   setupRenderingTest(hooks)
@@ -36,12 +36,12 @@ module('Integration | Components.GlobalHeader', function(hooks) {
 
   test('it renders contextual subcomponents', async function(assert) {
     await render(hbs`
-      <Pds::GlobalHeader as |H|>
-        <H.Logo data-test-logo />
-        <H.PrimaryNav data-test-primary-nav />
-        <H.SecondaryNav data-test-secondary-nav />
-        <H.Switcher data-test-switcher />
-        <H.UserMenu data-test-user-menu />
+      <Pds::GlobalHeader>
+        <:logo></:logo>
+        <:switcher></:switcher>
+        <:primary-nav></:primary-nav>
+        <:secondary-nav></:secondary-nav>
+        <:user-menu></:user-menu>
       </Pds::GlobalHeader>
     `)
 
@@ -56,26 +56,20 @@ module('Integration | Components.GlobalHeader', function(hooks) {
     assert
       .dom(PRIMARY_NAV)
       .exists()
-      .hasClass('pds-globalHeader__primaryNav', 'applies @attr-class to PrimaryNav')
-      .hasClass('pds-globalHeader__nav', 'is alias for GlobalHeader::Nav')
+      .hasClass('pds-globalHeader__nav')
 
     assert
       .dom(SECONDARY_NAV)
       .exists()
-      .hasClass('pds-globalHeader__secondaryNav', 'applies @attr-class to SecondaryNav')
-      .hasClass('pds-globalHeader__nav', 'is alias for GlobalHeader::Nav')
+      .hasClass('pds-globalHeader__nav')
 
     assert
       .dom(SWITCHER)
       .exists()
-      .hasClass('pds-globalHeader__switcher', 'applies @attr-class to Switcher')
-      .hasClass('pds-dropdown', 'is alias for Dropdown')
 
     assert
       .dom(USER_MENU)
       .exists()
-      .hasClass('pds-globalHeader__userMenu', 'applies @attr-class to UserMenu')
-      .hasClass('pds-dropdown', 'is alias for Dropdown')
   })
 })
 
