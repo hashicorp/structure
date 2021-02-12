@@ -10,8 +10,9 @@ $_module: "PDS.Components.GlobalHeader";
 
 ///  auto   auto       auto      1fr       auto        auto
 /// +------+----------+---------+---------+-----------+----------+
-/// | logo | switcher | primary | other   | secondary | usermenu | auto
+/// | logo | switcher | primary | other   | secondary | usermenu |
 /// +------+----------+---------+---------+-----------+----------+
+
 @mixin layout {
   /* [debug] #{$_module}@layout */
   align-items: center;

@@ -1,10 +1,9 @@
 import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE, SUBCOMPONENTS } from '../docs.mdx'
+import DocsPage, { TITLE } from '../docs.mdx'
 
 export default {
   title: TITLE,
   component: 'PdsGlobalHeader',
-  subcomponents: SUBCOMPONENTS,
   parameters: { docs: { page: DocsPage } },
 }
 

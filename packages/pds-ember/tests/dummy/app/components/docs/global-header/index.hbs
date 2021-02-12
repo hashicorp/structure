@@ -1,9 +1,13 @@
-<Pds::GlobalHeader as |H|>
-  <H.Logo
+<Pds::GlobalHeader>
+  <:logo>
+  <img
+    class="pds-globalHeader__logo"
     src="@hashicorp/pds-ember/logomarks/HashiCorp_White.svg"
   />
+  </:logo>
 
-  <H.Switcher as |S|>
+  <:switcher>
+  <Pds::Dropdown as |S|>
     <S.Trigger>
       Workspace
     </S.Trigger>
@@ -25,23 +29,25 @@
         </a>
       </section>
     </S.Dialog>
-  </H.Switcher>
+  </Pds::Dropdown>
+  </:switcher>
 
-  <H.PrimaryNav>
+  <:primary-nav>
     <a href="#" class="active">Section 1</a>
     <a href="#">Section 2</a>
     <a href="#">Section 3</a>
-  </H.PrimaryNav>
+  </:primary-nav>
 
-  <H.SecondaryNav>
+  <:secondary-nav>
     <a href="#">Link</a>
     <a href="#" class="pds--iconOnly">
       <Pds::Icon @type="help-circle-outline" />
       <span class="pds--visuallyHidden">Icon Link</span>
     </a>
-  </H.SecondaryNav>
+  </:secondary-nav>
 
-  <H.UserMenu as |M|>
+  <:user-menu>
+  <Pds::Dropdown @align="right" as |M|>
     <M.Trigger>
       <Pds::Avatar />
       <span class="pds--visuallyHidden">
@@ -64,8 +70,9 @@
         </Pds::Button>
       </section>
     </M.Dialog>
-  </H.UserMenu>
+  </Pds::Dropdown>
+  </:user-menu>
 
   {{! extra content }}
-  {{yield}}
+  <:extra>{{yield}}</:extra>
 </Pds::GlobalHeader>

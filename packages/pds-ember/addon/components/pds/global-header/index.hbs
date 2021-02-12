@@ -3,11 +3,38 @@
   ...attributes
   data-test-global-header
 >
-  {{ yield (hash
-    Logo=(component 'pds/global-header/logo')
-    PrimaryNav=(component 'pds/global-header/nav' attr-class='pds-globalHeader__primaryNav')
-    SecondaryNav=(component 'pds/global-header/nav' attr-class='pds-globalHeader__secondaryNav')
-    Switcher=(component 'pds/dropdown' align='left'  attr-class='pds-globalHeader__switcher')
-    UserMenu=(component 'pds/dropdown' align='right' attr-class='pds-globalHeader__userMenu')
-  )}}
+  {{#if (has-block 'logo')}}
+    <div class="pds-globalHeader__logo">
+      {{yield to="logo"}}
+    </div>
+  {{/if}}
+  {{#if (has-block 'primary-nav')}}
+    <nav
+      class="pds-globalHeader__nav pds-globalHeader__primaryNav"
+      ...attributes
+      data-test-global-header-nav
+    >
+      {{yield to="primary-nav"}}
+    </nav>
+  {{/if}}
+  {{yield to="extra"}}
+  {{#if (has-block 'secondary-nav')}}
+    <nav
+      class="pds-globalHeader__nav pds-globalHeader__secondaryNav"
+      ...attributes
+      data-test-global-header-nav
+    >
+      {{yield to="secondary-nav"}}
+    </nav>
+  {{/if}}
+  {{#if (has-block 'switcher')}}
+    <div class="pds-globalHeader__switcher">
+      {{yield to="switcher"}}
+    </div>
+  {{/if}}
+  {{#if (has-block "user-menu")}}
+    <div class="pds-globalHeader__userMenu">
+      {{yield to="user-menu"}}
+    </div>
+  {{/if}}
 </div>
