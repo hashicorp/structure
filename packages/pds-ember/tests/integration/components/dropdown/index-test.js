@@ -47,6 +47,7 @@ module('Integration | Components.Dropdown', function(hooks) {
       .exists()
       .isNotVisible()
       .hasText('dialog content goes here')
+      .doesNotHaveClass('pds--open')
       .hasAttribute('data-name', 'dialog', 'applies ...attributes to dialog')
   })
 
@@ -73,6 +74,7 @@ module('Integration | Components.Dropdown', function(hooks) {
 
     assert
       .dom(DIALOG)
+      .hasClass('pds--open', 'applies open modifier class to Dialog')
       .isVisible()
   })
 
