@@ -1,4 +1,9 @@
+const namedBlockPolyfill = require('ember-named-blocks-polyfill/lib/named-blocks-polyfill-plugin');
+
 module.exports = {
+  emberOptions: {
+     polyfills: [namedBlockPolyfill],
+   },
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
