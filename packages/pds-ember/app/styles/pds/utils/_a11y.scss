@@ -13,6 +13,11 @@ $_module: "PDS.Utils.A11y";
   // content from the a11y tree
   width: 1px !important;
   height: 1px !important;
+  clip: rect(1px, 1px, 1px, 1px); /* old & current Browsers */
+  clip-path: inset(50%); /* browsers in the future */
+
+  // Prevent the screen reader to skip spaces between words
+  white-space: nowrap;
 
   // eliminate any space being taken up by the element
   margin: -1px !important;
