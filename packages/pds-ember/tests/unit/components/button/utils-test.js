@@ -13,7 +13,10 @@ module('Unit | Components.Button.utils', function () {
 
   test('VARIANT_CLASSES should have default variant property', function (assert) {
     let { VARIANT_CLASSES, DEFAULT_VARIANT } = Subject;
-    let result = VARIANT_CLASSES.hasOwnProperty(DEFAULT_VARIANT);
+    let result = Object.prototype.hasOwnProperty.call(
+      VARIANT_CLASSES,
+      DEFAULT_VARIANT
+    );
     assert.true(result, 'DEFAULT_VARIANT is valid variant');
   });
 

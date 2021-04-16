@@ -1,5 +1,5 @@
 import hbs from 'htmlbars-inline-precompile';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import DocsPage, { TITLE } from '../docs.mdx';
 import { getContext } from './cfg';
 

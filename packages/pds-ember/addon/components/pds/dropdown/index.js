@@ -95,7 +95,7 @@ export default class PdsDropdown extends Component {
   }
 
   @action
-  willDestroy(el) {
+  willDestroy() {
     super.willDestroy(...arguments);
     document.removeEventListener('click', this._handleDocumentClick, true);
   }

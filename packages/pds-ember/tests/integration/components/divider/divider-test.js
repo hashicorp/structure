@@ -4,7 +4,6 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 const ROOT = '[data-test-divider]';
-const RULE = '[data-test-divider-rule]';
 
 module('Integration | Components.Divider', function (hooks) {
   setupRenderingTest(hooks);

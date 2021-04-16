@@ -1,8 +1,6 @@
 import hbs from 'htmlbars-inline-precompile';
 import DocsPage, { TITLE } from '../docs.mdx';
 
-import ICONS from '@hashicorp/structure-icons/dist/index';
-
 export default {
   title: `${TITLE} / States`,
   component: 'PdsDropdownTrigger',

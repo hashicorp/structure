@@ -21,6 +21,7 @@ module.exports = {
   },
   rules: {
     'ember/no-jquery': 'error',
+    'ember/no-empty-glimmer-component-classes': 0,
   },
   overrides: [
     // node files

@@ -22,7 +22,7 @@ export function isValidOption(item) {
   switch (typeOf(item)) {
     // exclude object literals without `value` prop
     case 'object':
-      result = item.hasOwnProperty('value');
+      result = Object.prototype.hasOwnProperty.call(item, 'value');
       break;
 
     // exclude regular expressions

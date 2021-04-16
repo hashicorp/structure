@@ -40,6 +40,7 @@ export default class PdsCheckboxField extends Component {
     // otherwise, generate and memoize a guid
     if (!this._id) {
       let guid = guidFor(this);
+      // eslint-disable-next-line ember/no-side-effects
       this._id = `chk-${guid}`;
     }
     return this._id;
