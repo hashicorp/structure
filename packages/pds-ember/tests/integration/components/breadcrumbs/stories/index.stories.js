@@ -12,7 +12,7 @@ export default {
       description: 'Preview with folder icon',
       control: 'boolean',
     },
-  }
+  },
 };
 
 // Shallow Nesting (1-4 levels)
@@ -24,7 +24,7 @@ export const Index = (args) => ({
     />
   `,
   context: args,
-})
+});
 Index.argTypes = {
   depth: {
     name: 'Depth',
@@ -37,7 +37,7 @@ Index.argTypes = {
       type: 'range',
     },
   },
-}
+};
 
 // Deep Nesting (5+ levels)
 // (show first crumb and last 3 crumbs; hide 2 through N-3)
@@ -55,7 +55,7 @@ export const DeepNesting = (args) => ({
     </Pds::Breadcrumbs>
   `,
   context: args,
-})
+});
 
 // Demonstrate overflow using the "Viewport" addon.
 export const LengthyContent = (args) => ({
@@ -72,7 +72,7 @@ export const LengthyContent = (args) => ({
     </Pds::Breadcrumbs>
   `,
   context: args,
-})
+});
 LengthyContent.args = {
   showIcon: true,
-}
+};

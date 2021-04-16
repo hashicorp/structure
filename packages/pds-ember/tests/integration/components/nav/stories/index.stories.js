@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
   component: 'PdsNav',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -14,7 +14,7 @@ export const Index = (args) => ({
     </Pds::App::Sidebar>
   `,
   context: args,
-})
+});
 
 export const States = (args) => ({
   template: hbs`
@@ -35,4 +35,4 @@ export const States = (args) => ({
     </Pds::App::Sidebar>
   `,
   context: args,
-})
+});

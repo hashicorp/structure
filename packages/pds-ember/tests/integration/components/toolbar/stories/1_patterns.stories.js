@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: `${TITLE} / Patterns`,
   component: 'PdsToolbar',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Lists = () => ({
   template: hbs`
@@ -27,7 +27,7 @@ export const Lists = () => ({
       </T.End>
     </Pds::Toolbar>
   `,
-})
+});
 export const Details = () => ({
   template: hbs`
     <Pds::Toolbar as |T|>
@@ -59,7 +59,7 @@ export const Details = () => ({
       </T.End>
     </Pds::Toolbar>
   `,
-})
+});
 export const Editor = () => ({
   template: hbs`
     <Pds::Toolbar as |T|>
@@ -81,4 +81,4 @@ export const Editor = () => ({
       </T.End>
     </Pds::Toolbar>
   `,
-})
+});

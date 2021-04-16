@@ -1,16 +1,6 @@
-export const INVALID_ARGS = [
-  {},
-  { value: 'foo' },
-]
+export const INVALID_ARGS = [{}, { value: 'foo' }];
 
-export const INVALID_OPTIONS_ARGS = [
-  {},
-  false,
-  null,
-  undefined,
-  42,
-  /.*/i,
-]
+export const INVALID_OPTIONS_ARGS = [{}, false, null, undefined, 42, /.*/i];
 
 export const INVALID_OPTIONS_VALUES = [
   '',
@@ -22,7 +12,7 @@ export const INVALID_OPTIONS_VALUES = [
   {},
   { label: 'foo' },
   { foo: 'bar' },
-]
+];
 
 export const VALID_OPTIONS_VALUES = [
   42,
@@ -31,7 +21,7 @@ export const VALID_OPTIONS_VALUES = [
   { value: 100 },
   { value: 9001, label: 'Over 9000!' },
   { value: '', label: '' },
-]
+];
 
 // [ input, output ]
 // input {object} - "args"
@@ -56,7 +46,7 @@ export const VALID_ARGS_OPTIONS = [
       { value: 1, label: 1, selected: false },
       { value: 2, label: 2, selected: false },
       { value: 3, label: 3, selected: false },
-    ]
+    ],
   ],
 
   // number options, with matching number args.value
@@ -71,7 +61,7 @@ export const VALID_ARGS_OPTIONS = [
       { value: 1, label: 1, selected: false },
       { value: 2, label: 2, selected: true },
       { value: 3, label: 3, selected: false },
-    ]
+    ],
   ],
 
   // number options, with non-matching integer args.value
@@ -86,7 +76,7 @@ export const VALID_ARGS_OPTIONS = [
       { value: 1, label: 1, selected: false },
       { value: 2, label: 2, selected: false },
       { value: 3, label: 3, selected: false },
-    ]
+    ],
   ],
 
   // number options, with matching float args.value
@@ -101,7 +91,7 @@ export const VALID_ARGS_OPTIONS = [
       { value: 1, label: 1, selected: false },
       { value: 2, label: 2, selected: true },
       { value: 3, label: 3, selected: false },
-    ]
+    ],
   ],
 
   // number options, with non-matching numeric string args.value
@@ -116,7 +106,7 @@ export const VALID_ARGS_OPTIONS = [
       { value: 1, label: 1, selected: false },
       { value: 2, label: 2, selected: false },
       { value: 3, label: 3, selected: false },
-    ]
+    ],
   ],
 
   // object-literal options, with non-matching args.value
@@ -124,14 +114,11 @@ export const VALID_ARGS_OPTIONS = [
     // args
     {
       value: 'foo',
-      options: [
-        { value: 'bar' },
-        { value: 'fizz', label: 'buzz' },
-      ],
+      options: [{ value: 'bar' }, { value: 'fizz', label: 'buzz' }],
     },
     // expected options
     [
-      { value: 'bar',  label: 'bar',  selected: false },
+      { value: 'bar', label: 'bar', selected: false },
       { value: 'fizz', label: 'buzz', selected: false },
     ],
   ],
@@ -141,27 +128,23 @@ export const VALID_ARGS_OPTIONS = [
     // args
     {
       value: 'fizz',
-      options: [
-        { value: 'bar' },
-        { value: 'fizz', label: 'buzz' },
-      ],
+      options: [{ value: 'bar' }, { value: 'fizz', label: 'buzz' }],
     },
     // expected options
     [
-      { value: 'bar',  label: 'bar',  selected: false },
+      { value: 'bar', label: 'bar', selected: false },
       { value: 'fizz', label: 'buzz', selected: true },
-    ]
+    ],
   ],
-]
-
+];
 
 // [value, isValid]
 export const TEST_VALID_OPTIONS = [
-  [ {}, false ],
-  [ { foo: 'bar' }, false ],
-  [ { value: 'bar' }, true ],
-  [ /.*/i, false ],
-  [ [], false ],
-  [ null, false ],
-  [ undefined, false ],
-]
+  [{}, false],
+  [{ foo: 'bar' }, false],
+  [{ value: 'bar' }, true],
+  [/.*/i, false],
+  [[], false],
+  [null, false],
+  [undefined, false],
+];

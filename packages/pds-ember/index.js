@@ -12,21 +12,20 @@ module.exports = {
   },
 
   // (pulled from HCP:packages/addon-product-design-system)
-  treeForStyles: function() {
+  treeForStyles: function () {
     let stylesPath = path.join(__dirname, 'app/styles/pds');
 
     let PDS = new Funnel(stylesPath, {
       destDir: 'pds',
       annotation: 'PDS Styles',
     });
-    let mergedTrees = mergeTrees([ PDS ], { overwrite: true });
+    let mergedTrees = mergeTrees([PDS], { overwrite: true });
 
     return this._super.treeForStyles(mergedTrees);
   },
 
   // required for ember-cli-sass (according to docs)
-  included: function(/* app */) {
+  included: function (/* app */) {
     this._super.included.apply(this, arguments);
   },
 };
-

@@ -1,8 +1,8 @@
-import Component from '@glimmer/component'
-import { action } from '@ember/object'
-import { ICON_TYPES, DEFAULT_VARIANT } from './utils'
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { ICON_TYPES, DEFAULT_VARIANT } from './utils';
 
-const NOOP = () => {}
+const NOOP = () => {};
 
 /**
  * @class PdsPopup
@@ -12,7 +12,7 @@ export default class PdsPopup extends Component {
    * @type String
    */
   get iconType() {
-    return ICON_TYPES[this.variant]
+    return ICON_TYPES[this.variant];
   }
 
   /**
@@ -21,12 +21,12 @@ export default class PdsPopup extends Component {
    * @type {function}
    */
   get onClose() {
-    let { onClose } = this.args
+    let { onClose } = this.args;
 
     if (typeof onClose === 'function') {
-      return onClose
+      return onClose;
     } else {
-      return NOOP
+      return NOOP;
     }
   }
 
@@ -43,13 +43,13 @@ export default class PdsPopup extends Component {
    * @default 'info'
    */
   get variant() {
-    return this.args.variant || DEFAULT_VARIANT
+    return this.args.variant || DEFAULT_VARIANT;
   }
 
   // ===== ACTIONS ===== //
 
   @action
   _handleClose() {
-    this.onClose()
+    this.onClose();
   }
 }

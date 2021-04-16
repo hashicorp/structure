@@ -3,8 +3,8 @@ const path = require('path');
 
 module.exports = {
   emberOptions: {
-     polyfills: [namedBlockPolyfill],
-   },
+    polyfills: [namedBlockPolyfill],
+  },
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
@@ -14,7 +14,7 @@ module.exports = {
         backgrounds: false,
       },
     },
-	],
+  ],
   stories: [
     '../tests/**/*.stories.@(js|mdx)',
     '../app/**/*.stories.@(js|mdx)',

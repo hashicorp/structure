@@ -1,19 +1,25 @@
 import hbs from 'htmlbars-inline-precompile';
 import icons from '@hashicorp/structure-icons/dist/index';
-import { withKnobs, boolean, select, text, radios } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  boolean,
+  select,
+  text,
+  radios,
+} from '@storybook/addon-knobs';
 import DocsPage, { TITLE } from '../docs.mdx';
 
 import { DEFAULT_VARIANT, VARIANT_CLASSES } from '@hashicorp/pds-ember/addon/components/pds/button/utils';
 
-const VARIANTS = Object.keys(VARIANT_CLASSES)
+const VARIANTS = Object.keys(VARIANT_CLASSES);
 
 const icons_with_blank = ['', ...icons];
-const BUTTON_LIKE_TYPES = ['button', 'reset', 'submit']
+const BUTTON_LIKE_TYPES = ['button', 'reset', 'submit'];
 
 const CONFIG = {
   title: TITLE,
   component: 'PdsButton',
-  decorators: [ withKnobs ],
+  decorators: [withKnobs],
   parameters: { docs: { page: DocsPage } },
 };
 
@@ -66,7 +72,11 @@ const ButtonLike_Input = () => ({
   `,
   context: {
     type: radios('@type', BUTTON_LIKE_TYPES, 'button'),
-    variantClass: radios('variant', VARIANT_CLASSES, VARIANT_CLASSES[DEFAULT_VARIANT]),
+    variantClass: radios(
+      'variant',
+      VARIANT_CLASSES,
+      VARIANT_CLASSES[DEFAULT_VARIANT]
+    ),
     isCompact: boolean('compact?', false),
     isHovered: boolean(':hover', false),
     isFocused: boolean(':focus', false),
@@ -77,9 +87,4 @@ const ButtonLike_Input = () => ({
 
 ButtonLike_Input.story = { name: 'Button-like Input' };
 
-export {
-  CONFIG as default,
-
-  Index,
-  ButtonLike_Input,
-};
+export { CONFIG as default, Index, ButtonLike_Input };

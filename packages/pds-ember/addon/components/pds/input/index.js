@@ -52,7 +52,7 @@ export default class extends Component {
     let _names = [
       'pds-input',
       cssClassForType(this.type),
-      (this.args.invalid ? 'pds--invalid' : ''),
+      this.args.invalid ? 'pds--invalid' : '',
     ];
 
     return _names.join(' ').trim();

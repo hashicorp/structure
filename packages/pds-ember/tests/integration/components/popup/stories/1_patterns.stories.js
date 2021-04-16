@@ -1,8 +1,8 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 import { ICON_TYPES, DEFAULT_VARIANT } from '@hashicorp/pds-ember/addon/components/pds/popup/utils';
 
-const VARIANTS = Object.keys(ICON_TYPES)
+const VARIANTS = Object.keys(ICON_TYPES);
 
 export default {
   title: `${TITLE} / Patterns`,
@@ -18,7 +18,7 @@ export default {
       },
     },
   },
-}
+};
 
 export const Simple = (args) => ({
   template: hbs`
@@ -29,7 +29,7 @@ export const Simple = (args) => ({
     </Pds::Popup>
   `,
   context: args,
-})
+});
 
 export const WithBody = (args) => ({
   template: hbs`
@@ -44,7 +44,7 @@ export const WithBody = (args) => ({
     </Pds::Popup>
   `,
   context: args,
-})
+});
 
 export const WithBodyAndAction = (args) => ({
   template: hbs`
@@ -67,7 +67,7 @@ export const WithBodyAndAction = (args) => ({
     </Pds::Popup>
   `,
   context: args,
-})
+});
 
 export const LengthyContent = (args) => ({
   template: hbs`
@@ -98,4 +98,4 @@ export const LengthyContent = (args) => ({
     </Pds::Popup>
   `,
   context: args,
-})
+});

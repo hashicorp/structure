@@ -5,11 +5,11 @@ import Component from '@glimmer/component';
  */
 export default class DocsBreadcrumbs extends Component {
   get depths() {
-    let { depth } = this.args
-    let output = []
+    let { depth } = this.args;
+    let output = [];
     for (let i = 1; i <= depth; i++) {
-      output.push(`Level ${i}`)
+      output.push(`Level ${i}`);
     }
-    return output
+    return output;
   }
 }

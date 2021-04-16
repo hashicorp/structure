@@ -5,7 +5,7 @@ import { getContext } from './cfg';
 
 export default {
   title: TITLE,
-  decorators: [ withKnobs ],
+  decorators: [withKnobs],
   parameters: { docs: { page: DocsPage } },
   argTypes: {
     disabled: {
@@ -47,7 +47,6 @@ export const Index = () => ({
   context: getContext(),
 });
 
-
 export const SelectField = (args) => ({
   template: hbs`
     <Docs::FormField::Select
@@ -58,7 +57,6 @@ export const SelectField = (args) => ({
   `,
   context: args,
 });
-
 
 export const TextareaField = (args) => ({
   template: hbs`

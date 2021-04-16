@@ -8,7 +8,7 @@ export const CSS = {
   primary: 'pds--primary',
   ghost: 'pds--ghost',
   warning: 'pds--warning',
-}
+};
 
 export const VARIANT_CLASSES = {
   ghost: CSS.ghost,
@@ -17,4 +17,4 @@ export const VARIANT_CLASSES = {
   warning: CSS.warning,
   // non-existent variant
   nonesuch: '',
-}
+};

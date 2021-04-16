@@ -1,17 +1,17 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: `${TITLE} / States`,
   component: 'PdsCtaLink',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Enabled = () => ({
   template: hbs`
     <Docs::CtaLink::States />
   `,
-})
+});
 
 export const EnabledHover = () => ({
   template: hbs`
@@ -19,8 +19,8 @@ export const EnabledHover = () => ({
       class="mock-hover"
     />
   `,
-})
-EnabledHover.storyName = 'Enabled + Hover'
+});
+EnabledHover.storyName = 'Enabled + Hover';
 
 export const EnabledFocus = () => ({
   template: hbs`
@@ -28,8 +28,8 @@ export const EnabledFocus = () => ({
       class="mock-focus"
     />
   `,
-})
-EnabledFocus.storyName = 'Enabled + Focus'
+});
+EnabledFocus.storyName = 'Enabled + Focus';
 
 export const EnabledFocusHover = () => ({
   template: hbs`
@@ -37,8 +37,8 @@ export const EnabledFocusHover = () => ({
       class="mock-focus mock-hover"
     />
   `,
-})
-EnabledFocusHover.storyName = 'Enabled + Focus + Hover'
+});
+EnabledFocusHover.storyName = 'Enabled + Focus + Hover';
 
 export const EnabledFocusActive = () => ({
   template: hbs`
@@ -46,8 +46,8 @@ export const EnabledFocusActive = () => ({
       class="mock-focus mock-active"
     />
   `,
-})
-EnabledFocusActive.storyName = 'Enabled + Focus + Active'
+});
+EnabledFocusActive.storyName = 'Enabled + Focus + Active';
 
 export const EnabledFocusActiveHover = () => ({
   template: hbs`
@@ -55,11 +55,8 @@ export const EnabledFocusActiveHover = () => ({
       class="mock-focus mock-active mock-hover"
     />
   `,
-})
-EnabledFocusActiveHover.storyName = 'Enabled + Focus + Active + Hover'
-
-
-
+});
+EnabledFocusActiveHover.storyName = 'Enabled + Focus + Active + Hover';
 
 export const Disabled = () => ({
   template: hbs`
@@ -67,7 +64,7 @@ export const Disabled = () => ({
       @disabled={{true}}
     />
   `,
-})
+});
 
 export const DisabledHover = () => ({
   template: hbs`
@@ -76,8 +73,8 @@ export const DisabledHover = () => ({
       @disabled={{true}}
     />
   `,
-})
-DisabledHover.storyName = 'Disabled + Hover'
+});
+DisabledHover.storyName = 'Disabled + Hover';
 
 export const DisabledFocus = () => ({
   template: hbs`
@@ -86,8 +83,8 @@ export const DisabledFocus = () => ({
       @disabled={{true}}
     />
   `,
-})
-DisabledFocus.storyName = 'Disabled + Focus'
+});
+DisabledFocus.storyName = 'Disabled + Focus';
 
 export const DisabledFocusHover = () => ({
   template: hbs`
@@ -96,8 +93,8 @@ export const DisabledFocusHover = () => ({
       @disabled={{true}}
     />
   `,
-})
-DisabledFocusHover.storyName = 'Disabled + Focus + Hover'
+});
+DisabledFocusHover.storyName = 'Disabled + Focus + Hover';
 
 export const DisabledFocusActive = () => ({
   template: hbs`
@@ -106,8 +103,8 @@ export const DisabledFocusActive = () => ({
       @disabled={{true}}
     />
   `,
-})
-DisabledFocusActive.storyName = 'Disabled + Focus + Active'
+});
+DisabledFocusActive.storyName = 'Disabled + Focus + Active';
 
 export const DisabledFocusActiveHover = () => ({
   template: hbs`
@@ -116,5 +113,5 @@ export const DisabledFocusActiveHover = () => ({
       @disabled={{true}}
     />
   `,
-})
-DisabledFocusActiveHover.storyName = 'Disabled + Focus + Active + Hover'
+});
+DisabledFocusActiveHover.storyName = 'Disabled + Focus + Active + Hover';

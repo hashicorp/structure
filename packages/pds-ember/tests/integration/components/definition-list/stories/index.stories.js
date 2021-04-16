@@ -1,5 +1,5 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
@@ -9,7 +9,7 @@ export default {
     'List.Value': 'PdsDefinitionListValue',
   },
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -63,7 +63,7 @@ export const Index = (args) => ({
     </Pds::DefinitionList>
   `,
   context: args,
-})
+});
 Index.args = {
   stacked: false,
-}
+};

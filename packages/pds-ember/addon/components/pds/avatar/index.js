@@ -1,4 +1,4 @@
-import Component from '@glimmer/component'
+import Component from '@glimmer/component';
 
 /**
  * @class PdsAvatar
@@ -12,7 +12,6 @@ import Component from '@glimmer/component'
  * @type {string}
  */
 export default class PdsAvatar extends Component {
-
   /**
    * Image Alt Text
    *
@@ -22,7 +21,7 @@ export default class PdsAvatar extends Component {
    * @type {string}
    */
   get alt() {
-    let { alt } = this.args
-    return (alt ? alt : 'user avatar')
+    let { alt } = this.args;
+    return alt ? alt : 'user avatar';
   }
 }

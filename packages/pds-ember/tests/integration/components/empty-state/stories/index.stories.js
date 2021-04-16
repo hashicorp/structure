@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
   component: 'PdsEmptyState',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -28,7 +28,7 @@ export const Index = (args) => ({
     </Pds::EmptyState>
   `,
   context: args,
-})
+});
 
 export const HeaderAndBody = (args) => ({
   template: hbs`
@@ -45,7 +45,7 @@ export const HeaderAndBody = (args) => ({
     </Pds::EmptyState>
   `,
   context: args,
-})
+});
 
 export const HeaderOnly = (args) => ({
   template: hbs`
@@ -56,4 +56,4 @@ export const HeaderOnly = (args) => ({
     </Pds::EmptyState>
   `,
   context: args,
-})
+});

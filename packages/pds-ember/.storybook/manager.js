@@ -9,5 +9,5 @@ addons.setConfig({
     brandTitle: 'Product Design System',
     brandImage: '',
     brandUrl: '#',
-  })
+  }),
 });

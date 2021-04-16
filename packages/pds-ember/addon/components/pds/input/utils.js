@@ -1,28 +1,28 @@
-import { warn } from '@ember/debug'
+import { warn } from '@ember/debug';
 
 export const TYPES = {
-  "button": { like: 'button' },
-  "checkbox": { like: 'checkbox' },
-  "color": { like: 'color' },
-  "date": { like: 'text' },
-  "datetime": { like: 'text', obsolete: true },
-  "datetime-local": { like: 'text' },
-  "email": { like: 'text' },
-  "file": { like: 'file' },
-  "month": { like: 'text' },
-  "number": { like: 'text' },
-  "password": { like: 'text' },
-  "radio": { like: 'radio' },
-  "range": { like: 'range' },
-  "reset": { like: 'button' },
-  "search": { like: 'text' },
-  "submit": { like: 'button' },
-  "tel": { like: 'text' },
-  "text": { like: 'text' },
-  "time": { like: 'text' },
-  "url": { like: 'text' },
-  "week": { like: 'text' },
-}
+  button: { like: 'button' },
+  checkbox: { like: 'checkbox' },
+  color: { like: 'color' },
+  date: { like: 'text' },
+  datetime: { like: 'text', obsolete: true },
+  'datetime-local': { like: 'text' },
+  email: { like: 'text' },
+  file: { like: 'file' },
+  month: { like: 'text' },
+  number: { like: 'text' },
+  password: { like: 'text' },
+  radio: { like: 'radio' },
+  range: { like: 'range' },
+  reset: { like: 'button' },
+  search: { like: 'text' },
+  submit: { like: 'button' },
+  tel: { like: 'text' },
+  text: { like: 'text' },
+  time: { like: 'text' },
+  url: { like: 'text' },
+  week: { like: 'text' },
+};
 
 /**
  * Check if given type is a valid input[type] value.
@@ -32,13 +32,13 @@ export const TYPES = {
  * @return {boolean}
  */
 export function isValidType(type) {
-  let result = false
+  let result = false;
 
   if (typeof type === 'string') {
-    result = !!TYPES[type]
+    result = !!TYPES[type];
   }
 
-  return result
+  return result;
 }
 
 /**
@@ -49,17 +49,20 @@ export function isValidType(type) {
  * @return {string} - non-null input type
  */
 export function getValidType(type) {
-  let _default = 'text'
-  let _isValid = isValidType(type)
+  let _default = 'text';
+  let _isValid = isValidType(type);
 
-  let result = (_isValid ? type : _default)
+  let result = _isValid ? type : _default;
 
-  warn(`[Pds::Input] invalid @type (${JSON.stringify(type)}); defaulting to "${_default}"`,
+  warn(
+    `[Pds::Input] invalid @type (${JSON.stringify(
+      type
+    )}); defaulting to "${_default}"`,
     _isValid,
     { id: 'ember-debug.pds.input.invalid-type' }
-  )
+  );
 
-  return result
+  return result;
 }
 
 /**
@@ -70,13 +73,13 @@ export function getValidType(type) {
  * @return {boolean}
  */
 export function isTextLike(type) {
-  let result = false
+  let result = false;
 
   if (isValidType(type) && TYPES[type].like === 'text') {
-    result = true
+    result = true;
   }
 
-  return result
+  return result;
 }
 
 /**
@@ -87,17 +90,17 @@ export function isTextLike(type) {
  * @return {string}
  */
 export function cssClassForType(type) {
-  let result = ''
+  let result = '';
 
   if (isValidType(type)) {
-    let { like } = TYPES[type]
+    let { like } = TYPES[type];
 
     if (like === 'button') {
-      result = 'pds-button'
+      result = 'pds-button';
     } else {
-      result = `pds--${like}Like`
+      result = `pds--${like}Like`;
     }
   }
 
-  return result
+  return result;
 }

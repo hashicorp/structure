@@ -1,8 +1,8 @@
-import Component from '@glimmer/component'
-import { action } from '@ember/object'
-import { tracked } from '@glimmer/tracking'
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-const NOOP = () => {}
+const NOOP = () => {};
 
 /**
  * @class PdsDropdown
@@ -39,47 +39,47 @@ const NOOP = () => {}
  * @default 'left'
  */
 export default class PdsDropdown extends Component {
-  _handleDocumentClick = NOOP
+  _handleDocumentClick = NOOP;
 
   @tracked
-  _isOpen = false
+  _isOpen = false;
 
   get isOpen() {
-    return this.args.isOpen || this._isOpen
+    return this.args.isOpen || this._isOpen;
   }
   set isOpen(val) {
-    this._isOpen = val
-    this.onToggle(val)
+    this._isOpen = val;
+    this.onToggle(val);
   }
 
   get alignmentClass() {
-    let { align } = this.args
+    let { align } = this.args;
     if (align) {
-      return `pds--align-${align}`
+      return `pds--align-${align}`;
     }
-    return 'pds--align-left'
+    return 'pds--align-left';
   }
 
   @action
   close() {
-    this.isOpen = false
+    this.isOpen = false;
   }
 
   // @type {function}
   get onToggle() {
-    let { onToggle } = this.args
+    let { onToggle } = this.args;
 
     if (typeof onToggle === 'function') {
-      return onToggle
+      return onToggle;
     } else {
-      return NOOP
+      return NOOP;
     }
   }
 
   // handler for <details> 'toggle' event
   @action
   handleToggle(evt) {
-    this.isOpen = evt.target.open
+    this.isOpen = evt.target.open;
   }
 
   @action
@@ -87,15 +87,16 @@ export default class PdsDropdown extends Component {
     // memoize handler for later removal
     this._handleDocumentClick = (evt) => {
       if (!el.contains(evt.target)) {
-        this.isOpen = false
+        this.isOpen = false;
       }
-    }
+    };
 
-    document.addEventListener('click', this._handleDocumentClick, true)
+    document.addEventListener('click', this._handleDocumentClick, true);
   }
 
   @action
   willDestroy(el) {
-    document.removeEventListener('click', this._handleDocumentClick, true)
+    super.willDestroy(...arguments);
+    document.removeEventListener('click', this._handleDocumentClick, true);
   }
 }

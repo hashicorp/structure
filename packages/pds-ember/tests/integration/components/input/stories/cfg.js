@@ -12,9 +12,9 @@ function getCommonContext() {
   let knobs = {
     isRequired: boolean('[required]', false, _id),
     isDisabled: boolean('[disabled]', false, _id),
-    isFocused:  boolean(':focus', false, _id),
-    isHovered:  boolean(':hover', false, _id),
-    isInvalid:  boolean('visually "invalid"', false, _id),
+    isFocused: boolean(':focus', false, _id),
+    isHovered: boolean(':hover', false, _id),
+    isInvalid: boolean('visually "invalid"', false, _id),
     isDirty: boolean('dirty', false, _id),
   };
   return knobs;
@@ -34,7 +34,7 @@ function getContextForType(ilk) {
 
   switch (ilk) {
     case 'checkbox':
-      // fall through
+    // fall through
     case 'radio':
       knobs.isChecked = boolean('[checked]', _default.checked, optsID);
       break;
@@ -52,7 +52,7 @@ function getContext() {
   let _type = select('[type]', TYPES, 'text', groupID);
 
   let ctx = {
-    "type": _type,
+    type: _type,
     ...getCommonContext(),
     ...getContextForType(_type),
   };
@@ -67,4 +67,4 @@ export {
   getContext,
   groupID,
   getContextForType,
-}
+};

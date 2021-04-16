@@ -1,18 +1,18 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
   component: 'PdsGlobalFooter',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
     <Pds::GlobalFooter />
   `,
   context: args,
-})
+});
 
 export const WithProductName = (args) => ({
   template: hbs`
@@ -23,7 +23,7 @@ export const WithProductName = (args) => ({
     </Pds::GlobalFooter>
   `,
   context: args,
-})
+});
 
 export const WithNav = (args) => ({
   template: hbs`
@@ -35,7 +35,7 @@ export const WithNav = (args) => ({
     </Pds::GlobalFooter>
   `,
   context: args,
-})
+});
 
 export const WithProductNameAndNav = (args) => ({
   template: hbs`
@@ -50,4 +50,4 @@ export const WithProductNameAndNav = (args) => ({
     </Pds::GlobalFooter>
   `,
   context: args,
-})
+});

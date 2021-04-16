@@ -1,8 +1,8 @@
-import { action } from '@ember/object'
-import Component from '@glimmer/component'
-import { tracked } from '@glimmer/tracking'
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
-import { normalizeOptions } from './utils'
+import { normalizeOptions } from './utils';
 
 /**
  * @class PdsSelect
@@ -45,16 +45,16 @@ import { normalizeOptions } from './utils'
  */
 
 export default class extends Component {
-  @tracked dirty = false
-  @tracked touched = false
+  @tracked dirty = false;
+  @tracked touched = false;
 
   get options() {
-    return normalizeOptions(this.args)
+    return normalizeOptions(this.args);
   }
 
   @action
   onBlur() {
-    this.dirty = true
-    this.touched = true
+    this.dirty = true;
+    this.touched = true;
   }
 }

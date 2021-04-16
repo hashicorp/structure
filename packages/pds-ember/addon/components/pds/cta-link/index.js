@@ -15,7 +15,7 @@ export default class PdsCtaLink extends LinkComponent {
    * @type {boolean}
    * @default false
    */
-  disabledClass = 'pds--disabled'
+  disabledClass = 'pds--disabled';
 
   /**
    * Display variant
@@ -33,12 +33,12 @@ export default class PdsCtaLink extends LinkComponent {
    * @type {string}
    */
   get classNames() {
-    let result = ['pds-button']
+    let result = ['pds-button'];
 
     if (this.variant) {
-      result.push(`pds--${this.variant}`)
+      result.push(`pds--${this.variant}`);
     }
 
-    return result
+    return result;
   }
 }

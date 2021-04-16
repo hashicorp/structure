@@ -5,7 +5,7 @@ import DocsPage, { TITLE } from '../docs.mdx';
 const CONFIG = {
   title: `${TITLE} / Options`,
   component: 'PdsSelect',
-  decorators: [ withKnobs ],
+  decorators: [withKnobs],
   parameters: { docs: { page: DocsPage } },
 };
 
@@ -18,12 +18,7 @@ const AutoOptions_string = () => ({
   `,
   context: {
     value: 'String B',
-    options: [
-      'String A',
-      'String B',
-      'String C',
-      'String D',
-    ],
+    options: ['String A', 'String B', 'String C', 'String D'],
   },
 });
 
@@ -36,7 +31,7 @@ const AutoOptions_number = () => ({
   `,
   context: {
     value: 3,
-    options: [1, 2, 3, 4, 5]
+    options: [1, 2, 3, 4, 5],
   },
 });
 
@@ -66,8 +61,8 @@ const AutoOptions_boolean = () => ({
   `,
   context: {
     value: false,
-    options: [ true, false ]
-  }
+    options: [true, false],
+  },
 });
 
 const AutoOptions_mixed = () => ({
@@ -143,16 +138,13 @@ AutoOptions_mixed.story = { name: 'Auto / Mixed Options' };
 ManualOptions_simple.story = { name: 'Manual / Simple' };
 ManualOptions_grouped.story = { name: 'Manual / Grouped' };
 
-
 export {
   CONFIG as default,
-
   AutoOptions_string,
   AutoOptions_number,
   AutoOptions_object,
   AutoOptions_boolean,
   AutoOptions_mixed,
-
   ManualOptions_simple,
   ManualOptions_grouped,
 };
