@@ -1,0 +1,20 @@
+$_module: "PDS.Components.HelpText.Bold";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "../_config" as _super;
+
+@mixin appearance {
+  /* [debug] #{$_module}@appearance */
+
+  font-weight: 500;
+  color: #f09;
+  background-color: #f09;
+}
+
+@mixin apply {
+  /* [debug] #{$_module}@apply */
+  @include _super.apply {
+      &.pds-helpText--bold {
+      @content;
+    }
+  }
+}
