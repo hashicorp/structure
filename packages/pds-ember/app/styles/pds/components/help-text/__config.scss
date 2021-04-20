@@ -1,6 +1,7 @@
 $_module: "PDS.Components.HelpText";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../tokens/color";
+@use "../../tokens/font" as font;
 @use "../../core/typography/config" as Typography;
 
 $color: color.$ui-gray-500;
@@ -8,8 +9,8 @@ $color: color.$ui-gray-500;
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
   @include Typography.Interface(S);
-
   color: $color;
+  font-weight: font.weight(Normal);
 }
 
 @mixin apply {
