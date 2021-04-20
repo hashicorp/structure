@@ -23,7 +23,7 @@ for more details.
 
 
 # Contributing
-See the [Contributing](CONTRIBUTING.md) guide for details.
+See the [Contributing](CONTRIBUTING.md) guide for details.  Must be in the frontend github team, check with [IT](https://hashicorp-it.zendesk.com/hc/en-us) if you need access.
 
 
 # License
