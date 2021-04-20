@@ -1,13 +1,12 @@
 $_module: "PDS.Components.HelpText.Bold";
 /* --- [debug] CONFIG: #{$_module} --- */
-@use "../_config" as _super;
+@use "../__config" as _super;
+@use "../../../tokens/font" as font;
 
 @mixin appearance {
   /* [debug] #{$_module}@appearance */
 
-  font-weight: 500;
-  color: #f09;
-  background-color: #f09;
+  font-weight: font.weight(Medium);
 }
 
 @mixin apply {
