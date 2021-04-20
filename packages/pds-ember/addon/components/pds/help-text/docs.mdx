@@ -13,7 +13,9 @@ A visual style for blocks of text that provide additional context to the user.
 
 ## Usage
 ```hbs
-<Pds::HelpText>
+<Pds::HelpText
+ @variant={{string ['']}}
+>
   <!-- text content -->
 </Pds::HelpText>
 ```
@@ -29,6 +31,11 @@ A visual style for blocks of text that provide additional context to the user.
 ## Markup
 The `<Pds::HelpText>` Ember component handles generation of semantic HTML markup.
 
+### Modifier Classes
+For bold help text.
+
+* @variant
+  * **bold**: `pds-helpText--bold`
 
 ## Accessibility
 _TBD..._
