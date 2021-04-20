@@ -6,4 +6,5 @@ export const ICON_TYPES = {
   'info-no-border': 'info-circle-fill',
   'success': 'check-circle-fill',
   'warning': 'alert-triangle',
+  'warning-no-border': 'alert-triangle',
 }

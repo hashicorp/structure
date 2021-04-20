@@ -15,6 +15,7 @@ export default class PdsBanner extends Component {
    *   - `info-no-border`
    *   - `success`
    *   - `warning`
+   *   - `warning-no-border`
    *
    * @argument variant
    * @type {string}
