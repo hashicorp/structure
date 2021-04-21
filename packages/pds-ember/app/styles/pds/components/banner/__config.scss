@@ -57,6 +57,12 @@ $WARNING: (
   header-color: theme.$warning-d1,
   icon-color: theme.$warning-base,
 );
+$WARNING_BORDERLESS: (
+  backgroundColor: transparent,
+  borderColor: transparent,
+  header-color: theme.$warning-d1,
+  icon-color: theme.$warning-base,
+);
 
 @mixin theme($styles) {
   /* [debug] #{$_module}@theme */
@@ -142,6 +148,10 @@ $WARNING: (
 
   &--warning {
     @include theme($WARNING);
+  }
+
+  &--warning-no-border {
+    @include theme($WARNING_BORDERLESS);
   }
 }
 
