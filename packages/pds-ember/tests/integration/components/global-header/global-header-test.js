@@ -13,27 +13,6 @@ const USER_MENU = '.pds-globalHeader__userMenu';
 module('Integration | Components.GlobalHeader', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    await render(hbs`
-      <Pds::GlobalHeader data-foo="bar">
-        template block text
-      </Pds::GlobalHeader>
-    `);
-
-    assert
-      .dom(ROOT)
-      .exists()
-      .hasText('template block text')
-      .hasAttribute('data-foo', 'bar', 'applies ...attributes')
-      .hasClass('pds-globalHeader');
-
-    assert.dom(LOGO).doesNotExist();
-    assert.dom(PRIMARY_NAV).doesNotExist();
-    assert.dom(SECONDARY_NAV).doesNotExist();
-    assert.dom(SWITCHER).doesNotExist();
-    assert.dom(USER_MENU).doesNotExist();
-  });
-
   test('it renders contextual subcomponents', async function (assert) {
     await render(hbs`
       <Pds::GlobalHeader>
