@@ -4138,15 +4138,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/vm-babel-plugins@npm:0.77.5":
-  version: 0.77.5
-  resolution: "@glimmer/vm-babel-plugins@npm:0.77.5"
-  dependencies:
-    babel-plugin-debug-macros: ^0.3.4
-  checksum: e85788828ace107fea5d039d30a773e4f33586477aaec5b27be03f5a8bb11ae96b212bb7a080cce07a0338cae3f26bc7da04db3ef19d6500c2a9643d4d1052ef
-  languageName: node
-  linkType: hard
-
 "@glimmer/vm@npm:^0.42.2":
   version: 0.42.2
   resolution: "@glimmer/vm@npm:0.42.2"
@@ -4215,7 +4206,7 @@ __metadata:
     ember-page-title: ^6.2.1
     ember-qunit: ^5.1.4
     ember-resolver: ^8.0.2
-    ember-source: ~3.26.1
+    ember-source: ~3.24.0
     ember-source-channel-url: ^3.0.0
     ember-svg-jar: ^2.2.3
     ember-template-lint: ^3.2.0
@@ -12500,15 +12491,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-source@npm:~3.26.1":
-  version: 3.26.1
-  resolution: "ember-source@npm:3.26.1"
+"ember-source@npm:~3.24.0":
+  version: 3.24.3
+  resolution: "ember-source@npm:3.24.3"
   dependencies:
     "@babel/helper-module-imports": ^7.8.3
     "@babel/plugin-transform-block-scoping": ^7.8.3
     "@babel/plugin-transform-object-assign": ^7.8.3
     "@ember/edition-utils": ^1.2.0
-    "@glimmer/vm-babel-plugins": 0.77.5
     babel-plugin-debug-macros: ^0.3.3
     babel-plugin-filter-imports: ^4.0.0
     broccoli-concat: ^4.2.4
@@ -12525,11 +12515,11 @@ __metadata:
     ember-cli-version-checker: ^5.1.1
     ember-router-generator: ^2.0.0
     inflection: ^1.12.0
-    jquery: ^3.5.1
+    jquery: ^3.5.0
     resolve: ^1.17.0
-    semver: ^7.3.4
+    semver: ^6.1.1
     silent-error: ^1.1.1
-  checksum: 6f018cad5fb9fcc8576789dabf06d27c39de64df79101ff7ec489e0f9fbbe0bd88583dbb9eb09a91c3ed0736a874f87859ff68601b69009a2ea872f3b12dc269
+  checksum: 9db1dbc6eb2f3cb6b62f1f1bbc975491cb0e60df9c4162184cf62c480dd7a7f7be5252ee0dae2721f1f591e1ec3080fb576660101bb713714159d5f6dd33f46c
   languageName: node
   linkType: hard
 
@@ -16962,7 +16952,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jquery@npm:^3.5.1":
+"jquery@npm:^3.5.0":
   version: 3.6.0
   resolution: "jquery@npm:3.6.0"
   checksum: a0a819022a1bdff5efa79bbd9d4d7352de5bd32dabe42108e6ec0797238dba36c09c108e0eea2724f5d03acc1b30ee87d76bec80e15b9510106532292ebe6ba4
