@@ -32,7 +32,7 @@
     "d:component": "ember d pds-component",
     "storybook": "start-storybook -p 6006 -s dist",
     "build-storybook": "ember build && build-storybook -s dist -o storybook-static",
-    "build:ci": "yarn build-storybook --quiet --loglevel warn"
+    "build:ci": "yarn build-storybook --quiet --loglevel warn && sb extract"
   },
   "dependencies": {
     "@ember/render-modifiers": "^1.0.2",
@@ -55,6 +55,7 @@
     "@storybook/addon-docs": "^6.1.0",
     "@storybook/addon-essentials": "^6.1.0",
     "@storybook/addon-knobs": "^6.1.0",
+    "@storybook/cli": "^6.2.9",
     "@storybook/ember": "^6.1.0",
     "@storybook/ember-cli-storybook": "^0.2.1",
     "babel-eslint": "^10.1.0",
