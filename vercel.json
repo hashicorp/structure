@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/metadata.json", "destination": "/@hashicorp/pds-ember/metadata.json" }]
+}
