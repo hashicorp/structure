@@ -25,7 +25,7 @@ $_module: "PDS.Components.Dropdown.Item:Link";
 @mixin apply {
   /* [debug] #{$_module}@apply */
   @include _super.apply {
-    @include Link.apply {
+    :any-link:not(.pds-button):not(.pds--external) {
       @content;
     }
   }
