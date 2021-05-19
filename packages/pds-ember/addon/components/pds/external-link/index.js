@@ -8,7 +8,26 @@ import Component from '@glimmer/component'
  * Controls visibility of the trailing icon.
  *
  * @argument hideIcon
- * @type {boolean}
+ * @type {?boolean}
  * @default false
  */
-export default class PdsExternalLink extends Component {}
+
+/**
+ *
+ * Renders an icon to the right of the block content.
+ * @argument iconEnd
+ * @type {?string}
+ * @default 'exit'
+ */
+
+/**
+ * Renders an icon to the left of the block content.
+ * @argument iconStart
+ * @type {?string}
+ * @default ''
+ */
+export default class PdsExternalLink extends Component {
+  get iconEnd() {
+    return this.args.iconEnd || 'exit'
+  }
+}

@@ -54,5 +54,41 @@ module('Integration | Components.ExternalLink', function(hooks) {
       .doesNotExist()
       .isNotVisible()
   })
+
+  test('it renders icon at start', async function (assert) {
+    await render(hbs`
+      <Pds::ExternalLink @iconStart="docs">
+        <span data-test-my-link>My Link</span>
+      </Pds::ExternalLink>
+    `)
+
+    assert
+      .dom(`${ROOT} >:first-child`)
+      .exists()
+      .hasAttribute('data-test-external-link-icon')
+
+    assert
+      .dom(`${ROOT} >:last-child`)
+      .exists()
+      .hasAttribute('data-test-my-link')
+  })
+
+  test('it renders icon at end', async function (assert) {
+    await render(hbs`
+      <Pds::ExternalLink @iconEnd="docs">
+        <span data-test-my-link>My Link</span>
+      </Pds::ExternalLink>
+    `)
+
+    assert
+      .dom(`${ROOT} >:last-child`)
+      .exists()
+      .hasAttribute('data-test-external-link-icon')
+
+    assert
+      .dom(`${ROOT} >:first-child`)
+      .exists()
+      .hasAttribute('data-test-my-link')
+  })
 })
 
