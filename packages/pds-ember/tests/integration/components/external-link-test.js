@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars'
 const ROOT = '[data-test-external-link]'
 const ICON = '[data-test-external-link-icon]'
 
-module('Integration | Components.ExternalLink', function(hooks) {
+module.only('Integration | Components.ExternalLink', function(hooks) {
   setupRenderingTest(hooks)
 
   test('it renders inline', async function(assert) {
@@ -53,6 +53,42 @@ module('Integration | Components.ExternalLink', function(hooks) {
       .dom(ICON)
       .doesNotExist()
       .isNotVisible()
+  })
+
+  test('it renders icon at start', async function (assert) {
+    await render(hbs`
+      <Pds::ExternalLink @iconStart="docs">
+        <span data-test-my-link>My Link</span>
+      </Pds::ExternalLink>
+    `)
+
+    assert
+      .dom(`${ROOT} >:first-child`)
+      .exists()
+      .hasAttribute('data-test-external-link-icon')
+
+    assert
+      .dom(`${ROOT} >:last-child`)
+      .exists()
+      .hasAttribute('data-test-my-link')
+  })
+
+  test('it renders icon at end', async function (assert) {
+    await render(hbs`
+      <Pds::ExternalLink @iconEnd="docs">
+        <span data-test-my-link>My Link</span>
+      </Pds::ExternalLink>
+    `)
+
+    assert
+      .dom(`${ROOT} >:last-child`)
+      .exists()
+      .hasAttribute('data-test-external-link-icon')
+
+    assert
+      .dom(`${ROOT} >:first-child`)
+      .exists()
+      .hasAttribute('data-test-my-link')
   })
 })
 

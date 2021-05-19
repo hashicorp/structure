@@ -5,11 +5,13 @@
   ...attributes
   data-test-external-link
 >
-  {{yield}}
-  {{#unless @hideIcon}}
-    <Pds::Icon
-      @type="exit"
-      data-test-external-link-icon
-    />
-  {{/unless}}
+  {{#if @hideIcon}}
+    {{yield}}
+  {{else if @iconStart}}
+    <Pds::Icon @type={{@iconStart}} data-test-external-link-icon />
+    {{yield}}
+  {{else}}
+    {{yield}}
+    <Pds::Icon @type={{this.iconEnd}} data-test-external-link-icon />
+  {{/if}}
 </a>
