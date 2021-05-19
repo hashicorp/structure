@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars'
 const ROOT = '[data-test-external-link]'
 const ICON = '[data-test-external-link-icon]'
 
-module.only('Integration | Components.ExternalLink', function(hooks) {
+module('Integration | Components.ExternalLink', function(hooks) {
   setupRenderingTest(hooks)
 
   test('it renders inline', async function(assert) {
