@@ -14,14 +14,14 @@ import Component from '@glimmer/component'
 
 /**
  *
- * Renders an icon to the right of the link text.
+ * Renders an icon to the right of the block content.
  * @argument iconEnd
  * @type {?string}
  * @default 'exit'
  */
 
 /**
- * Renders an icon to the left of the link text.
+ * Renders an icon to the left of the block content.
  * @argument iconStart
  * @type {?string}
  * @default ''
