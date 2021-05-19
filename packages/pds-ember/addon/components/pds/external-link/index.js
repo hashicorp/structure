@@ -21,7 +21,7 @@ import Component from '@glimmer/component'
  */
 
 /**
- * Renders an icon the left of the link text.
+ * Renders an icon to the left of the link text.
  * @argument iconStart
  * @type {?string}
  * @default ''
