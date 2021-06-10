@@ -1,6 +1,6 @@
 import { boolean, select, text } from '@storybook/addon-knobs';
 import DEFAULTS from './_defaults';
-import { isTextLike } from '../utils';
+import { isTextLike } from '@hashicorp/pds-ember/addon/components/pds/input/utils';
 
 // default knob group
 const groupID = 'config';

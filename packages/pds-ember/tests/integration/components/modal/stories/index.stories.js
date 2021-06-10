@@ -1,7 +1,7 @@
 import hbs from 'htmlbars-inline-precompile'
 import ICONS from '@hashicorp/structure-icons/dist/index';
 import DocsPage, { TITLE } from '../docs.mdx'
-import { DEFAULT_VARIANT, ICON_TYPES } from '../utils'
+import { ICON_TYPES, DEFAULT_VARIANT } from '@hashicorp/pds-ember/addon/components/pds/modal/utils';
 
 const VARIANTS = Object.keys(ICON_TYPES)
 
