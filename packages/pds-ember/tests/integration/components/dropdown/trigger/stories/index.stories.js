@@ -3,7 +3,7 @@ import DocsPage, { TITLE } from '../docs.mdx'
 
 import ICONS from '@hashicorp/structure-icons/dist/index';
 
-import { DEFAULT_VARIANT, VARIANT_CLASSES } from '../../../button/utils';
+import { DEFAULT_VARIANT, VARIANT_CLASSES } from '@hashicorp/pds-ember/addon/components/pds/button/utils';
 const VARIANTS = Object.keys(VARIANT_CLASSES)
 
 export default {
