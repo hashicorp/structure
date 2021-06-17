@@ -1,0 +1,118 @@
+@use "../theme";
+@use "../tokens/color";
+@use "../tokens/font";
+@use "../tokens/scale";
+@use "../utils/a11y";
+@use "../components/link/underlined/_theme" as Link;
+
+// FIXME: no styles in index
+// FIXME: avoid font style overrides
+// FIXME: make/use _config
+// FIXME: local vars to pds vars mapping
+
+// this file was copied from `cloud-ui-core`
+
+.pdsTable {
+  border-collapse: collapse;
+  border-spacing: 0;
+  position: relative;
+  top: -1px;
+  width: 100%;
+
+  caption {
+    @include a11y.visuallyHidden;
+  }
+
+  thead {
+    background: color.$ui-gray-010;
+  }
+  th,
+  td {
+    border-bottom: 1px solid color.$ui-gray-200;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  td {
+    color: color.$ui-gray-700;
+    font-weight: font.$weight-regular;
+    padding: scale.$lg-2 scale.$sm-1;
+  }
+  // this is so the links in the table pick up the right base color
+  td:first-child,
+  td:nth-child(2) {
+    a {
+      color: theme.$color;
+    }
+  }
+
+  tbody a:any-link:not(.pds-button) {
+    @include Link.appearance;
+    // in the event of a line break, make sure the underline looks right
+    display: inline;
+  }
+
+  th {
+    border-top: 1px solid color.$ui-gray-200;
+    color: color.$ui-gray-500;
+    font-weight: font.$weight-semibold;
+    padding: scale.$sm-1 scale.$sm-1;
+  }
+
+  // When a th is sortable, padding comes from the inner a
+  // to maximize the click area.
+  th.sortable {
+    padding: 0;
+    height: 100%;
+    vertical-align: bottom;
+  }
+
+  th.sortable > a {
+    color: color.$ui-gray-500;
+    display: inline-block;
+    padding: scale.$sm-1 scale.$sm-1;
+    // Account for the width of the sort icon
+    padding-right: calc(#{scale.$sm-1} + 1em);
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  // Render sort icons outside of the page flow so they don't
+  // impact column widths.
+  th.sortable > a .sortby-label {
+    display: inline-block;
+  }
+
+  th.sortable > a .pds-icon {
+    position: absolute;
+    top: 50%;
+    font-size: scale.$base;
+    transform: translate(0.5ch, -50%);
+  }
+
+  .header {
+    margin: 0 0 theme.$size--2xs;
+  }
+
+  tr.error {
+    background: theme.$failure-l2;
+    box-shadow: inset 3px 0 0 theme.$failure-l1;
+  }
+
+  tr.disabled {
+    background: color.$blue-010;
+  }
+
+  tr.muted,
+  td.muted {
+    color: color.$ui-gray-400;
+  }
+
+  &__actionColumn {
+    width: scale.$lg--7;
+    text-align: right;
+  }
+}
