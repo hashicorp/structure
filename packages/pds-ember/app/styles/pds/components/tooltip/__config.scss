@@ -1,0 +1,149 @@
+///-------------------------------------------------------------------------///
+/// WARNING: Private Sass module (definitions may change at ANY time)
+///-------------------------------------------------------------------------///
+
+// tooltip is actually an ember modifier but the tooltip SASS files are organized under pds/components/tooltip
+// I don't know how to create a modifiers directory so that these styles go into pds/modifiers - similar to how helpers are set-up
+
+$_module: "PDS.Components.Tooltip";
+/* --- [debug] CONFIG: #{$_module} --- */
+@use "sass:map";
+@use "../../theme";
+@use "../../tokens/color";
+@use "../../tokens/font";
+@use "../../tokens/scale";
+@use "../_config";
+
+$decor-elevation-400: 0 6px 8px -2px rgba(color.$black, 0.05),
+  0 8px 4px -4px rgba(color.$black, 0.1);
+$tooltip-width: 192px;
+
+.tippy-box[data-theme~='structure'] {
+  & {
+    & {
+      background-color: color.$ui-gray-700;
+      color: color.$white;
+      font-size: scale.$sm--1;
+      padding: scale.$sm--1;
+      border-radius: scale.$sm--4;
+      // width: $tooltip-width;
+    }
+  }
+  .tippy-content { 
+    max-width: 224px;
+    position: relative;
+    z-index: 1;
+  }
+  .tippy-arrow {
+    --size: 7.5px;
+    & {
+      color: color.$ui-gray-700;
+      width: calc(var(--size) * 2);
+      height: calc(var(--size) * 1.07);
+    }
+    &::before {
+      border-color: transparent;
+      border-style: solid;
+    }
+  }
+  &[data-placement^='bottom'] > .tippy-arrow {
+    &::before {
+      border-width: 0 var(--size) var(--size);
+      border-bottom-color: initial;
+    }
+  }
+  &[data-placement^='top'] > .tippy-arrow {
+    &::before {
+      border-width: var(--size) var(--size) 0;
+      border-top-color: initial;
+    }
+  }
+  &[data-placement^='left'] > .tippy-arrow {
+    left: 12px;
+    &::before {
+      border-width: var(--size) 0 var(--size) var(--size);
+      border-left-color: initial;
+    }
+  }
+  &[data-placement^='right'] > .tippy-arrow {
+    &::before {
+      border-width: var(--size) var(--size) var(--size) 0;
+      border-right-color: initial;
+    }
+  }
+}
+
+.tippy-box {
+  & {
+  position: relative;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+}
+&[data-animation='fade'][data-state='hidden'] {
+  opacity: 0;
+}
+&[data-inertia][data-state='visible'] {
+  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+&[data-animation='fade'][data-state='hidden'] {
+  opacity: 0;
+}
+&[data-inertia][data-state='visible'] {
+  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+& {
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: $decor-elevation-400;
+}
+.tippy-arrow {
+  --size: 30px;
+  &::before {
+    content: '';
+    position: absolute;
+  }
+}
+&[data-placement^='bottom'] > .tippy-arrow {
+  & {
+    top: 0;
+  }
+  &::before {
+    left: 0;
+    top: calc(0px - var(--size));
+    transform-origin: center bottom;
+  }
+}
+&[data-placement^='top'] > .tippy-arrow {
+  & {
+    bottom: 0;
+    // left: 12px !important;
+  }
+  &::before {
+    bottom: calc(0px - var(--size));
+    transform-origin: center top;
+  }
+}
+
+&[data-placement^='left'] > .tippy-arrow {
+  & {
+    right: 0;
+  }
+  &::before {
+    right: calc(0px - var(--size));
+    transform-origin: center left;
+  }
+}
+&[data-placement^='right'] > .tippy-arrow {
+  & {
+    left: 0;
+  }
+  &::before {
+    left: calc(0px - var(--size));
+    transform-origin: center right;
+  }
+}
+
+}
+[data-tippy-root] {
+  max-width: $tooltip-width;
+}

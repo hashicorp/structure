@@ -52,18 +52,18 @@ export default modifier(($element, [content], hash = {}) => {
     $trigger.setAttribute("tabindex", "0");
   }
   let tooltip = tippy($anchor, {
-    theme: "tooltip",
+    theme: 'structure',
     triggerTarget: $trigger,
     arrow: true,
     content: () => content,
     // showOnCreate: true,
     // hideOnClick: false,
+    // trigger: 'click',
     plugins: [
       typeof options.followCursor !== "undefined" ? followCursor : undefined,
     ].filter((item) => Boolean(item)),
     ...hash.options,
   });
-
   return () => {
     if (needsTabIndex) {
       $trigger.removeAttribute("tabindex");
