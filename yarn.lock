@@ -265,7 +265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-create-class-features-plugin@npm:^7.10.4, @babel/helper-create-class-features-plugin@npm:^7.10.5, @babel/helper-create-class-features-plugin@npm:^7.5.5, @babel/helper-create-class-features-plugin@npm:^7.8.3":
+"@babel/helper-create-class-features-plugin@npm:^7.10.4, @babel/helper-create-class-features-plugin@npm:^7.10.5, @babel/helper-create-class-features-plugin@npm:^7.5.5":
   version: 7.10.5
   resolution: "@babel/helper-create-class-features-plugin@npm:7.10.5"
   dependencies:
@@ -593,13 +593,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-plugin-utils@npm:^7.14.5":
-  version: 7.14.5
-  resolution: "@babel/helper-plugin-utils@npm:7.14.5"
-  checksum: 76404ef3aadc25879f7b4c5945bafcca935d4af0cf451a95ff9f131f29ac3dc589e2ed19904ce746c7cf6c2a8a7ea33fa4eaf881b9b272d31f2be91984f505d6
-  languageName: node
-  linkType: hard
-
 "@babel/helper-regex@npm:^7.10.4":
   version: 7.10.5
   resolution: "@babel/helper-regex@npm:7.10.5"
@@ -725,15 +718,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-skip-transparent-expression-wrappers@npm:^7.14.5":
-  version: 7.14.5
-  resolution: "@babel/helper-skip-transparent-expression-wrappers@npm:7.14.5"
-  dependencies:
-    "@babel/types": ^7.14.5
-  checksum: 4c03e5ef3190bbd8ff7aa28de13a424b7214b0c5df5e18ad049ffdaa92f85f8ac959c5f8497a4a5d22d5243cfd84994effc6462b595dfa26d0adc567fa7c4014
-  languageName: node
-  linkType: hard
-
 "@babel/helper-split-export-declaration@npm:^7.10.4, @babel/helper-split-export-declaration@npm:^7.11.0":
   version: 7.11.0
   resolution: "@babel/helper-split-export-declaration@npm:7.11.0"
@@ -770,13 +754,6 @@ __metadata:
   version: 7.14.0
   resolution: "@babel/helper-validator-identifier@npm:7.14.0"
   checksum: bd67b4a1a49eba151aa0fe95508579638287fee0a3e7a3bf8c5ab480de8eaad4b4231c523d7db401eb0cecc7cf03b76ee72453fab53bab8cb8ccd154bb67feb7
-  languageName: node
-  linkType: hard
-
-"@babel/helper-validator-identifier@npm:^7.14.5":
-  version: 7.14.5
-  resolution: "@babel/helper-validator-identifier@npm:7.14.5"
-  checksum: 778312189a7c5228daac9f7767795a74f11d1eac595ca38bfea248324666459b24aaae6aef43c957ce01bbe61672039ea1c08c5623067c3701beeb1bb1f1ee33
   languageName: node
   linkType: hard
 
@@ -1218,18 +1195,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-nullish-coalescing-operator@npm:^7.4.4":
-  version: 7.14.5
-  resolution: "@babel/plugin-proposal-nullish-coalescing-operator@npm:7.14.5"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.14.5
-    "@babel/plugin-syntax-nullish-coalescing-operator": ^7.8.3
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 2f81d7a9abd237295be1f6eb8dd386cbec801c51ecd4db5d6e9d5009bc2cf4b04d3893ca3105ae977621d2cd5cec683f5a70e214d455a148e523b40f2474ccca
-  languageName: node
-  linkType: hard
-
 "@babel/plugin-proposal-numeric-separator@npm:^7.10.4":
   version: 7.10.4
   resolution: "@babel/plugin-proposal-numeric-separator@npm:7.10.4"
@@ -1380,19 +1345,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 599e90b1196d6f04f4b32b3f579c1a3f63c4d4ec3a67c738eb613bd97505367f27714c74ee8ec399d8ec613951695ff38d0895c1127a3594b53cd7c0d03073fd
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-proposal-optional-chaining@npm:^7.6.0":
-  version: 7.14.5
-  resolution: "@babel/plugin-proposal-optional-chaining@npm:7.14.5"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.14.5
-    "@babel/helper-skip-transparent-expression-wrappers": ^7.14.5
-    "@babel/plugin-syntax-optional-chaining": ^7.8.3
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: c5e74f83ed77ce95c237f5ffe054fb6f65ae0b5b446f476561dc429a376ead34b12475e87bbeb5c24812b81cd7897ef1ed0f78499b97f1b1c83af6fa97f1e0ed
   languageName: node
   linkType: hard
 
@@ -1712,7 +1664,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-typescript@npm:^7.10.4, @babel/plugin-syntax-typescript@npm:^7.2.0, @babel/plugin-syntax-typescript@npm:^7.8.3":
+"@babel/plugin-syntax-typescript@npm:^7.10.4, @babel/plugin-syntax-typescript@npm:^7.2.0":
   version: 7.10.4
   resolution: "@babel/plugin-syntax-typescript@npm:7.10.4"
   dependencies:
@@ -2777,19 +2729,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-typescript@npm:~7.8.0":
-  version: 7.8.7
-  resolution: "@babel/plugin-transform-typescript@npm:7.8.7"
-  dependencies:
-    "@babel/helper-create-class-features-plugin": ^7.8.3
-    "@babel/helper-plugin-utils": ^7.8.3
-    "@babel/plugin-syntax-typescript": ^7.8.3
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 3e876b747d30338c8fbd5483b680c625e1d7538532f09c3c0f4d5ca2855c01bf24b37a20f485330b794602aacaebc5eccfa56523e3ba4b353a3b1a2880639e6f
-  languageName: node
-  linkType: hard
-
 "@babel/plugin-transform-unicode-escapes@npm:^7.10.4":
   version: 7.10.4
   resolution: "@babel/plugin-transform-unicode-escapes@npm:7.10.4"
@@ -3304,16 +3243,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.14.5":
-  version: 7.14.5
-  resolution: "@babel/types@npm:7.14.5"
-  dependencies:
-    "@babel/helper-validator-identifier": ^7.14.5
-    to-fast-properties: ^2.0.0
-  checksum: 45575b46df5ec0e63454b794a60f362596c6f16beda7df3693b134db5be15eb43f7b98ca7b2a5a9628171db5192eed5b8965e43c0a6f5383bca4ddefd0ea8d30
-  languageName: node
-  linkType: hard
-
 "@base2/pretty-print-object@npm:1.0.0":
   version: 1.0.0
   resolution: "@base2/pretty-print-object@npm:1.0.0"
@@ -3743,7 +3672,6 @@ __metadata:
     ember-intl: ^5.5.0
     ember-load-initializers: ^2.1.1
     ember-maybe-import-regenerator: ^0.1.6
-    ember-modifier: ^2.1.2
     ember-named-blocks-polyfill: ^0.2.4
     ember-qunit: ^4.6.0
     ember-resolver: ^8.0.2
@@ -11347,28 +11275,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^3.1.3":
-  version: 3.1.4
-  resolution: "ember-cli-typescript@npm:3.1.4"
-  dependencies:
-    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.4.4
-    "@babel/plugin-proposal-optional-chaining": ^7.6.0
-    "@babel/plugin-transform-typescript": ~7.8.0
-    ansi-to-html: ^0.6.6
-    broccoli-stew: ^3.0.0
-    debug: ^4.0.0
-    ember-cli-babel-plugin-helpers: ^1.0.0
-    execa: ^3.0.0
-    fs-extra: ^8.0.0
-    resolve: ^1.5.0
-    rsvp: ^4.8.1
-    semver: ^6.3.0
-    stagehand: ^1.0.0
-    walk-sync: ^2.0.0
-  checksum: 6941357ff1d61b5e948c8713b8faa665e31e53f020b658e583ad2e611ac436152ab5aac314cdff21c550cc734e33e8e85fffb3243e309807c5dcfa82858f5180
-  languageName: node
-  linkType: hard
-
 "ember-cli-typescript@npm:^4.0.0-rc.1":
   version: 4.0.0
   resolution: "ember-cli-typescript@npm:4.0.0"
@@ -11541,29 +11447,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-compatibility-helpers@npm:^1.2.1, ember-compatibility-helpers@npm:^1.2.4":
-  version: 1.2.4
-  resolution: "ember-compatibility-helpers@npm:1.2.4"
-  dependencies:
-    babel-plugin-debug-macros: ^0.2.0
-    ember-cli-version-checker: ^5.1.1
-    fs-extra: ^9.1.0
-    semver: ^5.4.1
-  checksum: 1f229fe187f83f2fe449c9897ab0f4346fe6e8dbb2183140c2663fe2de569fe417fe1d80327363fc385110320a4361af60dbdcc18a9b79ca687bb374f5239200
-  languageName: node
-  linkType: hard
-
-"ember-destroyable-polyfill@npm:^2.0.2":
-  version: 2.0.3
-  resolution: "ember-destroyable-polyfill@npm:2.0.3"
-  dependencies:
-    ember-cli-babel: ^7.22.1
-    ember-cli-version-checker: ^5.1.1
-    ember-compatibility-helpers: ^1.2.1
-  checksum: f2dad93f9745cabc09a3e2ab9645af15b84f844b3722da2b53c1e3d91ed3e098ecec677e2bcc1fc9b7c922276e9666aa6b6dd8bfea9777409c9cbb55bc36576b
-  languageName: node
-  linkType: hard
-
 "ember-disable-prototype-extensions@npm:^1.1.3":
   version: 1.1.3
   resolution: "ember-disable-prototype-extensions@npm:1.1.3"
@@ -11632,7 +11515,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier-manager-polyfill@npm:^1.1.0, ember-modifier-manager-polyfill@npm:^1.2.0":
+"ember-modifier-manager-polyfill@npm:^1.1.0":
   version: 1.2.0
   resolution: "ember-modifier-manager-polyfill@npm:1.2.0"
   dependencies:
@@ -11640,21 +11523,6 @@ __metadata:
     ember-cli-version-checker: ^2.1.2
     ember-compatibility-helpers: ^1.2.0
   checksum: 05ad185afc3f1140ab74cd0eccacf0b592b382571c5105c2962d0d2089052051aa4fc1f1f1c204f698a375db73d03c71cedd0cbcc8fb9ffaa488e69069786ea9
-  languageName: node
-  linkType: hard
-
-"ember-modifier@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "ember-modifier@npm:2.1.2"
-  dependencies:
-    ember-cli-babel: ^7.22.1
-    ember-cli-normalize-entity-name: ^1.0.0
-    ember-cli-string-utils: ^1.1.0
-    ember-cli-typescript: ^3.1.3
-    ember-compatibility-helpers: ^1.2.4
-    ember-destroyable-polyfill: ^2.0.2
-    ember-modifier-manager-polyfill: ^1.2.0
-  checksum: be7503768c8c06ec9249ff3ad10683580cca592b9bdd2f418d62bc719573ea93fe9c83c3c80d8eee23cda7ca54ec0a4bb13db3461fde539194ba4f8ff9fc5f48
   languageName: node
   linkType: hard
 
@@ -12533,24 +12401,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^3.0.0":
-  version: 3.4.0
-  resolution: "execa@npm:3.4.0"
-  dependencies:
-    cross-spawn: ^7.0.0
-    get-stream: ^5.0.0
-    human-signals: ^1.1.1
-    is-stream: ^2.0.0
-    merge-stream: ^2.0.0
-    npm-run-path: ^4.0.0
-    onetime: ^5.1.0
-    p-finally: ^2.0.0
-    signal-exit: ^3.0.2
-    strip-final-newline: ^2.0.0
-  checksum: 6f1eb2d6012ba061f9daee5cd0ba775dae71a5b18ab4003c4edc5f0b85047f98b982b71e731b237dde1ea3348b4a09deafa988eca5d1f1b6a9925f74c9907777
-  languageName: node
-  linkType: hard
-
 "execa@npm:^4.0.0, execa@npm:^4.0.3":
   version: 4.0.3
   resolution: "execa@npm:4.0.3"
@@ -13422,18 +13272,6 @@ __metadata:
     jsonfile: ^6.0.1
     universalify: ^1.0.0
   checksum: b7374cb05819bd95fa15bf74a30fbec3d2b64a0c00d2df67d6e1d6a901a9a7582a1243fe652d27a6cd042b38a2c1cd9ae3b3d100bc98dd041cc2f3e29964884f
-  languageName: node
-  linkType: hard
-
-"fs-extra@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "fs-extra@npm:9.1.0"
-  dependencies:
-    at-least-node: ^1.0.0
-    graceful-fs: ^4.2.0
-    jsonfile: ^6.0.1
-    universalify: ^2.0.0
-  checksum: e667d8df54113b527bf5830dd9db8f142618db488894b329fe07724c7020dfacf8a372b144a74e683ae44e66f56117adca9cac165950dda7d83537c46c10dc4b
   languageName: node
   linkType: hard
 
@@ -23106,13 +22944,6 @@ fsevents@^1.2.7:
   version: 1.0.0
   resolution: "universalify@npm:1.0.0"
   checksum: d74303a8d9ff18598804f3e9f261c9376cad55b81a92346f086e59261803ae75bef347044dd6a25549eb3b1490c0dd106dc07154cd7ccad8f037fdae947c125d
-  languageName: node
-  linkType: hard
-
-"universalify@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "universalify@npm:2.0.0"
-  checksum: 36bfbdc97bd4b483596e66ea65e20663f5ab9ec3650157d99b075b7f97afcdefe46bbb23f89171dd75595d398cea3769a5b6d7130f5c66cae2a0f00904780f62
   languageName: node
   linkType: hard
 
