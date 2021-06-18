@@ -1,4 +1,4 @@
-import Component from '@glimmer/component'
+import Component from '@glimmer/component';
 
 /**
  * @class PdsPageHeader
@@ -15,10 +15,10 @@ import Component from '@glimmer/component'
  */
 export default class PdsPageHeader extends Component {
   get variantClass() {
-    let { variant } = this.args
+    let { variant } = this.args;
     if (variant) {
-      return `pds--${variant}`
+      return `pds--${variant}`;
     }
-    return ''
+    return '';
   }
 }

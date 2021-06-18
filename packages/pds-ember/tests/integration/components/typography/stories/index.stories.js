@@ -134,7 +134,7 @@ const Fonts = () => ({
       {{/each}}
       <br />
     {{/each}}
-  `
+  `,
 });
 
 const SectionHeaders = () => ({
@@ -183,7 +183,7 @@ const SectionHeaders = () => ({
         </p>
       </header>
     </section>
-  `
+  `,
 });
 
 const InlineCode = () => ({
@@ -194,7 +194,7 @@ const InlineCode = () => ({
       <br />
       <a href="#">Read more about <code>$PATH</code> in the docs.</a>
     </p>
-  `
+  `,
 });
 
 const Headings = () => ({
@@ -214,4 +214,4 @@ export {
   Headings,
   InlineCode,
   SectionHeaders,
-}
+};

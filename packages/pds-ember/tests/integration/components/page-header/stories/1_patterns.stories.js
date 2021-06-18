@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: `${TITLE} / Patterns`,
   component: 'PdsPageHeader',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const WithActions = (args) => ({
   template: hbs`
@@ -37,7 +37,7 @@ export const WithActions = (args) => ({
     </Pds::PageHeader>
   `,
   context: args,
-})
+});
 
 export const WithActionsAndTabs = (args) => ({
   template: hbs`
@@ -73,4 +73,4 @@ export const WithActionsAndTabs = (args) => ({
     </Pds::PageHeader>
   `,
   context: args,
-})
+});

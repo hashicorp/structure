@@ -6,7 +6,7 @@ import { getContext } from './cfg';
 const CONFIG = {
   title: TITLE,
   component: 'PdsInput',
-  decorators: [ withKnobs ],
+  decorators: [withKnobs],
   parameters: { docs: { page: DocsPage } },
 };
 
@@ -32,7 +32,4 @@ const Index = () => ({
   context: getContext(),
 });
 
-export {
-  CONFIG as default,
-  Index,
-}
+export { CONFIG as default, Index };

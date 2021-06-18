@@ -1,21 +1,20 @@
-import { module, test } from 'qunit'
-import { setupRenderingTest } from 'ember-qunit'
-import { render } from '@ember/test-helpers'
-import { hbs } from 'ember-cli-htmlbars'
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 
-const ROOT = '[data-test-divider]'
-const RULE = '[data-test-divider-rule]'
+const ROOT = '[data-test-divider]';
 
-module('Integration | Components.Divider', function(hooks) {
-  setupRenderingTest(hooks)
+module('Integration | Components.Divider', function (hooks) {
+  setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     await render(hbs`
       <Pds::Divider
         data-foo="bar"
         @vertical={{isVertical}}
       />
-    `)
+    `);
 
     assert
       .dom(ROOT)
@@ -23,24 +22,19 @@ module('Integration | Components.Divider', function(hooks) {
       .hasNoText()
       .hasAttribute('data-foo', 'bar', 'applies ...attributes')
       .hasClass('pds-divider')
-      .hasClass('pds--horizontal', 'horizontal by default')
+      .hasClass('pds--horizontal', 'horizontal by default');
 
-    this.set('isVertical', true)
-    assert
-      .dom(ROOT)
-      .hasClass('pds--vertical', 'changes to vertical')
-  })
+    this.set('isVertical', true);
+    assert.dom(ROOT).hasClass('pds--vertical', 'changes to vertical');
+  });
 
-  test('it ignores template block content', async function(assert) {
+  test('it ignores template block content', async function (assert) {
     await render(hbs`
       <Pds::Divider>
         template block text
       </Pds::Divider>
-    `)
+    `);
 
-    assert
-      .dom(ROOT)
-      .hasNoText()
-  })
-})
-
+    assert.dom(ROOT).hasNoText();
+  });
+});

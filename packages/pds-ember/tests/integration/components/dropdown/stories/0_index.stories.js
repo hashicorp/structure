@@ -1,5 +1,5 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
@@ -18,15 +18,15 @@ export default {
         type: 'radio',
         options: {
           'left (default)': 'left',
-          'right': 'right',
+          right: 'right',
         },
-      }
+      },
     },
   },
   args: {
     isOpen: false,
   },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -46,4 +46,4 @@ export const Index = (args) => ({
     </Pds::Dropdown>
   `,
   context: args,
-})
+});

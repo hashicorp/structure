@@ -1,8 +1,8 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 import { ICON_TYPES, DEFAULT_VARIANT } from '@hashicorp/pds-ember/addon/components/pds/banner/utils';
 
-const VARIANTS = Object.keys(ICON_TYPES)
+const VARIANTS = Object.keys(ICON_TYPES);
 
 export default {
   title: TITLE,
@@ -17,7 +17,7 @@ export default {
       },
     },
   },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -36,7 +36,7 @@ export const Index = (args) => ({
     </Pds::Banner>
   `,
   context: args,
-})
+});
 
 // Incorrect usage
 export const IncorrectUsage = (args) => ({
@@ -48,4 +48,4 @@ export const IncorrectUsage = (args) => ({
     </Pds::Banner>
   `,
   context: args,
-})
+});

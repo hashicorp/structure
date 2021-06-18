@@ -5,7 +5,7 @@ import DocsPage, { TITLE } from '../docs.mdx';
 const CONFIG = {
   title: TITLE,
   component: 'PdsSelect',
-  decorators: [ withKnobs ],
+  decorators: [withKnobs],
   parameters: { docs: { page: DocsPage } },
 };
 
@@ -31,8 +31,4 @@ const Index = () => ({
   },
 });
 
-export {
-  CONFIG as default,
-
-  Index,
-};
+export { CONFIG as default, Index };

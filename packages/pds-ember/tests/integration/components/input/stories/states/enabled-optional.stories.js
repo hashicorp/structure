@@ -69,12 +69,10 @@ invalid_focused_hovered.story = { name: '(invalid) :focus:hover' };
 // stories module exports
 export {
   CONFIG as default,
-
   valid_blurred,
   valid_hovered,
   valid_focused,
   valid_focused_hovered,
-
   invalid_blurred,
   invalid_hovered,
   invalid_focused,

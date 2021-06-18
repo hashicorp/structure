@@ -1,5 +1,5 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
@@ -11,7 +11,7 @@ export default {
     'L.Message': 'PdsLoadingMessage',
   },
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = () => ({
   template: hbs`
@@ -29,13 +29,13 @@ export const Index = () => ({
       </L.Message>
     </Pds::Loading>
   `,
-})
+});
 
 export const Elapsed = () => ({
   template: hbs`
     <Pds::Loading::Elapsed />
   `,
-})
+});
 
 export const Header = () => ({
   template: hbs`
@@ -43,7 +43,7 @@ export const Header = () => ({
       Header Content
     </Pds::Loading::Header>
   `,
-})
+});
 
 export const Message = () => ({
   template: hbs`
@@ -51,4 +51,4 @@ export const Message = () => ({
       Message Content
     </Pds::Loading::Message>
   `,
-})
+});

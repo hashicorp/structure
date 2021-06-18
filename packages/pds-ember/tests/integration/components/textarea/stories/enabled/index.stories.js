@@ -5,9 +5,9 @@ export default {
   ...Parent,
   title: `${Parent.title} / Enabled`,
   parameters: {
-    controls: { disable: true }
+    controls: { disable: true },
   },
-}
+};
 
 export const Blurred = () => ({
   template: hbs`

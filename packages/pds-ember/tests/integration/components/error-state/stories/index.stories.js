@@ -1,12 +1,12 @@
-import hbs from 'htmlbars-inline-precompile'
+import hbs from 'htmlbars-inline-precompile';
 import ICONS from '@hashicorp/structure-icons/dist/index';
-import DocsPage, { TITLE } from '../docs.mdx'
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
   component: 'PdsErrorState',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -30,24 +30,24 @@ export const Index = (args) => ({
     </Pds::ErrorState>
   `,
   context: args,
-})
+});
 Index.argTypes = {
   icon: {
     control: {
       type: 'select',
       options: ICONS,
-    }
+    },
   },
-}
+};
 Index.args = {
   title: 'Error Title',
   subtitle: 'Subtitle',
   body: [
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     'Maecenas non orci odio.',
-    'Pellentesque condimentum malesuada orci, quis porttitor nibh auctor quis.'
+    'Pellentesque condimentum malesuada orci, quis porttitor nibh auctor quis.',
   ].join(' '),
-}
+};
 
 export const HTTP403 = () => ({
   template: hbs`
@@ -74,7 +74,7 @@ export const HTTP403 = () => ({
       </E.Footer>
     </Pds::ErrorState>
   `,
-})
+});
 
 export const HTTP404 = () => ({
   template: hbs`
@@ -101,7 +101,7 @@ export const HTTP404 = () => ({
       </E.Footer>
     </Pds::ErrorState>
   `,
-})
+});
 
 export const HTTP500 = () => ({
   template: hbs`
@@ -128,4 +128,4 @@ export const HTTP500 = () => ({
       </E.Footer>
     </Pds::ErrorState>
   `,
-})
+});

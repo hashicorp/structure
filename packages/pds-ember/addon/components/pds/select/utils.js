@@ -1,5 +1,5 @@
-import { isArray } from '@ember/array'
-import { isPresent, typeOf } from '@ember/utils'
+import { isArray } from '@ember/array';
+import { isPresent, typeOf } from '@ember/utils';
 
 /**
  * Callback function to pass to Array.prototype.filter, in order
@@ -12,26 +12,26 @@ import { isPresent, typeOf } from '@ember/utils'
 export function isValidOption(item) {
   // exclude empty values (null, undefined, '', {}, [], etc.)
   if (!isPresent(item)) {
-    return false
+    return false;
   }
 
   // included by default
-  let result = true
+  let result = true;
 
   // exclusions
-  switch(typeOf(item)) {
+  switch (typeOf(item)) {
     // exclude object literals without `value` prop
     case 'object':
-      result = item.hasOwnProperty('value')
-      break
+      result = Object.prototype.hasOwnProperty.call(item, 'value');
+      break;
 
     // exclude regular expressions
     case 'regexp':
-      result = false
-      break
+      result = false;
+      break;
   }
 
-  return result
+  return result;
 }
 
 /**
@@ -45,23 +45,23 @@ export function isValidOption(item) {
  * @return {array}
  */
 export function normalizeOptions(args) {
-  let { options, value } = args
-  let result = []
+  let { options, value } = args;
+  let result = [];
 
   if (isArray(options)) {
     result = options
       // exclude invalid/malformed options
       .filter(isValidOption)
       // normalize to { value, label, selected }
-      .map(item => {
-        let itemValue = item.value ?? item
+      .map((item) => {
+        let itemValue = item.value ?? item;
         return {
           value: itemValue,
-          label: (item.label ?? itemValue),
-          selected: (itemValue === value),
-        }
-      })
+          label: item.label ?? itemValue,
+          selected: itemValue === value,
+        };
+      });
   }
 
-  return result
+  return result;
 }

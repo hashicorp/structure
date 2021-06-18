@@ -20,7 +20,7 @@ export const Index = (args) => ({
     </a>
   `,
   context: args,
-})
+});
 Index.argTypes = {
   variantClass: {
     name: 'variant',
@@ -30,8 +30,8 @@ Index.argTypes = {
       options: {
         underlined: 'pds--underlined',
         incognito: 'pds--incognito',
-      }
-    }
+      },
+    },
   },
   iconStart: {
     control: {
@@ -49,7 +49,7 @@ Index.argTypes = {
     defaultValue: 'Link Text',
     control: 'text',
   },
-}
+};
 
 export const WithLeadingIcon = () => ({
   template: hbs`
@@ -57,8 +57,8 @@ export const WithLeadingIcon = () => ({
       <Pds::Icon @type="info-circle-fill" />
       Read More
     </a>
-  `
-})
+  `,
+});
 
 export const WithTrailingIcon = () => ({
   template: hbs`
@@ -66,13 +66,13 @@ export const WithTrailingIcon = () => ({
       Read More
       <Pds::Icon @type="exit" />
     </a>
-  `
-})
+  `,
+});
 
 export const WithInlineCode = () => ({
   template: hbs`
     <a href="#">
       Read more about <code>label</code> in the docs.
     </a>
-  `
-})
+  `,
+});

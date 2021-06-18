@@ -1,5 +1,5 @@
-import Component from '@glimmer/component'
-import { guidFor } from '@ember/object/internals'
+import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 
 /**
  * @class PdsRadioField
@@ -34,14 +34,15 @@ export default class PdsRadioField extends Component {
   get id() {
     // use @id arg, if provided
     if (this.args.id) {
-      return this.args.id
+      return this.args.id;
     }
 
     // otherwise, generate and memoize a guid
     if (!this._id) {
-      let guid = guidFor(this)
-      this._id = `rad-${guid}`
+      let guid = guidFor(this);
+      // eslint-disable-next-line ember/no-side-effects
+      this._id = `rad-${guid}`;
     }
-    return this._id
+    return this._id;
   }
 }

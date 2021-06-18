@@ -1,5 +1,5 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
@@ -8,7 +8,7 @@ export default {
   args: {
     vertical: false,
   },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -19,4 +19,4 @@ export const Index = (args) => ({
     </p>
   `,
   context: args,
-})
+});

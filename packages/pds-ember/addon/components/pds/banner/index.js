@@ -1,5 +1,5 @@
-import Component from '@glimmer/component'
-import { ICON_TYPES, DEFAULT_VARIANT } from './utils'
+import Component from '@glimmer/component';
+import { ICON_TYPES, DEFAULT_VARIANT } from './utils';
 
 /**
  * @class PdsBanner
@@ -22,10 +22,10 @@ export default class PdsBanner extends Component {
    * @default 'info'
    */
   get variant() {
-    return this.args.variant || DEFAULT_VARIANT
+    return this.args.variant || DEFAULT_VARIANT;
   }
 
   get iconType() {
-    return ICON_TYPES[this.variant]
+    return ICON_TYPES[this.variant];
   }
 }

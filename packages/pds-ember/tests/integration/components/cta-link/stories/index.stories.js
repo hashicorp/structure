@@ -1,5 +1,5 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 import ICONS from '@hashicorp/structure-icons/dist/index';
 
 export default {
@@ -11,10 +11,10 @@ export default {
       control: {
         type: 'radio',
         options: {
-          'ghost': 'ghost',
-          'primary': 'primary',
+          ghost: 'ghost',
+          primary: 'primary',
           'secondary (default)': '',
-          'warning': 'warning',
+          warning: 'warning',
         },
       },
     },
@@ -22,8 +22,7 @@ export default {
   args: {
     variant: '',
   },
-}
-
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -32,8 +31,7 @@ export const Index = (args) => ({
     </Docs::CtaLink>
   `,
   context: args,
-})
-
+});
 
 export const WithIcon = (args) => ({
   template: hbs`
@@ -44,7 +42,7 @@ export const WithIcon = (args) => ({
     </Docs::CtaLink>
   `,
   context: args,
-})
+});
 WithIcon.argTypes = {
   icon: {
     control: {
@@ -52,7 +50,7 @@ WithIcon.argTypes = {
       options: ICONS,
     },
   },
-}
+};
 WithIcon.args = {
   icon: 'chevron-right',
-}
+};

@@ -1,8 +1,7 @@
-import Component from '@glimmer/component'
-import { run } from '@ember/runloop'
-import { action } from '@ember/object'
-import { tracked } from '@glimmer/tracking'
-
+import Component from '@glimmer/component';
+import { run } from '@ember/runloop';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 /**
  * Calculate the time difference between now and given argument.
@@ -14,20 +13,20 @@ import { tracked } from '@glimmer/tracking'
 // TODO: unit test or convert to date-fns (or Temporal)
 //       to handle calculation and formatting
 function timeSince(startTime) {
-  let now = new Date().getTime()
-  let diff = now - startTime
+  let now = new Date().getTime();
+  let diff = now - startTime;
   // TODO: consider using date-fns (or JS:Temporal) to calculate this
-  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000)
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
   // TODO: consider using date-fns (or JS:Temporal) to format the duration
-  hours = hours < 10 ? '0' + hours : hours
-  minutes = minutes < 10 ? '0' + minutes : minutes
-  seconds = seconds < 10 ? '0' + seconds : seconds
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
   if (hours == 0) {
-    return `${minutes}:${seconds}`
+    return `${minutes}:${seconds}`;
   }
-  return `${hours}:${minutes}:${seconds}`
+  return `${hours}:${minutes}:${seconds}`;
 }
 
 /**
@@ -44,35 +43,35 @@ function timeSince(startTime) {
  * @type {number}
  */
 export default class PdsLoadingElapsed extends Component {
-  timeout = null
-  renderTime = new Date().getTime()
+  timeout = null;
+  renderTime = new Date().getTime();
 
-  @tracked elapsed = '--:--'
+  @tracked elapsed = '--:--';
 
   @action
   startTimer() {
-    this.timeout = this.poll()
+    this.timeout = this.poll();
   }
 
   @action
   destroyTimer() {
-    clearTimeout(this.timeout)
+    clearTimeout(this.timeout);
   }
 
   poll() {
     return setTimeout(() => {
       run(() => {
-        this.elapsed = this.getElapsed()
-        this.timeout = this.poll()
-      })
-    }, 1000)
+        this.elapsed = this.getElapsed();
+        this.timeout = this.poll();
+      });
+    }, 1000);
   }
 
   get startTime() {
-    return this.args.startTime || this.renderTime
+    return this.args.startTime || this.renderTime;
   }
 
   getElapsed() {
-    return timeSince(this.startTime)
+    return timeSince(this.startTime);
   }
 }

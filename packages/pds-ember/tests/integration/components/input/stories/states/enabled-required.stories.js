@@ -78,12 +78,10 @@ dirty_focused_hovered.story = { name: '(dirty) :focus:hover' };
 // stories module exports
 export {
   CONFIG as default,
-
   clean_blurred,
   clean_hovered,
   clean_focused,
   clean_focused_hovered,
-
   dirty_blurred,
   dirty_hovered,
   dirty_focused,

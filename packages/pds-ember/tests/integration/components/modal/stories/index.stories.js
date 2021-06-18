@@ -1,16 +1,16 @@
-import hbs from 'htmlbars-inline-precompile'
+import hbs from 'htmlbars-inline-precompile';
 import ICONS from '@hashicorp/structure-icons/dist/index';
-import DocsPage, { TITLE } from '../docs.mdx'
+import DocsPage, { TITLE } from '../docs.mdx';
 import { ICON_TYPES, DEFAULT_VARIANT } from '@hashicorp/pds-ember/addon/components/pds/modal/utils';
 
-const VARIANTS = Object.keys(ICON_TYPES)
+const VARIANTS = Object.keys(ICON_TYPES);
 
 // [itemN] --> { itemN: itemN }
 const listAsOptions = (options, item) => {
-  options[item] = item
-  return options
-}
-const ICON_OPTIONS = ICONS.reduce(listAsOptions, {})
+  options[item] = item;
+  return options;
+};
+const ICON_OPTIONS = ICONS.reduce(listAsOptions, {});
 
 export default {
   title: TITLE,
@@ -39,7 +39,7 @@ export default {
   args: {
     title: 'Modal Title',
   },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -67,7 +67,7 @@ export const Index = (args) => ({
     </Pds::Modal>
   `,
   context: args,
-})
+});
 
 export const LengthyContent = (args) => ({
   template: hbs`
@@ -152,7 +152,7 @@ export const LengthyContent = (args) => ({
     </Pds::Modal>
   `,
   context: args,
-})
+});
 
 export const EmptyModal = (args) => ({
   template: hbs`
@@ -164,4 +164,4 @@ export const EmptyModal = (args) => ({
     />
   `,
   context: args,
-})
+});

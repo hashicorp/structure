@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
   component: 'PdsRadioField',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -24,15 +24,15 @@ export const Index = (args) => ({
     </Pds::RadioField>
   `,
   context: args,
-})
+});
 Index.argTypes = {
   label: { control: 'text' },
-}
+};
 Index.args = {
   checked: false,
   disabled: false,
   invalid: false,
-}
+};
 
 export const MultiLineLabel = (args) => ({
   template: hbs`
@@ -43,8 +43,8 @@ export const MultiLineLabel = (args) => ({
     </Pds::RadioField>
   `,
   context: args,
-})
-MultiLineLabel.storyName = 'Multi-line Label'
+});
+MultiLineLabel.storyName = 'Multi-line Label';
 
 export const RadioGroup = (args) => ({
   template: hbs`
@@ -53,4 +53,4 @@ export const RadioGroup = (args) => ({
     <Pds::RadioField name="radGrp">Option 3</Pds::RadioField>
   `,
   context: args,
-})
+});

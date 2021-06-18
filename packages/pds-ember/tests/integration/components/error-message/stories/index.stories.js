@@ -37,8 +37,4 @@ const MultipleLines = () => ({
   `,
 });
 
-export {
-  CONFIG as default,
-  Index,
-  MultipleLines,
-}
+export { CONFIG as default, Index, MultipleLines };

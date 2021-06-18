@@ -1,5 +1,5 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
@@ -12,7 +12,7 @@ export default {
         type: 'radio',
         options: {
           'plain (default)': '',
-          'filled': 'filled',
+          filled: 'filled',
         },
       },
     },
@@ -20,7 +20,7 @@ export default {
   args: {
     variant: '',
   },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -38,4 +38,4 @@ export const Index = (args) => ({
     </Pds::PageHeader>
   `,
   context: args,
-})
+});

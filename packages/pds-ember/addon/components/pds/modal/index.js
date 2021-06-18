@@ -1,9 +1,9 @@
-import Component from '@glimmer/component'
-import { action } from '@ember/object'
-import { guidFor } from '@ember/object/internals'
-import { DEFAULT_VARIANT, ICON_TYPES } from './utils'
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import { DEFAULT_VARIANT, ICON_TYPES } from './utils';
 
-const NOOP = () => {}
+const NOOP = () => {};
 
 /**
  * @class PdsModal
@@ -29,7 +29,7 @@ export default class PdsModal extends Component {
    * @type {string}
    */
   get variant() {
-    return this.args.variant || DEFAULT_VARIANT
+    return this.args.variant || DEFAULT_VARIANT;
   }
 
   /**
@@ -39,9 +39,9 @@ export default class PdsModal extends Component {
    * @type {string}
    */
   get iconType() {
-    let { icon } = this.args
-    let result = icon ? icon : ICON_TYPES[this.variant]
-    return result
+    let { icon } = this.args;
+    let result = icon ? icon : ICON_TYPES[this.variant];
+    return result;
   }
 
   /**
@@ -53,28 +53,28 @@ export default class PdsModal extends Component {
    * @type {function}
    */
   get onClose() {
-    let { onClose } = this.args
+    let { onClose } = this.args;
 
     if (typeof onClose === 'function') {
-      return onClose
+      return onClose;
     } else {
-      return NOOP
+      return NOOP;
     }
   }
 
   get titleId() {
-    return `modal-title-${guidFor(this)}`
+    return `modal-title-${guidFor(this)}`;
   }
 
   @action
   close() {
-    this.onClose()
+    this.onClose();
   }
 
   @action
   _handleKeyup(evt) {
     if (evt.key === 'Escape') {
-      this.close()
+      this.close();
     }
   }
 }

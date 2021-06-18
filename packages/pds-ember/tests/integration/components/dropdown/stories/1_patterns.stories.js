@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: `${TITLE} / Patterns`,
   component: 'PdsDropdown',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const NavList = (args) => ({
   template: hbs`
@@ -40,7 +40,7 @@ export const NavList = (args) => ({
     </Pds::Dropdown>
   `,
   context: args,
-})
+});
 
 export const Menu = (args) => ({
   template: hbs`
@@ -81,7 +81,7 @@ export const Menu = (args) => ({
     </Pds::Dropdown>
   `,
   context: args,
-})
+});
 
 export const MixedContent = (args) => ({
   template: hbs`
@@ -127,4 +127,4 @@ export const MixedContent = (args) => ({
     </Pds::Dropdown>
   `,
   context: args,
-})
+});
