@@ -14,50 +14,12 @@ const CONFIG = {
 
 const Default = () => ({
   template: hbs`
-    <table class='pdsTable'>
-        <caption>
-          Route List
-        </caption>
-        <thead>
-          <tr>
-            <th>
-              ID
-            </th>
-            <th>
-              Destination
-            </th>
-            <th>
-              Target
-            </th>
-            <th>
-              Status
-            </th>
-            <th>
-              Target type
-            </th>
-            <th>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>peering-test-route-2	</td>
-            <td>10.0.24.55</td>
-            <td>
-              peering-test
-              <Pds::Icon
-                @type='lock-closed-fill'
-                {{tooltip 'This peering connection is locked due to a dependency. ' options=(hash placement=tippyPlacement showOnCreate=tippyShowOnCreate offset=(array tippySkidding tippyDistance))}}
-              />
-            </td>
-            <td>
-              Active
-            </td>
-            <td>Peering connection</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+      <p style="text-align:center; padding: 40px;">
+        <Pds::Icon
+          @type='lock-closed-fill'
+          {{tooltip 'This peering connection is locked due to a dependency. ' options=(hash placement=tippyPlacement showOnCreate=tippyShowOnCreate offset=(array tippySkidding tippyDistance))}}
+        />
+      </p>
   `,
   context: {
     tippyShowOnCreate: select("showOnCreate", [true, false], true),

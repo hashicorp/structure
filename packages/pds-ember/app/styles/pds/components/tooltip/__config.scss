@@ -14,136 +14,116 @@ $_module: "PDS.Components.Tooltip";
 @use "../../tokens/scale";
 @use "../_config";
 
-$decor-elevation-400: 0 6px 8px -2px rgba(color.$black, 0.05),
-  0 8px 4px -4px rgba(color.$black, 0.1);
-$tooltip-width: 192px;
 
 .tippy-box[data-theme~='structure'] {
-  & {
-    & {
-      background-color: color.$ui-gray-700;
-      color: color.$white;
-      font-size: scale.$sm--1;
-      padding: scale.$sm--1;
-      border-radius: scale.$sm--4;
-      // width: $tooltip-width;
-    }
+  $tooltip-width: 192px;
+  $arrow-border-size: 7.5px;
+  $arrow-width: calc(#{$arrow-border-size} * 2); //15 pixels
+  $arrow-height: calc(#{$arrow-border-size} * 1.07); //8 pixels
+  $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
+
+  background-color: color.$ui-gray-700;
+  color: color.$white;
+  font-size: scale.$sm--1;
+  padding: scale.$sm--1;
+  border-radius: scale.$sm--4;
+  box-shadow: theme.$boxShadow--low;
+  transition-property: transform, visibility, opacity;
+
+  &[data-animation='fade'][data-state='hidden'] {
+    opacity: 0;
   }
+  &[data-inertia][data-state='visible'] {
+    transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+  }
+
   .tippy-content { 
-    max-width: 224px;
+    max-width: $tooltip-width; //putting the max-width here because tippy generates a javascript max-width on .tippy-box
     position: relative;
     z-index: 1;
   }
+
   .tippy-arrow {
-    --size: 7.5px;
-    & {
-      color: color.$ui-gray-700;
-      width: calc(var(--size) * 2);
-      height: calc(var(--size) * 1.07);
-    }
+    color: color.$ui-gray-700;
+    width: $arrow-width;
+    height: $arrow-height; 
+
     &::before {
+      content: '';
+      position: absolute;
       border-color: transparent;
       border-style: solid;
     }
   }
-  &[data-placement^='bottom'] > .tippy-arrow {
-    &::before {
-      border-width: 0 var(--size) var(--size);
-      border-bottom-color: initial;
-    }
-  }
+
+  /*** 
+  Because we are customizing the arrow size in our theme, 
+  we need to customize the positioning of the .tippy-arrow for each placement option
+  **/
+  
+  // placement option: top
   &[data-placement^='top'] > .tippy-arrow {
+    bottom: 0;
+
     &::before {
-      border-width: var(--size) var(--size) 0;
+      bottom: $arrow-y-axis-distance;
+      transform-origin: center top;
+      border-width: $arrow-border-size $arrow-border-size 0;
       border-top-color: initial;
     }
   }
-  &[data-placement^='left'] > .tippy-arrow {
-    left: 12px;
+
+  // placement option: bottom
+  &[data-placement^='bottom'] > .tippy-arrow {
+    top: 0;
+
     &::before {
-      border-width: var(--size) 0 var(--size) var(--size);
+      left: 0;
+      top: $arrow-y-axis-distance;
+      transform-origin: center bottom;
+      border-width: 0 $arrow-border-size $arrow-border-size;
+      border-bottom-color: initial;
+    }
+  }
+
+  // placement options: left, left-end, left-start
+  &[data-placement^='left'] > .tippy-arrow,
+  &[data-placement^='left-start'] > .tippy-arrow,
+  &[data-placement^='left-end'] > .tippy-arrow {
+    right: 0;
+
+    &::before {
+      right: $arrow-y-axis-distance;
+      transform-origin: center left;
+      border-width: $arrow-border-size 0 $arrow-border-size $arrow-border-size;
       border-left-color: initial;
     }
   }
-  &[data-placement^='right'] > .tippy-arrow {
+
+  &[data-placement^='left-end'] > .tippy-arrow {
     &::before {
-      border-width: var(--size) var(--size) var(--size) 0;
-      border-right-color: initial;
+      top: $arrow-y-axis-distance;
     }
   }
-}
 
-.tippy-box {
-  & {
-  position: relative;
-  outline: 0;
-  transition-property: transform, visibility, opacity;
-}
-&[data-animation='fade'][data-state='hidden'] {
-  opacity: 0;
-}
-&[data-inertia][data-state='visible'] {
-  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-}
-&[data-animation='fade'][data-state='hidden'] {
-  opacity: 0;
-}
-&[data-inertia][data-state='visible'] {
-  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-}
-& {
-  background-color: white;
-  border-radius: 2px;
-  box-shadow: $decor-elevation-400;
-}
-.tippy-arrow {
-  --size: 30px;
-  &::before {
-    content: '';
-    position: absolute;
-  }
-}
-&[data-placement^='bottom'] > .tippy-arrow {
-  & {
-    top: 0;
-  }
-  &::before {
+  // placement options: right, right-start, right-end
+  &[data-placement^='right'] > .tippy-arrow,
+  &[data-placement^='right-start'] > .tippy-arrow,
+  &[data-placement^='right-end'] > .tippy-arrow {
     left: 0;
-    top: calc(0px - var(--size));
-    transform-origin: center bottom;
-  }
-}
-&[data-placement^='top'] > .tippy-arrow {
-  & {
-    bottom: 0;
-    // left: 12px !important;
-  }
-  &::before {
-    bottom: calc(0px - var(--size));
-    transform-origin: center top;
-  }
-}
 
-&[data-placement^='left'] > .tippy-arrow {
-  & {
-    right: 0;
-  }
-  &::before {
-    right: calc(0px - var(--size));
-    transform-origin: center left;
-  }
-}
-&[data-placement^='right'] > .tippy-arrow {
-  & {
-    left: 0;
-  }
-  &::before {
-    left: calc(0px - var(--size));
-    transform-origin: center right;
-  }
-}
+    &::before {
+      left: $arrow-y-axis-distance;
+      transform-origin: center right;
+      border-width: $arrow-border-size $arrow-border-size $arrow-border-size 0;
+      border-right-color: initial;
 
-}
-[data-tippy-root] {
-  max-width: $tooltip-width;
+    }
+  }
+  
+  &[data-placement^='right-end'] > .tippy-arrow {
+    &::before {
+      top: $arrow-y-axis-distance;
+    }
+  }
 }
