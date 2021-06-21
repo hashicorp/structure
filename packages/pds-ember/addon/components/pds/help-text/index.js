@@ -22,7 +22,7 @@ import { getVariantClass } from './utils';
  */
 
 export default class extends Component {
-    get variantClass() {
-        return getVariantClass(this.args.variant);
-    }
+  get variantClass() {
+    return getVariantClass(this.args.variant);
+  }
 }

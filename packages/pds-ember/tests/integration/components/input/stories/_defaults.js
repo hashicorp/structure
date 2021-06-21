@@ -30,7 +30,7 @@ const file = {
 };
 
 const hidden = {
-  value: 'You can\'t see me!',
+  value: "You can't see me!",
 };
 
 const image = {
@@ -105,7 +105,7 @@ export default {
   checkbox,
   color,
   date,
-  "datetime-local": datetimeLocal,
+  'datetime-local': datetimeLocal,
   email,
   file,
   hidden,
@@ -123,4 +123,4 @@ export default {
   time,
   url,
   week,
-}
+};

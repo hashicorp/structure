@@ -1,18 +1,18 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
   component: 'PdsTabNav',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
     <Docs::TabNav />
   `,
   context: args,
-})
+});
 
 export const States = (args) => ({
   template: hbs`
@@ -50,4 +50,4 @@ export const States = (args) => ({
     </Pds::TabNav>
   `,
   context: args,
-})
+});

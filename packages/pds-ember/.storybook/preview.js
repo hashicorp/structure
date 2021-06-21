@@ -8,7 +8,7 @@ elBody.classList.add('pdsDocs');
 
 export const parameters = {
   controls: {
-    expanded: true
+    expanded: true,
   },
   viewport: {
     viewports: {
@@ -73,7 +73,7 @@ export const parameters = {
       },
     },
   },
-}
+};
 
 /*
 export const globalTypes = {

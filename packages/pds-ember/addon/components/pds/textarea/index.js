@@ -17,12 +17,12 @@ import { tracked } from '@glimmer/tracking';
  * @default false
  */
 export default class extends Component {
-  @tracked dirty = false
-  @tracked touched = false
+  @tracked dirty = false;
+  @tracked touched = false;
 
   @action
   onBlur() {
-    this.dirty = true
-    this.touched = true
+    this.dirty = true;
+    this.touched = true;
   }
 }

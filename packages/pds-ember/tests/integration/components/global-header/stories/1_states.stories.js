@@ -1,11 +1,11 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: `${TITLE} / States`,
   component: 'PdsGlobalHeader',
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 export const DropdownContent = () => ({
   template: hbs`
@@ -84,7 +84,7 @@ export const DropdownContent = () => ({
       </:user-menu>
     </Pds::GlobalHeader>
   `,
-})
+});
 
 export const DropdownTriggers = () => ({
   template: hbs`
@@ -201,7 +201,7 @@ export const DropdownTriggers = () => ({
 
     </Pds::GlobalHeader>
   `,
-})
+});
 
 export const Nav = () => ({
   template: hbs`
@@ -225,4 +225,4 @@ export const Nav = () => ({
       </:primary-nav>
     </Pds::GlobalHeader>
   `,
-})
+});

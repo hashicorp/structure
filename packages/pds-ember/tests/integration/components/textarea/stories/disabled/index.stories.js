@@ -7,14 +7,14 @@ export default {
   parameters: {
     controls: { disable: true },
   },
-}
+};
 
 export const Blurred = () => ({
   template: hbs`
     <Pds::Textarea
       disabled
     >Disabled (blur)</Pds::Textarea>
-  `
+  `,
 });
 
 export const Hover = () => ({
@@ -23,7 +23,7 @@ export const Hover = () => ({
       class="mock-hover"
       disabled
     >Disabled (hover)</Pds::Textarea>
-  `
+  `,
 });
 
 export const Focus = () => ({
@@ -32,7 +32,7 @@ export const Focus = () => ({
       class="mock-focus"
       disabled
     >Disabled (focus)</Pds::Textarea>
-  `
+  `,
 });
 
 export const FocusHover = () => ({
@@ -41,6 +41,6 @@ export const FocusHover = () => ({
       class="mock-focus mock-hover"
       disabled
     >Disabled (focus + hover)</Pds::Textarea>
-  `
+  `,
 });
 FocusHover.storyName = 'Focus + Hover';

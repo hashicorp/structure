@@ -1,10 +1,10 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 import ICONS from '@hashicorp/structure-icons/dist/index';
 
 import { DEFAULT_VARIANT, VARIANT_CLASSES } from '@hashicorp/pds-ember/addon/components/pds/button/utils';
-const VARIANTS = Object.keys(VARIANT_CLASSES)
+const VARIANTS = Object.keys(VARIANT_CLASSES);
 
 export default {
   title: TITLE,
@@ -18,7 +18,7 @@ export default {
       control: {
         type: 'select',
         options: ICONS,
-      }
+      },
     },
     variant: {
       defaultValue: DEFAULT_VARIANT,
@@ -32,7 +32,7 @@ export default {
     compact: false,
     hideText: false,
   },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -46,7 +46,7 @@ export const Index = (args) => ({
     </Pds::Dropdown::Trigger>
   `,
   context: args,
-})
+});
 
 export const IconOnly = (args) => ({
   template: hbs`
@@ -56,6 +56,6 @@ export const IconOnly = (args) => ({
     />
   `,
   context: args,
-})
+});
 
 // TODO: icon + hidden text example

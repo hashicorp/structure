@@ -1,9 +1,8 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 import { ICON_TYPES, DEFAULT_VARIANT } from '@hashicorp/pds-ember/addon/components/pds/popup/utils';
 
-
-const VARIANTS = Object.keys(ICON_TYPES)
+const VARIANTS = Object.keys(ICON_TYPES);
 
 export default {
   title: TITLE,
@@ -12,7 +11,7 @@ export default {
   argTypes: {
     onClose: { action: '@onClose' },
   },
-}
+};
 
 export const Index = (args) => ({
   template: hbs`
@@ -35,7 +34,7 @@ export const Index = (args) => ({
     </Pds::Popup>
   `,
   context: args,
-})
+});
 Index.argTypes = {
   variant: {
     defaultValue: DEFAULT_VARIANT,
@@ -44,7 +43,7 @@ Index.argTypes = {
       options: VARIANTS,
     },
   },
-}
+};
 
 export const Variants = (args) => ({
   template: hbs`
@@ -63,4 +62,4 @@ export const Variants = (args) => ({
     ...args,
     VARIANTS,
   },
-})
+});

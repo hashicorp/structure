@@ -1,16 +1,16 @@
-import { module, test } from 'qunit'
-import { setupRenderingTest } from 'ember-qunit'
-import { render } from '@ember/test-helpers'
-import { hbs } from 'ember-cli-htmlbars'
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 
-const ROOT = '[data-test-page]'
-const HEADER = '[data-test-page-header]'
-const BODY = '[data-test-page-body]'
+const ROOT = '[data-test-page]';
+const HEADER = '[data-test-page-header]';
+const BODY = '[data-test-page-body]';
 
-module('Integration | Components.Page', function(hooks) {
-  setupRenderingTest(hooks)
+module('Integration | Components.Page', function (hooks) {
+  setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     await render(hbs`
       <Pds::Page
         data-foo="bar"
@@ -24,27 +24,26 @@ module('Integration | Components.Page', function(hooks) {
           body
         </P.Body>
       </Pds::Page>
-    `)
+    `);
 
     assert
       .dom(ROOT)
       .exists()
       .hasText('header body')
       .hasAttribute('data-foo', 'bar', 'applies ...attributes')
-      .hasClass('pds-page')
+      .hasClass('pds-page');
 
     assert
       .dom(HEADER)
       .exists()
       .hasText('header')
       .hasAttribute('data-name', 'header', 'applies Header ...attributes')
-      .hasClass('pds-pageHeader') // alias for <Pds::PageHeader>
+      .hasClass('pds-pageHeader'); // alias for <Pds::PageHeader>
 
     assert
       .dom(BODY)
       .exists()
       .hasText('body')
-      .hasAttribute('data-name', 'body', 'applies Body ...attributes')
-  })
-})
-
+      .hasAttribute('data-name', 'body', 'applies Body ...attributes');
+  });
+});

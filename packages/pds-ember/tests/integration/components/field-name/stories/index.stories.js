@@ -25,8 +25,4 @@ const Legend = () => ({
   `,
 });
 
-export {
-  CONFIG as default,
-  Index,
-  Legend,
-}
+export { CONFIG as default, Index, Legend };

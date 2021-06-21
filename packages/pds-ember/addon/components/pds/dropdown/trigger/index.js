@@ -1,4 +1,4 @@
-import Component from '@glimmer/component'
+import Component from '@glimmer/component';
 import { getVariantClass } from '../../button/utils';
 
 /**
@@ -38,17 +38,17 @@ import { getVariantClass } from '../../button/utils';
  */
 export default class PdsDropdownTrigger extends Component {
   get buttonClasses() {
-    return 'pds-button'
+    return 'pds-button';
   }
 
   get icon() {
-    let { icon } = this.args
+    let { icon } = this.args;
 
     if (icon) {
-      return icon
+      return icon;
     }
 
-    return 'chevron-down'
+    return 'chevron-down';
   }
 
   // same as Button@variant

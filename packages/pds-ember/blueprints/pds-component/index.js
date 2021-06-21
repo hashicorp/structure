@@ -16,7 +16,7 @@ module.exports = {
   files() {
     let _files = this._super.files.apply(this, arguments);
 
-    return _files.filter(file => {
+    return _files.filter((file) => {
       // exclude dot files
       if (file.includes('/.') || file.startsWith('.')) {
         return false;

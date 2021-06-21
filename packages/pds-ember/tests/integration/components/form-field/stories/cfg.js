@@ -16,7 +16,7 @@ function getFieldContext() {
 function getContext() {
   let _type = select('[type]', Input.TYPES, 'text', groupID);
   let ctx = {
-    "type": _type,
+    type: _type,
     ...Input.getCommonContext(),
     ...getFieldContext(),
     ...Input.getContextForType(_type),
@@ -24,8 +24,4 @@ function getContext() {
   return ctx;
 }
 
-export {
-  getContext,
-  getFieldContext,
-  groupID,
-}
+export { getContext, getFieldContext, groupID };

@@ -4,9 +4,7 @@ import DocsPage, { TITLE } from '../docs.mdx';
 export default {
   title: TITLE,
   component: 'PdsTextarea',
-  parameters: { docs: { page: DocsPage },
-    knobs: { disable: true },
-  },
+  parameters: { docs: { page: DocsPage }, knobs: { disable: true } },
 };
 
 export const Index = (args) => ({
@@ -22,7 +20,7 @@ export const Index = (args) => ({
     >{{sampleText}}</Pds::Textarea>
   `,
   context: args,
-})
+});
 
 Index.argTypes = {
   invalid: {
@@ -61,4 +59,4 @@ Index.argTypes = {
       'The five boxing wizards jump quickly.',
     ].join('\n'),
   },
-}
+};

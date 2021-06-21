@@ -1,6 +1,6 @@
-import Component from '@glimmer/component'
+import Component from '@glimmer/component';
 
-const DEFAULT_ICON = 'alert-circle-outline'
+const DEFAULT_ICON = 'alert-circle-outline';
 
 /**
  * @class PdsErrorState
@@ -28,7 +28,7 @@ export default class PdsErrorState extends Component {
    * @default alert-circle-outline
    */
   get icon() {
-    let { icon } = this.args
-    return icon ? icon : DEFAULT_ICON
+    let { icon } = this.args;
+    return icon ? icon : DEFAULT_ICON;
   }
 }

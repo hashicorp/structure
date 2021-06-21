@@ -1,5 +1,5 @@
-import hbs from 'htmlbars-inline-precompile'
-import DocsPage, { TITLE } from '../docs.mdx'
+import hbs from 'htmlbars-inline-precompile';
+import DocsPage, { TITLE } from '../docs.mdx';
 
 export default {
   title: TITLE,
@@ -14,7 +14,7 @@ export default {
     'App.Sidebar': 'PdsAppSidebar',
   },
   parameters: { docs: { page: DocsPage } },
-}
+};
 
 // Not very impressive, at the moment, but it demonstrates how `@showDrawer`
 // trickles down to `<App.Drawer>` automatically via contextual components.
@@ -81,16 +81,18 @@ export const Index = (args) => ({
     </Pds::App>
   `,
   context: args,
-})
-Index.args = { showDrawer: false }
+});
+Index.args = { showDrawer: false };
 Index.decorators = [
   // FIXME: Works, but doesn't clean up after itself
   // It leaves behind a <div class="docs-pds-app"> element when you navigate away.
   (Story) => {
-    let { template, context } = Story()
-    let element = document.createElement('div')
-    element.classList.add('docs-pds-app')
-    element.appendTo = (el) => { el.appendChild(element) }
-    return { template, context, element }
+    let { template, context } = Story();
+    let element = document.createElement('div');
+    element.classList.add('docs-pds-app');
+    element.appendTo = (el) => {
+      el.appendChild(element);
+    };
+    return { template, context, element };
   },
-]
+];

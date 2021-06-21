@@ -30,8 +30,4 @@ const Bold = () => ({
     </Pds::HelpText>
   `,
 });
-export {
-  CONFIG as default,
-  Index,
-  Bold
-}
+export { CONFIG as default, Index, Bold };

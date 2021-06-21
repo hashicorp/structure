@@ -90,7 +90,7 @@ import { getVariantClass } from './utils';
 export default class extends Component {
   get type() {
     let { type } = this.args;
-    return (type ? type : 'button');
+    return type ? type : 'button';
   }
 
   get variantClass() {

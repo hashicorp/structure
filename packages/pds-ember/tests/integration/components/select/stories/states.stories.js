@@ -5,7 +5,7 @@ import DocsPage, { TITLE } from '../docs.mdx';
 const CONFIG = {
   title: `${TITLE} / States`,
   component: 'PdsSelect',
-  decorators: [ withKnobs ],
+  decorators: [withKnobs],
   parameters: { docs: { page: DocsPage } },
 };
 
@@ -137,7 +137,7 @@ const LogicalValidity = () => ({
       <option value="valid">:valid</option>
     </Pds::Select>
   `,
-})
+});
 
 const LengthySelection = () => ({
   template: hbs`
@@ -188,7 +188,6 @@ const LengthySelection = () => ({
   `,
 });
 
-
 Enabled_hover.story = { name: 'Enabled (hover)' };
 Enabled_focus.story = { name: 'Enabled (focus)' };
 Enabled_focus_hover.story = { name: 'Enabled (focus + hover)' };
@@ -201,23 +200,18 @@ Disabled_focus_hover.story = { name: 'Disabled (focus + hover)' };
 
 export {
   CONFIG as default,
-
   Enabled,
   Enabled_hover,
   Enabled_focus,
   Enabled_focus_hover,
-
   Invalid,
   Invalid_hover,
   Invalid_focus,
   Invalid_focus_hover,
-
   Disabled,
   Disabled_hover,
   Disabled_focus,
   Disabled_focus_hover,
-
   LogicalValidity,
-
   LengthySelection,
 };
