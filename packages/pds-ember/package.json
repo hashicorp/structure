@@ -42,7 +42,6 @@
     "@hashicorp/structure-icons": "^1.9.2",
     "broccoli-funnel": "^3.0.3",
     "broccoli-merge-trees": "^4.2.0",
-    "ember-auto-import": "^1.6.0",
     "ember-cli-babel": "^7.26.3",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-sass": "^10.0.1",
@@ -50,8 +49,7 @@
     "ember-intl": "^5.5.0",
     "ember-named-blocks-polyfill": "^0.2.4",
     "ember-svg-jar": "^2.2.3",
-    "sass": "^1.26.11",
-    "tippy.js": "^6.3.1"
+    "sass": "^1.26.11"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -67,6 +65,7 @@
     "@storybook/ember-cli-storybook": "^0.2.1",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
+    "ember-auto-import": "^1.11.2",
     "ember-cli": "~3.26.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-inject-live-reload": "^2.0.2",
@@ -77,7 +76,6 @@
     "ember-export-application-global": "^2.0.1",
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-modifier": "^2.1.2",
     "ember-page-title": "^6.2.1",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
