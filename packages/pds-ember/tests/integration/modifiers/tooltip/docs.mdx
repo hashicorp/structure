@@ -1,0 +1,54 @@
+export const TITLE = 'Modifiers / Tooltip ';
+
+# Tooltip Modifier
+This modifier was modeled after the [`tooltip` modifier that is currently in Consul](https://github.com/hashicorp/consul/blob/master/ui/packages/consul-ui/app/modifiers/tooltip.js).  It uses `tippy.js` and allows for all corresponding options (also known as "props" in the tippy docs) to be passed in (see Usage and Options below). 
+
+
+## Structure Design
+The Structure Figma designs for `tooltip` can be found in [here](https://www.figma.com/file/B7yd8loYS7nA2TiQcJ8UtV/Structure-1.9?node-id=1202%3A2236).
+
+## 'structure' Theme
+The default theme is `structure`.  This is a custom tippy theme created to match the Structure Designs.
+The defaul theme is specified in the `tooltip.js` modifier.  
+
+## tooltip.js
+You can view the modifier source file [here](https://github.com/hashicorp/structure/tree/main/packages/pds-ember/addon/modifiers/tooltip.js).
+
+## Handlebars Usage
+
+```handlebars
+  <Pds::Icon 
+    @type='lock-closed-fill' 
+    {{tooltip 
+        'this is a tooltip' 
+         options=(hash 
+                    placement="bottom" 
+                    offset=(array 0 5)
+                  )
+    }}
+  />
+```
+
+## Options (or "Props")
+Options (also referred to as "[Props](https://atomiks.github.io/tippyjs/v6/all-props/)") are passed in using the [Ember `hash` helper](https://api.emberjs.com/ember/3.26/classes/Ember.Templates.helpers/methods/hash?anchor=hash).  
+```
+options = (hash
+            placement="top"
+            offset=(array 0 5)
+            showOnCreate=true
+            hideOnClick=false
+          )
+```
+
+A detailed list of options can be found at [https://atomiks.github.io/tippyjs/v6/all-props/](https://atomiks.github.io/tippyjs/v6/all-props/).
+
+## Accessibility
+https://atomiks.github.io/tippyjs/v6/accessibility/
+
+
+## References
+https://atomiks.github.io/tippyjs/
+
+https://atomiks.github.io/tippyjs/v6/all-props/
+
+https://atomiks.github.io/tippyjs/v6/accessibility/
