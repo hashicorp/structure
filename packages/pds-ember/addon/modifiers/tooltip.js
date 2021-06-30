@@ -56,9 +56,6 @@ export default modifier(($element, [content], hash = {}) => {
     triggerTarget: $trigger,
     arrow: true,
     content: () => content,
-    // showOnCreate: true,
-    // hideOnClick: false,
-    // trigger: 'click',
     plugins: [
       typeof options.followCursor !== "undefined" ? followCursor : undefined,
     ].filter((item) => Boolean(item)),
