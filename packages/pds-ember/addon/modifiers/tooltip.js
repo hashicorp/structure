@@ -1,5 +1,4 @@
 import Modifier from "ember-modifier";
-// import {modifier} from "ember-modifier";
 import tippy, { followCursor } from "tippy.js";
 
 /**
