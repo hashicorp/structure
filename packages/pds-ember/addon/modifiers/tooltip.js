@@ -1,4 +1,4 @@
-import { modifier } from "ember-modifier";
+import Modifier from "ember-modifier";
 import tippy, { followCursor } from "tippy.js";
 
 /**
@@ -7,65 +7,96 @@ import tippy, { followCursor } from "tippy.js";
  *
  * {{tooltip 'Text' options=(hash )}}
  */
-export default modifier(($element, [content], hash = {}) => {
-  let options = hash.options || {};
+export default class Tooltip extends Modifier {
+  interval = null;
+  needsTabIndex = false;
+  tooltip = null;
 
-  let $anchor = $element;
+  constructor(owner) {
+    super(...arguments);
+  }
 
-  // make it easy to specify the modified element as the actual tooltip
-  if (typeof options.triggerTarget === "string") {
-    let $el = $anchor;
-    switch (options.triggerTarget) {
-      case "parentNode":
-        $anchor = $anchor.parentNode;
-        break;
-      default:
-        $anchor = $anchor.querySelectorAll(options.triggerTarget);
+  getTooltipProps() {
+    let options = this.args.named.options || {};
+    let content = this.args.positional[0];
+  
+    let $anchor = this.element;
+  
+    // make it easy to specify the modified element as the actual tooltip
+    if (typeof options.triggerTarget === "string") {
+      let $el = $anchor;
+      switch (options.triggerTarget) {
+        case "parentNode":
+          $anchor = $anchor.parentNode;
+          break;
+        default:
+          $anchor = $anchor.querySelectorAll(options.triggerTarget);
+      }
+      content = $anchor.cloneNode(true);
+      $el.remove();
+      this.args.named.options.triggerTarget = undefined;
     }
-    content = $anchor.cloneNode(true);
-    $el.remove();
-    hash.options.triggerTarget = undefined;
-  }
-  // {{tooltip}} will just use the HTML content
-  if (typeof content === "undefined") {
-    content = $anchor.innerHTML;
-    $anchor.innerHTML = "";
-  }
-  let interval;
-  if (options.trigger === "manual") {
-    // if we are manually triggering, a out delay means only show for the
-    // amount of time specified by the delay
-    let delay = options.delay || [];
-    if (typeof delay[1] !== "undefined") {
-      hash.options.onShown = (tooltip) => {
-        clearInterval(interval);
-        interval = setTimeout(() => {
-          tooltip.hide();
-        }, delay[1]);
-      };
+    // {{tooltip}} will just use the HTML content
+    if (typeof content === "undefined") {
+      content = $anchor.innerHTML;
+      $anchor.innerHTML = "";
     }
-  }
-  let $trigger = $anchor;
-  let needsTabIndex = false;
-  if (!$trigger.hasAttribute("tabindex")) {
-    needsTabIndex = true;
-    $trigger.setAttribute("tabindex", "0");
-  }
-  let tooltip = tippy($anchor, {
-    theme: 'structure',
-    triggerTarget: $trigger,
-    arrow: true,
-    content: () => content,
-    plugins: [
-      typeof options.followCursor !== "undefined" ? followCursor : undefined,
-    ].filter((item) => Boolean(item)),
-    ...hash.options,
-  });
-  return () => {
-    if (needsTabIndex) {
-      $trigger.removeAttribute("tabindex");
+    if (options.trigger === "manual") {
+      // if we are manually triggering, a out delay means only show for the
+      // amount of time specified by the delay
+      let delay = options.delay || [];
+      if (typeof delay[1] !== "undefined") {
+        this.args.named.options.onShown = (tooltip) => {
+          clearInterval(this.interval);
+          this.interval = setTimeout(() => {
+            tooltip.hide();
+          }, delay[1]);
+        };
+      }
     }
-    clearInterval(interval);
-    tooltip.destroy();
-  };
-});
+    let $trigger = $anchor;
+    if (!$trigger.hasAttribute("tabindex")) {
+      this.needsTabIndex = true;
+      $trigger.setAttribute("tabindex", "0");
+    }
+    return {
+      theme: 'structure',
+      triggerTarget: $trigger,
+      arrow: true,
+      content: () => content,
+      plugins: [
+        typeof options.followCursor !== "undefined" ? followCursor : undefined,
+      ].filter((item) => Boolean(item)),
+      ...this.args.named.options,
+    };
+  }
+
+  createTooltip() {
+    let tooltipProps = this.getTooltipProps();
+    this.tooltip = tippy(this.element, tooltipProps);
+  }
+
+  updateTooltip() {
+    let tooltipProps = this.getTooltipProps();
+    this.tooltip.setProps(tooltipProps);
+  }
+
+  // Lifecycle method on the Modifier class
+  didUpdateArguments() {
+    this.updateTooltip();
+  }
+
+  // Lifecycle method on the Modifier class
+  didInstall() {
+    this.createTooltip();
+  }
+
+  // Lifecycle method on the Modifier class
+  willRemove() {
+    if (this.needsTabIndex) {
+      this.element.removeAttribute("tabindex");
+    }
+    clearInterval(this.interval);
+    this.tooltip.destroy();
+  }
+} 
