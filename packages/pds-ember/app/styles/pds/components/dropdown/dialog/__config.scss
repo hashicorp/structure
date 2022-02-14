@@ -56,6 +56,8 @@ $__divider-color: theme.$borderColor--dim;
 @mixin apply {
   /* [debug] #{$_module}@apply */
   .pds-dropdownDialog {
+    margin-top: 0;
+    padding: 0;
     @content;
   }
 }

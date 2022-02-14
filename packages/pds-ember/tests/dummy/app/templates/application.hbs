@@ -1,7 +1,30 @@
 <Pds::App as |App|>
   <App.ModalArea></App.ModalArea>
 
-  <App.Header>Header</App.Header>
+  <App.Header>
+    Header
+
+  <Pds::Dropdown as |D|>
+    <D.Trigger>
+      Menu
+    </D.Trigger>
+
+    <D.Dialog>
+        <Pds::Dropdown::ListItem>
+          <Pds::Icon @type="bolt" />
+          List Item
+        </Pds::Dropdown::ListItem>
+        <Pds::Dropdown::ListItem>
+          <Pds::Button>Button</Pds::Button>
+        </Pds::Dropdown::ListItem>
+        <Pds::Dropdown::ListItem>
+          <Pds::CtaLink @route="index">CTA Link</Pds::CtaLink>
+        </Pds::Dropdown::ListItem>
+    </D.Dialog>
+    
+  </Pds::Dropdown>
+
+  </App.Header>
 
   <App.Banner>Banner</App.Banner>
 

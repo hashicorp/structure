@@ -1,7 +1,14 @@
-<div
+{{#if (has-block)}}
+<ul
   class="pds-dropdownDialog {{if @isOpen 'pds--open'}}"
   ...attributes
   data-test-dropdown-dialog
 >
+  {{!-- {{yield (hash
+    ListItem=(component 'pds/dropdown/list-item')
+  )}} --}}
   {{yield}}
-</div>
+</ul>
+{{else}}
+ <p>no ul block</p>
+{{/if}}
