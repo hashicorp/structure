@@ -58,7 +58,7 @@ $underline-width: 1px;
 
 @mixin apply {
   /* [debug] #{$_module}@apply */
-  :any-link:not(.pds-button) {
+  :any-link:not(.pds-button, .hds-button, .hds-link-standalone, .hds-link-inline, .hds-dropdown-list-item--interactive, .hds-breadcrumb__link, .hds-tag__link) {
     @content;
   }
 }
