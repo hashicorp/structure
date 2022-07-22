@@ -5,6 +5,9 @@ $_module: "PDS.Components.Link";
 @use "../../theme";
 @use "../../utils/pseudo" as Pseudo;
 
+// needed for the "$hds-link-overrides-selectors" variable used below
+@use "../../overrides" as overrides;
+
 $underline-width: 1px;
 
 @mixin reset {
@@ -58,7 +61,7 @@ $underline-width: 1px;
 
 @mixin apply {
   /* [debug] #{$_module}@apply */
-  :any-link:not(.pds-button) {
+  :any-link:not(.pds-button, #{overrides.$hds-link-overrides-selectors}) {
     @content;
   }
 }
