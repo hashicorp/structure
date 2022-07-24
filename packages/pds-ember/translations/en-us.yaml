@@ -1,7 +1,4 @@
 pds:
   components:
-    breadcrumbs:
-      aria:
-        label: breadcrumbs
     modal:
       close: close modal

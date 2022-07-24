@@ -35,10 +35,7 @@ export const Index = (args) => ({
         <Pds::Page as |Page|>
           <Page.Header @variant="filled" as |H|>
             <H.Breadcrumbs>
-              <Docs::Breadcrumbs
-                @depth={{3}}
-                @showIcon={{true}}
-              />
+              [your breadcrumbs here]
             </H.Breadcrumbs>
 
             <H.Title>
