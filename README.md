@@ -37,6 +37,12 @@ To contribute to the `pds-ember` package (currently the only package in this mon
 1. Use `git tag [PACKAGE-NAME]-[VERSION]` e.g. `git tag pds-ember-2.0.2`
 2. `git push --tags`
 
+### Create new release in GitHub
+1. Go to https://github.com/hashicorp/structure/tags
+2. Select the tag just pushed in Git and from the submenu select "Create release"
+3. Use `pds-ember-[VERSION]` as release title
+4. Save (the `description` field will be automatically filled by GitHub)
+
 ### Update NPM
 1. Make sure your NPM account has been added to the Hashi group (check with IT)
 2. `yarn workspace @hashicorp/pds-ember npm publish`
