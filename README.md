@@ -83,6 +83,7 @@ To remove a component (eg. `Pds::Xyz`) from the Structure repository the steps t
       - remember to remove the imports from `packages/pds-ember/app/styles/pds/components/index.scss`
       - check if other components are importing any of the Sass definitions for `xyz` via `@use`, in which case copy the definitions where they're used or abstract them somewhere
     - remove all the files in `packages/pds-ember/tests/integration/components/xyz`
+    - now search the entire codebase for `xyz` (case insensitive) and look what needs to be done for every remaining occurrence (it will depend case by case)
     - add a markdown file `packages/pds-ember/docs/deprecated/pds-xyz.stories.mdx` explaining what to do with this component (use the files in the same folder as guidance of what to write)
       - run `yarn build-storybook` and then `yarn storybook` to check that the page just created works correctly (and there are no crashes in the app because of missing components or references)
 - **test the changes in Cloud UI**:
