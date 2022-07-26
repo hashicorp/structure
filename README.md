@@ -64,3 +64,39 @@ The current version of this package is the one used for the "managed sunsetting"
 - use the package version `0.6.4` to stay "frozen in time" at the moment in which the "maintained sunsetting" phase has started.
 - use the package version `1.x.x` to stay on a release path that sees only minor patches but not components removal
   - in this case, if you need to make changes, use the branch `master-version-1.x` and release to NPM from that branch
+  
+## Deprecating and removing a component
+ 
+To remove a component (eg. `Pds::Xyz`) from the Structure repository the steps to follow are more or less these.
+- **first of all make sure it's not used anymore**:
+  - search for `<Pds::Xyz` in the Cloud UI codebase (you should expect zero occurrencies)
+    - if you find a limited number of occurrencies (eg. 1-3) consider if it would make sense to migrate the `Pds::Xyz` code and logic directly where it's consumed in Cloud UI and remove the component from Structure
+  - search for `<Pds::Xyz` in the Structure codebase (you should expect zero occurrencies as well)
+      - if you find a limited number of occurrencies (eg. 1-3) consider if it would make sense to embed the `Pds::Xyz` code and logic directly where it's consumed in Structure and don't expose it as component
+- **delete all the code related to the `Pds::Xyz` component**, once you have decided it's OK to remove the component:
+  - you can search for all the files related to the `Pds::Xyz` component as you would normally do in your IDE/editor
+  - or you can use this PR to have a general idea of what needs to be removed: https://github.com/hashicorp/structure/pull/118
+  - in both cases these are more or less the steps to follow:
+    - remove all the files in `packages/pds-ember/addon/components/pds/xyz`
+    - remove all the files in `packages/pds-ember/app/components/pds/xyz`
+    - remove all the files in `packages/pds-ember/app/styles/pds/components/xyz`
+      - remember to remove the imports from `packages/pds-ember/app/styles/pds/components/index.scss`
+      - check if other components are importing any of the Sass definitions for `xyz` via `@use`, in which case copy the definitions where they're used or abstract them somewhere
+    - remove all the files in `packages/pds-ember/tests/integration/components/xyz`
+    - add a markdown file `packages/pds-ember/docs/deprecated/pds-xyz.stories.mdx` explaining what to do with this component (use the files in the same folder as guidance of what to write)
+      - run `yarn build-storybook` and then `yarn storybook` to check that the page just created works correctly (and there are no crashes in the app because of missing components or references)
+- **test the changes in Cloud UI**:
+  - go in the root of the https://github.com/hashicorp/cloud-ui/
+  - pull the latest version of the `main` branch (or the branch you're working on, if this work in Structure is related to it)
+  - in the project root:
+    - run `yarn` to install all the needed dependencies
+    - `cd` in `node_modules/@hashicorp`
+    - remove the `pds-ember` folder
+    - create a symlink between your local version of Structure (the one that you're working on, with the component(s) removed) and the one consumed by Cloud UI using the command `ln -s [path-to-your-local-structure-project-folder]/packages/pds-ember [path-to-your-local-cloud-ui-project-folder]/node_modules/@hashicorp/.`
+      - don't forget, once you've finished testing, to remove the symlink and re-run `yarn` to install properly all the dependencies
+  - run the HCP/Cloud UI application and check that everything is OK
+    - notice: while doing some tests we noticed that the header of the application is not rendered correctly, for some reasons; but it's OK, the app works anyway, maybe some issues with the fact that the package is actually a symlink 
+- **open a new PR to get the changes approved**
+  - once you are OK with the changes and you have pushed them in your development branch, open a new PR in this repo (if you want you can use this PR as model: https://github.com/hashicorp/structure/pull/118)
+  - when the changes are approved and merged, follow the instructions above on how to release a new version of Structure
+  - and finally, once the package is available on NPM, you can open a PR in Cloud UI to bump the version of the Structure `@hashicorp/pds-ember` dependency
