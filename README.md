@@ -1,6 +1,6 @@
-# Structure
+# Structure [![npm version](https://badge.fury.io/js/%40hashicorp%2Fpds-ember.svg)](https://badge.fury.io/js/%40hashicorp%2Fpds-ember)
 
-## 🚨 NOTICE 🚨
+### 🚨 NOTICE 🚨
 
 Currently this project in a "maintained sunsetting" mode. This means we're starting to remove deprecated/unused components from its codebase with the intent to completely remove as dependency from our products.
 
