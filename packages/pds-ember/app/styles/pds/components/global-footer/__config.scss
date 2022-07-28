@@ -6,6 +6,7 @@ $_module: "PDS.Components.GlobalFooter";
 @use "../../core/typography/_config" as Typography;
 @use "../../theme";
 @use "../../tokens/color";
+@use "../icon/__config" as Icon;
 @use "../link/_config" as Link;
 @use "../link/incognito/_config" as IncognitoLink;
 
@@ -32,6 +33,16 @@ $color: color.$ui-gray-500;
     }
   }
 
+  &__copyright {
+    align-items: center;
+    display: inline-flex;
+    line-height: 1;
+  }
+
+  &__logomark {
+    @include Icon.layout;
+  }
+
   &__productName,
   &__nav {
     align-items: center;
@@ -45,6 +56,11 @@ $color: color.$ui-gray-500;
   background-color: $backgroundColor;
   border-top: $borderWidth solid $borderColor;
   color: $color;
+
+  &__logomark {
+    @include Icon.appearance;
+    font-size: 1.25em; // scales with text
+  }
 
   @include Link.apply {
     @include IncognitoLink.appearance;
