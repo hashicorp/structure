@@ -11,10 +11,7 @@ export const WithActions = (args) => ({
   template: hbs`
     <Pds::PageHeader @variant="filled" as |H|>
       <H.Breadcrumbs>
-        <Docs::Breadcrumbs
-          @depth={{3}}
-          @showIcon={{true}}
-        />
+        [your breadcrumbs here]
       </H.Breadcrumbs>
 
       <H.Title>
@@ -43,10 +40,7 @@ export const WithActionsAndTabs = (args) => ({
   template: hbs`
     <Pds::PageHeader @variant="filled" as |H|>
       <H.Breadcrumbs>
-        <Docs::Breadcrumbs
-          @depth={{3}}
-          @showIcon={{true}}
-        />
+        [your breadcrumbs here]
       </H.Breadcrumbs>
 
       <H.Title>
