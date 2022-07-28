@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/pds-ember",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ember addon for building Structure-styled UIs",
   "keywords": [
     "ember-addon"
