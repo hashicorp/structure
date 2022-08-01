@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Modifier | tooltip', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('basic usage', async function (assert) {
+  test.skip('basic usage', async function (assert) {
     await render(hbs`
       <div
         data-test-target
