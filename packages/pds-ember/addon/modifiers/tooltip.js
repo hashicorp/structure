@@ -12,7 +12,7 @@ export default class Tooltip extends Modifier {
   needsTabIndex = false;
   tooltip = null;
 
-  constructor(owner) {
+  constructor() {
     super(...arguments);
   }
 

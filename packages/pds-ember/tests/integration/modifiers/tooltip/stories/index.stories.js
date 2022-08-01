@@ -1,9 +1,7 @@
 import hbs from 'htmlbars-inline-precompile';
 import { withKnobs, number, select } from '@storybook/addon-knobs';
 import placement from '../placement';
-import types from '@hashicorp/structure-icons/dist/index';
 import DocsPage, { TITLE } from '../docs.mdx';
-import { themes } from '@storybook/theming';
 
 const CONFIG = {
   title: TITLE,
