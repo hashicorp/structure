@@ -9,7 +9,10 @@ import {
 } from '@storybook/addon-knobs';
 import DocsPage, { TITLE } from '../docs.mdx';
 
-import { DEFAULT_VARIANT, VARIANT_CLASSES } from '@hashicorp/pds-ember/addon/components/pds/button/utils';
+import {
+  DEFAULT_VARIANT,
+  VARIANT_CLASSES,
+} from '@hashicorp/pds-ember/addon/components/pds/button/utils';
 
 const VARIANTS = Object.keys(VARIANT_CLASSES);
 
