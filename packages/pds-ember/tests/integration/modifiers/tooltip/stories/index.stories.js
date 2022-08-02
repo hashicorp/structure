@@ -1,10 +1,7 @@
 import hbs from 'htmlbars-inline-precompile';
-import { withKnobs, number, select } from "@storybook/addon-knobs";
-import placement from "../placement";
-import types from "@hashicorp/structure-icons/dist/index";
+import { withKnobs, number, select } from '@storybook/addon-knobs';
+import placement from '../placement';
 import DocsPage, { TITLE } from '../docs.mdx';
-import { themes } from "@storybook/theming";
-
 
 const CONFIG = {
   title: TITLE,
@@ -22,14 +19,11 @@ const Default = () => ({
       </p>
   `,
   context: {
-    tippyShowOnCreate: select("showOnCreate", [true, false], true),
-    tippyPlacement: select("placement", placement, "top"),
-    tippySkidding: number("skidding (default is 0)", 0),
-    tippyDistance: number("distance (default is 10)", 10),
+    tippyShowOnCreate: select('showOnCreate', [true, false], true),
+    tippyPlacement: select('placement', placement, 'top'),
+    tippySkidding: number('skidding (default is 0)', 0),
+    tippyDistance: number('distance (default is 10)', 10),
   },
 });
 
-export {
-  CONFIG as default,
-  Default,
-}
+export { CONFIG as default, Default };

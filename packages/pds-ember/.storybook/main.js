@@ -26,8 +26,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@hashicorp/pds-ember': path.resolve(__dirname, '../'),
-     };
+    };
     return config;
   },
-
 };

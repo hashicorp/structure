@@ -28,6 +28,6 @@ import Component from '@glimmer/component';
  */
 export default class PdsExternalLink extends Component {
   get iconEnd() {
-    return this.args.iconEnd || 'exit'
+    return this.args.iconEnd || 'exit';
   }
 }

@@ -1,5 +1,5 @@
-import Modifier from "ember-modifier";
-import tippy, { followCursor } from "tippy.js";
+import Modifier from 'ember-modifier';
+import tippy, { followCursor } from 'tippy.js';
 
 /**
  * Tooltip modifier using Tippy.js
@@ -12,21 +12,21 @@ export default class Tooltip extends Modifier {
   needsTabIndex = false;
   tooltip = null;
 
-  constructor(owner) {
+  constructor() {
     super(...arguments);
   }
 
   getTooltipProps() {
     let options = this.args.named.options || {};
     let content = this.args.positional[0];
-  
+
     let $anchor = this.element;
-  
+
     // make it easy to specify the modified element as the actual tooltip
-    if (typeof options.triggerTarget === "string") {
+    if (typeof options.triggerTarget === 'string') {
       let $el = $anchor;
       switch (options.triggerTarget) {
-        case "parentNode":
+        case 'parentNode':
           $anchor = $anchor.parentNode;
           break;
         default:
@@ -37,15 +37,15 @@ export default class Tooltip extends Modifier {
       this.args.named.options.triggerTarget = undefined;
     }
     // {{tooltip}} will just use the HTML content
-    if (typeof content === "undefined") {
+    if (typeof content === 'undefined') {
       content = $anchor.innerHTML;
-      $anchor.innerHTML = "";
+      $anchor.innerHTML = '';
     }
-    if (options.trigger === "manual") {
+    if (options.trigger === 'manual') {
       // if we are manually triggering, a out delay means only show for the
       // amount of time specified by the delay
       let delay = options.delay || [];
-      if (typeof delay[1] !== "undefined") {
+      if (typeof delay[1] !== 'undefined') {
         this.args.named.options.onShown = (tooltip) => {
           clearInterval(this.interval);
           this.interval = setTimeout(() => {
@@ -55,9 +55,9 @@ export default class Tooltip extends Modifier {
       }
     }
     let $trigger = $anchor;
-    if (!$trigger.hasAttribute("tabindex")) {
+    if (!$trigger.hasAttribute('tabindex')) {
       this.needsTabIndex = true;
-      $trigger.setAttribute("tabindex", "0");
+      $trigger.setAttribute('tabindex', '0');
     }
     return {
       theme: 'structure',
@@ -65,7 +65,7 @@ export default class Tooltip extends Modifier {
       arrow: true,
       content: () => content,
       plugins: [
-        typeof options.followCursor !== "undefined" ? followCursor : undefined,
+        typeof options.followCursor !== 'undefined' ? followCursor : undefined,
       ].filter((item) => Boolean(item)),
       ...this.args.named.options,
     };
@@ -94,9 +94,9 @@ export default class Tooltip extends Modifier {
   // Lifecycle method on the Modifier class
   willRemove() {
     if (this.needsTabIndex) {
-      this.element.removeAttribute("tabindex");
+      this.element.removeAttribute('tabindex');
     }
     clearInterval(this.interval);
     this.tooltip.destroy();
   }
-} 
+}
