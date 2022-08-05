@@ -43,7 +43,7 @@ export const Index = (args) => ({
             </H.Title>
 
             <H.Actions>
-              <Pds::ButtonSet>
+              <div style="display: flex; gap: 16px;">
                 <Pds::Button @variant="primary">
                   Primary
                 </Pds::Button>
@@ -53,7 +53,7 @@ export const Index = (args) => ({
                     <Docs::ContentSkeleton />
                   </D.Dialog>
                 </Pds::Dropdown>
-              </Pds::ButtonSet>
+              </div>
             </H.Actions>
 
             <H.Tabs>

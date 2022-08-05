@@ -19,7 +19,7 @@ export const WithActions = (args) => ({
       </H.Title>
 
       <H.Actions>
-        <Pds::ButtonSet>
+        <div style="display: flex; gap: 16px;">
           <Pds::Button @variant="primary">
             Primary
           </Pds::Button>
@@ -29,7 +29,7 @@ export const WithActions = (args) => ({
               <Docs::ContentSkeleton />
             </D.Dialog>
           </Pds::Dropdown>
-        </Pds::ButtonSet>
+        </div>
       </H.Actions>
     </Pds::PageHeader>
   `,
@@ -48,7 +48,7 @@ export const WithActionsAndTabs = (args) => ({
       </H.Title>
 
       <H.Actions>
-        <Pds::ButtonSet>
+        <div style="display: flex; gap: 16px;">
           <Pds::Button @variant="primary">
             Primary
           </Pds::Button>
@@ -58,7 +58,7 @@ export const WithActionsAndTabs = (args) => ({
               <Docs::ContentSkeleton />
             </D.Dialog>
           </Pds::Dropdown>
-        </Pds::ButtonSet>
+        </div>
       </H.Actions>
 
       <H.Tabs>

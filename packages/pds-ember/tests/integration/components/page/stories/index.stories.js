@@ -52,7 +52,7 @@ export const Index = (args) => ({
 
         {{#if showActions}}
           <H.Actions>
-            <Pds::ButtonSet>
+            <div style="display: flex; gap: 16px;">
               <Pds::Button @variant={{headerActionVariant}}>
                 {{headerActionVariant}}
               </Pds::Button>
@@ -62,7 +62,7 @@ export const Index = (args) => ({
                   <Docs::ContentSkeleton />
                 </D.Dialog>
               </Pds::Dropdown>
-            </Pds::ButtonSet>
+            </div>
           </H.Actions>
         {{/if}}
 

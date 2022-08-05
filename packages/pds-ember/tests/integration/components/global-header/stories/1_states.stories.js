@@ -91,7 +91,7 @@ export const DropdownTriggers = () => ({
     <h2>Default/Closed</h2>
     <Pds::GlobalHeader>
       <:extra>
-        <Pds::ButtonSet>
+        <div style="display: flex; gap: 16px;">
           <Pds::Dropdown as |D|>
             <D.Trigger @icon="menu" />
           </Pds::Dropdown>
@@ -104,11 +104,11 @@ export const DropdownTriggers = () => ({
           <Pds::Dropdown as |D|>
             <D.Trigger @icon="menu" class="mock-active" />
           </Pds::Dropdown>
-        </Pds::ButtonSet>
+        </div>
       </:extra>
 
        <:switcher>
-        <Pds::ButtonSet>
+        <div style="display: flex; gap: 16px;">
           <Pds::Dropdown as |S|>
             <S.Trigger>Trigger</S.Trigger>
           </Pds::Dropdown>
@@ -121,11 +121,11 @@ export const DropdownTriggers = () => ({
           <Pds::Dropdown as |S|>
             <S.Trigger class="mock-active">Active</S.Trigger>
           </Pds::Dropdown>
-        </Pds::ButtonSet>
+        </div>
        </:switcher>
 
        <:user-menu>
-        <Pds::ButtonSet>
+        <div style="display: flex; gap: 16px;">
           <Pds::Dropdown @align="right" as |M|>
             <M.Trigger>
               <Pds::Avatar @src="User-Avatar.png" />
@@ -158,35 +158,35 @@ export const DropdownTriggers = () => ({
               </span>
             </M.Trigger>
           </Pds::Dropdown>
-        </Pds::ButtonSet>
+        </div>
        </:user-menu>
     </Pds::GlobalHeader>
 
     <h2>Toggled/Open</h2>
     <Pds::GlobalHeader>
       <:extra>
-        <Pds::ButtonSet>
+        <div style="display: flex; gap: 16px;">
         {{#each (array '' 'mock-focus' 'mock-hover' 'mock-active') as |triggerClass|}}
             <Pds::Dropdown open as |D|>
               <D.Trigger @icon="menu" class={{triggerClass}} />
             </Pds::Dropdown>
           {{/each}}
-        </Pds::ButtonSet>
+        </div>
       </:extra>
 
       <:switcher>
-        <Pds::ButtonSet>
+        <div style="display: flex; gap: 16px;">
           {{#each-in (hash Trigger='' Focus='mock-focus' Hover='mock-hover' Active='mock-active') as |triggerLabel triggerClass|}}
             <Pds::Dropdown open as |S|>
               <S.Trigger class={{triggerClass}}>{{triggerLabel}}</S.Trigger>
             </Pds::Dropdown>
           {{/each-in}}
-        </Pds::ButtonSet>
+        </div>
       </:switcher>
 
       <:user-menu>
-        <Pds::ButtonSet>
-        {{#each (array '' 'mock-focus' 'mock-hover' 'mock-active') as |triggerClass|}}
+        <div style="display: flex; gap: 16px;">
+          {{#each (array '' 'mock-focus' 'mock-hover' 'mock-active') as |triggerClass|}}
             <Pds::Dropdown @align="right" open as |M|>
               <M.Trigger class={{triggerClass}}>
                 <Pds::Avatar @src="User-Avatar.png" />
@@ -196,7 +196,7 @@ export const DropdownTriggers = () => ({
               </M.Trigger>
             </Pds::Dropdown>
           {{/each}}
-        </Pds::ButtonSet>
+        </div>
       </:user-menu>
 
     </Pds::GlobalHeader>
