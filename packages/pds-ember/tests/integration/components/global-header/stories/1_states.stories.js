@@ -91,112 +91,100 @@ export const DropdownTriggers = () => ({
     <h2>Default/Closed</h2>
     <Pds::GlobalHeader>
       <:extra>
-        <div style="display: flex; gap: 16px;">
-          <Pds::Dropdown as |D|>
-            <D.Trigger @icon="menu" />
-          </Pds::Dropdown>
-          <Pds::Dropdown as |D|>
-            <D.Trigger @icon="menu" class="mock-focus" />
-          </Pds::Dropdown>
-          <Pds::Dropdown as |D|>
-            <D.Trigger @icon="menu" class="mock-hover" />
-          </Pds::Dropdown>
-          <Pds::Dropdown as |D|>
-            <D.Trigger @icon="menu" class="mock-active" />
-          </Pds::Dropdown>
-        </div>
+        <Pds::Dropdown as |D|>
+          <D.Trigger @icon="menu" />
+        </Pds::Dropdown>
+        <Pds::Dropdown as |D|>
+          <D.Trigger @icon="menu" class="mock-focus" />
+        </Pds::Dropdown>
+        <Pds::Dropdown as |D|>
+          <D.Trigger @icon="menu" class="mock-hover" />
+        </Pds::Dropdown>
+        <Pds::Dropdown as |D|>
+          <D.Trigger @icon="menu" class="mock-active" />
+        </Pds::Dropdown>
       </:extra>
 
        <:switcher>
-        <div style="display: flex; gap: 16px;">
-          <Pds::Dropdown as |S|>
-            <S.Trigger>Trigger</S.Trigger>
-          </Pds::Dropdown>
-          <Pds::Dropdown as |S|>
-            <S.Trigger class="mock-focus">Focus</S.Trigger>
-          </Pds::Dropdown>
-          <Pds::Dropdown as |S|>
-            <S.Trigger class="mock-hover">Hover</S.Trigger>
-          </Pds::Dropdown>
-          <Pds::Dropdown as |S|>
-            <S.Trigger class="mock-active">Active</S.Trigger>
-          </Pds::Dropdown>
-        </div>
+        <Pds::Dropdown as |S|>
+          <S.Trigger>Trigger</S.Trigger>
+        </Pds::Dropdown>
+        <Pds::Dropdown as |S|>
+          <S.Trigger class="mock-focus">Focus</S.Trigger>
+        </Pds::Dropdown>
+        <Pds::Dropdown as |S|>
+          <S.Trigger class="mock-hover">Hover</S.Trigger>
+        </Pds::Dropdown>
+        <Pds::Dropdown as |S|>
+          <S.Trigger class="mock-active">Active</S.Trigger>
+        </Pds::Dropdown>
        </:switcher>
 
        <:user-menu>
-        <div style="display: flex; gap: 16px;">
-          <Pds::Dropdown @align="right" as |M|>
-            <M.Trigger>
-              <Pds::Avatar @src="User-Avatar.png" />
-              <span class="pds--visuallyHidden">
-                User Menu
-              </span>
-            </M.Trigger>
-          </Pds::Dropdown>
-          <Pds::Dropdown @align="right" as |M|>
-            <M.Trigger class="mock-focus">
-              <Pds::Avatar @src="User-Avatar.png" />
-              <span class="pds--visuallyHidden">
-                User Menu
-              </span>
-            </M.Trigger>
-          </Pds::Dropdown>
-          <Pds::Dropdown @align="right" as |M|>
-            <M.Trigger class="mock-hover">
-              <Pds::Avatar @src="User-Avatar.png" />
-              <span class="pds--visuallyHidden">
-                User Menu
-              </span>
-            </M.Trigger>
-          </Pds::Dropdown>
-          <Pds::Dropdown @align="right" as |M|>
-            <M.Trigger class="mock-active">
-              <Pds::Avatar @src="User-Avatar.png" />
-              <span class="pds--visuallyHidden">
-                User Menu
-              </span>
-            </M.Trigger>
-          </Pds::Dropdown>
-        </div>
+        <Pds::Dropdown @align="right" as |M|>
+          <M.Trigger>
+            <Pds::Avatar @src="User-Avatar.png" />
+            <span class="pds--visuallyHidden">
+              User Menu
+            </span>
+          </M.Trigger>
+        </Pds::Dropdown>
+        <Pds::Dropdown @align="right" as |M|>
+          <M.Trigger class="mock-focus">
+            <Pds::Avatar @src="User-Avatar.png" />
+            <span class="pds--visuallyHidden">
+              User Menu
+            </span>
+          </M.Trigger>
+        </Pds::Dropdown>
+        <Pds::Dropdown @align="right" as |M|>
+          <M.Trigger class="mock-hover">
+            <Pds::Avatar @src="User-Avatar.png" />
+            <span class="pds--visuallyHidden">
+              User Menu
+            </span>
+          </M.Trigger>
+        </Pds::Dropdown>
+        <Pds::Dropdown @align="right" as |M|>
+          <M.Trigger class="mock-active">
+            <Pds::Avatar @src="User-Avatar.png" />
+            <span class="pds--visuallyHidden">
+              User Menu
+            </span>
+          </M.Trigger>
+        </Pds::Dropdown>
        </:user-menu>
     </Pds::GlobalHeader>
 
     <h2>Toggled/Open</h2>
     <Pds::GlobalHeader>
       <:extra>
-        <div style="display: flex; gap: 16px;">
         {{#each (array '' 'mock-focus' 'mock-hover' 'mock-active') as |triggerClass|}}
-            <Pds::Dropdown open as |D|>
-              <D.Trigger @icon="menu" class={{triggerClass}} />
-            </Pds::Dropdown>
-          {{/each}}
-        </div>
+          <Pds::Dropdown open as |D|>
+            <D.Trigger @icon="menu" class={{triggerClass}} />
+          </Pds::Dropdown>
+        {{/each}}
       </:extra>
 
       <:switcher>
-        <div style="display: flex; gap: 16px;">
-          {{#each-in (hash Trigger='' Focus='mock-focus' Hover='mock-hover' Active='mock-active') as |triggerLabel triggerClass|}}
-            <Pds::Dropdown open as |S|>
-              <S.Trigger class={{triggerClass}}>{{triggerLabel}}</S.Trigger>
-            </Pds::Dropdown>
-          {{/each-in}}
-        </div>
+        {{#each-in (hash Trigger='' Focus='mock-focus' Hover='mock-hover' Active='mock-active') as |triggerLabel triggerClass|}}
+          <Pds::Dropdown open as |S|>
+            <S.Trigger class={{triggerClass}}>{{triggerLabel}}</S.Trigger>
+          </Pds::Dropdown>
+        {{/each-in}}
       </:switcher>
 
       <:user-menu>
-        <div style="display: flex; gap: 16px;">
-          {{#each (array '' 'mock-focus' 'mock-hover' 'mock-active') as |triggerClass|}}
-            <Pds::Dropdown @align="right" open as |M|>
-              <M.Trigger class={{triggerClass}}>
-                <Pds::Avatar @src="User-Avatar.png" />
-                <span class="pds--visuallyHidden">
-                  User Menu
-                </span>
-              </M.Trigger>
-            </Pds::Dropdown>
-          {{/each}}
-        </div>
+        {{#each (array '' 'mock-focus' 'mock-hover' 'mock-active') as |triggerClass|}}
+          <Pds::Dropdown @align="right" open as |M|>
+            <M.Trigger class={{triggerClass}}>
+              <Pds::Avatar @src="User-Avatar.png" />
+              <span class="pds--visuallyHidden">
+                User Menu
+              </span>
+            </M.Trigger>
+          </Pds::Dropdown>
+        {{/each}}
       </:user-menu>
 
     </Pds::GlobalHeader>

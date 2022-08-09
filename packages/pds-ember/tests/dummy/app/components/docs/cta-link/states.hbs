@@ -1,42 +1,40 @@
 <div class="docs-cta-link-states">
-  <div style="display: flex; gap: 16px;">
-    {{!-- PRIMARY --}}
-    <Docs::CtaLink
-      @variant="primary"
-      @disabled={{@disabled}}
-      ...attributes
-      data-test-visreg="cta-link-primary"
-    >
-      Primary
-    </Docs::CtaLink>
+  {{!-- PRIMARY --}}
+  <Docs::CtaLink
+    @variant="primary"
+    @disabled={{@disabled}}
+    ...attributes
+    data-test-visreg="cta-link-primary"
+  >
+    Primary
+  </Docs::CtaLink>
 
-    {{!-- SECONDARY --}}
-    <Docs::CtaLink
-      @disabled={{@disabled}}
-      ...attributes
-      data-test-visreg="cta-link-secondary"
-    >
-      Secondary
-    </Docs::CtaLink>
+  {{!-- SECONDARY --}}
+  <Docs::CtaLink
+    @disabled={{@disabled}}
+    ...attributes
+    data-test-visreg="cta-link-secondary"
+  >
+    Secondary
+  </Docs::CtaLink>
 
-    {{!-- WARNING --}}
-    <Docs::CtaLink
-      @variant="warning"
-      @disabled={{@disabled}}
-      ...attributes
-      data-test-visreg="cta-link-warning"
-    >
-      Warning
-    </Docs::CtaLink>
+  {{!-- WARNING --}}
+  <Docs::CtaLink
+    @variant="warning"
+    @disabled={{@disabled}}
+    ...attributes
+    data-test-visreg="cta-link-warning"
+  >
+    Warning
+  </Docs::CtaLink>
 
-    {{!-- GHOST --}}
-    <Docs::CtaLink
-      @variant="ghost"
-      @disabled={{@disabled}}
-      ...attributes
-      data-test-visreg="cta-link-ghost"
-    >
-      Ghost
-    </Docs::CtaLink>
-  </div>
+  {{!-- GHOST --}}
+  <Docs::CtaLink
+    @variant="ghost"
+    @disabled={{@disabled}}
+    ...attributes
+    data-test-visreg="cta-link-ghost"
+  >
+    Ghost
+  </Docs::CtaLink>
 </div>

@@ -19,17 +19,15 @@ export const WithActions = (args) => ({
       </H.Title>
 
       <H.Actions>
-        <div style="display: flex; gap: 16px;">
-          <Pds::Button @variant="primary">
-            Primary
-          </Pds::Button>
-          <Pds::Dropdown @align="right" as |D|>
-            <D.Trigger>Secondary</D.Trigger>
-            <D.Dialog>
-              <Docs::ContentSkeleton />
-            </D.Dialog>
-          </Pds::Dropdown>
-        </div>
+        <Pds::Button @variant="primary">
+          Primary
+        </Pds::Button>
+        <Pds::Dropdown @align="right" as |D|>
+          <D.Trigger>Secondary</D.Trigger>
+          <D.Dialog>
+            <Docs::ContentSkeleton />
+          </D.Dialog>
+        </Pds::Dropdown>
       </H.Actions>
     </Pds::PageHeader>
   `,
@@ -48,17 +46,15 @@ export const WithActionsAndTabs = (args) => ({
       </H.Title>
 
       <H.Actions>
-        <div style="display: flex; gap: 16px;">
-          <Pds::Button @variant="primary">
-            Primary
-          </Pds::Button>
-          <Pds::Dropdown @align="right" as |D|>
-            <D.Trigger>Secondary</D.Trigger>
-            <D.Dialog>
-              <Docs::ContentSkeleton />
-            </D.Dialog>
-          </Pds::Dropdown>
-        </div>
+        <Pds::Button @variant="primary">
+          Primary
+        </Pds::Button>
+        <Pds::Dropdown @align="right" as |D|>
+          <D.Trigger>Secondary</D.Trigger>
+          <D.Dialog>
+            <Docs::ContentSkeleton />
+          </D.Dialog>
+        </Pds::Dropdown>
       </H.Actions>
 
       <H.Tabs>
