@@ -43,17 +43,15 @@ export const Index = (args) => ({
             </H.Title>
 
             <H.Actions>
-              <Pds::ButtonSet>
-                <Pds::Button @variant="primary">
-                  Primary
-                </Pds::Button>
-                <Pds::Dropdown @align="right" as |D|>
-                  <D.Trigger>Secondary</D.Trigger>
-                  <D.Dialog>
-                    <Docs::ContentSkeleton />
-                  </D.Dialog>
-                </Pds::Dropdown>
-              </Pds::ButtonSet>
+              <Pds::Button @variant="primary">
+                Primary
+              </Pds::Button>
+              <Pds::Dropdown @align="right" as |D|>
+                <D.Trigger>Secondary</D.Trigger>
+                <D.Dialog>
+                  <Docs::ContentSkeleton />
+                </D.Dialog>
+              </Pds::Dropdown>
             </H.Actions>
 
             <H.Tabs>

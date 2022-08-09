@@ -52,17 +52,15 @@ export const Index = (args) => ({
 
         {{#if showActions}}
           <H.Actions>
-            <Pds::ButtonSet>
-              <Pds::Button @variant={{headerActionVariant}}>
-                {{headerActionVariant}}
-              </Pds::Button>
-              <Pds::Dropdown @align="right" as |D|>
-                <D.Trigger>secondary</D.Trigger>
-                <D.Dialog>
-                  <Docs::ContentSkeleton />
-                </D.Dialog>
-              </Pds::Dropdown>
-            </Pds::ButtonSet>
+            <Pds::Button @variant={{headerActionVariant}}>
+              {{headerActionVariant}}
+            </Pds::Button>
+            <Pds::Dropdown @align="right" as |D|>
+              <D.Trigger>secondary</D.Trigger>
+              <D.Dialog>
+                <Docs::ContentSkeleton />
+              </D.Dialog>
+            </Pds::Dropdown>
           </H.Actions>
         {{/if}}
 
