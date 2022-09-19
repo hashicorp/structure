@@ -32,7 +32,7 @@ module('Integration | Components.Avatar', function (hooks) {
     assert
       .dom(ICON)
       .exists()
-      .hasAttribute('data-test-icon-type', 'user-square-outline')
+      .hasAttribute('data-test-icon', 'user')
       .hasAttribute(
         'aria-label',
         DEFAULT_ALT,
@@ -45,7 +45,7 @@ module('Integration | Components.Avatar', function (hooks) {
     assert
       .dom(ICON)
       .exists()
-      .hasAttribute('data-test-icon-type', 'user-square-outline')
+      .hasAttribute('data-test-icon', 'user')
       .hasAttribute(
         'aria-label',
         custom_alt,
