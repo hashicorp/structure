@@ -12,8 +12,8 @@ const CONFIG = {
 const Default = () => ({
   template: hbs`
       <p style="text-align:center; padding: 40px;">
-        <Pds::Icon
-          @type='lock-closed-fill'
+        <FlightIcon
+          @name='lock-fill'
           {{tooltip 'This peering connection is locked due to a dependency. ' options=(hash placement=tippyPlacement showOnCreate=tippyShowOnCreate offset=(array tippySkidding tippyDistance))}}
         />
       </p>
