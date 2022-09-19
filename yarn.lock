@@ -5084,6 +5084,7 @@ __metadata:
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
     "@hashicorp/ember-flight-icons": ^2.0.12
+    "@hashicorp/flight-icons": ^2.10.0
     "@hashicorp/structure-icons": ^1.9.2
     "@storybook/addon-docs": ^6.5.12
     "@storybook/addon-essentials": ^6.5.12
