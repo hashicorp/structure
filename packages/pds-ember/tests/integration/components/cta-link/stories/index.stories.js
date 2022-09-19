@@ -1,6 +1,5 @@
 import hbs from 'htmlbars-inline-precompile';
 import DocsPage, { TITLE } from '../docs.mdx';
-import ICONS from '@hashicorp/structure-icons/dist/index';
 
 export default {
   title: TITLE,
@@ -38,19 +37,11 @@ export const WithIcon = (args) => ({
     <Docs::CtaLink class="pds--iconEnd" @variant={{variant}}>
       {{! text MUST be wrapped in <span> }}
       <span>Action</span>
-      <Pds::Icon @type={{icon}} />
+      <FlightIcon @name={{icon}} />
     </Docs::CtaLink>
   `,
   context: args,
 });
-WithIcon.argTypes = {
-  icon: {
-    control: {
-      type: 'select',
-      options: ICONS,
-    },
-  },
-};
 WithIcon.args = {
   icon: 'chevron-right',
 };
