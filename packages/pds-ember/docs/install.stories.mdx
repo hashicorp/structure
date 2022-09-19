@@ -13,40 +13,8 @@ ember install @hashicorp/pds-ember
 This will install NPM dependencies automatically, but additional configuration
 may be required.
 
-* [Icons](#icons)
 * [Sass](#sass)
-
-
-## Icons
-(`ember-svg-jar` and `@hashicorp/structure-icons` are automatically installed
-as dependencies of `@hashicorp/pds-ember`)
-
-The `<Pds::Icon>` component uses `ember-svg-jar` to inline SVG icons in HTML
-markup, and multiple component templates use icons that are provided by
-`@hashicorp/structure-icons`.  However, these icons aren't loaded by default,
-so you'll need to add them to the `svgJar.paths` configuration.
-
-
-```javascript
-/* ember-cli-build.js */
-
-module.exports = function(defaults) {
-  let app = new EmberAddon(defaults, {
-    svgJar: {
-      paths: [
-        // exact path may vary depending on project file structure
-        'node_modules/@hashicorp/structure-icons/dist',
-      ]
-    }
-  })
-
-  return app.toTree()
-}
-```
-
-See [@hashicorp/structure-icons](https://github.com/hashicorp/structure-icons#ember-svg-jar)
-for additional configuration details.
-
+* [Icons](#icons)
 
 
 ## Sass
@@ -81,3 +49,10 @@ module.exports = function(defaults) {
   return app.toTree()
 }
 ```
+
+## Icons
+
+(`@hashicorp/ember-flight-icons` is automatically installed as dependency of `@hashicorp/pds-ember`)
+
+Pds-Ember components use `<FlightIcon>` addon to show icons from the Flight icons set (for more details see: https://flight-hashicorp.vercel.app/).
+
