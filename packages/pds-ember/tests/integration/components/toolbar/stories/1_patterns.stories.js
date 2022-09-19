@@ -22,7 +22,7 @@ export const Lists = () => ({
       <T.End>
         <Docs::CtaLink @variant="ghost" class="pds--iconEnd">
           <span>Create Item</span>
-          <Pds::Icon @type="plus-plain" />
+          <FlightIcon @name="plus" />
         </Docs::CtaLink>
       </T.End>
     </Pds::Toolbar>
@@ -54,7 +54,7 @@ export const Details = () => ({
 
         <Docs::CtaLink @variant="ghost" class="pds--iconEnd">
           <span>Edit Item</span>
-          <Pds::Icon @type="chevron-right" />
+          <FlightIcon @name="chevron-right" />
         </Docs::CtaLink>
       </T.End>
     </Pds::Toolbar>
