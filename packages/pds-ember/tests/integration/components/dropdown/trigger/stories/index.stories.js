@@ -1,8 +1,6 @@
 import hbs from 'htmlbars-inline-precompile';
 import DocsPage, { TITLE } from '../docs.mdx';
 
-import ICONS from '@hashicorp/structure-icons/dist/index';
-
 import {
   DEFAULT_VARIANT,
   VARIANT_CLASSES,
@@ -18,10 +16,7 @@ export default {
     hideText: {},
     icon: {
       defaultValue: 'chevron-down',
-      control: {
-        type: 'select',
-        options: ICONS,
-      },
+      control: 'text',
     },
     variant: {
       defaultValue: DEFAULT_VARIANT,
