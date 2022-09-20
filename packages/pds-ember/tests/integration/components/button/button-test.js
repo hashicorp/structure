@@ -76,8 +76,8 @@ module('Integration | Components.Button', function (hooks) {
         'does not have "icon end" modifier CSS class'
       );
 
-    // @iconStart='test-icon'
-    this.set('iconStart', 'test-icon');
+    // @iconStart='docs-link'
+    this.set('iconStart', 'docs-link');
     // start icon only
     assert.dom(ICON_START).exists();
     assert.dom(ICON_END).doesNotExist();
@@ -89,8 +89,8 @@ module('Integration | Components.Button', function (hooks) {
         'does not have "icon end" modifier CSS class'
       );
 
-    // @iconEnd='test-icon'
-    this.set('iconEnd', 'test-icon');
+    // @iconEnd='docs-link'
+    this.set('iconEnd', 'docs-link');
     // both start and end icons
     assert.dom(ICON_START).exists();
     assert.dom(ICON_END).exists();

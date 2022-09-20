@@ -28,7 +28,7 @@ export const IconOnly_ariaLabel = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
-      @iconStart="test-icon"
+      @iconStart="docs-link"
       aria-label="Text"
     />
   `,
@@ -41,7 +41,7 @@ export const IconOnly_visuallyHidden_label = () => ({
     <Pds::Button
       @compact={{isCompact}}
       @hideText={{true}}
-      @iconStart="test-icon"
+      @iconStart="docs-link"
     >
       Text
     </Pds::Button>
@@ -55,8 +55,8 @@ export const TwoIcons_withoutBlock = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
-      @iconEnd="test-icon"
-      @iconStart="test-icon"
+      @iconEnd="docs-link"
+      @iconStart="docs-link"
       aria-label="Text"
     />
   `,
@@ -69,8 +69,8 @@ export const TwoIcons_withBlock = () => ({
     <Pds::Button
       @compact={{isCompact}}
       @hideText={{true}}
-      @iconEnd="test-icon"
-      @iconStart="test-icon"
+      @iconEnd="docs-link"
+      @iconStart="docs-link"
     >
       Text
     </Pds::Button>
@@ -83,7 +83,7 @@ export const TextBeforeIcon = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
-      @iconEnd="test-icon"
+      @iconEnd="docs-link"
     >
       Text
     </Pds::Button>
@@ -96,7 +96,7 @@ export const TextAfterIcon = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
-      @iconStart="test-icon"
+      @iconStart="docs-link"
     >
       Text
     </Pds::Button>
@@ -109,8 +109,8 @@ export const TextBetweenIcons = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
-      @iconEnd="test-icon"
-      @iconStart="test-icon"
+      @iconEnd="docs-link"
+      @iconStart="docs-link"
     >
       Text
     </Pds::Button>
@@ -123,8 +123,8 @@ export const LengthyContent = () => ({
   template: hbs`
     <Pds::Button
       @compact={{isCompact}}
-      @iconEnd="test-icon"
-      @iconStart="test-icon"
+      @iconEnd="docs-link"
+      @iconStart="docs-link"
     >
       Text with lengthy content.
       The quick brown fox jumps over the lazy dog.

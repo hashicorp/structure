@@ -16,8 +16,8 @@
   data-test-button
 >
   {{#if @iconStart}}
-    <Pds::Icon
-      @type={{@iconStart}}
+    <FlightIcon
+      @name={{@iconStart}}
       class="pds-button__iconStart"
       data-test-button-icon-start
     />
@@ -36,8 +36,8 @@
   {{/if}}
 
   {{#if @iconEnd}}
-    <Pds::Icon
-      @type={{@iconEnd}}
+    <FlightIcon
+      @name={{@iconEnd}}
       class="pds-button__iconEnd"
       data-test-button-icon-end
     />
