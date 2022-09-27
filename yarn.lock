@@ -5329,7 +5329,6 @@ __metadata:
     "@glimmer/tracking": ^1.0.4
     "@hashicorp/ember-flight-icons": ^3.0.0
     "@hashicorp/flight-icons": ^2.10.0
-    "@hashicorp/structure-icons": ^1.9.2
     "@storybook/addon-docs": ^6.5.12
     "@storybook/addon-essentials": ^6.5.12
     "@storybook/addon-knobs": ^6.1.0
@@ -5380,13 +5379,6 @@ __metadata:
     webpack: ^5.74.0
   languageName: unknown
   linkType: soft
-
-"@hashicorp/structure-icons@npm:^1.9.2":
-  version: 1.9.2
-  resolution: "@hashicorp/structure-icons@npm:1.9.2"
-  checksum: 9630b54c7cad271180fba6fc7f47eec7cb1006f3c0aa19dce99b11d2109e811312c2a3961e60911e4f7b9aac130d125853ee060aaf2138437aff2c66f1519125
-  languageName: node
-  linkType: hard
 
 "@hashicorp/structure@workspace:.":
   version: 0.0.0-use.local
