@@ -4,7 +4,6 @@
 $_module: "PDS.Components.Avatar";
 /* --- [debug] CONFIG: #{$_module} --- */
 @use "../../theme";
-@use "../icon/_config" as Icon;
 
 @mixin layout {
   /* [debug] #{$_module}@layout */
