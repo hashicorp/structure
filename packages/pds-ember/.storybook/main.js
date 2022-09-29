@@ -1,6 +1,8 @@
 const namedBlockPolyfill = require('ember-named-blocks-polyfill/lib/named-blocks-polyfill-plugin');
 const path = require('path');
 
+const flightSprite = require('@hashicorp/flight-icons/svg-sprite/svg-sprite-module');
+
 module.exports = {
   emberOptions: {
     polyfills: [namedBlockPolyfill],
@@ -29,4 +31,8 @@ module.exports = {
     };
     return config;
   },
+  previewHead: (head) => `
+    ${head}
+    ${flightSprite}
+  `,
 };

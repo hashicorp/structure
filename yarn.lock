@@ -5053,6 +5053,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hashicorp/ember-flight-icons@npm:^2.0.12":
+  version: 2.0.12
+  resolution: "@hashicorp/ember-flight-icons@npm:2.0.12"
+  dependencies:
+    "@hashicorp/flight-icons": ^2.10.0
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.0.1
+  peerDependencies:
+    ember-test-selectors: ^6.0.0
+  checksum: 86531a823bfb3b38c041ac716986e385197ea37ac85fbec9f469d533838a7dcd33f9e920e9544fa188295eedb75e4dbc772e1fcddffb617a82fc04d06f9aebae
+  languageName: node
+  linkType: hard
+
+"@hashicorp/flight-icons@npm:^2.10.0":
+  version: 2.10.0
+  resolution: "@hashicorp/flight-icons@npm:2.10.0"
+  checksum: ef1af01d052d0cf463f3de4e8511e15a09fc0608fabb175cce0389efe530f607584724b72c1a1e56d7dfe789f9090673f4c30725b6c51a4727c871731a6fd826
+  languageName: node
+  linkType: hard
+
 "@hashicorp/pds-ember@workspace:packages/pds-ember":
   version: 0.0.0-use.local
   resolution: "@hashicorp/pds-ember@workspace:packages/pds-ember"
@@ -5063,6 +5083,8 @@ __metadata:
     "@embroider/test-setup": ^0.37.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
+    "@hashicorp/ember-flight-icons": ^2.0.12
+    "@hashicorp/flight-icons": ^2.10.0
     "@hashicorp/structure-icons": ^1.9.2
     "@storybook/addon-docs": ^6.5.12
     "@storybook/addon-essentials": ^6.5.12

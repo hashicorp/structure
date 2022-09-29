@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@ember/render-modifiers": "^1.0.2",
+    "@hashicorp/ember-flight-icons": "^2.0.12",
     "@hashicorp/structure-icons": "^1.9.2",
     "broccoli-funnel": "^3.0.3",
     "broccoli-merge-trees": "^4.2.0",
@@ -61,6 +62,7 @@
     "@embroider/test-setup": "^0.37.0",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
+    "@hashicorp/flight-icons": "^2.10.0",
     "@storybook/addon-docs": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-knobs": "^6.1.0",

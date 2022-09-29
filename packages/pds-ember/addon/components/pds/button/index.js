@@ -27,7 +27,7 @@ import { getVariantClass } from './utils';
  */
 
 /**
- * `@type` argument for the second of two [Icon](?path=/docs/components-icon--index)
+ * `@type` argument for the second of two [FlightIcon](https://flight-hashicorp.vercel.app/)
  * components (rendered after block content).
  *
  * _(default: `''`)_
@@ -40,7 +40,7 @@ import { getVariantClass } from './utils';
  */
 
 /**
- * `@type` argument for the first of two [Icon](?path=/docs/components-icon--index)
+ * `@type` argument for the first of two [FlightIcon](https://flight-hashicorp.vercel.app/)
  * components (rendered before block content).
  *
  * _(default: `''`)_

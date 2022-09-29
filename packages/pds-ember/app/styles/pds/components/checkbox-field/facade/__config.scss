@@ -86,6 +86,8 @@ $DISABLED_ACTIVE: map.merge($DISABLED, (
 
   &__tick {
     visibility: $__tick-visibility;
+    height: 1em;
+    width: 1em;
   }
 
   @include theme($VALID);

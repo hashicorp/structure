@@ -17,12 +17,12 @@ You can view the modifier source file [here](https://github.com/hashicorp/struct
 ## Handlebars Usage
 
 ```handlebars
-  <Pds::Icon 
-    @type='lock-closed-fill' 
-    {{tooltip 
-        'this is a tooltip' 
-         options=(hash 
-                    placement="bottom" 
+  <FlightIcon
+    @name='lock-fill'
+    {{tooltip
+        'this is a tooltip'
+         options=(hash
+                    placement="bottom"
                     offset=(array 0 5)
                   )
     }}

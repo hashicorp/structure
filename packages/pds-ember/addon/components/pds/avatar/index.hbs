@@ -12,8 +12,10 @@
         data-test-avatar-img
       />
     {{else}}
-      <Pds::Icon
-        @type="user-square-outline"
+      <FlightIcon
+        @name="user"
+        @size="24"
+        @stretched={{true}}
         aria-label={{this.alt}}
         data-test-avatar-icon
       />
