@@ -6,8 +6,4 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function () {
-  this.route('components', function () {
-    this.route('cta-link');
-  });
-});
+Router.map(function () {});
