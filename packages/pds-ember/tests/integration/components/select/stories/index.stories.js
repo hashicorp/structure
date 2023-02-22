@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import hbs from 'htmlbars-inline-precompile';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import DocsPage, { TITLE } from '../docs.mdx';

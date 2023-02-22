@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { boolean, select, text } from '@storybook/addon-knobs';
 import DEFAULTS from './_defaults';
 import { isTextLike } from '@hashicorp/pds-ember/addon/components/pds/input/utils';

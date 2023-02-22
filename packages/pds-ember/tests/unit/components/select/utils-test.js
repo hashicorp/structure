@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { isArray } from '@ember/array';
 import { module, test } from 'qunit';
 import { stringify } from 'dummy/tests/test-utils';

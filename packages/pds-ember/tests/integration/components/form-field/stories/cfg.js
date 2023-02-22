@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { boolean, select, text } from '@storybook/addon-knobs';
 import * as Input from '../../input/stories/cfg';
 
