@@ -95,11 +95,7 @@ export function cssClassForType(type) {
   if (isValidType(type)) {
     let { like } = TYPES[type];
 
-    if (like === 'button') {
-      result = 'pds-button';
-    } else {
-      result = `pds--${like}Like`;
-    }
+    result = `pds--${like}Like`;
   }
 
   return result;

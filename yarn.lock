@@ -5378,7 +5378,6 @@ __metadata:
     qunit-dom: ^1.6.0
     sass: ^1.26.11
     sinon: ^9.2.0
-    tippy.js: ^6.3.1
     webpack: ^5.74.0
   languageName: unknown
   linkType: soft
@@ -5623,13 +5622,6 @@ __metadata:
   version: 2.6.0
   resolution: "@popperjs/core@npm:2.6.0"
   checksum: b05148a11586c3d622973d4968355e694471ae86620eaf28d78360e4e48323123428c963dbc76182777a91837203de4060a0e76603a4b275df3ebcdaaf1e4ded
-  languageName: node
-  linkType: hard
-
-"@popperjs/core@npm:^2.8.3":
-  version: 2.9.3
-  resolution: "@popperjs/core@npm:2.9.3"
-  checksum: cf7381686820f04cb75aacef5373bac43b9b33eaea3387203650c3a89150dc407caf2e0c637184b2f82d83bba352a297d5a3569d1784158593a1e6e2a2af12a2
   languageName: node
   linkType: hard
 
@@ -26397,15 +26389,6 @@ fsevents@^1.2.7:
   version: 1.4.2
   resolution: "tinycolor2@npm:1.4.2"
   checksum: cf33d084cb378d2988fad1b214e62f38be75ba1a9a6df98d4dadf77c31f82796d40822100e6d3e1973c9233ddf0ddbbbfdcac40e2288c958bca3c6d310e2ccb4
-  languageName: node
-  linkType: hard
-
-"tippy.js@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "tippy.js@npm:6.3.1"
-  dependencies:
-    "@popperjs/core": ^2.8.3
-  checksum: e4194c42424bafe98919776bbacb5bd67ead5ca0d45126823c9e494d22d67ce1b09000aa18c84f36fc051071149656cecabb8dedb7adf598ea9372542fe11920
   languageName: node
   linkType: hard
 
