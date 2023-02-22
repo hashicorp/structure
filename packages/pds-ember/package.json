@@ -40,11 +40,11 @@
   },
   "dependencies": {
     "@ember/render-modifiers": "^1.0.2",
-    "@hashicorp/ember-flight-icons": "^2.0.12",
+    "@hashicorp/ember-flight-icons": "^3.0.0",
     "@hashicorp/structure-icons": "^1.9.2",
     "broccoli-funnel": "^3.0.3",
     "broccoli-merge-trees": "^4.2.0",
-    "ember-auto-import": "^1.6.0",
+    "ember-auto-import": "^2.4.2",
     "ember-cli-babel": "^7.26.3",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-sass": "^10.0.1",
@@ -97,7 +97,8 @@
     "prettier": "^2.2.1",
     "qunit": "^2.14.1",
     "qunit-dom": "^1.6.0",
-    "sinon": "^9.2.0"
+    "sinon": "^9.2.0",
+    "webpack": "^5.74.0"
   },
   "publishConfig": {
     "access": "public"
