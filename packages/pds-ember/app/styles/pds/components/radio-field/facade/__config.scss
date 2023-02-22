@@ -9,7 +9,6 @@ $_module: "PDS.Components.RadioField.Facade";
 @use "../../../utils/env";
 @use "../../../utils/pseudo" as Pseudo;
 @use "../../_config" as Component;
-@use "../../icon/__config" as Icon;
 
 // public theming
 $backgroundColor: var(--pds-radioFacade-backgroundColor, transparent);
@@ -76,9 +75,23 @@ $DISABLED_ACTIVE: map.merge($DISABLED, (
 
 
 @mixin layout {
-  /* [debug] #{$_module}@layout */
-  @include Icon.layout;
+  display: inline-block;
+  flex-shrink: 0;
+  font-size: inherit;
+  height: 1em;
   line-height: 1;
+  width: 1em;
+
+  &__svgWrapper {
+    display: inline-block;
+    line-height: 1;
+
+    svg {
+      height: 1em !important;
+      width: 1em !important;
+      vertical-align: bottom;
+    }
+  }
 }
 
 @mixin appearance {

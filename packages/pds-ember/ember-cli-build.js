@@ -13,13 +13,6 @@ module.exports = function (defaults) {
       componentFilePathPatterns: ['addon/components/**/*.js'],
     },
     hinting: false,
-    svgJar: {
-      optimizer: false, // prevents optimizing pre-optimized icons
-      sourceDirs: [
-        './tests/dummy/public',
-        '../../node_modules/@hashicorp/structure-icons/dist',
-      ],
-    },
   });
 
   /*
