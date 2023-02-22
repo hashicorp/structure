@@ -19,7 +19,6 @@ export const VALID_BUTTON_LIKE = ['button', 'reset', 'submit'];
 export const VALID_OTHER = ['checkbox', 'color', 'radio', 'range'];
 
 export const TYPE_CLASSES = {
-  button: 'pds-button',
   checkbox: 'pds--checkboxLike',
   color: 'pds--colorLike',
   date: 'pds--textLike',
@@ -31,9 +30,7 @@ export const TYPE_CLASSES = {
   password: 'pds--textLike',
   radio: 'pds--radioLike',
   range: 'pds--rangeLike',
-  reset: 'pds-button',
   search: 'pds--textLike',
-  submit: 'pds-button',
   tel: 'pds--textLike',
   text: 'pds--textLike',
   time: 'pds--textLike',

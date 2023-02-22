@@ -7,8 +7,6 @@ $_module: "PDS.Components.Toolbar";
 @use "../../theme";
 @use "../../tokens/color";
 @use "../../utils/pseudo" as Pseudo;
-@use "../dropdown/trigger/_config" as DropdownTrigger;
-@use "../button/_config" as Button;
 @use "../select/_control/_config" as SelectControl;
 
 $__label-color: color.$black;
@@ -66,14 +64,6 @@ $padding: theme.$size--2xs;
   }
 
   // OVERRIDES
-
-  @include DropdownTrigger.apply {
-    color: inherit;
-  }
-
-  @include Button.apply {
-    color: inherit;
-  }
 
   @include SelectControl.apply {
     // remove default shadow

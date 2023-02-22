@@ -53,8 +53,7 @@ $underline-width: 1px;
 
 @mixin whenDisabled {
   /* [debug] #{$_module}@whenDisabled */
-  &.disabled, // <LinkTo @disabled={{true}}>
-  &.pds--disabled { // <Pds::CtaLink @disabled={{true}}>
+  &.disabled { // <LinkTo @disabled={{true}}>
     @content;
   }
 }
