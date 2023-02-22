@@ -1,4 +1,9 @@
 /**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+/**
  * Convert value to a string for use in module, test, and assertion descriptions.
  *
  * @param {*} val - primitive or complex value

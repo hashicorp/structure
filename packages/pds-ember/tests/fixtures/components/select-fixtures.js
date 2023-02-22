@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export const INVALID_ARGS = [{}, { value: 'foo' }];
 
 export const INVALID_OPTIONS_ARGS = [{}, false, null, undefined, 42, /.*/i];

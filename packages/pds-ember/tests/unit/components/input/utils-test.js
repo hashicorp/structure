@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { module, test } from 'qunit';
 import { stringify } from 'dummy/tests/test-utils';
 import * as Fixtures from 'dummy/tests/fixtures/components/input-fixtures';

@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 @mixin _checkered-background {
   $tileSize: 10px;
   $color1: rgba(black, 0.02);
