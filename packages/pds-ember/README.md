@@ -18,7 +18,7 @@ ember install @hashicorp/pds-ember
 ```
 \*Additional configuration may be required.
 
-Check out our comprehensive [documentation](https://structure.hashicorp.vercel.app/)
+Check out our comprehensive [documentation](https://hashicorp-structure.vercel.app/)
 for more details.
 
 
