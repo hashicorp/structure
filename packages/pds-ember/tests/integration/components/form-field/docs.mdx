@@ -9,7 +9,6 @@ Single-line text entry with possible error message and optional help text.
 - [Markup](#markup)
   - [Input Field](#input-field)
   - [Select Field](#select-field)
-  - [Textarea Field](#textarea-field)
 - [Accessibility](#accessibility)
 - [See Also](#see-also)
 
@@ -95,33 +94,6 @@ in DOM order.
 </div>
 ```
 
-
-### Textarea Field
-
-* Control: [Textarea](?path=/docs/components-textarea--index)
-
-```html
-<div class="pds-formField">
-  <label for="{TEXTAREA_ID}" class="pds-fieldName">
-    ...
-  </label>
-
-  <Pds::HelpText id="{HELP_ID}">
-    ...
-  </Pds::HelpText>
-
-  <Pds::Textarea
-    aria-describedby="{HELP_ID} {ERROR_ID}"
-    id="{TEXTAREA_ID}"
-  ></Pds::Textarea>
-
-  <Pds::ErrorMessage id="{ERROR_ID}">
-    ...
-  </Pds::ErrorMessage>
-</div>
-```
-
-
 ## Accessibility
 
 1. Make sure to explicitly associate the control with a `<label>` via
@@ -133,4 +105,3 @@ in DOM order.
 ## See Also
 - [Input](?path=/docs/components-input--index)
 - [Select](?path=/docs/components-select--index)
-- [Textarea](?path=/docs/components-textarea--index)

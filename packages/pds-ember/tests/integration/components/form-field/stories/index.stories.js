@@ -62,14 +62,3 @@ export const SelectField = (args) => ({
   `,
   context: args,
 });
-
-export const TextareaField = (args) => ({
-  template: hbs`
-    <Docs::FormField::Textarea
-      @invalid={{invalid}}
-      @showHelp={{showHelp}}
-      disabled={{disabled}}
-    />
-  `,
-  context: args,
-});
