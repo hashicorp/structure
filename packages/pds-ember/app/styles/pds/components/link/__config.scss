@@ -65,7 +65,7 @@ $underline-width: 1px;
 
 @mixin apply {
   /* [debug] #{$_module}@apply */
-  :any-link:not(.pds-button, .cut-list-item > a.cut-list-item__content-container, #{overrides.$hds-link-overrides-selectors}) {
+  :any-link:not(.pds-button, #{overrides.$hds-link-overrides-selectors}, #{overrides.$cut-link-overrides-selectors}) {
     @content;
   }
 }
